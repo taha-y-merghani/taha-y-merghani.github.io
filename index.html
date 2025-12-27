@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taha Merghani</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --charcoal: #1a1814;
+            --warm-black: #0d0b09;
+            --cream: #f5f2ed;
+            --amber: #d4a853;
+            --amber-muted: #b8965a;
+            --text-primary: #e8e4de;
+            --text-secondary: #9a9590;
+            --border: rgba(212, 168, 83, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--warm-black);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+        }
+
+        a {
+            color: var(--amber);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--cream);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: linear-gradient(to bottom, var(--warm-black) 0%, transparent 100%);
+        }
+
+        .nav-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .nav-links a:hover {
+            color: var(--amber);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-tagline {
+            font-size: 0.8rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--amber-muted);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.2s;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.15;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.4s;
+        }
+
+        .hero h1 span {
+            color: var(--amber);
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.6s;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 1s;
+        }
+
+        .scroll-indicator span {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--amber), transparent);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* Sections */
+        section {
+            padding: 8rem 8%;
+            border-top: 1px solid var(--border);
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--amber-muted);
+            margin-bottom: 3rem;
+        }
+
+        /* Story Section */
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .story-heading h2 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            position: sticky;
+            top: 120px;
+        }
+
+        .story-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .story-content p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+        }
+
+        .story-content p strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .story-highlight {
+            padding: 2rem;
+            border-left: 2px solid var(--amber);
+            background: rgba(212, 168, 83, 0.03);
+            margin: 1rem 0;
+        }
+
+        .story-highlight p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Credentials */
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .credential-card {
+            padding: 2rem;
+            border: 1px solid var(--border);
+            transition: all 0.4s ease;
+        }
+
+        .credential-card:hover {
+            border-color: var(--amber-muted);
+            background: rgba(212, 168, 83, 0.02);
+        }
+
+        .credential-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .credential-card .venue {
+            font-size: 0.8rem;
+            color: var(--amber);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .credential-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* Work Section */
+        .work-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 3rem;
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .work-item:hover {
+            padding-left: 1rem;
+            border-color: var(--amber-muted);
+        }
+
+        .work-meta {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.05em;
+        }
+
+        .work-meta .type {
+            color: var(--amber);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.7rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .work-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .work-item:hover .work-content h3 {
+            color: var(--amber);
+        }
+
+        .work-content p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .work-stats {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--amber-muted);
+        }
+
+        /* Testimonials */
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            color: var(--amber);
+            opacity: 0.3;
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-style: italic;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .testimonial-author strong {
+            color: var(--amber);
+            font-weight: 500;
+        }
+
+        /* The Unusual Chapter */
+        .unusual-section {
+            background: linear-gradient(135deg, rgba(212, 168, 83, 0.05) 0%, transparent 50%);
+        }
+
+        .unusual-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .unusual-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .unusual-content p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--amber);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Contact */
+        .contact-section {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-section h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-section p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--border);
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            background: var(--amber);
+            color: var(--warm-black);
+            border-color: var(--amber);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 8%;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .story-grid,
+            .unusual-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .story-heading h2 {
+                position: static;
+            }
+
+            .credentials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 0 5%;
+            }
+
+            section {
+                padding: 5rem 5%;
+            }
+
+            .work-item {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .stat-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+
+    <nav>
+        <div class="nav-name">Taha Merghani</div>
+        <div class="nav-links">
+            <a href="#story">Story</a>
+            <a href="#work">Work</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-tagline">Computational Linguist & Research Engineer</p>
+            <h1>I build systems that understand <span>language</span>, and I write about the work that matters.</h1>
+            <p class="hero-description">From NLP research at Georgia Tech to building tools at Apple Siri that are still in use eight years later, I've spent a decade at the intersection of language and machine learning. Now I'm looking for early-stage teams where exceptional technical work is the strategy.</p>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <section id="story">
+        <p class="section-label">The Story</p>
+        <div class="story-grid">
+            <div class="story-heading">
+                <h2>From Khartoum to Georgia Tech to wherever this goes next.</h2>
+            </div>
+            <div class="story-content">
+                <p><strong>I ranked first among 400,000 students on Sudan's national exams in 2011.</strong> That number meant something there. It meant government recognition, newspaper interviews, a kind of celebrity status that's hard to explain to Americans. It also meant expectations I'd spend years reconciling with reality.</p>
+                
+                <p>Jackson State University gave me my undergraduate foundation (4.0 GPA, the first student there to achieve it). Georgia Tech brought me to the intersection of linguistics and computation. I published at NeurIPS and NAACL workshops under <strong>Jacob Eisenstein</strong>, applying kernel methods to geolinguistic analysis (mining dialectal patterns from Lyon Twitter data). MIT CSAIL had me building Arabic speech recognition systems under <strong>James Glass</strong>. And at Apple Siri, I built a bug logging tool that streamlined debugging 10x for engineers, was selected for Apple's internal research summit, and is still in use today, eight years later.</p>
+
+                <div class="story-highlight">
+                    <p>In September 2025, after 8.5 years, my asylum case was finally approved. Eight and a half years of uncertainty, of building a life on temporary foundations. That shapes how you see risk, opportunity, and time.</p>
+                </div>
+
+                <p>The years between academia and now included startup work at Decooda and Mesa Associates, circuit breaker analysis and Oracle Cloud Infrastructure. They also included a period I don't hide from: COVID lockdown, gaming addiction, and eventually recovery. I sold my console in November 2025. Sometimes the most important work is internal.</p>
+
+                <p>Now I write technical content that occasionally reaches unexpected places (200K views on Reddit, my Medium essay shared by Jeff Dean). I'm exploring LLM security research through a warm connection with Promptfoo's CTO. And I'm looking for a team where exceptional technical work is the strategy, not just the output.</p>
+            </div>
+        </div>
+
+        <div class="credentials-grid reveal">
+            <div class="credential-card">
+                <h3>Geolinguistic Analysis via Twitter</h3>
+                <p class="venue">NeurIPS Workshop</p>
+                <p>Kernel methods for mining dialectal variation in Lyon French. Under Jacob Eisenstein.</p>
+            </div>
+            <div class="credential-card">
+                <h3><a href="https://aclanthology.org/W18-1602/" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px solid var(--amber);">Modeling Dialectal Variation</a></h3>
+                <p class="venue">NAACL Workshop</p>
+                <p>Stylistic variation and geographical factors in social media. Under Jacob Eisenstein.</p>
+            </div>
+            <div class="credential-card">
+                <h3>Arabic Speech Recognition</h3>
+                <p class="venue">MIT CSAIL · James Glass</p>
+                <p>Lexical modeling for Egyptian Arabic ASR. Grapheme lexicon outperformed diacritized approaches.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="work">
+        <p class="section-label">Selected Work</p>
+        
+        <div class="work-item reveal">
+            <div class="work-meta">
+                <span class="type">Technical Writing</span>
+                <a href="https://www.reddit.com/r/ArtificialInteligence/comments/1pq7cnw/what_5000_hours_of_mastering_tekken_taught_me/" target="_blank">Reddit</a>
+            </div>
+            <div class="work-content">
+                <h3>What 5,000 Hours of Mastering Tekken Taught Me About AI Research</h3>
+                <p>Autophenomenological analysis connecting competitive gaming mastery to pattern recognition in ML research. The obsessive optimization that makes someone elite at fighting games is the same thing that makes someone effective at research.</p>
+                <p class="work-stats">~200K views</p>
+            </div>
+        </div>
+
+        <div class="work-item reveal">
+            <div class="work-meta">
+                <span class="type">Essay</span>
+                <a href="https://medium.com/@tahaymerghani/from-sudan-to-silicon-valley-beyond-the-resume-a2e6bd3eedb4" target="_blank">Medium</a>
+            </div>
+            <div class="work-content">
+                <h3>From Sudan to Silicon Valley: Beyond the Resume</h3>
+                <p>Personal narrative on the gap between credentials and lived experience. What it means to be celebrated in one context and invisible in another. Shared by Jeff Dean.</p>
+                <p class="work-stats">200K views · Shared by Jeff Dean</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="unusual-section">
+        <p class="section-label">The Unusual Chapter</p>
+        <div class="unusual-grid">
+            <div class="unusual-content">
+                <h2>5,000 hours of competitive Tekken.</h2>
+                <p>During COVID, I fell into fighting games the way some people fall into substances. Tekken 8, Nina Williams main. I reached Tekken God rank (top 0.5% globally) and held the #1 position for ranked wins worldwide.</p>
+                <p>This isn't a brag. It's context. The same obsessive pattern recognition and optimization that made me good at competitive gaming is the same thing that makes me effective at research and engineering. The difference is what you point it at.</p>
+                <p>I sold the console in November 2025. Some of the most important competitive analysis I've done is understanding my own patterns.</p>
+            </div>
+            <div class="stat-grid">
+                <div class="stat-item">
+                    <div class="stat-number">0.5%</div>
+                    <div class="stat-label">Global Rank (Tekken God)</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">#1</div>
+                    <div class="stat-label">Worldwide Ranked Wins</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5,000</div>
+                    <div class="stat-label">Hours of Play</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">Nina</div>
+                    <div class="stat-label">Main Character</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <p class="section-label">What People Say</p>
+        <div class="testimonials-container">
+            <div class="testimonial reveal">
+                <p class="testimonial-text">Taha made a lasting impact during his Siri internship, advancing Siri's i18n and scaling efforts. He built a powerful bug logging tool that streamlined debugging 10x for engineers and program managers, still in use today. His project was selected for Apple's internal research summit.</p>
+                <p class="testimonial-author"><strong>Jeffrey Lai</strong> · Co-founder & CEO, Tallgeese AI · Ex-Apple</p>
+            </div>
+            <div class="testimonial reveal">
+                <p class="testimonial-text">I would meet him at the University of Tennessee at Chattanooga when he would come on some weekends. I was struck by how different he was compared to his peers. He was interested in intellectual discussions, exploring social, cultural and political issues. He offered to accompany me on a journey to Atlanta Airport to pick up a mutual friend, and the two-hour journey turned out to be an education for me. I am still influenced by the ideas we discussed and the podcasts he made me listen to.</p>
+                <p class="testimonial-author"><strong>Abdelrahman Karrar</strong> · PhD, IEEE Senior Member · Professor, UT Chattanooga</p>
+            </div>
+            <div class="testimonial reveal">
+                <p class="testimonial-text">He developed a testing tool that received recognition from Apple's head of engineering and, notably, remains in use today—an uncommon accomplishment in an industry where software often changes rapidly. This achievement highlights Taha's engineering precision and foresight in building solutions with lasting impact.</p>
+                <p class="testimonial-author"><strong>Jonathan Zhang</strong> · Machine Learning Engineer, Pinterest</p>
+            </div>
+            <div class="testimonial reveal">
+                <p class="testimonial-text">He was easily one of the most motivated students I have had the pleasure of advising, always providing questions that drove our weekly group meetings toward useful discussions, and one of the few who would connect offline for conversations regarding science and careers. We even continued these discussions after the end of the program.</p>
+                <p class="testimonial-author"><strong>Robert Citorik</strong> · Co-Founder, Tessera Therapeutics · MIT</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-section">
+            <h2>Let's Talk</h2>
+            <p>I'm looking for research engineering or AI engineering roles at early-stage startups solving hard problems at the intersection of language and AI. If you're building something that matters and need someone who does exceptional technical work, I'd like to hear about it.</p>
+            <div class="contact-links">
+                <a href="mailto:tahaymerghani@gmail.com">Email</a>
+                <a href="https://github.com/taha-y-merghani" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/tahamerghani" target="_blank">LinkedIn</a>
+                <a href="https://twitter.com/taha_moji" target="_blank">Twitter</a>
+                <a href="https://medium.com/@tahaymerghani" target="_blank">Medium</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Taha Merghani. Built with intention.</p>
+    </footer>
+
+    <script>
+        // Reveal on scroll
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
