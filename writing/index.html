@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing - Taha Merghani</title>
+    <meta name="description" content="Technical writing on AI, research, and building systems that matter.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --charcoal: #1a1814;
+            --warm-black: #0d0b09;
+            --cream: #f5f2ed;
+            --amber: #d4a853;
+            --amber-muted: #b8965a;
+            --text-primary: #e8e4de;
+            --text-secondary: #9a9590;
+            --border: rgba(212, 168, 83, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--warm-black);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+        }
+
+        a {
+            color: var(--amber);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--cream);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: linear-gradient(to bottom, var(--warm-black) 0%, transparent 100%);
+        }
+
+        .nav-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            letter-spacing: 0.05em;
+        }
+
+        .nav-name a {
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .nav-links a:hover {
+            color: var(--amber);
+        }
+
+        /* Header Section */
+        .writing-header {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 8%;
+            margin-top: 4rem;
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--amber-muted);
+            margin-bottom: 2rem;
+        }
+
+        .writing-header h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+
+        .writing-header p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+        }
+
+        /* Articles Grid */
+        .articles-section {
+            padding: 4rem 8% 8rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .articles-count {
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+
+        .article-card {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+            display: block;
+            color: inherit;
+        }
+
+        .article-card:hover {
+            padding-left: 1rem;
+            border-color: var(--amber-muted);
+        }
+
+        .article-card-header {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .article-date {
+            color: var(--amber-muted);
+        }
+
+        .article-reading-time {
+            color: var(--text-secondary);
+        }
+
+        .article-card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            transition: color 0.3s ease;
+            color: var(--text-primary);
+        }
+
+        .article-card:hover h3 {
+            color: var(--amber);
+        }
+
+        .article-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .article-tags {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            padding: 0.4rem 0.8rem;
+            border: 1px solid var(--border);
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .article-card:hover .tag {
+            border-color: var(--amber-muted);
+            color: var(--amber-muted);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 8%;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .writing-header {
+                padding: 0 5%;
+            }
+
+            .articles-section {
+                padding: 4rem 5% 6rem;
+            }
+
+            .article-card-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .article-card h3 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+
+    <nav>
+        <div class="nav-name"><a href="/">Taha Merghani</a></div>
+        <div class="nav-links">
+            <a href="/#story">Story</a>
+            <a href="/writing/">Writing</a>
+            <a href="/#work">Work</a>
+            <a href="/#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section class="writing-header">
+        <p class="section-label">Writing</p>
+        <h1>Technical essays on AI, research, and systems that matter.</h1>
+        <p>Exploring the intersection of language, computation, and the work worth doing.</p>
+    </section>
+
+    <section class="articles-section">
+        <p class="articles-count">2 Article{{ARTICLE_COUNT}} === 1 ? '' : 's'}}</p>
+        <div class="articles-grid">
+            
+    <a href="/writing/what-5-000-hours-of-mastering-tekken-taught-me-about-ai-research/" class="article-card reveal">
+      <div class="article-card-header">
+        <span class="article-date">November 14, 2024</span>
+        <span class="article-reading-time">1 min read</span>
+      </div>
+      <h3>What 5,000 Hours of Mastering Tekken Taught Me About AI Research</h3>
+      <p class="article-description">Autophenomenological analysis exploring parallels between competitive gaming mastery and pattern recognition in ML research.</p>
+      <div class="article-tags"><span class="tag">AI</span><span class="tag">Research</span><span class="tag">Gaming</span></div>
+    </a>
+  
+
+    <a href="/writing/from-sudan-to-silicon-valley-beyond-the-resume/" class="article-card reveal">
+      <div class="article-card-header">
+        <span class="article-date">October 19, 2024</span>
+        <span class="article-reading-time">1 min read</span>
+      </div>
+      <h3>From Sudan to Silicon Valley: Beyond the Resume</h3>
+      <p class="article-description">Personal narrative on the gap between credentials and lived experience. What it means to be celebrated in one context and invisible in another.</p>
+      <div class="article-tags"><span class="tag">Career</span><span class="tag">Personal</span><span class="tag">Tech</span></div>
+    </a>
+  
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Taha Merghani. Built with intention.</p>
+    </footer>
+
+    <script>
+        // Reveal on scroll
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
