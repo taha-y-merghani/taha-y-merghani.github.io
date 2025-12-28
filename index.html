@@ -542,6 +542,62 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Writing CTA buttons */
+        .writing-cta {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            border: 2px solid var(--amber);
+            color: var(--amber);
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .writing-cta:hover {
+            background: var(--amber);
+            color: var(--warm-black);
+            transform: translateY(-2px);
+        }
+
+        .writing-cta-large {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Mobile Writing Link */
+        .mobile-writing-link {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-writing-link {
+                display: block;
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 99;
+                padding: 1rem 1.5rem;
+                background: var(--amber);
+                color: var(--warm-black);
+                border-radius: 50px;
+                font-size: 0.85rem;
+                font-weight: 600;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+                box-shadow: 0 4px 12px rgba(212, 168, 83, 0.4);
+                text-decoration: none;
+                transition: all 0.3s ease;
+            }
+
+            .mobile-writing-link:hover {
+                transform: scale(1.05);
+                box-shadow: 0 6px 16px rgba(212, 168, 83, 0.6);
+            }
+        }
     </style>
 </head>
 <body>
@@ -560,8 +616,11 @@
     <section class="hero">
         <div class="hero-content">
             <p class="hero-tagline">Computational Linguist & Research Engineer</p>
-            <h1>I build systems that understand <span>language</span>, and I write about the work that matters.</h1>
+            <h1>I build systems that understand <span>language</span>, and I <a href="/writing/" style="color: var(--amber); border-bottom: 2px solid var(--amber);">write</a> about the work that matters.</h1>
             <p class="hero-description">From NLP research at Georgia Tech to building tools at Apple Siri that are still in use eight years later, I've spent a decade at the intersection of language and machine learning. Now I'm looking for early-stage teams where exceptional technical work is the strategy.</p>
+            <div style="margin-top: 2rem;">
+                <a href="/writing/" class="writing-cta">Read My Writing →</a>
+            </div>
         </div>
         <div class="scroll-indicator">
             <span>Scroll</span>
@@ -634,6 +693,11 @@
                 <p>Personal narrative on the gap between credentials and lived experience. What it means to be celebrated in one context and invisible in another. Shared by Jeff Dean.</p>
                 <p class="work-stats">200K views · Shared by Jeff Dean</p>
             </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 4rem; padding: 3rem 0; border-top: 1px solid var(--border);">
+            <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem;">These are just highlights. I've written 11 in-depth articles on AI research, personal challenges, and technical work.</p>
+            <a href="/writing/" class="writing-cta writing-cta-large">View All My Writing →</a>
         </div>
     </section>
 
@@ -740,5 +804,8 @@
             });
         });
     </script>
+
+    <!-- Floating mobile writing link -->
+    <a href="/writing/" class="mobile-writing-link">My Writing ✍️</a>
 </body>
 </html>
