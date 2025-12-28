@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grad School Gave Me the Degree — and a Trauma Response - Taha Merghani</title>
+    <meta name="description" content="The untold story of mental health struggles in academia—what it cost to earn a master's degree from Georgia Tech.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --charcoal: #1a1814;
+            --warm-black: #0d0b09;
+            --cream: #f5f2ed;
+            --amber: #d4a853;
+            --amber-muted: #b8965a;
+            --text-primary: #e8e4de;
+            --text-secondary: #9a9590;
+            --border: rgba(212, 168, 83, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--warm-black);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+        }
+
+        a {
+            color: var(--amber);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--cream);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: linear-gradient(to bottom, var(--warm-black) 0%, transparent 100%);
+        }
+
+        .nav-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            letter-spacing: 0.05em;
+        }
+
+        .nav-name a {
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .nav-links a:hover {
+            color: var(--amber);
+        }
+
+        /* Article Header */
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 2rem;
+        }
+
+        .article-meta {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .article-meta .date {
+            color: var(--amber-muted);
+        }
+
+        .article-meta a {
+            color: var(--amber);
+            text-decoration: none;
+            border-bottom: 1px solid var(--amber);
+        }
+
+        .article-header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .article-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* Article Body */
+        .article-body {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 2rem 2rem 8rem;
+        }
+
+        .article-body p {
+            font-size: 1.15rem;
+            line-height: 1.75;
+            color: var(--text-primary);
+            margin-bottom: 1.75rem;
+        }
+
+        .article-body h2 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .article-body h3 {
+            font-size: 1.5rem;
+            margin: 2.5rem 0 1rem;
+            color: var(--text-primary);
+        }
+
+        .article-body h4 {
+            font-size: 1.2rem;
+            margin: 2rem 0 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .article-body blockquote {
+            border-left: 2px solid var(--amber);
+            background: rgba(212, 168, 83, 0.03);
+            padding: 2rem;
+            margin: 2rem 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--text-primary);
+        }
+
+        .article-body blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-body code {
+            background: rgba(212, 168, 83, 0.1);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 0.9em;
+            color: var(--amber);
+        }
+
+        .article-body pre {
+            background: var(--charcoal);
+            padding: 1.5rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            margin: 2rem 0;
+        }
+
+        .article-body pre code {
+            background: transparent;
+            padding: 0;
+            color: var(--text-primary);
+        }
+
+        .article-body ul, .article-body ol {
+            margin: 1.5rem 0 1.5rem 2rem;
+            color: var(--text-primary);
+        }
+
+        .article-body li {
+            margin-bottom: 0.75rem;
+            font-size: 1.15rem;
+            line-height: 1.75;
+        }
+
+        .article-body img {
+            max-width: 100%;
+            height: auto;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .article-body hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 3rem 0;
+        }
+
+        .article-body a {
+            color: var(--amber);
+            border-bottom: 1px solid var(--amber);
+        }
+
+        .article-body a:hover {
+            color: var(--cream);
+            border-color: var(--cream);
+        }
+
+        /* Back Link */
+        .back-link {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .back-link a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .back-link a:hover {
+            color: var(--amber);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 8%;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .article-header {
+                padding: 6rem 1.5rem 1.5rem;
+            }
+
+            .article-body {
+                padding: 1.5rem 1.5rem 6rem;
+            }
+
+            .article-body h2 {
+                font-size: 1.75rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+
+    <nav>
+        <div class="nav-name"><a href="/">Taha Merghani</a></div>
+        <div class="nav-links">
+            <a href="/#story">Story</a>
+            <a href="/writing/">Writing</a>
+            <a href="/#work">Work</a>
+            <a href="/#contact">Contact</a>
+        </div>
+    </nav>
+
+    <article>
+        <header class="article-header">
+            <div class="article-meta">
+                <span class="date">June 27, 2025</span>
+                <span class="reading-time">12 min read</span>
+            </div>
+            <h1>Grad School Gave Me the Degree — and a Trauma Response</h1>
+            <p class="article-description">The untold story of mental health struggles in academia—what it cost to earn a master's degree from Georgia Tech.</p>
+            
+        </header>
+
+        <div class="article-body">
+            <hr>
+<h3>Grad School Gave Me the Degree — and a Trauma Response</h3>
+<p><em>“Much unhappiness has come into the world because of bewilderment and things left unsaid.” — Fyodor Dostoevsky</em></p>
+<p><strong>[Edit/Disclaimer: The following was adapted from a 13-page internal memo I developed 4 years ago for my close friends. It was too raw to be posted publicly. I hence used the help of AI to make it more palatable to a wide audience. The facts remain intact, and my feelings were communicated as I intended]</strong></p>
+<p>I entered the Master’s in Computer Science (MSCS) program at Georgia Tech full of ambition and hope. I thought I had it all figured out — this was the next step in my journey, and I was ready to make my mark. But soon, I realized how wrong I was. The reality of grad school hit harder than I could have imagined, and the cost of that dream was far higher than I ever expected. This isn’t a sob story. It’s my truth.</p>
+<p>The road I took wasn’t just a series of academic challenges — it was a battle with myself, with mental health, and with a system that often failed to understand me. This story is about the hidden, ugly side of pursuing NLP research: the burnout, the isolation, the misguided expectations, and the moments when you question whether it’s all worth it. And, yes, it’s also about the parts of me that broke and the parts that rebuilt themselves.</p>
+<h3>How I Got Started: A Dream, Then a Shift</h3>
+<p>I wasn’t always here. I started in computer engineering at a small university, unsure but driven. During my freshman summer, I got into a research program for underrepresented minorities, working on an Android fitness app. But I found myself drawn not to the graphical interface, but to something more ambitious: a spoken language interface that could understand all languages, accents, and dialects.</p>
+<p>The following summer became the best experience I’d ever had. I worked on automatic speech recognition for Egyptian Arabic at a prestigious lab. By the end of it, I became fascinated not just with recognition, but with language understanding itself.</p>
+<p>The summer after that, I interned with a major tech company’s voice AI team, seeing a fully-fledged dialogue system with a huge user base. I was determined to get back to research, focusing on NLP projects that address understanding language and its variation.</p>
+<h3>Entering Grad School: Not as Expected</h3>
+<p>I applied to several Ph.D. programs without understanding the game — the numbers, the standards, the politics. I thought if I met with someone in person, I could make a case for myself. That hope led me to Georgia Tech’s FOCUS program, where I met one of the professors whose work had drawn me to NLP.</p>
+<p>I won’t sugarcoat it: my acceptance was a fluke. During our conversation, I mentioned I wasn’t sure if I would make it into any Ph.D. program. He asked why I wasn’t confident, and I didn’t know how to answer. I just didn’t know of any Black, immigrant Ph.D. students doing the work I wanted to do at top NLP labs.</p>
+<p>Then the Muslim ban was announced, and my country was on the list. My potential advisor emailed saying I wouldn’t get accepted into the Ph.D. program. I asked if I could be transferred into the master’s pool, and eventually, through advocacy, my application was rerouted. I had no funding, no clear plan, and no guarantees. But I enrolled anyway — unsure what came next, just certain I couldn’t let the opportunity go.</p>
+<h3>The Funding Scramble</h3>
+<p>Since almost all MS programs are unfunded, I had to figure that out myself. I moved to the Bay Area to look for a job, but most openings were for web and mobile development — areas where I had little experience. I had to brush up on algorithm interviews while competing for new graduate roles. When that failed and visa restrictions loomed, I had to enroll in the master’s program.</p>
+<p>Fortunately, there was a graduate assistantship at the university’s Digital Integrative Liberal Arts Center working on applied data science projects in literature. The interviews would be conducted during the first week of the semester — still no guarantees.</p>
+<h3>The First Semester: A Storm of Struggles</h3>
+<p>Burnt out from the job search, I moved to Atlanta the weekend before classes started, crashing on a friend’s couch. My family in Sudan sacrificed their house savings to support me that first semester.</p>
+<p>Being so late left me few housing options. I ended up in a sketchy neighborhood, 15 minutes from campus. After deductions from my assistantship, I was left with about $750 a month. My rent and utilities were almost $500. I couldn’t afford campus parking, so I parked far away where I could find free spots. Some nights I didn’t go home at all. The lab felt safer than my apartment.</p>
+<p>At the Digital Integrative Liberal Arts Center, I felt out of place working on 1800s American literature when I’d had my entire pre-college education in Sudan, taught in Arabic. I was one of two programmers with the least experience, essentially a code producer to a supervisor who wasn’t from a technical background.</p>
+<p>My main research was more exciting but equally challenging. I joined a project with a brilliant, ambitious collaborator who unfortunately wasn’t the hands-on mentor I desperately needed. The project aimed to improve part-of-speech tagging on Twitter using social network plus text. At first, I was just taking notes during meetings until my advisor noticed and asked me to implement a baseline.</p>
+<p>I was able to present preliminary results at the Black in AI workshop — a refreshing experience where I finally felt represented. But I was consumed by asking about Ph.D. program admissions, still focused on that elusive goal.</p>
+<h3>Second Semester: It Gets Ugly</h3>
+<p>I was excited to finally take my advisor’s NLP course, but his lectures were overly focused on unclear mathematical derivations while making students uncomfortable asking questions. I remember a student asking an optimization question and him shutting them down, saying he wasn’t going to answer that, leaving the classroom in utter silence.</p>
+<p>My advisor suggested I work on applying a statistical method to geotagged French tweets to mine geographically dependent words. Our meetings were only once every two weeks. I felt overwhelmed and wanted to steer toward methodology rather than application, but I was afraid to bring that up.</p>
+<p>My housing situation deteriorated. My roommate and I didn’t talk. I avoided going home, sleeping in the lab instead. I was getting traffic tickets that by semester’s end cost as much as a parking pass.</p>
+<p>I struggled to apply the statistical method, sweating through published code trying to adapt it. I emailed a researcher in the Netherlands who kindly explained the step-by-step process. I had some progress but couldn’t remember everything during our meeting, so I emailed my advisor three questions afterward.</p>
+<p>In the following meeting, he said, “This kind of thing just does not make me wanna meet with you,” shaking his head and pointing at me in extreme frustration. Visibly irritated, he then said assertively: “If you want people to accomplish your goals, you gotta meet their goals first!”</p>
+<p>Around midterm time, my new subletter didn’t pay rent. I only noticed after the eviction notice because I was overwhelmed by school. I had to pay double my share so we wouldn’t get evicted, leaving no time to study for my midterm. I was in the bottom 5% of the class on the written exam. However, to rescue my grade, I sacrificed many commitments to score in the top 10% in the final.</p>
+<p>My advisor received tenure and announced his sabbatical. Before leaving, he said I was able to do something with the data but “these research projects are really self-led. We didn’t get to where we needed to be. You spent a week or two trying to understand the calculus of the method, and that wasn’t so smart.” When I told him about joining another lab, he responded, “Good. Just make sure you’re worth his time!”</p>
+<h3>Finding a Lifeline</h3>
+<p>Still in my difficult living situation, I joined the new lab working on collaborative story generation. The anxiety I’d developed didn’t quite subside — I felt like I wasn’t able to share my ideas even though my new advisor and collaborator were welcoming. Everyone there seemed happy, unlike my colleagues in the previous lab.</p>
+<p>I was encouraged by friends in the research community to apply for international research internships. To my surprise, my interviewer was Yoshua Bengio who offered me the internship right then and there, saying I could work on whatever interested me!</p>
+<p>That summer, I also started a GoFundMe campaign to send Sudanese students to a major AI conference in Africa during Sudan’s revolution. We raised around $9,000 and sent around 10 students. The campaign attracted attention from AI community leaders, and many of my friends later secured internships at major tech companies.</p>
+<h3>The Final Stretch</h3>
+<p>My visa to Canada got rejected. I had to do emergency late registration and find funding or risk violating my student visa. My second advisor stepped in, offering me a research assistantship. This time, I found a good roommate, though still far from campus.</p>
+<p>This was when I hit an intense depressive episode. I’m talking about not-being-able-to-get-out-of-bed, stomachache-type depression. But I had to take demanding courses to graduate.</p>
+<p>I sought therapy at the student counseling center, but the therapist told me I had too much trauma to unpack and needed an external therapist. The center was understaffed, and during my time there, multiple student deaths prompted advocacy for mental health changes. The external therapist once suggested I leave the field. How would I leave now that I’d built a life around it?</p>
+<p>I received Ph.D. admission offers from two universities. I visited both — one focused on computational social sciences with happy students, the other had a professor I’d met at Black in AI who worked on inequalities in research.</p>
+<p>Without help from an undergraduate student, group project leadership from another master’s student, and leeway from professors, I wouldn’t have made it through. The student counseling center intervened when I practically failed machine learning. I deferred my Ph.D. offers and graduated in May, having no intention to prolong my suffering in academia.</p>
+<h3>Lessons Learned: Taking Control, or at Least Trying To</h3>
+<p>Looking back, I don’t regret coming to Georgia Tech. But if I’m being honest, I wish I had known earlier what I needed: real, human mentorship, an environment where I could be a whole person — not just a researcher. I wish I had used whatever money I wasted in the Bay Area on better Atlanta housing. I wish I had known my second advisor earlier.</p>
+<p>The program opened up a world of opportunities for me, but the price I paid in mental health was far too much. That’s what academia often doesn’t teach you — it’s not just about surviving the grind. It’s about having the courage to ask for what you need and creating a space where you can thrive in every aspect, not just the academic one.</p>
+<p>I learned the hard way that mental health needs to come first. That we, as students, shouldn’t have to hide our struggles to fit into a broken system. The real cost of research isn’t just hours at the keyboard; it’s the toll it takes on your body and mind when there’s no support, no real human connection.</p>
+<h3>Advice for Academics and Students</h3>
+<p><strong>For Advisors:</strong></p>
+<ul>
+<li>Prioritize the mental health of your students and tailor your approach to their needs</li>
+<li>Cultivate an environment where everyone feels safe to ask questions and share ideas</li>
+<li>Don’t let the pressures of research blind you to the humanity of those you guide</li>
+<li>Remember that dismissive responses like “this kind of thing just does not make me wanna meet with you” can be devastating to struggling students</li>
+</ul>
+<p><strong>For Students:</strong></p>
+<ul>
+<li>Be open about what you can and can’t do, what your goals are, and what you don’t clearly understand</li>
+<li>Don’t be afraid to ask for help — the weight of grad school is heavy enough without carrying it alone</li>
+<li>Your mental health is not secondary to your research — without it, you can’t succeed</li>
+<li>Try to reflect on your past experiences and learn from them</li>
+</ul>
+<h3>Conclusion: A Path Forward</h3>
+<p>Despite the pain, I made it through. I earned the degree — but I also made the deliberate choice to walk away from academia. I turned down the Ph.D. offers I once dreamed of. I stopped applying to research roles. The cost to my mental health and sense of self was too high to justify staying.</p>
+<p>I came out the other side stronger, wiser, but more aware than ever of the gaps in academia that need to be filled. This journey was never just about the papers or the degree — it was about learning to stand up for myself in an environment that didn’t always support me.</p>
+<p>I hope this story sparks change. I hope it makes people think about how we treat each other in academia, how we acknowledge the emotional toll of research, and how we can make academia a place where students don’t just survive — they thrive.</p>
+<p>!</p>
+
+        </div>
+    </article>
+
+    <div class="back-link">
+        <a href="/writing/">← Back to all articles</a>
+    </div>
+
+    <footer>
+        <p>© 2025 Taha Merghani. Built with intention.</p>
+    </footer>
+</body>
+</html>

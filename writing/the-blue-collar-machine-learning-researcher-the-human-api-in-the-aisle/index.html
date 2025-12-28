@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Blue Collar Machine Learning Researcher: The Human API in the Aisle - Taha Merghani</title>
+    <meta name="description" content="On working as a human API in retail while building ML expertise—what happens when your day job is in the physical world while your mind stays in the technical one.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --charcoal: #1a1814;
+            --warm-black: #0d0b09;
+            --cream: #f5f2ed;
+            --amber: #d4a853;
+            --amber-muted: #b8965a;
+            --text-primary: #e8e4de;
+            --text-secondary: #9a9590;
+            --border: rgba(212, 168, 83, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--warm-black);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+        }
+
+        a {
+            color: var(--amber);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--cream);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: linear-gradient(to bottom, var(--warm-black) 0%, transparent 100%);
+        }
+
+        .nav-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            letter-spacing: 0.05em;
+        }
+
+        .nav-name a {
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .nav-links a:hover {
+            color: var(--amber);
+        }
+
+        /* Article Header */
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 2rem;
+        }
+
+        .article-meta {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .article-meta .date {
+            color: var(--amber-muted);
+        }
+
+        .article-meta a {
+            color: var(--amber);
+            text-decoration: none;
+            border-bottom: 1px solid var(--amber);
+        }
+
+        .article-header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .article-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* Article Body */
+        .article-body {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 2rem 2rem 8rem;
+        }
+
+        .article-body p {
+            font-size: 1.15rem;
+            line-height: 1.75;
+            color: var(--text-primary);
+            margin-bottom: 1.75rem;
+        }
+
+        .article-body h2 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .article-body h3 {
+            font-size: 1.5rem;
+            margin: 2.5rem 0 1rem;
+            color: var(--text-primary);
+        }
+
+        .article-body h4 {
+            font-size: 1.2rem;
+            margin: 2rem 0 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .article-body blockquote {
+            border-left: 2px solid var(--amber);
+            background: rgba(212, 168, 83, 0.03);
+            padding: 2rem;
+            margin: 2rem 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--text-primary);
+        }
+
+        .article-body blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-body code {
+            background: rgba(212, 168, 83, 0.1);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 0.9em;
+            color: var(--amber);
+        }
+
+        .article-body pre {
+            background: var(--charcoal);
+            padding: 1.5rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            margin: 2rem 0;
+        }
+
+        .article-body pre code {
+            background: transparent;
+            padding: 0;
+            color: var(--text-primary);
+        }
+
+        .article-body ul, .article-body ol {
+            margin: 1.5rem 0 1.5rem 2rem;
+            color: var(--text-primary);
+        }
+
+        .article-body li {
+            margin-bottom: 0.75rem;
+            font-size: 1.15rem;
+            line-height: 1.75;
+        }
+
+        .article-body img {
+            max-width: 100%;
+            height: auto;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .article-body hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 3rem 0;
+        }
+
+        .article-body a {
+            color: var(--amber);
+            border-bottom: 1px solid var(--amber);
+        }
+
+        .article-body a:hover {
+            color: var(--cream);
+            border-color: var(--cream);
+        }
+
+        /* Back Link */
+        .back-link {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .back-link a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .back-link a:hover {
+            color: var(--amber);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 8%;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .article-header {
+                padding: 6rem 1.5rem 1.5rem;
+            }
+
+            .article-body {
+                padding: 1.5rem 1.5rem 6rem;
+            }
+
+            .article-body h2 {
+                font-size: 1.75rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+
+    <nav>
+        <div class="nav-name"><a href="/">Taha Merghani</a></div>
+        <div class="nav-links">
+            <a href="/#story">Story</a>
+            <a href="/writing/">Writing</a>
+            <a href="/#work">Work</a>
+            <a href="/#contact">Contact</a>
+        </div>
+    </nav>
+
+    <article>
+        <header class="article-header">
+            <div class="article-meta">
+                <span class="date">December 21, 2025</span>
+                <span class="reading-time">7 min read</span>
+            </div>
+            <h1>The Blue Collar Machine Learning Researcher: The Human API in the Aisle</h1>
+            <p class="article-description">On working as a human API in retail while building ML expertise—what happens when your day job is in the physical world while your mind stays in the technical one.</p>
+            
+        </header>
+
+        <div class="article-body">
+            <hr>
+<h3>The Blue Collar Machine Learning Researcher: The Human API in the Aisle</h3>
+<p><strong>This piece reframes retail labor as an error-correction and provenance layer in a drifting cyber-physical system, and it decomposes the aisle into concrete autonomy failure modes that explain why automation needs environment redesign, not just smarter robots.</strong></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*oNd3htUFCc11GydxLYK0GA.jpeg" alt="Looking fab on the way back from work at Walmart. I’m wearing a denim jacket and a black shirt. My name tag “Taha” with the Walmart logo is also shown."></p>
+<p>I <a href="https://medium.com/@tahaymerghani/a-machine-learning-researcher-spent-close-to-5-000-hours-on-tekken-and-reached-top-0-5-a42c96877214">published</a> an analysis of how I spent 5,000 hours mastering <em>Tekken 8</em>, reaching the top 0.5% globally. It hit the #1 spot on r/ArtificialIntelligence and is currently exceeding 172k views.</p>
+<p>My argument wasn’t “gaming is deep.” It was more specific than that.</p>
+<p>At a high level, competitive Tekken is <strong>bounded rationality under severe time constraints</strong>. You’re solving a partially observed decision problem with a ~50ms action budget. You can’t brute-force search. You compress the space. You learn priors. You update them the moment you get punished.</p>
+<p>I called the approach <strong>autophenomenology</strong>: you analyze a system by becoming one of its components and observing what the system forces the component to learn.</p>
+<p>Today I’m applying that same lens to a different arena. I work as a Digital Personal Shopper at Walmart.</p>
+<p>On paper, the job is locomotion. The app is the planner. I’m the actuator.</p>
+<p>That abstraction is wrong.</p>
+<p>The correct abstraction is: <strong>The app is a brittle world model, and the human worker is a real-time error-correction layer that resolves drift between the model and the store.</strong></p>
+<p>The value isn’t picking. It’s closing the map-territory gap. The digital system assumes a clean mapping:</p>
+<ul>
+<li>Item → Location</li>
+<li>Location → Availability</li>
+<li>Route → Minimal Cost</li>
+</ul>
+<p>The physical store violates those assumptions constantly. Shelves are stochastic. Inventory is delayed. Items migrate. Customers introduce noise. Staff interventions aren’t fully logged. The planogram is an <em>intent</em>, not a guarantee.</p>
+<p>So what am I being paid for? Not to “walk.” I’m being paid to handle the <strong>residuals the system can’t represent</strong>. You can call it Sim-to-Real drift if you want. In plain English: the map lies, and I’m paid to deal with the lie.</p>
+<h3>The Quiet Distinction: Inference-Time Lookup vs. Amortized Skill</h3>
+<p>Early in training, I had a returns cart full of random items. I treated the store like a database. <em>Scan item. Query aisle. Walk. Repeat.</em> It worked, but it was slow in the exact way <strong>linear search</strong> is slow. Lots of queries. Lots of context switching. Lots of wasted motion.</p>
+<p>Then a veteran stocking employee walked by. She didn’t scan anything.</p>
+<p>She looked at the cart, grabbed items in bursts, and sorted them into aisle clusters almost instantly. She wasn’t “remembering aisles.” <strong>She had compiled the store.</strong></p>
+<p>Sour cream isn’t near cream cheese. Different aisle entirely. She knew that without thinking. I would have wandered. Over thousands of hours, she built a <strong>compressed internal model</strong> that maps an item’s semantics to a location with near-zero latency.</p>
+<p>When I rely on the app, I’m doing disk reads. When she relies on her brain, she’s operating from RAM.</p>
+<p>That reveals a fragility in modern logistics: the store’s real ground truth is not the server. It lives in <strong>tacit human models</strong> trained against reality and updated daily through contact with drift. If you remove the human without replacing that adaptive layer, you don’t get automation. You get a system with a perfect plan for a world that doesn’t exist.</p>
+<h3>The Aisle Has Its Own Frame Traps</h3>
+<p>In Tekken, a “frame trap” invites speed and punishes it. The aisle has the same structure.</p>
+<p>Take the yogurt section. There are about 20 <em>Noosa</em> SKUs that share almost everything visually. Same container shape. Same branding. Same palette. The discriminative signal is tiny: “Blueberry” vs “Mixed Berry.”</p>
+<p>The shelf invites a fast reach. It punishes that speed with wrong-SKU errors.</p>
+<p>This is not a willpower problem. It’s an <strong>aliasing problem</strong> under clutter, occlusion, and swapped items. So my solution isn’t “focus harder.” It’s <strong>mode switching</strong>.</p>
+<p>I stop trusting vision and use the barcode scanner as a truth sensor. I treat the visual channel as noisy and confirm with an instrumented measurement. That’s not me being slow. That’s rational behavior in a high-noise observation regime.</p>
+<h3>The Impedance Wall</h3>
+<p>Then you hit the part robotics people rarely feel in their gut until they’re in a store.</p>
+<p>Stocking a soft package into a full shelf isn’t a geometry problem. It’s <strong>force control</strong> in a deformable, cluttered environment. You push hard enough to make space by deforming neighboring packaging, but not so hard you crush what’s adjacent.</p>
+<ul>
+<li>A robot that stops at resistance fails.</li>
+<li>A robot that pushes through damages inventory.</li>
+</ul>
+<p>Humans do <strong>variable impedance control</strong> unconsciously because our bodies are built for it. The aisle is optimized for human manipulation, not robotic manipulation.</p>
+<h3>The Viability Gap: History is a Latent Variable</h3>
+<p>The strongest argument against naive automation isn’t perception. It’s history.</p>
+<p>Robots can get good at “what is this.” They’re much worse at “is this safe given what happened to it earlier,” because the relevant variable often isn’t visible.</p>
+<p>Recently, I found a frozen item abandoned in a room-temperature returns bin. Visually, it was perfect. A vision system would label it “stock” and put it back.</p>
+<p>I marked it as waste immediately. Why?</p>
+<p>Because I inferred <strong>latent history</strong>: <code>Frozen Object</code> + <code>Ambient Location</code> + <code>Unknown Dwell Time</code> implies <strong>Spoilage Risk</strong>.</p>
+<p>The inventory database doesn’t track “time spent melting.” The safety of the loop depends on a biological agent doing inference over untracked provenance. If you automate the loop without provenance tracking, you don’t just risk inefficiency. You risk silent safety failures that look correct to the model.</p>
+<h3>The System Runs on Humans Patching Exceptions</h3>
+<p>Beyond individual items, the workflow depends on biological patching to handle cases the software can’t represent cleanly.</p>
+<p><strong>Staging behaves like memory without addresses.</strong> The system tells you to put the order <em>somewhere</em>, but not <em>where</em>. So you become the allocator. You scout floor space, grab a dolly, link them in real time so nothing deadlocks. Only then does the system learn where the rest of the order should go.</p>
+<p><strong>Routes often zigzag stupidly.</strong> The app will send you from Aisle 2 to Aisle 17 back to Aisle 3 like it is solving a different building. So you pre-sort into aisle clusters before you start walking. You patch the routing algorithm before execution.</p>
+<p><strong>Rejected items pile into buffer carts.</strong> They do not disappear. They just move into a physical heap and wait. Someone has to garbage-collect them later when the main thread is idle. That someone is always human.</p>
+<h3>Conclusion</h3>
+<p>The irony is Walmart already knows how to automate.</p>
+<p>In fulfillment centers, robots move standardized pods across engineered floors. It works because the environment was <strong>built for machines</strong>.</p>
+<p>The store is a brownfield. It’s optimized for humans: browsing, touching, social navigation, messy shelves, constant perturbations. We’re trying to retrofit robotics into a space that fights them.</p>
+<p>So the question isn’t whether we <em>can</em> build a robot smart enough for the aisle. The question is why we’re trying to, when the fastest way to automate is usually not to build a smarter robot.</p>
+<p>It’s to build a simpler room.</p>
+<p>Until then, the human remains the only API that can handle the mess.</p>
+
+        </div>
+    </article>
+
+    <div class="back-link">
+        <a href="/writing/">← Back to all articles</a>
+    </div>
+
+    <footer>
+        <p>© 2025 Taha Merghani. Built with intention.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Quiet Addiction Behind My Public Success - Taha Merghani</title>
+    <meta name="description" content="A candid reflection on gaming addiction, public achievement, and the hidden struggles behind external success.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --charcoal: #1a1814;
+            --warm-black: #0d0b09;
+            --cream: #f5f2ed;
+            --amber: #d4a853;
+            --amber-muted: #b8965a;
+            --text-primary: #e8e4de;
+            --text-secondary: #9a9590;
+            --border: rgba(212, 168, 83, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--warm-black);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+        }
+
+        a {
+            color: var(--amber);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--cream);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: linear-gradient(to bottom, var(--warm-black) 0%, transparent 100%);
+        }
+
+        .nav-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            letter-spacing: 0.05em;
+        }
+
+        .nav-name a {
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .nav-links a:hover {
+            color: var(--amber);
+        }
+
+        /* Article Header */
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 2rem;
+        }
+
+        .article-meta {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .article-meta .date {
+            color: var(--amber-muted);
+        }
+
+        .article-meta a {
+            color: var(--amber);
+            text-decoration: none;
+            border-bottom: 1px solid var(--amber);
+        }
+
+        .article-header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .article-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* Article Body */
+        .article-body {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 2rem 2rem 8rem;
+        }
+
+        .article-body p {
+            font-size: 1.15rem;
+            line-height: 1.75;
+            color: var(--text-primary);
+            margin-bottom: 1.75rem;
+        }
+
+        .article-body h2 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .article-body h3 {
+            font-size: 1.5rem;
+            margin: 2.5rem 0 1rem;
+            color: var(--text-primary);
+        }
+
+        .article-body h4 {
+            font-size: 1.2rem;
+            margin: 2rem 0 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .article-body blockquote {
+            border-left: 2px solid var(--amber);
+            background: rgba(212, 168, 83, 0.03);
+            padding: 2rem;
+            margin: 2rem 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--text-primary);
+        }
+
+        .article-body blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-body code {
+            background: rgba(212, 168, 83, 0.1);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 0.9em;
+            color: var(--amber);
+        }
+
+        .article-body pre {
+            background: var(--charcoal);
+            padding: 1.5rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            margin: 2rem 0;
+        }
+
+        .article-body pre code {
+            background: transparent;
+            padding: 0;
+            color: var(--text-primary);
+        }
+
+        .article-body ul, .article-body ol {
+            margin: 1.5rem 0 1.5rem 2rem;
+            color: var(--text-primary);
+        }
+
+        .article-body li {
+            margin-bottom: 0.75rem;
+            font-size: 1.15rem;
+            line-height: 1.75;
+        }
+
+        .article-body img {
+            max-width: 100%;
+            height: auto;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .article-body hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 3rem 0;
+        }
+
+        .article-body a {
+            color: var(--amber);
+            border-bottom: 1px solid var(--amber);
+        }
+
+        .article-body a:hover {
+            color: var(--cream);
+            border-color: var(--cream);
+        }
+
+        /* Back Link */
+        .back-link {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .back-link a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .back-link a:hover {
+            color: var(--amber);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 8%;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .article-header {
+                padding: 6rem 1.5rem 1.5rem;
+            }
+
+            .article-body {
+                padding: 1.5rem 1.5rem 6rem;
+            }
+
+            .article-body h2 {
+                font-size: 1.75rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+
+    <nav>
+        <div class="nav-name"><a href="/">Taha Merghani</a></div>
+        <div class="nav-links">
+            <a href="/#story">Story</a>
+            <a href="/writing/">Writing</a>
+            <a href="/#work">Work</a>
+            <a href="/#contact">Contact</a>
+        </div>
+    </nav>
+
+    <article>
+        <header class="article-header">
+            <div class="article-meta">
+                <span class="date">December 10, 2025</span>
+                <span class="reading-time">9 min read</span>
+            </div>
+            <h1>The Quiet Addiction Behind My Public Success</h1>
+            <p class="article-description">A candid reflection on gaming addiction, public achievement, and the hidden struggles behind external success.</p>
+            
+        </header>
+
+        <div class="article-body">
+            <hr>
+<h3>The Quiet Addiction Behind My Public Success</h3>
+<p>I sold my PlayStation in November 2025.</p>
+<p>!</p>
+<p>!</p>
+<p>Bye Bye Playstation 5</p>
+<p>Not gave it away. Not stored it at a friend’s house like I’d tried before. Sold it. Gone. After 11,500 hours across five years, roughly six hours a day, every day, I finally admitted what everyone around me already knew. I wasn’t gaming for fun anymore. I was hiding.</p>
+<p>But here’s what makes this story different from the usual “I quit gaming and found myself” narrative. I was simultaneously building a career in computational linguistics. Publishing research. Creating content about my journey from Sudan to Silicon Valley that went viral, 33,000 views, shared by prominent AI researchers. I had a degree from Georgia Tech, publications at top machine learning conferences, and internships at Apple and MIT.</p>
+<p>On LinkedIn, I was the ambitious researcher building in public. On Twitch leaderboards, I was “moji”, a #1-ranked Tekken player grinding 5,000 hours into a single game with Nina, one of the most technically demanding characters.</p>
+<p>This is what trauma looks like when you’re high-functioning.</p>
+<hr>
+<h3>What Broke</h3>
+<p>March 2017. I moved to Atlanta for Georgia Tech’s Master’s in Computer Science program with dreams of becoming a researcher in natural language processing, teaching computers to understand human language in all its messy, dialectal variations. I’d spent years building toward this. Summer research at MIT working on Arabic speech recognition, an internship at Apple on the Siri team, and recommendations from advisors who believed in my potential.</p>
+<p>What I didn’t anticipate was my advisor.</p>
+<p>The signs appeared early. In one meeting where I emailed clarifying questions about a computational linguistics project I was struggling with, he responded: “This kind of thing just does not make me wanna meet with you.” He shook his head, pointed at me in visible frustration, then answered my questions brusquely.</p>
+<p>Later, when our project didn’t meet a workshop submission deadline because I’d spent weeks trying to understand the underlying methodology, he said: “You spent a week or two trying to understand the math, and that wasn’t so smart.”</p>
+<p>His parting words to me about my next advisor: “Good. Just make sure you’re worth his time!”</p>
+<p>I was living in a sketchy Atlanta neighborhood, paying $500 of my $750 monthly stipend on rent. I’d sleep in the lab to avoid my roommate. I got multiple parking tickets because I couldn’t afford the campus pass. During midterms, my subletter didn’t pay rent and I had to cover double to avoid eviction.</p>
+<p>By Spring 2019, I hit severe depression. The kind where you can’t get out of bed. The Georgia Tech counseling center told me I had “too much trauma to unpack” for their capacity and referred me elsewhere. The external therapist I found eventually suggested I leave the field entirely.</p>
+<p>How do you leave after building your entire life around it?</p>
+<p>I graduated in May 2019 having no intention to prolong my suffering in the academy. I deferred PhD offers from UMass Amherst and the University of Maryland. I was done.</p>
+<hr>
+<h3>Enter COVID</h3>
+<p>March 2020. The pandemic hit. I’d just been hospitalized and diagnosed with bipolar disorder. The world shut down. Everyone was isolated. Everyone was online.</p>
+<p>I tried a nostalgic story mode game first. It felt empty. Then I discovered Call of Duty’s competitive multiplayer. I was terrible at first, but the community was there, the skill progression felt tangible, and most importantly, everyone was online anyway. It felt socially acceptable.</p>
+<p>But what started as pandemic coping became something else entirely.</p>
+<p>I moved to Apex Legends and spent 4,000 hours reaching Diamond rank in the harder competitive seasons. I found real friends who knew me only as “moji.” We’d play together, confide in each other, build genuine connection. Then Overwatch 2 came out and I spent 2,500 hours mastering Doomfist, a difficult character with satisfying animations.</p>
+<p>Then came Tekken 8. No teammates to blame. Just me, Nina, and 5,000 hours of grinding. I made friends and found mentors in the community. I hit #1 on the ranked wins leaderboard and reached Tekkie God rank (top 3%).</p>
+<p>!</p>
+<p>My promortion screen for Tekken God with Nina in season 2</p>
+<p>I’d found domains where I could prove I was worth people’s time without ever having to ask for help. Where achievement was measurable, controllable, and didn’t risk the humiliation I’d felt in that Georgia Tech lab.</p>
+<hr>
+<h3>The Cycle</h3>
+<p>Here’s what people didn’t see. I wasn’t gaming and building my career simultaneously. I was cycling.</p>
+<p>I’d have periods where I’d try to live normally. Take a job. Work on technical projects. Post on LinkedIn about my journey from Sudan, navigating the Muslim ban, asylum processes, building a career in AI from scratch. That Medium article got 33,000 views. Prominent researchers noticed.</p>
+<p>Then something would trigger me. A rejection email from a role I thought I’d land, followed immediately by opening Twitch instead of processing the feeling. A technical interview where I blanked on a question and felt that familiar wave of “you’re wasting their time.” Financial stress mounting as credit card bills piled up.</p>
+<p>I’d retreat back into gaming. Sometimes for weeks. Sometimes for months. The Tekken grind was the longest escape, nearly continuous for over a year.</p>
+<p>Each time I’d emerge, I’d choose the path of least resistance. A boring data analyst role through a referral because the interview was easy. Anything to avoid facing the kind of intellectual scrutiny that reminded me of those graduate school meetings.</p>
+<p>By July 2025, a close friend from Georgia Tech, someone who’d watched this pattern for years, sent me a message that ended with: “Please stop asking me to help with your career, finances, and family. I can’t provide any additional help beyond all I’ve given in the past.”</p>
+<p>They were burnt out. I’d been asking for support while disappearing into games for 40+ hours a week.</p>
+<hr>
+<h3>Rock Bottom</h3>
+<p>But July wasn’t rock bottom. That came later.</p>
+<p>By November, I was drowning in credit card debt. My family in Sudan, who could have sacrificed their house savings to support my first semester at Georgia Tech, told me they would step away if I didn’t get serious about making a change. Close friends echoed the same boundary.</p>
+<p>I’d tried to quit before. I’d done therapy until I couldn’t afford it. I’d identified triggers. YouTube gameplay videos. Twitch streams. I’d kept my PlayStation at a friend’s house thinking distance would help.</p>
+<p>It didn’t. When the urges intensified, usually after watching Twitch, I’d ask him to bring it back. The cycle would repeat.</p>
+<p>But in November, I finally understood something simple. No one was coming to save me.</p>
+<p>My family couldn’t. My friends had set boundaries. The gaming community, as real as those friendships were, couldn’t help me face what I was avoiding.</p>
+<p>I sold the console.</p>
+<hr>
+<h3>One Month Out</h3>
+<p>It’s been four weeks. I started a part-time job at Walmart to cover basics while I pursue what actually excites me. Contributing to LLM security research, helping make AI systems that are both powerful and safe, at a startup whose CTO reached out because of my technical writing.</p>
+<p><strong>What’s different now:</strong></p>
+<ul>
+<li>I’m pursuing therapy in January when my insurance kicks in</li>
+<li>I’m choosing alignment over easy entry (no more boring jobs just to avoid hard interviews)</li>
+<li>I’m writing this publicly instead of hiding</li>
+</ul>
+<p><strong>What’s hard:</strong></p>
+<ul>
+<li>The urges are still there when I see Twitch streams</li>
+<li>I miss the community. Those weren’t fake relationships</li>
+<li>The hours I used to game are now empty. Uncomfortable. I’m learning to sit with that</li>
+<li>I don’t know if this attempt will stick</li>
+</ul>
+<hr>
+<h3>What I’ve Learned</h3>
+<p>Gaming addiction isn’t about being lazy or lacking willpower. For me, it was a sophisticated response to trauma.</p>
+<p>When you’re told repeatedly that you’re not worth people’s time unless you perform perfectly, you find domains where perfection is achievable and measurable.</p>
+<p>The ranking systems in competitive games are designed to be addictive. But more than that, they offered something I couldn’t find elsewhere after Georgia Tech. A sense of belonging, measurable progress, and achievement without emotional risk.</p>
+<p>The irony is that hitting #1 didn’t fix anything. I thought it would. I thought if I could be the best at something, anything, the voices would quiet down.</p>
+<p>They didn’t.</p>
+<p>Healing isn’t about willpower. It’s about processing what you’ve been avoiding. It’s about building tolerance for uncertainty and imperfection without reaching for escape mechanisms. It’s about finding environments where you’re aligned, where you belong, rather than constantly proving you deserve to be there.</p>
+<p>I’m one month into this. I don’t have clean answers. I don’t know if I’ll relapse. But I’m finally facing what I spent 11,500 hours avoiding. The belief that I’m only worth people’s time when I’m perfect.</p>
+<p>And maybe, just maybe, that’s the actual achievement worth grinding for.</p>
+<hr>
+<h3>Epilogue</h3>
+<p><strong>If you’re an academic advisor reading this:</strong> Please create environments where students feel safe asking questions. The “figure it out yourself” approach doesn’t build independence. It builds trauma and dropout rates.</p>
+<p><strong>If you’re struggling with gaming addiction:</strong> The community you’ve found is real. The grief of losing it is valid. But if you’re using gaming to avoid something painful, more hours won’t fix it. Ask yourself what you’re actually running from.</p>
+<p><strong>If you’re a therapist:</strong> Gaming addiction in high-achievers often looks like this. Exceptional work output alongside isolation and perfectionism. Telling us to “just quit” misses the point. We need to process what we’re escaping from.</p>
+<p><strong>And if you’re me six months ago, wondering if anyone will understand:</strong> I see you. The cycles are exhausting. You deserve to feel worthy without performing perfectly. The work of healing is harder than hitting any rank, but it’s the only grind that actually matters.</p>
+<hr>
+<p><em>Taha Merghani is an engineer, a computational linguist and recovering competitive gamer. He’s currently exploring LLM security research while learning to sit with discomfort.</em></p>
+
+        </div>
+    </article>
+
+    <div class="back-link">
+        <a href="/writing/">← Back to all articles</a>
+    </div>
+
+    <footer>
+        <p>© 2025 Taha Merghani. Built with intention.</p>
+    </footer>
+</body>
+</html>

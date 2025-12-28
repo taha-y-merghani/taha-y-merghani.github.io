@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doing AI on Old Hardware - Taha Merghani</title>
+    <meta name="description" content="Exploring how to run modern AI models on consumer-grade laptops—what works, what doesn't, and why accessibility matters.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --charcoal: #1a1814;
+            --warm-black: #0d0b09;
+            --cream: #f5f2ed;
+            --amber: #d4a853;
+            --amber-muted: #b8965a;
+            --text-primary: #e8e4de;
+            --text-secondary: #9a9590;
+            --border: rgba(212, 168, 83, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--warm-black);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+        }
+
+        a {
+            color: var(--amber);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--cream);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: linear-gradient(to bottom, var(--warm-black) 0%, transparent 100%);
+        }
+
+        .nav-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            letter-spacing: 0.05em;
+        }
+
+        .nav-name a {
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .nav-links a:hover {
+            color: var(--amber);
+        }
+
+        /* Article Header */
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 2rem;
+        }
+
+        .article-meta {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .article-meta .date {
+            color: var(--amber-muted);
+        }
+
+        .article-meta a {
+            color: var(--amber);
+            text-decoration: none;
+            border-bottom: 1px solid var(--amber);
+        }
+
+        .article-header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .article-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* Article Body */
+        .article-body {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 2rem 2rem 8rem;
+        }
+
+        .article-body p {
+            font-size: 1.15rem;
+            line-height: 1.75;
+            color: var(--text-primary);
+            margin-bottom: 1.75rem;
+        }
+
+        .article-body h2 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .article-body h3 {
+            font-size: 1.5rem;
+            margin: 2.5rem 0 1rem;
+            color: var(--text-primary);
+        }
+
+        .article-body h4 {
+            font-size: 1.2rem;
+            margin: 2rem 0 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .article-body blockquote {
+            border-left: 2px solid var(--amber);
+            background: rgba(212, 168, 83, 0.03);
+            padding: 2rem;
+            margin: 2rem 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--text-primary);
+        }
+
+        .article-body blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-body code {
+            background: rgba(212, 168, 83, 0.1);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 0.9em;
+            color: var(--amber);
+        }
+
+        .article-body pre {
+            background: var(--charcoal);
+            padding: 1.5rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            margin: 2rem 0;
+        }
+
+        .article-body pre code {
+            background: transparent;
+            padding: 0;
+            color: var(--text-primary);
+        }
+
+        .article-body ul, .article-body ol {
+            margin: 1.5rem 0 1.5rem 2rem;
+            color: var(--text-primary);
+        }
+
+        .article-body li {
+            margin-bottom: 0.75rem;
+            font-size: 1.15rem;
+            line-height: 1.75;
+        }
+
+        .article-body img {
+            max-width: 100%;
+            height: auto;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .article-body hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 3rem 0;
+        }
+
+        .article-body a {
+            color: var(--amber);
+            border-bottom: 1px solid var(--amber);
+        }
+
+        .article-body a:hover {
+            color: var(--cream);
+            border-color: var(--cream);
+        }
+
+        /* Back Link */
+        .back-link {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .back-link a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .back-link a:hover {
+            color: var(--amber);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 8%;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .article-header {
+                padding: 6rem 1.5rem 1.5rem;
+            }
+
+            .article-body {
+                padding: 1.5rem 1.5rem 6rem;
+            }
+
+            .article-body h2 {
+                font-size: 1.75rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+
+    <nav>
+        <div class="nav-name"><a href="/">Taha Merghani</a></div>
+        <div class="nav-links">
+            <a href="/#story">Story</a>
+            <a href="/writing/">Writing</a>
+            <a href="/#work">Work</a>
+            <a href="/#contact">Contact</a>
+        </div>
+    </nav>
+
+    <article>
+        <header class="article-header">
+            <div class="article-meta">
+                <span class="date">July 3, 2025</span>
+                <span class="reading-time">4 min read</span>
+            </div>
+            <h1>Doing AI on Old Hardware</h1>
+            <p class="article-description">Exploring how to run modern AI models on consumer-grade laptops—what works, what doesn't, and why accessibility matters.</p>
+            
+        </header>
+
+        <div class="article-body">
+            <hr>
+<h3>Doing AI with Old Hardware</h3>
+<p>In another <a href="https://medium.com/@tahaymerghani/cursor-fixed-everything-until-it-didnt-1e8c20a8f30b">episode</a> of my efforts to be a modern AI engineer on a crusty 2015 MacBook Pro, bypassing the “it works on my machine” hurdles was (You’re absolutely right!) tough.</p>
+<p>This is a reference to my app which is a very simple <a href="https://github.com/taha-y-merghani/chatbot">chatbot</a> I wanted to deploy.</p>
+<hr>
+<h3>1 The Hardware Reality Check</h3>
+<p>I love that old MacBook. It still boots fast and the keyboard feels like home, but under the hood it’s silicon on a calorie-restricted diet. Pair that with a free-tier <strong>t2.micro</strong> in AWS — compute horsepower that fits in a lunchbox — and frustration comes for free.</p>
+<p>First I reached for <strong>OrbStack</strong>, hoping for slick local containers for my Mac as Docker isn’t an option. The installer replied:</p>
+<blockquote>
+<p>Error: This software does not run on macOS versions older than Ventura.</p>
+</blockquote>
+<p>My Mac can’t run Ventura, so shiny tooling was off the table. Time to wrestle with what I had.</p>
+<hr>
+<h3>2 Docker Meets a Vintage CPU</h3>
+<p>The first `docker build` . felt like watching paint dry in slow motion — 8,697 seconds of PyTorch wheels grinding through a single gig of RAM.</p>
+<p>A simple `pip install` dragged like a commute in bad weather. By the end of hour two, I wasn’t just frustrated — I was convinced Docker was asking more of the hardware than it could ever give.</p>
+<p><strong>Lesson #1:</strong> containers are a luxury when your hardware is soon to belong in the vintage aisle.</p>
+<hr>
+<h3>3 Going Native, Staying Sane</h3>
+<p>I tossed the Dockerfile and went classic:</p>
+<p>python -m venv venv<br>source venv/bin/activate<br>pip install whisper ollama fastapi uvicorn gradio</p>
+<ul>
+<li><strong>Build time:</strong> hours → minutes</li>
+<li><strong>Overhead:</strong> gone</li>
+<li><strong>Portability:</strong> lower, but acceptable for a one-box projec</li>
+</ul>
+<hr>
+<h3>4 Gradio Grows Up</h3>
+<p>Gradio’s dev server is perfect for demos, not for production on a diet CPU. I wrapped the UI inside FastAPI and launched with Uvicorn:</p>
+<p>from fastapi import FastAPI<br>import gradio as gr</p>
+<p>def chat(audio):<br>    # whisper → text → LLM → answer<br>    ...</p>
+<p>iface = gr.Interface(fn=chat, inputs=&quot;audio&quot;, outputs=&quot;text&quot;)<br>app = FastAPI()<br>app = gr.mount_gradio_app(app, iface, path=&quot;/&quot;)</p>
+<p>uvicorn app:app --host 0.0.0.0 --port 8000 \<br>  --workers 1 --timeout-keep-alive 120</p>
+<p>One worker, one request at a time — that’s victory on this box.</p>
+<hr>
+<h3>5 Keeping It All on the MacBook</h3>
+<p>After the EC2 detour, I shut the cloud tab and decided to live entirely on the crusty MacBook. No remote editors, no rsync, no tmux gymnastics — just local files and a single terminal window.</p>
+<p>The key move was stripping Docker and wiring the Gradio interface into Uvicorn:</p>
+<p>python -m venv venv<br>source venv/bin/activate<br>pip install whisper ollama fastapi uvicorn gradio<br>uvicorn app:app --host 0.0.0.0 --port 8000</p>
+<p>With the app now ASGI-compatible, I could iterate in place: edit code, restart Uvicorn, refresh the browser. The feedback loop shrank to seconds, not hours, and I never again waited on cloud latency or container layers.</p>
+<hr>
+<h3>6 Tuning for a Diet CPU</h3>
+<p>Even on the MacBook, resources are tight. I kept concurrency at 1, loaded the tiniest Whisper model, quantized the LLM, and raised client timeouts so a slow answer didn’t look like failure. No fancy dashboards — just plain-text logs that wouldn’t hog memory.</p>
+<hr>
+<h3>7 Takeaways You Can Steal</h3>
+<ul>
+<li><strong>1. Skip containers on old hardware.</strong> A bare virtualenv is faster.</li>
+<li><strong>2. Uvicorn + ASGI &gt; dev servers.</strong> Production speed without container overhead.</li>
+<li><strong>3. Stay local if remote adds drag.</strong> One machine, zero latency.</li>
+<li><strong>4. Design for constraint.</strong> Tiny hardware forces clarity — embrace it.</li>
+</ul>
+<p>Old gear still ships solid work when you treat it with respect — and a little tough love. If all you’ve got is a crusty MacBook and a pocket-change VM, strip the bloat, keep the loop tight, and let the vintage silicon sing.</p>
+<p>!</p>
+<p>chatGPT conjure of the situation</p>
+<p><strong>Acknowledgements</strong>: <a href="https://x.com/warptux">Tai Groot on twitter</a>, Cursor, and chatGPT.</p>
+
+        </div>
+    </article>
+
+    <div class="back-link">
+        <a href="/writing/">← Back to all articles</a>
+    </div>
+
+    <footer>
+        <p>© 2025 Taha Merghani. Built with intention.</p>
+    </footer>
+</body>
+</html>
