@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What I Actually Worked On: NLP Research at the Intersection of Language, Geography, and Social Networks - Taha Merghani</title>
+    <meta name="description" content="A deep dive into my Georgia Tech research on Arabic ASR, Twitter POS tagging, dialectal word mining, and story generation—and where those ideas have gone since.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --charcoal: #1a1814;
+            --warm-black: #0d0b09;
+            --cream: #f5f2ed;
+            --amber: #d4a853;
+            --amber-muted: #b8965a;
+            --text-primary: #e8e4de;
+            --text-secondary: #9a9590;
+            --border: rgba(212, 168, 83, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--warm-black);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+        }
+
+        a {
+            color: var(--amber);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--cream);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: linear-gradient(to bottom, var(--warm-black) 0%, transparent 100%);
+        }
+
+        .nav-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            letter-spacing: 0.05em;
+        }
+
+        .nav-name a {
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .nav-links a:hover {
+            color: var(--amber);
+        }
+
+        /* Article Header */
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 2rem;
+        }
+
+        .article-meta {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .article-meta .date {
+            color: var(--amber-muted);
+        }
+
+        .article-meta a {
+            color: var(--amber);
+            text-decoration: none;
+            border-bottom: 1px solid var(--amber);
+        }
+
+        .article-header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .article-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* Article Body */
+        .article-body {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 2rem 2rem 8rem;
+        }
+
+        .article-body p {
+            font-size: 1.15rem;
+            line-height: 1.75;
+            color: var(--text-primary);
+            margin-bottom: 1.75rem;
+        }
+
+        .article-body h2 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .article-body h3 {
+            font-size: 1.5rem;
+            margin: 2.5rem 0 1rem;
+            color: var(--text-primary);
+        }
+
+        .article-body h4 {
+            font-size: 1.2rem;
+            margin: 2rem 0 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .article-body blockquote {
+            border-left: 2px solid var(--amber);
+            background: rgba(212, 168, 83, 0.03);
+            padding: 2rem;
+            margin: 2rem 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--text-primary);
+        }
+
+        .article-body blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-body code {
+            background: rgba(212, 168, 83, 0.1);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 0.9em;
+            color: var(--amber);
+        }
+
+        .article-body pre {
+            background: var(--charcoal);
+            padding: 1.5rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            margin: 2rem 0;
+        }
+
+        .article-body pre code {
+            background: transparent;
+            padding: 0;
+            color: var(--text-primary);
+        }
+
+        .article-body ul, .article-body ol {
+            margin: 1.5rem 0 1.5rem 2rem;
+            color: var(--text-primary);
+        }
+
+        .article-body li {
+            margin-bottom: 0.75rem;
+            font-size: 1.15rem;
+            line-height: 1.75;
+        }
+
+        .article-body img {
+            max-width: 100%;
+            height: auto;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .article-body hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 3rem 0;
+        }
+
+        .article-body a {
+            color: var(--amber);
+            border-bottom: 1px solid var(--amber);
+        }
+
+        .article-body a:hover {
+            color: var(--cream);
+            border-color: var(--cream);
+        }
+
+        /* Back Link */
+        .back-link {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .back-link a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .back-link a:hover {
+            color: var(--amber);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 8%;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .article-header {
+                padding: 6rem 1.5rem 1.5rem;
+            }
+
+            .article-body {
+                padding: 1.5rem 1.5rem 6rem;
+            }
+
+            .article-body h2 {
+                font-size: 1.75rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+
+    <nav>
+        <div class="nav-name"><a href="/">Taha Merghani</a></div>
+        <div class="nav-links">
+            <a href="/#story">Story</a>
+            <a href="/writing/">Writing</a>
+            <a href="/#work">Work</a>
+            <a href="/#contact">Contact</a>
+        </div>
+    </nav>
+
+    <article>
+        <header class="article-header">
+            <div class="article-meta">
+                <span class="date">December 4, 2024</span>
+                <span class="reading-time">11 min read</span>
+            </div>
+            <h1>What I Actually Worked On: NLP Research at the Intersection of Language, Geography, and Social Networks</h1>
+            <p class="article-description">A deep dive into my Georgia Tech research on Arabic ASR, Twitter POS tagging, dialectal word mining, and story generation—and where those ideas have gone since.</p>
+            
+        </header>
+
+        <div class="article-body">
+            <p><em>A companion to my earlier piece on surviving grad school—this one&#39;s about the work itself.</em></p>
+<p>I&#39;ve written elsewhere about the personal cost of my master&#39;s program at Georgia Tech. That piece was about survival. This one is about what I was actually trying to build—and what happened to those ideas since.</p>
+<p>My research sat at a specific intersection: how do we make NLP systems work when language varies—across dialects, social groups, and geography? This wasn&#39;t an abstract problem then, and it isn&#39;t now. Standard NLP models are trained predominantly on edited, formal text. When you apply them to social media, to regional dialects, to the way people actually write and speak, performance drops. Sometimes dramatically.</p>
+<p>I worked on three projects during my time in research, each approaching this problem from a different angle. Here&#39;s what I learned, and where the field has gone since.</p>
+<h2>1. Arabic Speech Recognition: When Spelling Doesn&#39;t Map to Sound</h2>
+<p>My first research experience was at MIT&#39;s Computer Science and Artificial Intelligence Laboratory in 2015, working on automatic speech recognition (ASR) for Egyptian Arabic.</p>
+<p>Arabic presents a cluster of challenges that don&#39;t exist in English ASR. The standard written form omits most vowels—diacritical marks that indicate pronunciation are typically left out. This means the same written word can map to multiple pronunciations depending on context. Add to that Arabic&#39;s rich morphology (words are built from roots with extensive prefixes and suffixes) and the significant differences between Modern Standard Arabic and regional dialects like Egyptian, and you have a genuinely hard problem.</p>
+<p>The research question was straightforward: <strong>does adding diacritics back into the pronunciation dictionary improve ASR performance?</strong></p>
+<p>We worked with a 10-hour corpus of Egyptian Arabic broadcast speech from Al-Jazeera. I built three pronunciation lexicons using MADAMIRA (a morphological analysis tool) and Kaldi, then trained GMM-HMM acoustic models, deep neural networks, and sequence-discriminative DNNs on each.</p>
+<p>The surprising result: <strong>the CODA grapheme lexicon slightly outperformed the diacritized version</strong>. On our best acoustic model, the CODA lexicon achieved 55.6% word error rate versus 56.1% for the diacritized lexicon.</p>
+<p>Why would <em>adding</em> information make things worse? The likely explanation is that automatic diacritization introduces its own errors, and those errors propagate through the system. A cleaner, standardized representation—even without explicit vowel information—gave the acoustic model a more consistent signal to learn from.</p>
+<p>The broader lesson: <strong>more information isn&#39;t always better. Cleaner information often is.</strong></p>
+<h3>What Happened Since</h3>
+<p>The ASR landscape has transformed. OpenAI&#39;s Whisper, trained on 680,000 hours of multilingual speech, can now handle Arabic dialects with reasonable zero-shot performance on standard benchmarks. But here&#39;s what&#39;s striking: recent benchmarking studies show that Whisper still struggles significantly with unseen dialects. A 2023 study found that while Whisper achieves near-human performance on standard Arabic (around 4% WER on FLEURS), it deteriorates dramatically on dialects like Algerian, Yemeni, and Emirati that weren&#39;t well-represented in training.</p>
+<p>The core tension we identified in 2015—the gap between Modern Standard Arabic and dialectal speech—remains unsolved at scale. Projects like Casablanca (EMNLP 2024), a community-driven effort to collect multidialectal Arabic speech data, are still actively working on this. The problem has been partially addressed by massive data and compute, but the long tail of Arabic dialects remains underserved.</p>
+<p>My MIT mentors, Tuka Al Hanai and Michael Price, noted in their recommendation letter that I had proposed morpheme-based lexical modeling as future work. That direction—decomposing words into meaningful subunits—is now standard in modern tokenization schemes. The instinct was right, even if I didn&#39;t have the resources to pursue it then.</p>
+<h2>2. Part-of-Speech Tagging: When Your Social Network Predicts Your Errors</h2>
+<p>My main project at Georgia Tech, published at the NAACL 2018 Workshop on Stylistic Variation, asked a different question: <strong>is the difficulty of processing someone&#39;s text related to who they&#39;re connected to?</strong></p>
+<p>Part-of-speech tagging—labeling each word as noun, verb, adjective, etc.—is a fundamental NLP task. State-of-the-art taggers achieve 97%+ accuracy on newswire text. On Twitter, that drops to around 90%. The reason is stylistic variation: non-standard spelling, novel word formations, code-switching, and the full diversity of how people actually write when they&#39;re not being edited.</p>
+<p>But here&#39;s what&#39;s less obvious: that variation isn&#39;t random. It&#39;s structured by social networks. People who interact tend to write similarly. Linguists call this <em>homophily</em>—birds of a feather flock together, and they also tweet together.</p>
+<p>We tested this hypothesis directly. Using the OCT27 Twitter dataset with POS annotations, we extracted the social networks of the tweet authors—who follows whom, who mentions whom, who retweets whom. Then we asked: <strong>if a POS tagger makes errors on user A&#39;s tweets, is it more likely to make errors on user B&#39;s tweets when A and B are connected?</strong></p>
+<p>The answer is yes. We measured this using assortativity—the correlation of errors across network edges. Across both mention and retweet networks, tagger errors were significantly more correlated on the real networks than on randomly rewired baselines.</p>
+<p>This has a practical implication: <strong>training data composition matters</strong>. When we split training and test sets based on network structure—training on one cluster of the social graph, testing on another—accuracy dropped about 2% compared to random splits. If your training data comes from one subcommunity and your test data from another, you&#39;ll underperform.</p>
+<p>We also tried to <em>fix</em> this by building social awareness into the model itself. We implemented a mixture-of-experts architecture where each expert tagger was weighted by the author&#39;s position in the social network. The idea was that socially proximate authors would use similar expert weightings.</p>
+<p>It didn&#39;t work. Despite the strong homophily signal in our analysis, the mixture-of-experts model didn&#39;t outperform a standard tagger. About 50% of authors couldn&#39;t be found in the network, we only had one tweet per author, and the dataset was small. The signal was real, but we couldn&#39;t exploit it with the data we had.</p>
+<p>That&#39;s research. Sometimes you demonstrate a phenomenon clearly but can&#39;t yet build a system that leverages it.</p>
+<h3>What Happened Since</h3>
+<p>The LLM era has changed the landscape in complicated ways. Large language models, trained on massive web corpora, implicitly encode some stylistic variation—they&#39;ve seen enough Twitter, Reddit, and informal text to handle non-standard inputs better than earlier models. But they&#39;ve also introduced new problems.</p>
+<p>Recent work on the &quot;sociolinguistic foundations of language modeling&quot; (Frontiers in AI, 2024) argues that many LLM failures stem from a mismatch between the language varieties models are trained on and the varieties they&#39;re deployed on. The training data skews toward edited, formal, English-dominant sources. The core insight from our 2018 paper—that stylistic variation is structured and that structure matters—is now being rediscovered in the context of LLM bias and robustness.</p>
+<p>The field has also shifted focus. Questions about social network structure and NLP performance now feel less urgent than questions about alignment, security, and the behavior of increasingly capable models. But the underlying problem persists: language technology serves some communities better than others, and the communities with less representation in training data get worse service. Whether we&#39;re talking about POS tagging accuracy or LLM hallucination rates, the dynamic is similar.</p>
+<h2>3. Mining Dialectal Words: Kernel Methods Meet Sociolinguistics</h2>
+<p>My third project, presented at the Black in AI workshop at NeurIPS 2018, approached language variation from a geographic angle: <strong>can we automatically discover which words are associated with specific locations?</strong></p>
+<p>Traditional dialectology relies on expert intuition to identify candidate variables—words or pronunciations that might vary by region. But social media gives us massive geotagged corpora. Can we mine them systematically?</p>
+<p>I used the Hilbert-Schmidt Independence Criterion (HSIC), a kernel-based nonparametric independence test introduced to computational linguistics by Dong Nguyen and Jacob Eisenstein. The intuition: if word usage and geography are independent, then knowing where a tweet was posted tells you nothing about whether it contains a particular word. HSIC measures the discrepancy between the joint distribution and the product of marginals, using kernel functions to handle both variables.</p>
+<p>I applied this to a corpus of 650,000 geotagged French tweets from Lyon, France. For each of the ~5,000 candidate words appearing in at least 100 tweets, I computed the HSIC value and associated p-value via permutation testing.</p>
+<p>The top-ranked words weren&#39;t random. They included tennis terminology (<em>atp</em>, <em>federer</em>, <em>open</em>—Lyon hosted a major tournament in 2017), horse racing vocabulary (<em>quinte</em>, <em>turf</em>), tech industry terms (<em>iot</em>, <em>data</em>—Lyon is a tech hub), and Arabic loanwords (<em>ibn</em>, <em>wesh</em>—reflecting immigrant communities).</p>
+<p>The method surfaced words genuinely associated with Lyon. This demonstrates HSIC&#39;s utility not just for confirming known dialectal variables, but for <em>discovering</em> new ones—without predefined geographic bins or prior assumptions about what might vary.</p>
+<h3>What Happened Since</h3>
+<p>HSIC has continued to see use in dialectology. A 2018 paper on &quot;Dialectones&quot; used our approach to detect dialectal boundaries in Mexican Spanish Twitter data, citing Nguyen and Eisenstein&#39;s original work. The method has also been extended with faster approximations for large-scale testing and adaptations for clustered data.</p>
+<p>But the broader question—how to systematically discover geolinguistic variation—has been somewhat overtaken by LLMs. When you can prompt a model to generate text &quot;in the style of Lyon French&quot; or &quot;as a speaker from Northern England,&quot; the discovery problem feels less pressing. Whether those generations are actually accurate is another question.</p>
+<p>I&#39;ve had conversations with researchers who think there&#39;s still value in revisiting this approach with modern tools—using HSIC or similar methods to audit whether LLMs correctly capture geographic variation, rather than just to discover it. That feels like a worthwhile direction, though not one I&#39;m actively pursuing.</p>
+<h2>A Fourth Project: Story Generation (Briefly)</h2>
+<p>I also contributed to work on automated story generation in Mark Riedl&#39;s lab, which eventually became an AAAI 2020 paper on &quot;Story Realization.&quot; The core idea was decomposing story generation into two steps: generating a sequence of abstract events, then translating those events into natural language sentences.</p>
+<p>The event-to-sentence translation is harder than it sounds. A naive sequence-to-sequence model tends to ignore the input event and just generate grammatically correct but semantically unrelated text. The published system used an ensemble of five models—retrieve-and-edit, template filling, Monte Carlo beam search, finite state machine constrained decoding, and vanilla seq2seq—each optimized for different points on the tradeoff between preserving event semantics and generating interesting sentences.</p>
+<p>My contribution was on the baseline seq2seq model training. I wasn&#39;t on the final author list—the project evolved significantly after I left, and my contribution was upstream infrastructure rather than the novel ensemble architecture. But working on it taught me something important: automatic evaluation of creative text is genuinely hard. BLEU and perplexity don&#39;t capture whether a generated story is <em>good</em>. The team eventually ran human evaluations showing the ensemble outperformed the baseline on enjoyability and genre consistency. That&#39;s the kind of evaluation that matters for generative systems, and it&#39;s expensive.</p>
+<h2>The Thread Connecting These Projects</h2>
+<p>Looking back, I see a consistent interest: <strong>language varies, and that variation carries information</strong>.</p>
+<p>In Arabic ASR, the variation is between standard orthography and dialectal pronunciation. In Twitter POS tagging, the variation is between formal edited text and diverse social media styles. In geographic word mining, the variation is between local and global vocabulary. In story generation, the variation is between what an event means abstractly and how it might be expressed in natural language.</p>
+<p>Standard NLP often treats this variation as noise to be overcome. I think it&#39;s signal to be understood. The way someone writes tells you something about where they&#39;re from, who they talk to, what communities they belong to.</p>
+<h2>Where I Am Now</h2>
+<p>I left academia after graduating in 2019. The personal cost was too high, and I needed distance. I worked at a startup, dealt with health issues, worked briefly in industrial AI, and have spent the past couple of years recalibrating.</p>
+<p>My interests have shifted. The problems that feel most urgent to me now are in AI alignment and security—not how to make models handle dialectal variation, but how to make increasingly capable models behave safely and as intended. The NLP work I did was about understanding <em>how</em> language varies and <em>why</em> that matters for systems. The alignment work I&#39;m drawn to now is about understanding <em>how</em> model behavior varies and <em>why</em> that matters for safety.</p>
+<p>There&#39;s a through-line. Both are about taking variation seriously rather than treating it as noise. Both are about who gets served by AI systems and who gets harmed. Both require thinking carefully about what &quot;good performance&quot; even means when the ground truth is contested or context-dependent.</p>
+<p>I don&#39;t know exactly what my next role looks like. I&#39;m learning, reading, and looking for the right entry point. But I wanted to write down what I actually worked on, and what I think it meant, before moving forward.</p>
+
+        </div>
+    </article>
+
+    <div class="back-link">
+        <a href="/writing/">← Back to all articles</a>
+    </div>
+
+    <footer>
+        <p>© 2025 Taha Merghani. Built with intention.</p>
+    </footer>
+</body>
+</html>
