@@ -1308,15 +1308,15 @@
                 </div>
 
                 <p class="current-project-description">
-                    <strong>The Question:</strong> How did the NLP pipeline collapse between 2020 and 2025? This project benchmarks the architectural shift from template-based synthetic data → LLM-enhanced generation in public health surveillance (disease outbreak detection from news headlines).
+                    <strong>The Question:</strong> How did the NLP pipeline collapse between 2020 and 2025? This project analyzes the architectural shift from template-based synthetic data (spaCy + GloVe 2014) → LLM-enhanced generation (Transformers + zero-shot prompts) in disease outbreak detection.
                 </p>
 
                 <p class="current-project-description">
-                    <strong>The Results:</strong> Location extraction: <strong>71% → 84%</strong> (+13%). Disease extraction: <strong>68% → 77%</strong> (+9%). Clusters detected: <strong>9 → 13</strong> (+44%). But latency: <strong>0.8s → 3.2s</strong> (4× slower). Cost: <strong>$0 → $0.40</strong> per 200 headlines. LLMs improved accuracy but introduced new bottlenecks—API costs, non-determinism, explainability loss.
+                    <strong>2025 Measured Results:</strong> 168 locations (84%), 154 diseases (77%) extracted from 200 LLM-generated headlines. 13 spatial clusters identified via DBSCAN. The architectural shift: better generalization (handles post-2020 entities), but new tradeoffs—API costs, non-determinism, explainability loss.
                 </p>
 
                 <p class="current-project-description">
-                    <strong>What Didn't Change:</strong> DBSCAN clustering (ε=500km, geodesic distance). Why? It's geometry, not NLP. The best part of the 2020 pipeline is still optimal in 2025. Senior engineers preserve working code during rewrites—they identify what <em>doesn't</em> need LLMs.
+                    <strong>What Didn't Change:</strong> DBSCAN clustering. Why? It's geometry, not NLP. The 2020 geospatial code is still optimal in 2025. Senior engineers preserve working components during paradigm shifts—they identify what <em>doesn't</em> need LLMs.
                 </p>
 
                 <div class="current-why">
