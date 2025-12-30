@@ -297,6 +297,111 @@
             color: var(--text-secondary);
         }
 
+        /* Building Now Section */
+        .building-now {
+            padding: 6rem 8%;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .building-now .section-label {
+            margin-bottom: 3rem;
+        }
+
+        .current-project {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem;
+            border: 2px solid var(--amber);
+            background: rgba(212, 168, 83, 0.03);
+            position: relative;
+        }
+
+        .current-badge {
+            position: absolute;
+            top: -12px;
+            left: 2rem;
+            background: var(--warm-black);
+            padding: 0 1rem;
+            font-size: 0.7rem;
+            color: var(--amber);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .current-project h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .current-project h2 a {
+            color: inherit;
+            border-bottom: 2px solid var(--amber);
+            transition: color 0.3s ease;
+        }
+
+        .current-project h2 a:hover {
+            color: var(--amber);
+        }
+
+        .current-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .current-stack .tech-tag {
+            font-size: 0.8rem;
+            padding: 0.5rem 1rem;
+            background: rgba(212, 168, 83, 0.15);
+        }
+
+        .current-project-description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .current-why {
+            background: rgba(212, 168, 83, 0.05);
+            border-left: 3px solid var(--amber);
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .current-why h4 {
+            font-size: 0.85rem;
+            color: var(--amber);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 500;
+        }
+
+        .current-why p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .building-now {
+                padding: 4rem 5%;
+            }
+
+            .current-project {
+                padding: 2rem 1.5rem;
+            }
+
+            .current-project h2 {
+                font-size: 1.5rem;
+            }
+        }
+
         /* Projects Section */
         .projects-grid {
             display: grid;
@@ -501,7 +606,7 @@
             font-weight: 500;
         }
 
-        /* The Unusual Chapter */
+        /* Competitive Optimization */
         .unusual-section {
             background: linear-gradient(135deg, rgba(212, 168, 83, 0.05) 0%, transparent 50%);
         }
@@ -771,6 +876,9 @@
             <p class="hero-tagline">Computational Linguist & Research Engineer</p>
             <h1>I build systems that understand <span>language</span>, and I <a href="/writing/" style="color: var(--amber); border-bottom: 2px solid var(--amber);">write</a> about the work that matters.</h1>
             <p class="hero-description">From NLP research at Georgia Tech to building tools at Apple Siri that are still in use eight years later, I've spent a decade at the intersection of language and machine learning. Now I'm looking for early-stage teams where exceptional technical work is the strategy.</p>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 1.5rem; letter-spacing: 0.05em;">
+                <span style="color: var(--amber-muted);">Writing recognized by:</span> Jeff Dean · Reddit AI Community (200K+ views)
+            </p>
             <div style="margin-top: 2rem;">
                 <a href="/writing/" class="writing-cta">Read My Writing →</a>
             </div>
@@ -778,6 +886,37 @@
         <div class="scroll-indicator">
             <span>Scroll</span>
             <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <section class="building-now">
+        <p class="section-label">Building Now</p>
+
+        <div class="current-project reveal">
+            <span class="current-badge">2025 · Active Development</span>
+
+            <h2><a href="https://github.com/taha-y-merghani/chatbot" target="_blank">Local Voice-to-LLM Engine</a></h2>
+
+            <div class="current-stack">
+                <span class="tech-tag">OpenAI Whisper</span>
+                <span class="tech-tag">Ollama</span>
+                <span class="tech-tag">Mistral 7B</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Gradio</span>
+            </div>
+
+            <p class="current-project-description">
+                A speech-enabled chatbot that runs entirely locally—no API calls, no external dependencies. Users speak questions, Whisper transcribes in real-time, Ollama generates responses via Mistral 7B. Built to solve latency and privacy constraints that cloud-based solutions can't address.
+            </p>
+
+            <p class="current-project-description">
+                Optimized for consumer hardware (MacBook Pro 2015) by handling subprocess orchestration and error recovery manually. When modern tools like Cursor failed on hardware bottlenecks, I debugged at the process level—timeout handling, NumPy compatibility, port conflicts.
+            </p>
+
+            <div class="current-why">
+                <h4>Why This Matters</h4>
+                <p>This isn't a research project. It's production-grade engineering showing I can build end-to-end AI systems with the current stack—handling real constraints (old hardware, no GPU), real errors (subprocess timeouts), and real deployment (ASGI/FastAPI compatibility). The kind of work that ships.</p>
+            </div>
         </div>
     </section>
 
@@ -796,7 +935,7 @@
                     <p>In September 2025, after 8.5 years, my asylum case was finally approved. Eight and a half years of uncertainty, of building a life on temporary foundations. That shapes how you see risk, opportunity, and time.</p>
                 </div>
 
-                <p>The years between academia and now included startup work at Decooda and Mesa Associates, circuit breaker analysis and Oracle Cloud Infrastructure. They also included a period I don't hide from: COVID lockdown, gaming addiction, and eventually recovery. I sold my console in November 2025. Sometimes the most important work is internal.</p>
+                <p>The years between academia and now included startup work at Decooda and Mesa Associates, circuit breaker analysis and Oracle Cloud Infrastructure. They also included periods of recalibration—understanding when to optimize for external output versus internal clarity.</p>
 
                 <p>Now I write technical content that occasionally reaches unexpected places (200K views on Reddit, my Medium essay shared by Jeff Dean). I'm exploring LLM security research through a warm connection with Promptfoo's CTO. And I'm looking for a team where exceptional technical work is the strategy, not just the output.</p>
             </div>
@@ -936,13 +1075,13 @@
     </section>
 
     <section class="unusual-section">
-        <p class="section-label">The Unusual Chapter</p>
+        <p class="section-label">Competitive Optimization</p>
         <div class="unusual-grid">
             <div class="unusual-content">
-                <h2>5,000 hours of competitive Tekken.</h2>
-                <p>During COVID, I fell into fighting games the way some people fall into substances. Tekken 8, Nina Williams main. I reached Tekken God rank (top 0.5% globally) and held the #1 position for ranked wins worldwide.</p>
-                <p>This isn't a brag. It's context. The same obsessive pattern recognition and optimization that made me good at competitive gaming is the same thing that makes me effective at research and engineering. The difference is what you point it at.</p>
-                <p>I sold the console in November 2025. Some of the most important competitive analysis I've done is understanding my own patterns.</p>
+                <h2>5,000 hours of competitive mastery.</h2>
+                <p>Over five years, I reached the top 0.5% globally in Tekken (Tekken God rank, Nina Williams main) and held the #1 position worldwide for ranked wins. This required frame-perfect execution, matchup-specific adaptation, and systematic optimization under pressure.</p>
+                <p>The pattern recognition that makes someone elite at fighting games—reading opponent tendencies, exploiting micro-advantages, iterating on failure in real-time—is the same cognitive process that drives effective research and engineering. The difference is where you apply it.</p>
+                <p>What competitive gaming taught me: how to diagnose failure systematically, how to stay sharp under uncertainty, and when optimization for its own sake becomes the problem instead of the solution.</p>
             </div>
             <div class="stat-grid">
                 <div class="stat-item">
