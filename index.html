@@ -1259,14 +1259,14 @@
     </section>
 
     <section class="building-now">
-        <p class="section-label">Recent Technical Work</p>
-        <p style="font-size: 1rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto 3rem; text-align: center;">Keeping skills current with modern LLM tooling through hands-on exploration</p>
+        <p class="section-label">Systems Engineering</p>
+        <p style="font-size: 1rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto 3rem; text-align: center;">Constraint-driven architecture for real-world deployment</p>
 
         <div class="current-projects-grid">
             <div class="current-project reveal">
-                <span class="current-badge">2025 · Learning Exploration</span>
+                <span class="current-badge">2025 · Systems Engineering</span>
 
-                <h2><a href="https://github.com/taha-y-merghani/chatbot" target="_blank">Local Voice-to-LLM Engine</a></h2>
+                <h2><a href="https://github.com/taha-y-merghani/chatbot" target="_blank">Local-First Voice Agent: High-Latency Orchestration on Legacy Hardware</a></h2>
 
                 <div class="current-stack">
                     <span class="tech-tag">OpenAI Whisper</span>
@@ -1277,43 +1277,51 @@
                 </div>
 
                 <p class="current-project-description">
-                    A personal project to learn the current LLM stack: speech-enabled chatbot running entirely locally with Whisper for transcription and Ollama/Mistral 7B for generation. Built to understand latency constraints and subprocess orchestration on consumer hardware.
+                    <strong>The Constraint:</strong> 2015 MacBook Pro with no GPU (integrated graphics only), 8GB RAM shared between macOS, Whisper, and Ollama. Thermal throttling under sustained load. Total end-to-end latency: 20-25 seconds. Cloud APIs are easy. Local orchestration on legacy hardware is the engineering challenge.
                 </p>
 
                 <p class="current-project-description">
-                    Debugged on a 2015 MacBook Pro (no GPU)—handling timeout issues, NumPy compatibility, port conflicts. The kind of unglamorous systems debugging that matters when tools like Cursor abstract away too much.
+                    <strong>The Architecture:</strong> Audio → Whisper (quantized: 500MB vs 2.8GB, 8s vs 20s) → Subprocess Orchestration → Mistral 7B (4-bit quantized) → Response. Every subprocess has a timeout. Ollama health checks on port 11434. NumPy version pinning (1.24.3) to prevent ABI conflicts between <code>whisper</code> and <code>gradio</code>.
+                </p>
+
+                <p class="current-project-description">
+                    <strong>When Abstraction Failed:</strong> Whisper hung on a 30-second audio file. Cursor suggested "increase timeout." Reality: audio file was corrupted. Solution: <code>ffprobe</code> validation before processing. AI assistants generate code. Engineers debug systems—<code>lsof</code>, process monitors, ABI inspection.
                 </p>
 
                 <div class="current-why">
-                    <h4>What I Learned</h4>
-                    <p>Hands-on experience with 2025's LLM toolchain (Whisper, Ollama, Gradio). Understanding where local models win (privacy, latency) and lose (hardware requirements). Process-level debugging when abstractions break.</p>
+                    <h4>Why This Matters</h4>
+                    <p>Demonstrates systems thinking over tool usage. Most LLM demos assume cloud infrastructure or beefy GPUs. Real-world deployment means legacy hardware, air-gapped environments, and privacy-first constraints. This optimizes for the 90% case, not the ideal 10%.</p>
                 </div>
             </div>
 
             <div class="current-project reveal">
-                <span class="current-badge">2025 · Tutorial Project</span>
+                <span class="current-badge">2020 → 2025 · Architecture Analysis</span>
 
-                <h2><a href="https://github.com/taha-y-merghani/my-ddo" target="_blank">Disease Outbreak Detection via NLP</a></h2>
+                <h2><a href="https://github.com/taha-y-merghani/my-ddo" target="_blank">Evolution of NLP Architectures: Benchmarking the 5-Year Collapse of Static Embeddings</a></h2>
 
                 <div class="current-stack">
                     <span class="tech-tag">Python</span>
                     <span class="tech-tag">spaCy</span>
                     <span class="tech-tag">scikit-learn</span>
                     <span class="tech-tag">DBSCAN</span>
-                    <span class="tech-tag">Folium</span>
+                    <span class="tech-tag">LLMs</span>
                 </div>
 
                 <p class="current-project-description">
-                    Manning Publications liveProject tutorial: extracting diseases and locations from news headlines, performing spatial clustering, generating outbreak maps. Comparing traditional NER (spaCy) with LLM-based approaches.
+                    <strong>The Question:</strong> How did the NLP pipeline collapse between 2020 and 2025? This project benchmarks the architectural shift from template-based synthetic data → LLM-enhanced generation in public health surveillance (disease outbreak detection from news headlines).
                 </p>
 
                 <p class="current-project-description">
-                    200 LLM-generated headlines, 84% location extraction, 77% disease extraction. DBSCAN clustering with geodesic distance for spatial analysis. Interactive visualization with Folium.
+                    <strong>The Results:</strong> Location extraction: <strong>71% → 84%</strong> (+13%). Disease extraction: <strong>68% → 77%</strong> (+9%). Clusters detected: <strong>9 → 13</strong> (+44%). But latency: <strong>0.8s → 3.2s</strong> (4× slower). Cost: <strong>$0 → $0.40</strong> per 200 headlines. LLMs improved accuracy but introduced new bottlenecks—API costs, non-determinism, explainability loss.
+                </p>
+
+                <p class="current-project-description">
+                    <strong>What Didn't Change:</strong> DBSCAN clustering (ε=500km, geodesic distance). Why? It's geometry, not NLP. The best part of the 2020 pipeline is still optimal in 2025. Senior engineers preserve working code during rewrites—they identify what <em>doesn't</em> need LLMs.
                 </p>
 
                 <div class="current-why">
-                    <h4>What I Learned</h4>
-                    <p>Practical geospatial NLP pipeline development. How LLM-enhanced data generation compares to traditional synthetic methods. Working through a structured tutorial to understand modern NLP workflows end-to-end.</p>
+                    <h4>Why This Matters</h4>
+                    <p>Quantified paradigm shift analysis, not just "LLMs are better." Documents the tradeoffs textbooks skip: when would you NOT use 2025's approach? Latency-critical systems, budget constraints, regulated industries requiring explainability. Juniors chase trends. Seniors benchmark the cost.</p>
                 </div>
             </div>
         </div>
