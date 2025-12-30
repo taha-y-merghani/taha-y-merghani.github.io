@@ -1277,15 +1277,15 @@
                 </div>
 
                 <p class="current-project-description">
-                    <strong>The Constraint:</strong> 2015 MacBook Pro with no GPU (integrated graphics only), 8GB RAM shared between macOS, Whisper, and Ollama. Thermal throttling under sustained load. Total end-to-end latency: 20-25 seconds. Cloud APIs are easy. Local orchestration on legacy hardware is the engineering challenge.
+                    <strong>The Constraint:</strong> 2015 MacBook Pro with no GPU (integrated graphics only), limited RAM, thermal throttling. Cloud APIs are easy. Local orchestration on legacy hardware is the engineering challenge.
                 </p>
 
                 <p class="current-project-description">
-                    <strong>The Architecture:</strong> Audio → Whisper (quantized: 500MB vs 2.8GB, 8s vs 20s) → Subprocess Orchestration → Mistral 7B (4-bit quantized) → Response. Every subprocess has a timeout. Ollama health checks on port 11434. NumPy version pinning (1.24.3) to prevent ABI conflicts between <code>whisper</code> and <code>gradio</code>.
+                    <strong>What Cursor Fixed:</strong> NumPy version conflicts breaking PyTorch, insecure subprocess calls, missing error handling, wrong model names. It caught almost everything.
                 </p>
 
                 <p class="current-project-description">
-                    <strong>When Abstraction Failed:</strong> Whisper hung on a 30-second audio file. Cursor suggested "increase timeout." Reality: audio file was corrupted. Solution: <code>ffprobe</code> validation before processing. AI assistants generate code. Engineers debug systems—<code>lsof</code>, process monitors, ABI inspection.
+                    <strong>What Cursor Missed:</strong> After all fixes, I tested: <em>"What are the human rights principles of the UN?"</em> Whisper transcribed it. Ollama hung. The problem: Mistral needed >30 seconds on my hardware. Cursor assumed my machine was fast. Solution: raised timeout to 5 minutes. AI assistants generate code. Engineers debug systems.
                 </p>
 
                 <div class="current-why">
