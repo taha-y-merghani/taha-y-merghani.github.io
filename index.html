@@ -307,9 +307,15 @@
             margin-bottom: 3rem;
         }
 
-        .current-project {
-            max-width: 900px;
+        .current-projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
             margin: 0 auto;
+        }
+
+        .current-project {
             padding: 3rem;
             border: 2px solid var(--amber);
             background: rgba(212, 168, 83, 0.03);
@@ -480,6 +486,10 @@
         @media (max-width: 768px) {
             .building-now {
                 padding: 4rem 5%;
+            }
+
+            .current-projects-grid {
+                grid-template-columns: 1fr;
             }
 
             .current-project {
@@ -997,30 +1007,59 @@
     <section class="building-now">
         <p class="section-label">Building Now</p>
 
-        <div class="current-project reveal">
-            <span class="current-badge">2025 · Active Development</span>
+        <div class="current-projects-grid">
+            <div class="current-project reveal">
+                <span class="current-badge">2025 · Active Development</span>
 
-            <h2><a href="https://github.com/taha-y-merghani/chatbot" target="_blank">Local Voice-to-LLM Engine</a></h2>
+                <h2><a href="https://github.com/taha-y-merghani/chatbot" target="_blank">Local Voice-to-LLM Engine</a></h2>
 
-            <div class="current-stack">
-                <span class="tech-tag">OpenAI Whisper</span>
-                <span class="tech-tag">Ollama</span>
-                <span class="tech-tag">Mistral 7B</span>
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">Gradio</span>
+                <div class="current-stack">
+                    <span class="tech-tag">OpenAI Whisper</span>
+                    <span class="tech-tag">Ollama</span>
+                    <span class="tech-tag">Mistral 7B</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Gradio</span>
+                </div>
+
+                <p class="current-project-description">
+                    A speech-enabled chatbot that runs entirely locally—no API calls, no external dependencies. Users speak questions, Whisper transcribes in real-time, Ollama generates responses via Mistral 7B. Built to solve latency and privacy constraints that cloud-based solutions can't address.
+                </p>
+
+                <p class="current-project-description">
+                    Optimized for consumer hardware (MacBook Pro 2015) by handling subprocess orchestration and error recovery manually. When modern tools like Cursor failed on hardware bottlenecks, I debugged at the process level—timeout handling, NumPy compatibility, port conflicts.
+                </p>
+
+                <div class="current-why">
+                    <h4>Why This Matters</h4>
+                    <p>This isn't a research project. It's production-grade engineering showing I can build end-to-end AI systems with the current stack—handling real constraints (old hardware, no GPU), real errors (subprocess timeouts), and real deployment (ASGI/FastAPI compatibility). The kind of work that ships.</p>
+                </div>
             </div>
 
-            <p class="current-project-description">
-                A speech-enabled chatbot that runs entirely locally—no API calls, no external dependencies. Users speak questions, Whisper transcribes in real-time, Ollama generates responses via Mistral 7B. Built to solve latency and privacy constraints that cloud-based solutions can't address.
-            </p>
+            <div class="current-project reveal">
+                <span class="current-badge">2020 → 2025 · Manning Publications</span>
 
-            <p class="current-project-description">
-                Optimized for consumer hardware (MacBook Pro 2015) by handling subprocess orchestration and error recovery manually. When modern tools like Cursor failed on hardware bottlenecks, I debugged at the process level—timeout handling, NumPy compatibility, port conflicts.
-            </p>
+                <h2><a href="https://github.com/taha-y-merghani/my-ddo" target="_blank">Disease Outbreak Detection via NLP</a></h2>
 
-            <div class="current-why">
-                <h4>Why This Matters</h4>
-                <p>This isn't a research project. It's production-grade engineering showing I can build end-to-end AI systems with the current stack—handling real constraints (old hardware, no GPU), real errors (subprocess timeouts), and real deployment (ASGI/FastAPI compatibility). The kind of work that ships.</p>
+                <div class="current-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">spaCy</span>
+                    <span class="tech-tag">scikit-learn</span>
+                    <span class="tech-tag">DBSCAN</span>
+                    <span class="tech-tag">Folium</span>
+                </div>
+
+                <p class="current-project-description">
+                    Manning Publications liveProject demonstrating NLP evolution in public health surveillance. Extracts diseases and locations from news headlines, performs spatial clustering, generates interactive outbreak maps. Compares 2020 traditional methods with 2025 LLM-enhanced approaches.
+                </p>
+
+                <p class="current-project-description">
+                    Processed 200 LLM-generated headlines with 84% location extraction and 77% disease extraction accuracy. Identified 13 spatial outbreak clusters across Southeast Asia and Americas using DBSCAN with geodesic distance metrics.
+                </p>
+
+                <div class="current-why">
+                    <h4>Why This Matters</h4>
+                    <p>Shows evolution of NLP techniques over 5 years—from template-based synthetic data to LLM-enhanced generation. Demonstrates practical application of geospatial clustering, named entity recognition, and interactive visualization for real-world public health use cases.</p>
+                </div>
             </div>
         </div>
     </section>
