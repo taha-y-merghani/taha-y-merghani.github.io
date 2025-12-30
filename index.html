@@ -991,6 +991,80 @@
                 margin-left: 0;
             }
         }
+    
+        /* Testimonials */
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial {
+            background: rgba(212, 168, 83, 0.03);
+            border: 1px solid var(--border);
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .testimonial:hover {
+            border-color: var(--amber-muted);
+            transform: translateY(-5px);
+            background: rgba(212, 168, 83, 0.05);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--amber-muted);
+            background-color: var(--charcoal);
+        }
+
+        .testimonial-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .testimonial-info cite {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-style: normal;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+
+        .testimonial-info .role {
+            font-size: 0.8rem;
+            color: var(--amber);
+            letter-spacing: 0.05em;
+            margin-top: 0.2rem;
+            line-height: 1.4;
+        }
+
+        .testimonial-text {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text-primary); /* Brighter text */
+            font-weight: 300;
+        }
+        
+        .testimonial-text strong {
+            color: var(--amber);
+            font-weight: 500;
+        }
+
     </style>
 </head>
 <body id="top">
@@ -1297,26 +1371,65 @@
 
     <section>
         <p class="section-label">What People Say</p>
-        <div class="testimonials-container">
+                <div class="testimonials-container">
+            <!-- Jeffrey Lai -->
             <div class="testimonial reveal">
-                <p class="testimonial-text">Taha made a lasting impact during his Siri internship, advancing Siri's i18n and scaling efforts. He built a powerful bug logging tool that streamlined debugging 10x for engineers and program managers, still in use today. His project was selected for Apple's internal research summit.</p>
-                <p class="testimonial-author"><strong>Jeffrey Lai</strong> · Co-founder & CEO, Tallgeese AI · Ex-Apple</p>
+                <div class="testimonial-header">
+                    <img src="assets/testimonials/jeffrey-lai.jpg" alt="Jeffrey Lai" class="testimonial-img" onerror="this.style.display='none'">
+                    <div class="testimonial-info">
+                        <cite>Jeffrey Lai</cite>
+                        <span class="role">Co-founder & CEO, Tallgeese AI · Ex-Apple</span>
+                    </div>
+                </div>
+                <p class="testimonial-text">Taha made a lasting impact during his Siri internship, advancing Siri's i18n and scaling efforts. He built a powerful bug logging tool that <strong>streamlined debugging 10x</strong> for engineers and program managers, still in use today. His project was <strong>selected for Apple's internal research summit</strong>.</p>
             </div>
+
+            <!-- Abdelrahman Karrar -->
             <div class="testimonial reveal">
-                <p class="testimonial-text">I would meet him at the University of Tennessee at Chattanooga when he would come on some weekends. I was struck by how different he was compared to his peers. He was interested in intellectual discussions, exploring social, cultural and political issues. He offered to accompany me on a journey to Atlanta Airport to pick up a mutual friend, and the two-hour journey turned out to be an education for me. I am still influenced by the ideas we discussed and the podcasts he made me listen to.</p>
-                <p class="testimonial-author"><strong>Abdelrahman Karrar</strong> · PhD, IEEE Senior Member · Professor, UT Chattanooga</p>
+                <div class="testimonial-header">
+                    <img src="assets/testimonials/abdelrahman-karrar.jpg" alt="Abdelrahman Karrar" class="testimonial-img" onerror="this.style.display='none'">
+                    <div class="testimonial-info">
+                        <cite>Abdelrahman Karrar</cite>
+                        <span class="role">PhD, IEEE Senior Member · Professor, UT Chattanooga</span>
+                    </div>
+                </div>
+                <p class="testimonial-text">I would meet him at the University of Tennessee at Chattanooga when he would come on some weekends. I was struck by <strong>how different he was compared to his peers</strong>. He was interested in <strong>intellectual discussions</strong>, exploring social, cultural and political issues. He offered to accompany me on a journey to Atlanta Airport to pick up a mutual friend, and the two-hour journey turned out to be an education for me. I am still influenced by the ideas we discussed and the podcasts he made me listen to.</p>
             </div>
+
+            <!-- Jonathan Zhang -->
             <div class="testimonial reveal">
-                <p class="testimonial-text">He developed a testing tool that received recognition from Apple's head of engineering and, notably, remains in use today—an uncommon accomplishment in an industry where software often changes rapidly. This achievement highlights Taha's engineering precision and foresight in building solutions with lasting impact.</p>
-                <p class="testimonial-author"><strong>Jonathan Zhang</strong> · Machine Learning Engineer, Pinterest</p>
+                <div class="testimonial-header">
+                    <img src="assets/testimonials/jonathan-zhang.jpg" alt="Jonathan Zhang" class="testimonial-img" onerror="this.style.display='none'">
+                    <div class="testimonial-info">
+                        <cite>Jonathan Zhang</cite>
+                        <span class="role">Machine Learning Engineer, Pinterest</span>
+                    </div>
+                </div>
+                <p class="testimonial-text">He developed a testing tool that <strong>received recognition from Apple's head of engineering</strong> and, notably, <strong>remains in use today</strong>—an uncommon accomplishment in an industry where software often changes rapidly. This achievement highlights Taha's engineering precision and foresight in building solutions with lasting impact.</p>
             </div>
+
+            <!-- Robert Citorik -->
             <div class="testimonial reveal">
-                <p class="testimonial-text">He was easily one of the most motivated students I have had the pleasure of advising, always providing questions that drove our weekly group meetings toward useful discussions, and one of the few who would connect offline for conversations regarding science and careers. We even continued these discussions after the end of the program.</p>
-                <p class="testimonial-author"><strong>Robert Citorik</strong> · Co-Founder, Tessera Therapeutics · MIT</p>
+                <div class="testimonial-header">
+                    <img src="assets/testimonials/robert-citorik.jpg" alt="Robert Citorik" class="testimonial-img" onerror="this.style.display='none'">
+                    <div class="testimonial-info">
+                        <cite>Robert Citorik</cite>
+                        <span class="role">Co-Founder, Tessera Therapeutics · MIT</span>
+                    </div>
+                </div>
+                <p class="testimonial-text">He was <strong>easily one of the most motivated students</strong> I have had the pleasure of advising, always providing questions that drove our weekly group meetings toward useful discussions, and one of the few who would <strong>connect offline for conversations regarding science</strong> and careers. We even continued these discussions after the end of the program.</p>
             </div>
+
+            <!-- Shuang Z. Tu -->
             <div class="testimonial reveal">
-                <p class="testimonial-text">Taha was undoubtedly the best undergraduate student I had the privilege of teaching during his time at Jackson State University from 2013 to 2017. His performance in all the courses I taught was exceptional. I learned that Taha completed the Machine Learning course offered by Stanford as an independent study under the guidance of the ECE Department Chair, and once again, his performance was exemplary. I am therefore very confident that Taha is academically well-prepared for any technical position he chooses.</p>
-                <p class="testimonial-author"><strong>Shuang Z. Tu</strong> · Professor, Jackson State University</p>
+                <div class="testimonial-header">
+                    <img src="assets/testimonials/shuang-tu.jpg" alt="Shuang Z. Tu" class="testimonial-img" onerror="this.style.display='none'">
+                    <div class="testimonial-info">
+                        <cite>Shuang Z. Tu</cite>
+                        <span class="role">Professor, Jackson State University</span>
+                    </div>
+                </div>
+                <p class="testimonial-text">Taha was undoubtedly the best undergraduate student I had the privilege of teaching during his time at Jackson State University from 2013 to 2017. His performance in all the courses I taught was <strong>exceptional</strong>. I learned that Taha completed the Machine Learning course offered by Stanford as an independent study under the guidance of the ECE Department Chair, and once again, his performance was exemplary. I am therefore very confident that Taha is <strong>academically well-prepared for any technical position</strong> he chooses.</p>
             </div>
         </div>
     </section>
