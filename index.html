@@ -329,6 +329,95 @@
             font-weight: 500;
         }
 
+        /* Resume Download Section */
+        .resume-section {
+            padding: 4rem 8%;
+            background: rgba(212, 168, 83, 0.03);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .resume-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .resume-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .resume-description {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .resume-downloads {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .resume-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2.5rem;
+            background: var(--amber);
+            color: var(--warm-black);
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-family: 'Source Sans 3', sans-serif;
+        }
+
+        .resume-btn:hover {
+            background: var(--text-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 168, 83, 0.3);
+        }
+
+        .resume-btn.secondary {
+            background: transparent;
+            color: var(--amber);
+            border: 2px solid var(--amber);
+        }
+
+        .resume-btn.secondary:hover {
+            background: rgba(212, 168, 83, 0.1);
+            color: var(--amber);
+        }
+
+        @media (max-width: 768px) {
+            .resume-section {
+                padding: 3rem 5%;
+            }
+
+            .resume-title {
+                font-size: 1.4rem;
+            }
+
+            .resume-downloads {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .resume-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
         .current-project h2 {
             font-size: 2rem;
             margin-bottom: 1rem;
@@ -886,6 +975,25 @@
         <div class="scroll-indicator">
             <span>Scroll</span>
             <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <section class="resume-section">
+        <div class="resume-container">
+            <h2 class="resume-title">Ready to Hire?</h2>
+            <p class="resume-description">
+                AI Research Engineer with NeurIPS/NAACL publications, 4.0 GPA, and production tools still running at Apple eight years later. Download my resume to see the full trajectory.
+            </p>
+            <div class="resume-downloads">
+                <a href="/Taha_Merghani_Resume.pdf" class="resume-btn" download>
+                    <span>📄</span>
+                    Download Resume (PDF)
+                </a>
+                <a href="/Taha_Merghani_Resume.docx" class="resume-btn secondary" download>
+                    <span>📝</span>
+                    Download Resume (DOCX)
+                </a>
+            </div>
         </div>
     </section>
 
