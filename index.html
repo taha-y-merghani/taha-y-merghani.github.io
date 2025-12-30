@@ -974,8 +974,8 @@
     <section class="hero">
         <div class="hero-content">
             <p class="hero-tagline">Computational Linguist & Research Engineer</p>
-            <h1>I build systems that understand <span>language</span>, and I <a href="/writing/" style="color: var(--amber); border-bottom: 2px solid var(--amber);">write</a> about the work that matters.</h1>
-            <p class="hero-description">From NLP research at Georgia Tech to building tools at Apple Siri that are still in use eight years later, I've spent a decade at the intersection of language and machine learning. Now I'm looking for early-stage teams where exceptional technical work is the strategy.</p>
+            <h1>I bridge <span>computational linguistics research</span> and production systems that ship—and last.</h1>
+            <p class="hero-description">The intersection is rare: NeurIPS/NAACL publications, tools still running at Apple eight years later, and a path from Khartoum's #1 exam scorer to debugging dialectal Arabic ASR at MIT to surviving Georgia Tech's masters program. I <a href="/writing/" style="color: var(--amber); border-bottom: 2px solid var(--amber);">write</a> about what I learn along the way.</p>
             <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 1.5rem; letter-spacing: 0.05em;">
                 <span style="color: var(--amber-muted);">Writing recognized by:</span> Jeff Dean · Reddit AI Community (200K+ views)
             </p>
@@ -1005,11 +1005,12 @@
     </section>
 
     <section class="building-now">
-        <p class="section-label">Building Now</p>
+        <p class="section-label">Recent Technical Work</p>
+        <p style="font-size: 1rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto 3rem; text-align: center;">Keeping skills current with modern LLM tooling through hands-on exploration</p>
 
         <div class="current-projects-grid">
             <div class="current-project reveal">
-                <span class="current-badge">2025 · Active Development</span>
+                <span class="current-badge">2025 · Learning Exploration</span>
 
                 <h2><a href="https://github.com/taha-y-merghani/chatbot" target="_blank">Local Voice-to-LLM Engine</a></h2>
 
@@ -1022,21 +1023,21 @@
                 </div>
 
                 <p class="current-project-description">
-                    A speech-enabled chatbot that runs entirely locally—no API calls, no external dependencies. Users speak questions, Whisper transcribes in real-time, Ollama generates responses via Mistral 7B. Built to solve latency and privacy constraints that cloud-based solutions can't address.
+                    A personal project to learn the current LLM stack: speech-enabled chatbot running entirely locally with Whisper for transcription and Ollama/Mistral 7B for generation. Built to understand latency constraints and subprocess orchestration on consumer hardware.
                 </p>
 
                 <p class="current-project-description">
-                    Optimized for consumer hardware (MacBook Pro 2015) by handling subprocess orchestration and error recovery manually. When modern tools like Cursor failed on hardware bottlenecks, I debugged at the process level—timeout handling, NumPy compatibility, port conflicts.
+                    Debugged on a 2015 MacBook Pro (no GPU)—handling timeout issues, NumPy compatibility, port conflicts. The kind of unglamorous systems debugging that matters when tools like Cursor abstract away too much.
                 </p>
 
                 <div class="current-why">
-                    <h4>Why This Matters</h4>
-                    <p>This isn't a research project. It's production-grade engineering showing I can build end-to-end AI systems with the current stack—handling real constraints (old hardware, no GPU), real errors (subprocess timeouts), and real deployment (ASGI/FastAPI compatibility). The kind of work that ships.</p>
+                    <h4>What I Learned</h4>
+                    <p>Hands-on experience with 2025's LLM toolchain (Whisper, Ollama, Gradio). Understanding where local models win (privacy, latency) and lose (hardware requirements). Process-level debugging when abstractions break.</p>
                 </div>
             </div>
 
             <div class="current-project reveal">
-                <span class="current-badge">2020 → 2025 · Manning Publications</span>
+                <span class="current-badge">2025 · Tutorial Project</span>
 
                 <h2><a href="https://github.com/taha-y-merghani/my-ddo" target="_blank">Disease Outbreak Detection via NLP</a></h2>
 
@@ -1049,16 +1050,16 @@
                 </div>
 
                 <p class="current-project-description">
-                    Manning Publications liveProject demonstrating NLP evolution in public health surveillance. Extracts diseases and locations from news headlines, performs spatial clustering, generates interactive outbreak maps. Compares 2020 traditional methods with 2025 LLM-enhanced approaches.
+                    Manning Publications liveProject tutorial: extracting diseases and locations from news headlines, performing spatial clustering, generating outbreak maps. Comparing traditional NER (spaCy) with LLM-based approaches.
                 </p>
 
                 <p class="current-project-description">
-                    Processed 200 LLM-generated headlines with 84% location extraction and 77% disease extraction accuracy. Identified 13 spatial outbreak clusters across Southeast Asia and Americas using DBSCAN with geodesic distance metrics.
+                    200 LLM-generated headlines, 84% location extraction, 77% disease extraction. DBSCAN clustering with geodesic distance for spatial analysis. Interactive visualization with Folium.
                 </p>
 
                 <div class="current-why">
-                    <h4>Why This Matters</h4>
-                    <p>Shows evolution of NLP techniques over 5 years—from template-based synthetic data to LLM-enhanced generation. Demonstrates practical application of geospatial clustering, named entity recognition, and interactive visualization for real-world public health use cases.</p>
+                    <h4>What I Learned</h4>
+                    <p>Practical geospatial NLP pipeline development. How LLM-enhanced data generation compares to traditional synthetic methods. Working through a structured tutorial to understand modern NLP workflows end-to-end.</p>
                 </div>
             </div>
         </div>
@@ -1081,7 +1082,7 @@
 
                 <p>The years between academia and now included startup work at Decooda and Mesa Associates, circuit breaker analysis and Oracle Cloud Infrastructure. They also included periods of recalibration—understanding when to optimize for external output versus internal clarity.</p>
 
-                <p>Now I write technical content that occasionally reaches unexpected places (200K views on Reddit, my Medium essay shared by Jeff Dean). I'm exploring LLM security research through a warm connection with Promptfoo's CTO. And I'm looking for a team where exceptional technical work is the strategy, not just the output.</p>
+                <p><strong>Since April 2023, I've been working as an independent AI research engineer.</strong> I write technical content that occasionally reaches unexpected places (200K views on Reddit, my Medium essay shared by Jeff Dean). Currently exploring LLM evaluation, robustness, and the ways models fail across linguistic contexts—the gap between benchmark performance and real-world reliability. And I'm looking for a team where exceptional technical work is the strategy, not just the output.</p>
             </div>
         </div>
 
@@ -1092,9 +1093,9 @@
                 <p>Kernel methods for mining dialectal variation in Lyon French. Under Jacob Eisenstein.</p>
             </div>
             <div class="credential-card">
-                <h3><a href="https://aclanthology.org/W18-1602/" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px solid var(--amber);">Modeling Dialectal Variation</a></h3>
-                <p class="venue">NAACL Workshop</p>
-                <p>Stylistic variation and geographical factors in social media. Under Jacob Eisenstein.</p>
+                <h3><a href="https://aclanthology.org/W18-1602/" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px solid var(--amber);">Stylistic Variation in Social Media Part-of-Speech Tagging</a></h3>
+                <p class="venue">NAACL 2018 Workshop</p>
+                <p>Social network structure correlates with POS tagger errors on Twitter. Under Jacob Eisenstein.</p>
             </div>
             <div class="credential-card">
                 <h3><a href="/mit-arabic-asr-2015.pdf" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px solid var(--amber);">Arabic Speech Recognition</a></h3>
@@ -1164,7 +1165,7 @@
                     <span class="project-year">2018</span>
                 </div>
                 <p class="project-description">
-                    Research implementation of event-based narrative generation from Georgia Tech. Contributed to AAAI 2020 paper on automated story generation. Uses event-to-event and event-to-sentence neural models to create coherent narratives.
+                    Research implementation of event-based narrative generation from Georgia Tech's Mark Riedl lab. Built baseline seq2seq models for event-to-sentence translation. The project later evolved into Martin et al.'s AAAI 2020 paper—my work was upstream infrastructure, not the novel ensemble architecture that was published.
                 </p>
                 <div class="project-tech">
                     <span class="tech-tag">Python</span>
@@ -1175,10 +1176,10 @@
                 </div>
                 <div class="project-highlights">
                     <ul>
-                        <li>Event extraction with Stanford CoreNLP parsing</li>
-                        <li>Neural sequence models for event → event transitions</li>
-                        <li>Natural language generation from event representations</li>
-                        <li>Published at AAAI 2020 (Martin et al.)</li>
+                        <li>Event extraction pipeline using Stanford CoreNLP</li>
+                        <li>Baseline seq2seq training for event-to-sentence translation</li>
+                        <li>Infrastructure work in Mark Riedl's computational creativity lab</li>
+                        <li>Project evolved into AAAI 2020 publication after my graduation</li>
                     </ul>
                 </div>
             </div>
@@ -1191,12 +1192,13 @@
         <div class="work-item reveal">
             <div class="work-meta">
                 <span class="type">Technical Writing</span>
-                <a href="https://www.reddit.com/r/ArtificialInteligence/comments/1pq7cnw/what_5000_hours_of_mastering_tekken_taught_me/" target="_blank">Reddit</a>
+                <a href="https://medium.com/@tahaymerghani/a-machine-learning-researcher-spent-close-to-5-000-hours-on-tekken-and-reached-top-0-5-a42c96877214" target="_blank">Medium</a>
+                <a href="https://www.reddit.com/r/ArtificialInteligence/comments/1pq7cnw/what_5000_hours_of_mastering_tekken_taught_me/" target="_blank">Reddit (#1 on r/AI)</a>
             </div>
             <div class="work-content">
                 <h3><a href="https://medium.com/@tahaymerghani/a-machine-learning-researcher-spent-close-to-5-000-hours-on-tekken-and-reached-top-0-5-a42c96877214" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px solid var(--amber);">What 5,000 Hours of Mastering Tekken Taught Me About AI Research</a></h3>
                 <p>Autophenomenological analysis exploring parallels between competitive gaming mastery and pattern recognition in ML research. Examining whether the obsessive optimization that makes someone elite at fighting games relates to what makes someone effective at research.</p>
-                <p class="work-stats">~200K views</p>
+                <p class="work-stats">~200K views · #1 on r/ArtificialIntelligence</p>
             </div>
         </div>
 
@@ -1273,7 +1275,7 @@
     <section id="contact">
         <div class="contact-section">
             <h2>Let's Talk</h2>
-            <p>I'm looking for research engineering or AI engineering roles at early-stage startups solving hard problems at the intersection of language and AI. If you're building something that matters and need someone who does exceptional technical work, I'd like to hear about it.</p>
+            <p>Open to research engineering and AI engineering roles—especially at teams tackling hard problems at the intersection of language, evaluation, and robustness. If you're building systems where the details actually matter, let's connect.</p>
             <div class="contact-links">
                 <a href="mailto:tahaymerghani@gmail.com">Email</a>
                 <a href="https://github.com/taha-y-merghani" target="_blank">GitHub</a>
