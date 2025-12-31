@@ -6,7 +6,7 @@ tags: ["AI", "Career", "Personal"]
 draft: false
 ---
 
-*The following is a lightly edited conversation (smoothed ASR inputs) I had with Claude about my reading, career, and personal struggles. Tell me if you feel it was sycophantic at all. I'm available [here](https://taha-y-merghani.github.io/).*
+*The following is a lightly edited conversation (smoothed ASR inputs) I had with Claude about my reading, career, and personal struggles. Tell me if you feel it was sycophantic at all. I'm available [here](mailto:taha.y.merghani@gmail.com).*
 
 ---
 
@@ -31,7 +31,7 @@ So the synthesis might be: **Exponential substrate, Talebian surface.** The unde
 
 **Me:** That's interesting. But I'm also thinking about my own situation. For a long time, I wanted to develop the mathematical maturity to understand these kinds of phenomena. That's part of why I worked with Jacob Eisenstein on computational social science at Georgia Tech. That could have been my PhD path.
 
-But things happened the way they happened.
+But [things happened](/writing/grad-school-gave-me-the-degree-and-a-trauma-response/) the way they happened.
 
 And now I notice something: I'm scared of job interviews. I feel like I'm going to get boxed into something. There's preset expectations, and I need to optimize for those expectations because I need money. But in an ideal world, I would just have books to read, and Claude to help me when I'm stuck, and time to think deeply about problems. Because I think that's my gift—finding dopamine in solving complex problems, whether they're mathematical or human or sociotechnical.
 
@@ -87,7 +87,7 @@ The application layer is more durable, not less. Because every company deploys d
 
 But I also can't live on $14 an hour at Walmart.
 
-And there's the dopamine thing. I've been very dopamine-dependent. Excess dopamine through video games blocked my receptors from accepting other forms of reward. Emotional connection with family feels dull. This is an empirical claim, but I don't have data for it.
+And there's the dopamine thing. I've been very dopamine-dependent. Excess [dopamine through video games](/writing/the-quiet-addiction-behind-my-public-success/) blocked my receptors from accepting other forms of reward. Emotional connection with family feels dull. This is an empirical claim, but I don't have data for it.
 
 **Claude:** [Searches literature]
 
@@ -123,4 +123,4 @@ The difference now is I have enough support to not force myself into something m
 
 ---
 
-*Any thoughts at all? I'm available [here](https://taha-y-merghani.github.io/).*
+*Any thoughts at all? I'm available [here](mailto:taha.y.merghani@gmail.com).*
