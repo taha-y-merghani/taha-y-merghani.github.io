@@ -1,6 +1,6 @@
 ---
 title: "How I Have Personal Conversations with Claude"
-date: 2024-12-30
+date: 2025-12-31
 description: "A lightly edited conversation with Claude Opus 4.5 about career topology, neurobiology, and intellectual recovery."
 tags: ["AI", "Career", "Personal"]
 draft: false
