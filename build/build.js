@@ -110,9 +110,23 @@ async function buildListingPage(articles) {
     new Date(b.rawDate) - new Date(a.rawDate)
   );
 
-  // Generate article cards
+  // Extract all unique tags
+  const allTags = new Set();
+  articles.forEach(article => {
+    if (article.tags) {
+      article.tags.forEach(tag => allTags.add(tag));
+    }
+  });
+  const uniqueTags = Array.from(allTags).sort();
+
+  // Generate filter buttons
+  const filterButtons = uniqueTags.map(tag =>
+    `<button class="filter-btn" data-tag="${tag}">${tag}</button>`
+  ).join('\n');
+
+  // Generate article cards with data attributes for filtering
   const articleCards = sortedArticles.map(article => `
-    <a href="/writing/${article.slug}/" class="article-card reveal">
+    <a href="/writing/${article.slug}/" class="article-card reveal" data-tags="${article.tags ? article.tags.join(',') : ''}" data-date="${article.rawDate}">
       <div class="article-card-header">
         <span class="article-date">${article.date}</span>
         <span class="article-reading-time">${article.readingTime}</span>
@@ -125,6 +139,7 @@ async function buildListingPage(articles) {
 
   const html = template
     .replace('{{ARTICLE_COUNT}}', articles.length)
+    .replace('{{FILTER_BUTTONS}}', filterButtons)
     .replace('{{ARTICLE_CARDS}}', articleCards);
 
   await fs.writeFile(

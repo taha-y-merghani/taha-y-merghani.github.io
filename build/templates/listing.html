@@ -248,6 +248,84 @@
             color: var(--amber-muted);
         }
 
+        /* Filter and Sort Controls */
+        .controls-section {
+            margin-bottom: 3rem;
+        }
+
+        .filter-label {
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.2rem;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Source Sans 3', sans-serif;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--amber-muted);
+            color: var(--amber);
+        }
+
+        .filter-btn.active {
+            border-color: var(--amber);
+            background: var(--amber);
+            color: var(--warm-black);
+        }
+
+        .sort-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .sort-btn {
+            padding: 0.6rem 1.2rem;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Source Sans 3', sans-serif;
+        }
+
+        .sort-btn:hover {
+            border-color: var(--amber-muted);
+            color: var(--amber);
+        }
+
+        .sort-btn.active {
+            border-color: var(--amber);
+            color: var(--amber);
+        }
+
+        .article-card.hidden {
+            display: none;
+        }
+
         /* Footer */
         footer {
             padding: 3rem 8%;
@@ -318,7 +396,21 @@
     </section>
 
     <section class="articles-section">
-        <p class="articles-count">{{ARTICLE_COUNT}} Article{{ARTICLE_COUNT}} === 1 ? '' : 's'}}</p>
+        <div class="controls-section">
+            <span class="filter-label">Filter by topic:</span>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-tag="all">All</button>
+                {{FILTER_BUTTONS}}
+            </div>
+
+            <div class="sort-controls">
+                <span class="filter-label" style="margin-bottom: 0;">Sort by:</span>
+                <button class="sort-btn active" data-sort="recency">Recency</button>
+                <button class="sort-btn" data-sort="topic">Topic</button>
+            </div>
+        </div>
+
+        <p class="articles-count"><span id="visible-count">{{ARTICLE_COUNT}}</span> of {{ARTICLE_COUNT}} articles</p>
         <div class="articles-grid">
             {{ARTICLE_CARDS}}
         </div>
@@ -346,6 +438,107 @@
         document.querySelectorAll('.reveal').forEach(el => {
             observer.observe(el);
         });
+
+        // Filter and Sort functionality
+        let activeFilters = new Set(['all']);
+        let currentSort = 'recency';
+
+        const articleCards = Array.from(document.querySelectorAll('.article-card'));
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const sortButtons = document.querySelectorAll('.sort-btn');
+        const visibleCountEl = document.getElementById('visible-count');
+
+        function updateVisibleCount() {
+            const visible = articleCards.filter(card => !card.classList.contains('hidden')).length;
+            visibleCountEl.textContent = visible;
+        }
+
+        function filterArticles() {
+            articleCards.forEach(card => {
+                const cardTags = card.dataset.tags.split(',').filter(t => t);
+
+                if (activeFilters.has('all')) {
+                    card.classList.remove('hidden');
+                } else {
+                    const hasMatchingTag = cardTags.some(tag => activeFilters.has(tag));
+                    if (hasMatchingTag) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                }
+            });
+            updateVisibleCount();
+        }
+
+        function sortArticles() {
+            const grid = document.querySelector('.articles-grid');
+            const visibleCards = articleCards.filter(card => !card.classList.contains('hidden'));
+
+            visibleCards.sort((a, b) => {
+                if (currentSort === 'recency') {
+                    return new Date(b.dataset.date) - new Date(a.dataset.date);
+                } else if (currentSort === 'topic') {
+                    const aTag = a.dataset.tags.split(',')[0] || '';
+                    const bTag = b.dataset.tags.split(',')[0] || '';
+                    const tagCompare = aTag.localeCompare(bTag);
+                    if (tagCompare !== 0) return tagCompare;
+                    return new Date(b.dataset.date) - new Date(a.dataset.date);
+                }
+                return 0;
+            });
+
+            // Re-append in new order
+            visibleCards.forEach(card => grid.appendChild(card));
+        }
+
+        // Filter button click handlers
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tag = btn.dataset.tag;
+
+                if (tag === 'all') {
+                    activeFilters.clear();
+                    activeFilters.add('all');
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                } else {
+                    activeFilters.delete('all');
+                    document.querySelector('[data-tag="all"]').classList.remove('active');
+
+                    if (activeFilters.has(tag)) {
+                        activeFilters.delete(tag);
+                        btn.classList.remove('active');
+                    } else {
+                        activeFilters.add(tag);
+                        btn.classList.add('active');
+                    }
+
+                    // If no filters selected, default to 'all'
+                    if (activeFilters.size === 0) {
+                        activeFilters.add('all');
+                        document.querySelector('[data-tag="all"]').classList.add('active');
+                    }
+                }
+
+                filterArticles();
+                sortArticles();
+            });
+        });
+
+        // Sort button click handlers
+        sortButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentSort = btn.dataset.sort;
+                sortButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                sortArticles();
+            });
+        });
+
+        // Initial state
+        filterArticles();
+        sortArticles();
     </script>
 </body>
 </html>

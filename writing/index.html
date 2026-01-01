@@ -248,6 +248,84 @@
             color: var(--amber-muted);
         }
 
+        /* Filter and Sort Controls */
+        .controls-section {
+            margin-bottom: 3rem;
+        }
+
+        .filter-label {
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.2rem;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Source Sans 3', sans-serif;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--amber-muted);
+            color: var(--amber);
+        }
+
+        .filter-btn.active {
+            border-color: var(--amber);
+            background: var(--amber);
+            color: var(--warm-black);
+        }
+
+        .sort-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .sort-btn {
+            padding: 0.6rem 1.2rem;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Source Sans 3', sans-serif;
+        }
+
+        .sort-btn:hover {
+            border-color: var(--amber-muted);
+            color: var(--amber);
+        }
+
+        .sort-btn.active {
+            border-color: var(--amber);
+            color: var(--amber);
+        }
+
+        .article-card.hidden {
+            display: none;
+        }
+
         /* Footer */
         footer {
             padding: 3rem 8%;
@@ -318,10 +396,54 @@
     </section>
 
     <section class="articles-section">
-        <p class="articles-count">12 Article{{ARTICLE_COUNT}} === 1 ? '' : 's'}}</p>
+        <div class="controls-section">
+            <span class="filter-label">Filter by topic:</span>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-tag="all">All</button>
+                <button class="filter-btn" data-tag="AI">AI</button>
+<button class="filter-btn" data-tag="Academia">Academia</button>
+<button class="filter-btn" data-tag="Algorithms">Algorithms</button>
+<button class="filter-btn" data-tag="Career">Career</button>
+<button class="filter-btn" data-tag="Gaming">Gaming</button>
+<button class="filter-btn" data-tag="Hardware">Hardware</button>
+<button class="filter-btn" data-tag="LLM">LLM</button>
+<button class="filter-btn" data-tag="Learning">Learning</button>
+<button class="filter-btn" data-tag="Linguistics">Linguistics</button>
+<button class="filter-btn" data-tag="Mental Health">Mental Health</button>
+<button class="filter-btn" data-tag="NLP">NLP</button>
+<button class="filter-btn" data-tag="Neuroscience">Neuroscience</button>
+<button class="filter-btn" data-tag="Personal">Personal</button>
+<button class="filter-btn" data-tag="Productivity">Productivity</button>
+<button class="filter-btn" data-tag="Psychology">Psychology</button>
+<button class="filter-btn" data-tag="Research">Research</button>
+<button class="filter-btn" data-tag="Skill">Skill</button>
+<button class="filter-btn" data-tag="Tech">Tech</button>
+<button class="filter-btn" data-tag="Technical">Technical</button>
+<button class="filter-btn" data-tag="Tools">Tools</button>
+            </div>
+
+            <div class="sort-controls">
+                <span class="filter-label" style="margin-bottom: 0;">Sort by:</span>
+                <button class="sort-btn active" data-sort="recency">Recency</button>
+                <button class="sort-btn" data-sort="topic">Topic</button>
+            </div>
+        </div>
+
+        <p class="articles-count"><span id="visible-count">13</span> of {{ARTICLE_COUNT}} articles</p>
         <div class="articles-grid">
             
-    <a href="/writing/how-i-have-personal-conversations-with-claude/" class="article-card reveal">
+    <a href="/writing/words-are-not-soft/" class="article-card reveal" data-tags="AI,Neuroscience,Psychology" data-date="Tue Dec 30 2025 19:00:00 GMT-0500 (Eastern Standard Time)">
+      <div class="article-card-header">
+        <span class="article-date">December 30, 2025</span>
+        <span class="article-reading-time">7 min read</span>
+      </div>
+      <h3>Words Are Not Soft</h3>
+      <p class="article-description">On AI psychosis, the neuroscience of verbal input, and why chatbot validation is not the same as human friction.</p>
+      <div class="article-tags"><span class="tag">AI</span><span class="tag">Neuroscience</span><span class="tag">Psychology</span></div>
+    </a>
+  
+
+    <a href="/writing/how-i-have-personal-conversations-with-claude/" class="article-card reveal" data-tags="AI,Career,Personal" data-date="Tue Dec 30 2025 19:00:00 GMT-0500 (Eastern Standard Time)">
       <div class="article-card-header">
         <span class="article-date">December 30, 2025</span>
         <span class="article-reading-time">8 min read</span>
@@ -332,7 +454,7 @@
     </a>
   
 
-    <a href="/writing/the-blue-collar-machine-learning-researcher-the-human-api-in-the-aisle/" class="article-card reveal">
+    <a href="/writing/the-blue-collar-machine-learning-researcher-the-human-api-in-the-aisle/" class="article-card reveal" data-tags="Career,AI,Personal" data-date="Sun Dec 21 2025 19:00:00 GMT-0500 (Eastern Standard Time)">
       <div class="article-card-header">
         <span class="article-date">December 21, 2025</span>
         <span class="article-reading-time">7 min read</span>
@@ -343,7 +465,7 @@
     </a>
   
 
-    <a href="/writing/the-quiet-addiction-behind-my-public-success/" class="article-card reveal">
+    <a href="/writing/the-quiet-addiction-behind-my-public-success/" class="article-card reveal" data-tags="Personal,Mental Health,Gaming" data-date="Wed Dec 10 2025 19:00:00 GMT-0500 (Eastern Standard Time)">
       <div class="article-card-header">
         <span class="article-date">December 10, 2025</span>
         <span class="article-reading-time">9 min read</span>
@@ -354,7 +476,7 @@
     </a>
   
 
-    <a href="/writing/the-most-useful-mistakes-i-made-in-llm-research/" class="article-card reveal">
+    <a href="/writing/the-most-useful-mistakes-i-made-in-llm-research/" class="article-card reveal" data-tags="AI,Research,LLM" data-date="Thu Dec 04 2025 19:00:00 GMT-0500 (Eastern Standard Time)">
       <div class="article-card-header">
         <span class="article-date">December 4, 2025</span>
         <span class="article-reading-time">12 min read</span>
@@ -365,7 +487,7 @@
     </a>
   
 
-    <a href="/writing/doing-ai-on-old-hardware/" class="article-card reveal">
+    <a href="/writing/doing-ai-on-old-hardware/" class="article-card reveal" data-tags="AI,Technical,Hardware" data-date="Thu Jul 03 2025 20:00:00 GMT-0400 (Eastern Daylight Time)">
       <div class="article-card-header">
         <span class="article-date">July 3, 2025</span>
         <span class="article-reading-time">4 min read</span>
@@ -376,7 +498,7 @@
     </a>
   
 
-    <a href="/writing/cursor-fixed-everything-until-it-didn-t/" class="article-card reveal">
+    <a href="/writing/cursor-fixed-everything-until-it-didn-t/" class="article-card reveal" data-tags="AI,Tools,Productivity" data-date="Mon Jun 30 2025 20:00:00 GMT-0400 (Eastern Daylight Time)">
       <div class="article-card-header">
         <span class="article-date">June 30, 2025</span>
         <span class="article-reading-time">2 min read</span>
@@ -387,7 +509,7 @@
     </a>
   
 
-    <a href="/writing/the-curious-case-of-leetcode-523-memorize-or-prove-i-chose-to-learn/" class="article-card reveal">
+    <a href="/writing/the-curious-case-of-leetcode-523-memorize-or-prove-i-chose-to-learn/" class="article-card reveal" data-tags="Algorithms,Technical,Learning" data-date="Sat Jun 28 2025 20:00:00 GMT-0400 (Eastern Daylight Time)">
       <div class="article-card-header">
         <span class="article-date">June 28, 2025</span>
         <span class="article-reading-time">2 min read</span>
@@ -398,7 +520,7 @@
     </a>
   
 
-    <a href="/writing/grad-school-gave-me-the-degree-and-a-trauma-response/" class="article-card reveal">
+    <a href="/writing/grad-school-gave-me-the-degree-and-a-trauma-response/" class="article-card reveal" data-tags="Academia,Mental Health,Personal" data-date="Fri Jun 27 2025 20:00:00 GMT-0400 (Eastern Daylight Time)">
       <div class="article-card-header">
         <span class="article-date">June 27, 2025</span>
         <span class="article-reading-time">12 min read</span>
@@ -409,7 +531,7 @@
     </a>
   
 
-    <a href="/writing/why-i-still-lose-at-tekken-even-after-4-000-hours/" class="article-card reveal">
+    <a href="/writing/why-i-still-lose-at-tekken-even-after-4-000-hours/" class="article-card reveal" data-tags="Gaming,Personal,Skill" data-date="Mon Jun 23 2025 20:00:00 GMT-0400 (Eastern Daylight Time)">
       <div class="article-card-header">
         <span class="article-date">June 23, 2025</span>
         <span class="article-reading-time">4 min read</span>
@@ -420,7 +542,7 @@
     </a>
   
 
-    <a href="/writing/what-i-actually-worked-on-nlp-research-at-the-intersection-of-language-geography-and-social-networks/" class="article-card reveal">
+    <a href="/writing/what-i-actually-worked-on-nlp-research-at-the-intersection-of-language-geography-and-social-networks/" class="article-card reveal" data-tags="NLP,Research,AI,Linguistics" data-date="Wed Dec 04 2024 19:00:00 GMT-0500 (Eastern Standard Time)">
       <div class="article-card-header">
         <span class="article-date">December 4, 2024</span>
         <span class="article-reading-time">11 min read</span>
@@ -431,7 +553,7 @@
     </a>
   
 
-    <a href="/writing/what-5-000-hours-of-mastering-tekken-taught-me-about-ai-research/" class="article-card reveal">
+    <a href="/writing/what-5-000-hours-of-mastering-tekken-taught-me-about-ai-research/" class="article-card reveal" data-tags="AI,Research,Gaming" data-date="Thu Nov 14 2024 19:00:00 GMT-0500 (Eastern Standard Time)">
       <div class="article-card-header">
         <span class="article-date">November 14, 2024</span>
         <span class="article-reading-time">13 min read</span>
@@ -442,7 +564,7 @@
     </a>
   
 
-    <a href="/writing/from-sudan-to-silicon-valley-beyond-the-resume/" class="article-card reveal">
+    <a href="/writing/from-sudan-to-silicon-valley-beyond-the-resume/" class="article-card reveal" data-tags="Career,Personal,Tech" data-date="Sat Oct 19 2024 20:00:00 GMT-0400 (Eastern Daylight Time)">
       <div class="article-card-header">
         <span class="article-date">October 19, 2024</span>
         <span class="article-reading-time">9 min read</span>
@@ -477,6 +599,107 @@
         document.querySelectorAll('.reveal').forEach(el => {
             observer.observe(el);
         });
+
+        // Filter and Sort functionality
+        let activeFilters = new Set(['all']);
+        let currentSort = 'recency';
+
+        const articleCards = Array.from(document.querySelectorAll('.article-card'));
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const sortButtons = document.querySelectorAll('.sort-btn');
+        const visibleCountEl = document.getElementById('visible-count');
+
+        function updateVisibleCount() {
+            const visible = articleCards.filter(card => !card.classList.contains('hidden')).length;
+            visibleCountEl.textContent = visible;
+        }
+
+        function filterArticles() {
+            articleCards.forEach(card => {
+                const cardTags = card.dataset.tags.split(',').filter(t => t);
+
+                if (activeFilters.has('all')) {
+                    card.classList.remove('hidden');
+                } else {
+                    const hasMatchingTag = cardTags.some(tag => activeFilters.has(tag));
+                    if (hasMatchingTag) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                }
+            });
+            updateVisibleCount();
+        }
+
+        function sortArticles() {
+            const grid = document.querySelector('.articles-grid');
+            const visibleCards = articleCards.filter(card => !card.classList.contains('hidden'));
+
+            visibleCards.sort((a, b) => {
+                if (currentSort === 'recency') {
+                    return new Date(b.dataset.date) - new Date(a.dataset.date);
+                } else if (currentSort === 'topic') {
+                    const aTag = a.dataset.tags.split(',')[0] || '';
+                    const bTag = b.dataset.tags.split(',')[0] || '';
+                    const tagCompare = aTag.localeCompare(bTag);
+                    if (tagCompare !== 0) return tagCompare;
+                    return new Date(b.dataset.date) - new Date(a.dataset.date);
+                }
+                return 0;
+            });
+
+            // Re-append in new order
+            visibleCards.forEach(card => grid.appendChild(card));
+        }
+
+        // Filter button click handlers
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tag = btn.dataset.tag;
+
+                if (tag === 'all') {
+                    activeFilters.clear();
+                    activeFilters.add('all');
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                } else {
+                    activeFilters.delete('all');
+                    document.querySelector('[data-tag="all"]').classList.remove('active');
+
+                    if (activeFilters.has(tag)) {
+                        activeFilters.delete(tag);
+                        btn.classList.remove('active');
+                    } else {
+                        activeFilters.add(tag);
+                        btn.classList.add('active');
+                    }
+
+                    // If no filters selected, default to 'all'
+                    if (activeFilters.size === 0) {
+                        activeFilters.add('all');
+                        document.querySelector('[data-tag="all"]').classList.add('active');
+                    }
+                }
+
+                filterArticles();
+                sortArticles();
+            });
+        });
+
+        // Sort button click handlers
+        sortButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentSort = btn.dataset.sort;
+                sortButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                sortArticles();
+            });
+        });
+
+        // Initial state
+        filterArticles();
+        sortArticles();
     </script>
 </body>
 </html>
