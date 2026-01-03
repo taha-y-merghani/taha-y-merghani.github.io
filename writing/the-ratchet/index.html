@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLKE0VWCQ3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-HLKE0VWCQ3');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ratchet - Taha Merghani</title>
+    <meta name="description" content="AI is not the trigger for white-collar displacement. It is the ratchet that prevents the return. The jobs are not coming back—not because AI destroyed them, but because AI made their absence survivable.">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --charcoal: #1a1814;
+            --warm-black: #0d0b09;
+            --cream: #f5f2ed;
+            --amber: #d4a853;
+            --amber-muted: #b8965a;
+            --text-primary: #e8e4de;
+            --text-secondary: #9a9590;
+            --border: rgba(212, 168, 83, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--warm-black);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+        }
+
+        a {
+            color: var(--amber);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--cream);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: linear-gradient(to bottom, var(--warm-black) 0%, transparent 100%);
+        }
+
+        .nav-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            letter-spacing: 0.05em;
+        }
+
+        .nav-name a {
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .nav-links a:hover {
+            color: var(--amber);
+        }
+
+        /* Article Header */
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 2rem;
+        }
+
+        .article-meta {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .article-meta .date {
+            color: var(--amber-muted);
+        }
+
+        .article-meta a {
+            color: var(--amber);
+            text-decoration: none;
+            border-bottom: 1px solid var(--amber);
+        }
+
+        .article-header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .article-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* Article Body */
+        .article-body {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 2rem 2rem 8rem;
+        }
+
+        .article-body p {
+            font-size: 1.15rem;
+            line-height: 1.75;
+            color: var(--text-primary);
+            margin-bottom: 1.75rem;
+        }
+
+        .article-body h2 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .article-body h3 {
+            font-size: 1.5rem;
+            margin: 2.5rem 0 1rem;
+            color: var(--text-primary);
+        }
+
+        .article-body h4 {
+            font-size: 1.2rem;
+            margin: 2rem 0 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .article-body blockquote {
+            border-left: 2px solid var(--amber);
+            background: rgba(212, 168, 83, 0.03);
+            padding: 2rem;
+            margin: 2rem 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--text-primary);
+        }
+
+        .article-body blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-body code {
+            background: rgba(212, 168, 83, 0.1);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 0.9em;
+            color: var(--amber);
+        }
+
+        .article-body pre {
+            background: var(--charcoal);
+            padding: 1.5rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            margin: 2rem 0;
+        }
+
+        .article-body pre code {
+            background: transparent;
+            padding: 0;
+            color: var(--text-primary);
+        }
+
+        .article-body ul, .article-body ol {
+            margin: 1.5rem 0 1.5rem 2rem;
+            color: var(--text-primary);
+        }
+
+        .article-body li {
+            margin-bottom: 0.75rem;
+            font-size: 1.15rem;
+            line-height: 1.75;
+        }
+
+        .article-body img {
+            max-width: 100%;
+            height: auto;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .article-body hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 3rem 0;
+        }
+
+        .article-body a {
+            color: var(--amber);
+            border-bottom: 1px solid var(--amber);
+        }
+
+        .article-body a:hover {
+            color: var(--cream);
+            border-color: var(--cream);
+        }
+
+        /* Back Link */
+        .back-link {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .back-link a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .back-link a:hover {
+            color: var(--amber);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 8%;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .article-header {
+                padding: 6rem 1.5rem 1.5rem;
+            }
+
+            .article-body {
+                padding: 1.5rem 1.5rem 6rem;
+            }
+
+            .article-body h2 {
+                font-size: 1.75rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+
+    <nav>
+        <div class="nav-name"><a href="/">Taha Merghani</a></div>
+        <div class="nav-links">
+            <a href="/">← Home</a>
+            <a href="/writing/">All Writing</a>
+            <a href="/#projects">Projects</a>
+            <a href="/#contact">Contact</a>
+        </div>
+    </nav>
+
+    <article>
+        <header class="article-header">
+            <div class="article-meta">
+                <span class="date">January 2, 2025</span>
+                <span class="reading-time">9 min read</span>
+            </div>
+            <h1>The Ratchet</h1>
+            <p class="article-description">AI is not the trigger for white-collar displacement. It is the ratchet that prevents the return. The jobs are not coming back—not because AI destroyed them, but because AI made their absence survivable.</p>
+            
+        </header>
+
+        <div class="article-body">
+            <p><img src="/myself.jpeg" alt="Taha Merghani"></p>
+<h1>The Ratchet</h1>
+<p>I published an analysis of what it means to work retail with a research background. I called myself a <strong>&quot;human API in the aisle.&quot;</strong> The argument was specific: stores are drifting cyber-physical systems, and workers like me are the error-correction layer that resolves the gap between the digital model and the physical reality. The inventory system says there are twelve units. There are nine, and three are damaged. I handle that residual. The robot cannot.</p>
+<p>I called it <strong>autophenomenology</strong>. You analyze a system by becoming one of its components and observing what the system forces the component to learn.</p>
+<p>Today I am applying the same lens to the other side of the labor market. The side I was trained to occupy.</p>
+<p>I have a master&#39;s degree from Georgia Tech. I published at NeurIPS and NAACL workshops. I did internships at Apple Siri and MIT CSAIL. I studied under Jacob Eisenstein. And I stock shelves at Walmart while Harvard MBAs face their worst job market in a decade.</p>
+<p><em>These facts are not unrelated.</em></p>
+<p>The headline numbers are stark. Nearly a quarter of job-seeking Harvard MBA graduates from the class of 2024 were unemployed three months after graduation. This is the largest portion to struggle in the market in the last decade. Stanford reported <strong>22%</strong>. Wharton reported <strong>20%</strong>. The share of graduates from top 15 American business schools accepting offers within three months dropped from a five-year average of 92% to <strong>84%</strong> in a single year.</p>
+<p>The broader pattern is worse. The Bureau of Labor Statistics shows <strong>248,000 white-collar jobs cut</strong> since May 2024. Revelio Labs analysis finds white-collar job postings declined <strong>35.8%</strong> from Q1 2023 to Q1 2025. The Federal Reserve Bank of New York reports that recent college graduate unemployment now exceeds the national average. This is a historic reversal. The underemployment rate for new graduates sits at <strong>41.8%</strong>, the highest since 2020.</p>
+<p>Meanwhile, the World Travel &amp; Tourism Council projects a hospitality workforce shortfall of <strong>8.6 million workers</strong> by 2035. Skilled trades face structural shortages due to aging workforces and anemic training pipelines. Amazon&#39;s &quot;Just Walk Out&quot; technology, once slated for 3,000 stores, was pulled from most locations after requiring <strong>700 human interventions per 1,000 checkouts</strong>.</p>
+<p>Something is inverting.</p>
+<p>The instinct is to blame AI. ChatGPT landed in November 2022. The layoffs accelerated in 2023. The correlation is visible. But correlation is not causation, and the actual mechanism is more specific.</p>
+<p>The <strong>trigger</strong> was interest rates.</p>
+<p>From 2009 to 2022, capital was effectively free. Companies hired aggressively because the cost of being wrong was low. Tech firms in particular staffed up on the assumption that growth would continue indefinitely. When the Federal Reserve raised rates to fight inflation, the cost of capital spiked. Suddenly, headcount became expensive. The layoffs followed.</p>
+<p><strong>AI is not the trigger. AI is the <em>ratchet</em>.</strong></p>
+<p>The distinction matters. A trigger causes the initial displacement. A ratchet prevents the return. Companies laid people off because money got expensive. They are not rehiring because they discovered that a team of twelve can do what a team of twenty did, if you give them the right tools. The jobs are not coming back, not because AI destroyed them in some dramatic sense, but because AI made their absence survivable.</p>
+<p>This is why the Yale Budget Lab can report that 33 months after ChatGPT&#39;s release, &quot;the broader labor market has not experienced a discernible disruption.&quot; They are measuring the wrong thing. The disruption is not in aggregate employment. It is in the <em>composition</em> of work and the expectations of what will be rebuilt. The jobs that disappeared in the rate shock are not returning in the rate normalization. That is the ratchet.</p>
+<p>There is a paradox named after Hans Moravec. It observes that high-level reasoning is computationally cheap while low-level sensorimotor skills are computationally expensive. Evolution spent billions of years optimizing our hands and eyes; it spent only a blink of an eye on our ability to do algebra. AI is reversing that timeline. A computer can beat a grandmaster at chess. The same computer cannot fold a towel.</p>
+<p><strong>Moravec&#39;s Paradox</strong> explains why Amazon Fresh failed. It explains why warehouse automation sits at roughly 90% of human capability and cannot close the gap. It explains why only <strong>15%</strong> of warehouses are currently automated despite decades of investment. Robots lack the dexterity for varied product types, irregular shapes, fragile items. The edge cases are not edge cases. They are the job.</p>
+<p>I experience this daily. The store is not a controlled environment. Shelves are stochastic. Items migrate. Customers introduce noise. The planogram is an intent, not a guarantee. The app tells me an item is in aisle 12. It is in aisle 14, behind something else, partially crushed. I find it anyway because I have learned to predict where things drift. That prediction is not in the system. It is in me.</p>
+<p>In my previous piece, I concluded that the fastest way to automate retail is not to build a smarter robot. It is to build a <strong>simpler room</strong>. Amazon&#39;s fulfillment centers work because they redesigned the environment. Standardized bins. Fixed locations. Controlled lighting. They removed the variance that makes physical work hard.</p>
+<p>Here is the chilling implication: <strong>offices are already the simpler room.</strong></p>
+<p>Documents do not migrate. Spreadsheets do not hide behind other spreadsheets. Email threads do not get crushed in transit. The variance that protects physical labor from automation does not exist in knowledge work. The environment is already legible to machines. That is why the ratchet works.</p>
+<p>The discourse focuses on extremes. Harvard MBAs make headlines. Hospitality shortages make policy briefs. But the actual volume of displacement is in the middle.</p>
+<p>Paralegals who summarized documents. Junior analysts who built first-pass models. Administrative assistants who scheduled and followed up. Mid-level managers whose job was to synthesize information across teams. These roles are not glamorous enough to generate think pieces. They are also where AI substitution is most direct.</p>
+<p>Goldman Sachs estimates that AI can automate 60 to 70 percent of office tasks. <strong>Not jobs. Tasks.</strong> The distinction matters but not in the reassuring way people assume. A job composed of many tasks does not disappear when some tasks are automated. It shrinks. Ten people become six. Six become four. The remaining workers are more productive and less numerous. This is not unemployment in the traditional sense. It is a slow compression that never reverses.</p>
+<p>The NBER working paper by Bloom, Prettner, and colleagues models this directly. Their simulation shows the skill premium dropping from <strong>2.0 to 1.62</strong> as AI adoption reaches levels comparable to industrial robots. The mechanism is simple: &quot;AI tends to reduce high-skill wages and to raise low-skill wages&quot; because AI is more substitutable for high-skill workers than low-skill workers are for each other.</p>
+<p>The wage premium for a college degree stopped growing after decades of increase. The unemployment gap between college and high school graduates is at its lowest level since the late 1970s. The inversion is already happening. It is just not evenly distributed yet.</p>
+<p>Policy has not caught up. This is not a complaint. It is a diagnosis.</p>
+<p>We subsidize four-year cognitive degrees through federal loan programs while underfunding trade schools and apprenticeships. We tax the labor I provide on the shelf through payroll taxes, but we offer depreciation write-offs for the software that replaces the analyst. <strong>The tax code itself is a ratchet</strong>, making it cheaper to deploy capital than to re-employ humans. Our unemployment insurance is designed for cyclical layoffs, not structural obsolescence. It assumes people will be rehired into similar roles. That assumption is breaking.</p>
+<p>Ford CEO Jim Farley has been unusually direct. At the Aspen Ideas Festival in 2025, he declared that AI will replace half of all white-collar workers in the United States. He organized a summit in Detroit bringing together CEOs from Penske, U.S. Steel, AT&amp;T, FedEx, Siemens USA, and U-Haul to discuss what he calls the <strong>&quot;essential economy.&quot;</strong> The premise is that physical work is undervalued and underprepared for. He is not wrong.</p>
+<p>David Autor, whose task framework is foundational to labor economics, has argued that AI could potentially reverse four decades of wage polarization by democratizing expertise. The optimistic version of this story is that AI makes middle-skill workers more capable, not less necessary. The pessimistic version is that the transition period will be brutal, and we have no institutions designed to manage it.</p>
+<p>The dockworkers of the International Longshoremen&#39;s Association secured a <strong>62% wage increase</strong> over six years and automation limits in their recent contract. Culinary workers in Las Vegas won $2,000 per year in severance if replaced by AI. These are early signals of what organized labor looks like when it takes automation seriously. Most workers have no such leverage.</p>
+<p>I am not predicting catastrophe. The Yale data is real. Thirty-three months of AI deployment have not collapsed the labor market. Displacement tends to happen over decades, not years. Erik Brynjolfsson&#39;s research shows AI complementing workers as much as replacing them, with the largest productivity gains going to novice workers who get &quot;leveled up&quot; by AI assistance.</p>
+<p>But I am also not predicting continuity.</p>
+<p>The jobs I was trained for are contracting. The skills I was taught to signal are becoming less distinctive. The credential I earned is worth less than it was when I earned it, not because I failed, but because the market that valued it is restructuring.</p>
+<p>I work at Walmart. I am the error-correction layer. I handle the residuals the system cannot represent.</p>
+<p>The question is what happens when the residuals in knowledge work get small enough that the system stops needing a correction layer at all.</p>
+<p>I do not have a clean answer. What I have is a vantage point. I am standing in both worlds, the one that is supposedly safe from automation and the one that is supposedly threatened by it. From where I stand, the threat is misallocated. The robot is not coming for my job on the floor. The language model is coming for the job I was trained to do.</p>
+<p>The room was already simple. It never needed a Human API. We just did not notice.</p>
+
+        </div>
+    </article>
+
+    <div class="back-link">
+        <a href="/writing/">← Back to all articles</a>
+    </div>
+
+    <footer>
+        <p>© 2025 Taha Merghani. Built with intention.</p>
+    </footer>
+</body>
+</html>
