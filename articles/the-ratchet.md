@@ -1,6 +1,6 @@
 ---
 title: "The Ratchet"
-date: 2025-01-03
+date: 2026-01-03
 description: "AI is not the trigger for white-collar displacement. It is the ratchet that prevents the return. The jobs are not coming back—not because AI destroyed them, but because AI made their absence survivable."
 tags: ["AI", "Career", "Economics"]
 draft: false
