@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLKE0VWCQ3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-HLKE0VWCQ3');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How I Reverse-Engineered a National Exam at 15 (And Predicted My Score to the Decimal) - Taha Merghani</title>
+    <meta name="description" content="A three-year research project executed by a teenager who refused to accept that geography was destiny — and who had modeled the system precisely enough to call his shot to the decimal.">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --charcoal: #1a1814;
+            --warm-black: #0d0b09;
+            --cream: #f5f2ed;
+            --amber: #d4a853;
+            --amber-muted: #b8965a;
+            --text-primary: #e8e4de;
+            --text-secondary: #9a9590;
+            --border: rgba(212, 168, 83, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--warm-black);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+        }
+
+        a {
+            color: var(--amber);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--cream);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: linear-gradient(to bottom, var(--warm-black) 0%, transparent 100%);
+        }
+
+        .nav-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            letter-spacing: 0.05em;
+        }
+
+        .nav-name a {
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .nav-links a:hover {
+            color: var(--amber);
+        }
+
+        /* Article Header */
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 2rem;
+        }
+
+        .article-meta {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .article-meta .date {
+            color: var(--amber-muted);
+        }
+
+        .article-meta a {
+            color: var(--amber);
+            text-decoration: none;
+            border-bottom: 1px solid var(--amber);
+        }
+
+        .article-header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .article-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* Article Body */
+        .article-body {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 2rem 2rem 8rem;
+        }
+
+        .article-body p {
+            font-size: 1.15rem;
+            line-height: 1.75;
+            color: var(--text-primary);
+            margin-bottom: 1.75rem;
+        }
+
+        .article-body h2 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .article-body h3 {
+            font-size: 1.5rem;
+            margin: 2.5rem 0 1rem;
+            color: var(--text-primary);
+        }
+
+        .article-body h4 {
+            font-size: 1.2rem;
+            margin: 2rem 0 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .article-body blockquote {
+            border-left: 2px solid var(--amber);
+            background: rgba(212, 168, 83, 0.03);
+            padding: 2rem;
+            margin: 2rem 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--text-primary);
+        }
+
+        .article-body blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-body code {
+            background: rgba(212, 168, 83, 0.1);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 0.9em;
+            color: var(--amber);
+        }
+
+        .article-body pre {
+            background: var(--charcoal);
+            padding: 1.5rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            margin: 2rem 0;
+        }
+
+        .article-body pre code {
+            background: transparent;
+            padding: 0;
+            color: var(--text-primary);
+        }
+
+        .article-body ul, .article-body ol {
+            margin: 1.5rem 0 1.5rem 2rem;
+            color: var(--text-primary);
+        }
+
+        .article-body li {
+            margin-bottom: 0.75rem;
+            font-size: 1.15rem;
+            line-height: 1.75;
+        }
+
+        .article-body img {
+            max-width: 100%;
+            height: auto;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .article-body hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 3rem 0;
+        }
+
+        .article-body a {
+            color: var(--amber);
+            border-bottom: 1px solid var(--amber);
+        }
+
+        .article-body a:hover {
+            color: var(--cream);
+            border-color: var(--cream);
+        }
+
+        /* Back Link */
+        .back-link {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .back-link a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .back-link a:hover {
+            color: var(--amber);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 8%;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .article-header {
+                padding: 6rem 1.5rem 1.5rem;
+            }
+
+            .article-body {
+                padding: 1.5rem 1.5rem 6rem;
+            }
+
+            .article-body h2 {
+                font-size: 1.75rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+
+    <nav>
+        <div class="nav-name"><a href="/">Taha Merghani</a></div>
+        <div class="nav-links">
+            <a href="/">← Home</a>
+            <a href="/writing/">All Writing</a>
+            <a href="/#projects">Projects</a>
+            <a href="/#contact">Contact</a>
+        </div>
+    </nav>
+
+    <article>
+        <header class="article-header">
+            <div class="article-meta">
+                <span class="date">April 11, 2024</span>
+                <span class="reading-time">7 min read</span>
+            </div>
+            <h1>How I Reverse-Engineered a National Exam at 15 (And Predicted My Score to the Decimal)</h1>
+            <p class="article-description">A three-year research project executed by a teenager who refused to accept that geography was destiny — and who had modeled the system precisely enough to call his shot to the decimal.</p>
+            
+        </header>
+
+        <div class="article-body">
+            <h1>How I Reverse-Engineered a National Exam at 15 (And Predicted My Score to the Decimal)</h1>
+<p>In Sudan, your entire academic future hinges on one exam. Think SATs, but if the SAT was the only thing that mattered — no extracurriculars, no essays, no legacy admissions. One number determines everything.</p>
+<p>The results announcement is one of Sudan&#39;s most anticipated national events. Top scorers become instant celebrities. Their names get broadcast on television. Government officials visit their homes. Strangers stop them on the street. For a few weeks every June, these teenagers become the closest thing Sudan has to national heroes.</p>
+<p>In 2011, I scored <strong>98.3%</strong>. That score stood as the national ceiling for over 12 years — only tied in 2023, never beaten.</p>
+<p>I was from Kassala — a poor, neglected state on Sudan&#39;s eastern border, far from the capital where top performers typically emerged. No one from Kassala had ranked at the top nationally since the 1970s. Four decades of nothing.</p>
+<p>But here&#39;s what most people don&#39;t know: <strong>I predicted that exact percentage months before results came out.</strong></p>
+<p>And I have the receipts.</p>
+<hr>
+<h2>The Prediction, Timestamped</h2>
+<p>On April 12, 2011 — over two months before the June 24th announcement — a friend asked me on Facebook what percentage I expected. I told him it was a secret. <em>&quot;Very very secret. Don&#39;t tell anyone. Not even Baba Issam. Not even Kaloja.&quot;</em></p>
+<p>He promised. So I told him my range: <strong>96.8 – 98.3</strong></p>
+<p>That conversation is still up. Timestamped. The final result hit my upper bound exactly.</p>
+<p><img src="/assets/images/sudan-exam-prediction-facebook.jpg" alt="The timestamped Facebook conversation from April 12, 2011 showing my prediction range of 96.8-98.3%"></p>
+<p>This wasn&#39;t confidence. It was calculation.</p>
+<hr>
+<h2>The Data Collection Phase</h2>
+<p>When I entered high school at 14, I started doing something unusual. I tracked down the previous year&#39;s top performers — kids who&#39;d ranked 2nd and 3rd in the entire country — and started collecting data. I used MSN Messenger and a now-dead app called Numbuzz to gather their scores across every subject.</p>
+<p>I was intimidated talking to them. I remember feeling a physical tremor when messaging Yousif, who&#39;d ranked 2nd nationally, or Sajda, who&#39;d ranked 3rd. These were celebrities in my world. But I kept asking questions.</p>
+<p>A pattern emerged: <strong>Physics was consistently the weakest subject, even among elite performers.</strong> That insight gave me a three-year runway to over-index on the variable most likely to differentiate me.</p>
+<p>One question haunted me as a freshman: why had no one from Kassala broken through in forty years? Was it resources? Teaching quality? Or just assumptions that had calcified into destiny?</p>
+<hr>
+<h2>The Hypothesis Testing Phase</h2>
+<p>There was conventional wisdom that one city — Medani — had some &quot;magic formula&quot; for producing top scorers. Sajda was from there. Khartoum dominated the top ranks, but Medani was a consistent second and had produced a few #1 students over the years. Maybe there was something in the water.</p>
+<p>So I transferred schools to test the hypothesis directly. I lived with my grandmother&#39;s sister, enrolled in a private school called Makki Al-Tayeb, and spent a full year investigating whether the magic was real.</p>
+<p><strong>It wasn&#39;t.</strong> The teaching was actually further from the exam material than what I had back home. The only valuable thing I extracted was learning third-year physics curriculum a year early from the school&#39;s founder himself.</p>
+<p>I returned to Kassala with a clear conclusion: there was no secret. Just preparation and strategy.</p>
+<hr>
+<h2>The Khartoum Test</h2>
+<p>But I wasn&#39;t done. The summer before my final year, I traveled to Khartoum for an exam bootcamp at Idris Foundation — one of the most prestigious test-prep institutions in the country, a factory for top performers. If there was any secret sauce, this is where I&#39;d find it.</p>
+<p>That&#39;s where I met Khaled Mahdi. He was the top student at Bashir Mohammed Saeed — a school with a track record of producing #1 national students. For me, he was a proxy. If I could measure myself against him, I&#39;d know where I stood.</p>
+<p>My read: he was strong. Really strong. But I felt I could do better.</p>
+<hr>
+<h2>The Contrarian Bet</h2>
+<p>When the Idris Foundation administrators realized what they had, they didn&#39;t let it go. They traveled across the city to meet my father and deliver their verdict: <em>&quot;Your son will rank nationally if he stays here. If he goes back to Kassala, he won&#39;t.&quot;</em></p>
+<p>Khaled told me the same thing to my face.</p>
+<p>The subtext was clear: kids from Kassala don&#39;t break through. That&#39;s just how it is.</p>
+<p>I weighed their input. Then I trusted my own model.</p>
+<p>Back home, I hung a sign in our family&#39;s sitting room where my study groups met: <strong>&quot;Difficult does not mean impossible.&quot;</strong> I eventually stopped group tutoring and relied on targeted support from two teachers who believed in me — Mr. Hamza Abbas for Computer Science, who taught me the third-year curriculum for free during summer, and Ms. Awadiya Zayed for Chemistry.</p>
+<hr>
+<h2>The Strategic Edge</h2>
+<p>Here&#39;s how the scoring worked: four mandatory subjects (Math, Islamic Studies, Arabic, English) plus your best three out of four electives. Your final percentage was calculated from seven subjects total.</p>
+<p>The science track required Physics and Chemistry, then you chose from Engineering Science, Computer Science, or Biology. Most students picked Biology. I took Computer Science — which my school warned against (<em>&quot;it fails students&quot;</em>) — and added Agricultural Science as my fourth elective.</p>
+<p>This gave me a buffer. I could absorb a hit on Physics (the subject I&#39;d identified years earlier as the universal weak point) and still have it count, or drop it entirely if one of my other electives outperformed it.</p>
+<p>The conventional wisdom was wrong. My analysis was right.</p>
+<hr>
+<h2>The Outcome</h2>
+<ul>
+<li><strong>Physics:</strong> 93 (the subject I&#39;d identified as the key variable years earlier — it counted)</li>
+<li><strong>Agricultural Science:</strong> 97 (lost points on obscure trivia — how many tons of sorghum does Sudan produce annually?)</li>
+<li><strong>Final score:</strong> 98.3%</li>
+</ul>
+<p>The exact upper bound of my prediction range. Posted publicly. Timestamped. Two months in advance.</p>
+<p>That number held as the national benchmark for over twelve years. It was only tied in 2023. Never surpassed. And it came from a state that hadn&#39;t produced a top national performer in four decades. The student who came in second was from Khartoum.</p>
+<hr>
+<h2>Why This Matters</h2>
+<p>This wasn&#39;t genius. It was systems thinking applied early. At 15, I was:</p>
+<ul>
+<li><strong>Gathering primary data from domain experts</strong> (even when it terrified me)</li>
+<li><strong>Identifying high-leverage variables</strong> through pattern analysis</li>
+<li><strong>Testing assumptions empirically</strong> rather than accepting conventional wisdom</li>
+<li><strong>Making contrarian bets</strong> based on independent analysis</li>
+<li><strong>Building conviction strong enough</strong> to publish predictions publicly</li>
+</ul>
+<p>The same approach got me to the top 0.5% globally in competitive gaming. It&#39;s the same pattern I apply now.</p>
+<p>Some people see 98.3% and think &quot;smart kid.&quot; I want you to see what it actually was: a three-year research project executed by a teenager who refused to accept that geography was destiny — and who had modeled the system precisely enough to call his shot to the decimal.</p>
+<p>Forty years of silence from Kassala. Then one kid who decided to reverse-engineer the game.</p>
+
+        </div>
+    </article>
+
+    <div class="back-link">
+        <a href="/writing/">← Back to all articles</a>
+    </div>
+
+    <footer>
+        <p>© 2025 Taha Merghani. Built with intention.</p>
+    </footer>
+</body>
+</html>
