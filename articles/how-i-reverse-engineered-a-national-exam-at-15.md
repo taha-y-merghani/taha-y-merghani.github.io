@@ -1,6 +1,6 @@
 ---
 title: "How I Reverse-Engineered a National Exam at 15 (And Predicted My Score to the Decimal)"
-date: 2024-04-12
+date: 2026-01-10
 description: "A three-year research project executed by a teenager who refused to accept that geography was destiny — and who had modeled the system precisely enough to call his shot to the decimal."
 tags: ["Personal", "Strategy", "Sudan", "Education"]
 draft: false
