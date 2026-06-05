@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taha Merghani</title>
-
+    <title>Taha Merghani - Forward Deployed AI Engineer</title>
+    <meta name="description" content="AI/NLP engineer with experience across Siri tooling, speech recognition, computer vision inspection, customer analytics, and local LLM systems.">
+    <meta property="og:title" content="Taha Merghani - Forward Deployed AI Engineer">
+    <meta property="og:description" content="AI/NLP engineer with experience across Siri tooling, speech recognition, computer vision inspection, customer analytics, and local LLM systems.">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLKE0VWCQ3"></script>
     <script>
@@ -13,7 +15,6 @@
         gtag('js', new Date());
         gtag('config', 'G-HLKE0VWCQ3');
     </script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -104,6 +105,11 @@
             font-weight: 500;
             color: var(--text-primary);
             letter-spacing: 0.05em;
+            text-decoration: none;
+        }
+
+        .nav-name:hover {
+            color: var(--amber);
         }
 
         .nav-links {
@@ -121,6 +127,26 @@
 
         .nav-links a:hover {
             color: var(--amber);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .theme-toggle:hover {
+            color: var(--amber);
+            border-color: var(--amber);
         }
 
         /* Hero */
@@ -141,8 +167,8 @@
 
         .hero-photo {
             flex-shrink: 0;
-            width: 300px;
-            height: 300px;
+            width: 280px;
+            height: 280px;
             border-radius: 50%;
             overflow: hidden;
             border: 3px solid var(--amber);
@@ -166,465 +192,120 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            line-height: 1.15;
-            margin-bottom: 2rem;
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
             opacity: 0;
             animation: fadeUp 0.8s ease forwards 0.4s;
         }
 
-        .hero h1 span {
-            color: var(--amber);
-        }
-
         .hero-description {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: var(--text-secondary);
             max-width: 600px;
+            line-height: 1.7;
             opacity: 0;
             animation: fadeUp 0.8s ease forwards 0.6s;
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 3rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            opacity: 0;
-            animation: fadeUp 0.8s ease forwards 1s;
-        }
-
-        .scroll-indicator span {
-            font-size: 0.7rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--text-secondary);
-        }
-
-        .scroll-line {
-            width: 1px;
-            height: 40px;
-            background: linear-gradient(to bottom, var(--amber), transparent);
-            animation: scrollPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes scrollPulse {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
-
-        /* Sections */
-        section {
-            padding: 8rem 8%;
-            border-top: 1px solid var(--border);
-        }
-
-        .section-label {
-            font-size: 0.9rem;
-            font-weight: 600;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: #ffd700;
-            margin-bottom: 3rem;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.3);
-            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-
-        /* Story Section */
-        .story-grid {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .story-heading h2 {
-            font-size: 2.5rem;
-            line-height: 1.2;
-            position: sticky;
-            top: 120px;
-        }
-
-        .story-content {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .story-content p {
-            font-size: 1.05rem;
-            color: var(--text-secondary);
-        }
-
-        .story-content p strong {
-            color: var(--text-primary);
-            font-weight: 500;
-        }
-
-        .story-highlight {
-            padding: 2rem;
-            border-left: 2px solid var(--amber);
-            background: rgba(212, 168, 83, 0.03);
-            margin: 1rem 0;
-        }
-
-        .story-highlight p {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem;
-            font-style: italic;
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
-
-        /* Credentials */
-        .credentials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .credential-card {
-            padding: 2rem;
-            border: 1px solid var(--border);
-            transition: all 0.4s ease;
-        }
-
-        .credential-card:hover {
-            border-color: var(--amber-muted);
-            background: rgba(212, 168, 83, 0.02);
-        }
-
-        .credential-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-        }
-
-        .credential-card .venue {
-            font-size: 0.8rem;
-            color: var(--amber);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-
-        .credential-card p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-        }
-
-        /* Building Now Section */
-        .building-now {
-            padding: 6rem 8%;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .building-now .section-label {
-            margin-bottom: 3rem;
-        }
-
-        .current-projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .current-project {
-            padding: 3rem;
-            border: 2px solid var(--amber);
-            background: rgba(212, 168, 83, 0.03);
-            position: relative;
-        }
-
-        .current-badge {
-            position: absolute;
-            top: -12px;
-            left: 2rem;
-            background: var(--warm-black);
-            padding: 0 1rem;
-            font-size: 0.7rem;
-            color: var(--amber);
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            font-weight: 500;
-        }
-
-        /* Resume Download Section */
-        .resume-section {
-            padding: 4rem 8%;
-            background: rgba(212, 168, 83, 0.03);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .resume-container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        /* Key Metrics Section */
-        .key-metrics {
-            padding: 4rem 8%;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .metrics-label {
-            font-size: 0.7rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--amber-muted);
             margin-bottom: 2.5rem;
-            text-align: center;
         }
 
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .metric-item {
-            text-align: left;
-        }
-
-        .metric-category {
-            font-size: 0.75rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--amber);
-            margin-bottom: 0.75rem;
-            font-weight: 500;
-        }
-
-        .metric-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .metric-list li {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
+        .hero-ctas {
             display: flex;
-            align-items: baseline;
-            gap: 0.5rem;
-        }
-
-        .metric-list li::before {
-            content: "•";
-            color: var(--amber-muted);
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-
-        .metric-number {
-            color: var(--amber);
-            font-weight: 600;
-            font-size: 1.1em;
-        }
-
-        .metric-highlight {
-            background: rgba(212, 168, 83, 0.08);
-            padding: 0.15em 0.4em;
-            border-radius: 3px;
-        }
-
-        .resume-title {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .resume-description {
-            font-size: 1.05rem;
-            color: var(--text-secondary);
-            margin-bottom: 2.5rem;
-            line-height: 1.6;
-        }
-
-        .resume-downloads {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
+            gap: 1rem;
             flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.8s;
         }
 
-        .resume-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 2.5rem;
-            background: var(--amber);
-            color: var(--warm-black);
-            font-size: 1rem;
-            font-weight: 500;
-            letter-spacing: 0.05em;
+        .cta-btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border: 1px solid var(--amber);
+            color: var(--amber);
+            font-size: 0.9rem;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
             transition: all 0.3s ease;
             font-family: 'Source Sans 3', sans-serif;
         }
 
-        .resume-btn:hover {
+        .cta-btn:hover {
+            background: var(--amber);
+            color: var(--warm-black);
+        }
+
+        .cta-btn.primary {
+            background: var(--amber);
+            color: var(--warm-black);
+        }
+
+        .cta-btn.primary:hover {
             background: var(--text-primary);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(212, 168, 83, 0.3);
+            border-color: var(--text-primary);
         }
 
-        .resume-btn.secondary {
-            background: transparent;
-            color: var(--amber);
-            border: 2px solid var(--amber);
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .resume-btn.secondary:hover {
-            background: rgba(212, 168, 83, 0.1);
-            color: var(--amber);
+        /* Sections */
+        section {
+            padding: 6rem 8%;
+            border-top: 1px solid var(--border);
         }
 
-        @media (max-width: 768px) {
-            .resume-section {
-                padding: 3rem 5%;
-            }
-
-            .resume-title {
-                font-size: 1.4rem;
-            }
-
-            .resume-downloads {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .resume-btn {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .key-metrics {
-                padding: 3rem 5%;
-            }
-
-            .metrics-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--amber-muted);
+            margin-bottom: 2.5rem;
+            display: inline-block;
         }
 
-        .current-project h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .current-project h2 a {
-            color: inherit;
-            border-bottom: 2px solid var(--amber);
-            transition: color 0.3s ease;
-        }
-
-        .current-project h2 a:hover {
-            color: var(--amber);
-        }
-
-        .current-stack {
+        /* Focus tags / pills */
+        .focus-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.75rem;
-            margin-bottom: 1.5rem;
+            margin-top: 1rem;
         }
 
-        .current-stack .tech-tag {
-            font-size: 0.8rem;
-            padding: 0.5rem 1rem;
-            background: rgba(212, 168, 83, 0.15);
-        }
-
-        .current-project-description {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-        }
-
-        .current-why {
-            background: rgba(212, 168, 83, 0.05);
-            border-left: 3px solid var(--amber);
-            padding: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .current-why h4 {
-            font-size: 0.85rem;
+        .focus-tag {
+            padding: 0.5rem 1.2rem;
+            border: 1px solid var(--amber);
             color: var(--amber);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 0.75rem;
-            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            border-radius: 2px;
+        }
+
+        /* Intro paragraph */
+        .intro-para {
+            max-width: 680px;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+        }
+
+        .intro-para strong {
+            color: var(--text-primary);
             font-weight: 500;
         }
 
-        .current-why p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        @media (max-width: 768px) {
-            .building-now {
-                padding: 4rem 5%;
-            }
-
-            .current-projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .current-project {
-                padding: 2rem 1.5rem;
-            }
-
-            .current-project h2 {
-                font-size: 1.5rem;
-            }
-        }
-
-        /* Projects Section */
+        /* Project cards */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 2.5rem;
         }
 
         .project-card {
-            padding: 2.5rem;
+            padding: 2rem;
             border: 1px solid var(--border);
             transition: all 0.4s ease;
             display: flex;
@@ -634,449 +315,108 @@
         .project-card:hover {
             border-color: var(--amber);
             transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(212, 168, 83, 0.15);
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 1rem;
+            box-shadow: 0 8px 24px rgba(212, 168, 83, 0.12);
         }
 
         .project-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
             color: var(--text-primary);
         }
 
-        .project-card h3 a {
-            color: inherit;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.3s ease;
-        }
-
-        .project-card h3 a:hover {
-            border-bottom-color: var(--amber);
-        }
-
-        .project-year {
-            font-size: 0.75rem;
-            color: var(--amber-muted);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
-        .project-description {
+        .project-card p {
+            font-size: 0.95rem;
             color: var(--text-secondary);
-            font-size: 1rem;
             line-height: 1.6;
-            margin-bottom: 1.5rem;
             flex-grow: 1;
         }
 
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
+        /* Writing items */
+        .writing-list {
+            margin-top: 2rem;
+            margin-bottom: 2.5rem;
         }
 
-        .tech-tag {
-            font-size: 0.75rem;
-            color: var(--amber);
-            background: rgba(212, 168, 83, 0.1);
-            padding: 0.4rem 0.8rem;
-            border-radius: 2px;
-            letter-spacing: 0.05em;
-        }
-
-        .project-highlights {
-            margin-top: auto;
-        }
-
-        .project-highlights ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .project-highlights li {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            padding-left: 1.2rem;
-            margin-bottom: 0.5rem;
-            position: relative;
-        }
-
-        .project-highlights li:before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: var(--amber-muted);
-        }
-
-        @media (max-width: 768px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Work Section */
-        .work-item {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 3rem;
-            padding: 3rem 0;
+        .writing-item {
+            padding: 1.75rem 0;
             border-bottom: 1px solid var(--border);
             transition: all 0.3s ease;
         }
 
-        .work-item:hover {
-            padding-left: 1rem;
-            border-color: var(--amber-muted);
+        .writing-item:first-child {
+            border-top: 1px solid var(--border);
         }
 
-        .work-meta {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            letter-spacing: 0.05em;
+        .writing-item:hover {
+            padding-left: 0.75rem;
         }
 
-        .work-meta .type {
-            color: var(--amber);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            font-size: 0.7rem;
-            display: block;
+        .writing-item h3 {
+            font-size: 1.4rem;
             margin-bottom: 0.5rem;
         }
 
-        .work-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+        .writing-item h3 a {
+            color: var(--text-primary);
             transition: color 0.3s ease;
         }
 
-        .work-item:hover .work-content h3 {
+        .writing-item:hover h3 a {
             color: var(--amber);
         }
 
-        .work-content p {
-            color: var(--text-secondary);
-            font-size: 1rem;
+        /* Resume section */
+        .resume-section {
+            background: rgba(212, 168, 83, 0.03);
         }
 
-        .work-stats {
-            margin-top: 1rem;
-            font-size: 0.85rem;
-            color: var(--amber-muted);
-        }
-
-        /* Testimonials */
-        .testimonials-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .testimonial {
-            padding: 2.5rem;
-            border: 1px solid var(--border);
-            position: relative;
-        }
-
-        .testimonial::before {
-            content: '"';
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 4rem;
-            color: var(--amber);
-            opacity: 0.3;
-            position: absolute;
-            top: 1rem;
-            left: 1.5rem;
-            line-height: 1;
-        }
-
-        .testimonial-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
-            font-style: italic;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .testimonial-author {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        .testimonial-author strong {
-            color: var(--amber);
-            font-weight: 500;
-        }
-
-        /* Competitive Optimization */
-        .unusual-section {
-            background: linear-gradient(135deg, rgba(212, 168, 83, 0.05) 0%, transparent 50%);
-        }
-
-        .unusual-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .unusual-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .unusual-content p {
-            color: var(--text-secondary);
-            font-size: 1.05rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .stat-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .stat-item {
-            padding: 1.5rem;
-            border: 1px solid var(--border);
-        }
-
-        .stat-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            color: var(--amber);
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        /* Contact */
-        .contact-section {
-            text-align: center;
+        .resume-container {
             max-width: 700px;
             margin: 0 auto;
+            text-align: center;
         }
 
-        .contact-section h2 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
+        .resume-container h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
         }
 
-        .contact-section p {
-            font-size: 1.1rem;
+        .resume-container p {
+            font-size: 1.05rem;
             color: var(--text-secondary);
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
         }
 
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-links a {
-            padding: 0.75rem 1.5rem;
-            border: 1px solid var(--border);
-            font-size: 0.85rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-        }
-
-        .contact-links a:hover {
+        .resume-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2.5rem;
             background: var(--amber);
             color: var(--warm-black);
-            border-color: var(--amber);
-        }
-
-        /* Footer */
-        footer {
-            padding: 3rem 8%;
-            border-top: 1px solid var(--border);
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .story-grid,
-            .unusual-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .story-heading h2 {
-                position: static;
-            }
-
-            .credentials-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .testimonials-container {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                padding: 1rem 1.5rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero {
-                padding: 0 5%;
-                flex-direction: column-reverse;
-                gap: 2rem;
-                padding-top: 6rem;
-            }
-
-            .hero-photo {
-                width: 200px;
-                height: 200px;
-            }
-
-            section {
-                padding: 5rem 5%;
-            }
-
-            .work-item {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .stat-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Reveal animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Writing CTA buttons */
-        .writing-cta {
-            display: inline-block;
-            padding: 0.75rem 2rem;
-            border: 2px solid var(--amber);
-            color: var(--amber);
-            font-size: 0.9rem;
-            letter-spacing: 0.1em;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
-            transition: all 0.3s ease;
             text-decoration: none;
+            transition: all 0.3s ease;
+            font-family: 'Source Sans 3', sans-serif;
         }
 
-        .writing-cta:hover {
-            background: var(--amber);
+        .resume-btn:hover {
+            background: var(--text-primary);
             color: var(--warm-black);
             transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 168, 83, 0.3);
         }
 
-        .writing-cta-large {
-            padding: 1rem 2.5rem;
-            font-size: 1rem;
-            font-weight: 500;
-        }
-
-        /* Mobile Writing Link */
-        .mobile-writing-link {
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .mobile-writing-link {
-                display: block;
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                z-index: 99;
-                padding: 1rem 1.5rem;
-                background: var(--amber);
-                color: var(--warm-black);
-                border-radius: 50px;
-                font-size: 0.85rem;
-                font-weight: 600;
-                letter-spacing: 0.1em;
-                text-transform: uppercase;
-                box-shadow: 0 4px 12px rgba(212, 168, 83, 0.4);
-                text-decoration: none;
-                transition: all 0.3s ease;
-            }
-
-            .mobile-writing-link:hover {
-                transform: scale(1.05);
-                box-shadow: 0 6px 16px rgba(212, 168, 83, 0.6);
-            }
-        }
-
-        /* Theme Toggle */
-        .theme-toggle {
-            background: none;
-            border: 1px solid var(--border);
-            color: var(--text-secondary);
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            font-size: 0.85rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            font-family: 'Source Sans 3', sans-serif;
-            font-weight: 400;
-            transition: all 0.3s ease;
-            border-radius: 2px;
-            margin-left: 1rem;
-        }
-
-        .theme-toggle:hover {
-            color: var(--amber);
-            border-color: var(--amber);
-        }
-
-        @media (max-width: 768px) {
-            .theme-toggle {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.75rem;
-                margin-left: 0;
-            }
-        }
-    
         /* Testimonials */
         .testimonials-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 2rem;
+            margin-top: 2rem;
         }
 
         .testimonial {
@@ -1147,7 +487,7 @@
 
         .testimonial-text {
             font-family: 'Source Sans 3', sans-serif;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             line-height: 1.8;
             color: var(--text-primary);
             font-weight: 300;
@@ -1159,21 +499,145 @@
             font-weight: 500;
         }
 
+        /* Contact section */
+        .contact-section {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            padding: 0.7rem 1.4rem;
+            border: 1px solid var(--border);
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            background: var(--amber);
+            color: var(--warm-black);
+            border-color: var(--amber);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 8%;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* View-all links */
+        .view-all {
+            display: inline-block;
+            color: var(--amber);
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--amber);
+            padding-bottom: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .view-all:hover {
+            color: var(--text-primary);
+            border-color: var(--text-primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .testimonials-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .theme-toggle {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.75rem;
+            }
+
+            .hero {
+                padding: 6rem 5% 4rem;
+                flex-direction: column-reverse;
+                gap: 2rem;
+                min-height: auto;
+            }
+
+            .hero-photo {
+                width: 180px;
+                height: 180px;
+            }
+
+            section {
+                padding: 4rem 5%;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
-<body id="top">
+<body>
     <div class="noise-overlay"></div>
 
     <nav>
-        <div class="nav-name">Taha Merghani</div>
-        <div style="display: flex; align-items: center; gap: 2.5rem;">
+        <a class="nav-name" href="/">Taha Merghani</a>
+        <div style="display:flex;align-items:center;gap:2.5rem;">
             <div class="nav-links">
-                <a href="#top">Home</a>
-                <a href="#story">Story</a>
+                <a href="/">Home</a>
+                <a href="/work/">Work</a>
                 <a href="/writing/">Writing</a>
-                <a href="#projects">Projects</a>
-                <a href="#work">Work</a>
-                <a href="#contact">Contact</a>
+                <a href="/experience/">Experience</a>
+                <a href="/about/">About</a>
+                <a href="/contact/">Contact</a>
             </div>
             <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
                 <span id="theme-icon">☀️</span>
@@ -1181,323 +645,88 @@
         </div>
     </nav>
 
-    <section class="hero">
+    <section class="hero" style="border-top:none;">
         <div class="hero-content">
-            <p class="hero-tagline">Computational Linguist & Research Engineer</p>
-            <h1>I bridge <span>computational linguistics research</span> and production systems that ship—and last.</h1>
-            <p class="hero-description">The intersection is rare: NeurIPS/NAACL publications, tools still running at Apple eight years later, and a path from Khartoum's #1 exam scorer to debugging dialectal Arabic ASR at MIT to surviving Georgia Tech's masters program. I <a href="/writing/" style="color: var(--amber); border-bottom: 2px solid var(--amber);">write</a> about what I learn along the way.</p>
-            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 1.5rem; letter-spacing: 0.05em;">
-                <span style="color: var(--amber-muted);">Writing recognized by:</span> Jeff Dean · Reddit AI Community (200K+ views)
-            </p>
-            <div style="margin-top: 2rem;">
-                <a href="/writing/" class="writing-cta">Read My Writing →</a>
+            <p class="hero-tagline">Forward Deployed AI Engineer</p>
+            <h1>I build AI systems for messy real-world workflows.</h1>
+            <p class="hero-description">AI/NLP engineer with experience across Siri tooling, speech recognition, computer vision inspection, customer analytics, and local LLM systems. I'm focused on Forward Deployed AI work: turning ambiguous workflows into useful, evaluated, deployable AI systems.</p>
+            <div class="hero-ctas">
+                <a href="/work/" class="cta-btn primary">View Work →</a>
+                <a href="/writing/" class="cta-btn">Read Writing →</a>
+                <a href="/contact/" class="cta-btn">Contact Me →</a>
             </div>
         </div>
         <div class="hero-photo">
             <img src="/myself.jpeg" alt="Taha Merghani">
         </div>
-        <div class="scroll-indicator">
-            <span>Scroll</span>
-            <div class="scroll-line"></div>
+    </section>
+
+    <section>
+        <p class="section-label reveal">Currently focused on</p>
+        <div class="focus-tags reveal">
+            <span class="focus-tag">Forward Deployed AI Engineering</span>
+            <span class="focus-tag">LLM / RAG systems</span>
+            <span class="focus-tag">AI deployment under real constraints</span>
+            <span class="focus-tag">Workflow tools and applied AI prototypes</span>
+        </div>
+
+        <div style="margin-top: 3rem;">
+            <p class="intro-para reveal">I started in language technology before the current LLM wave: Arabic speech recognition at MIT CSAIL, multilingual debugging tools at Apple Siri, and NLP research at Georgia Tech. Since then I've worked across customer analytics pipelines, computer vision in enterprise field environments, and local LLM systems. I write about what I learn.</p>
         </div>
     </section>
 
-    <section class="resume-section" id="resume">
-        <div class="resume-container">
-            <h2 class="resume-title">Download Resume</h2>
-            <p class="resume-description">
-                AI Research Engineer with NeurIPS/NAACL publications, 4.0 GPA, and production tools still running at Apple eight years later.
-            </p>
-            <div class="resume-downloads">
-                <a href="/Taha_Merghani_Resume.pdf" class="resume-btn" target="_blank">
-                    <span>📄</span>
-                    View Resume (PDF)
-                </a>
+    <section>
+        <p class="section-label">Featured Work</p>
+        <div class="projects-grid">
+            <div class="project-card reveal">
+                <h3>Apple Siri NLU Debugger</h3>
+                <p>Python tooling for multilingual NLU debugging across 40+ languages. Used by 120+ engineers.</p>
+            </div>
+            <div class="project-card reveal">
+                <h3>Mesa Computer Vision Inspection</h3>
+                <p>OCI computer vision for electrical equipment inspection using drone imagery. Enterprise deployment under real constraints.</p>
+            </div>
+            <div class="project-card reveal">
+                <h3>Local Voice Assistant</h3>
+                <p>Whisper + Ollama + Mistral on local hardware. Privacy-first, no cloud APIs.</p>
             </div>
         </div>
+        <a href="/work/" class="view-all">View all work →</a>
     </section>
 
-    <section class="key-metrics">
-        <p class="metrics-label">Key Metrics (TL;DR for Hiring Managers)</p>
-        <div class="metrics-grid">
-            <div class="metric-item reveal">
-                <div class="metric-category">Education</div>
-                <ul class="metric-list">
-                    <li>Georgia Tech MS CS (<span class="metric-number">3.87/4.0</span>)</li>
-                    <li>Jackson State BS (<span class="metric-number metric-highlight">4.0/4.0</span> - Highest GPA)</li>
-                    <li><span class="metric-number">2</span> publications (NeurIPS, NAACL)</li>
-                </ul>
+    <section>
+        <p class="section-label">Featured Writing</p>
+        <div class="writing-list">
+            <div class="writing-item reveal">
+                <h3><a href="/writing/what-5-000-hours-of-mastering-tekken-taught-me-about-ai-research/">What 5,000 Hours of Mastering Tekken Taught Me About AI Research</a></h3>
             </div>
-
-            <div class="metric-item reveal">
-                <div class="metric-category">Production Impact</div>
-                <ul class="metric-list">
-                    <li>Apple Siri tooling: <span class="metric-number metric-highlight">8 years</span> in production</li>
-                    <li>Selected for Apple internal research summit</li>
-                    <li>Streamlined debugging <span class="metric-number">10x</span> for engineers</li>
-                </ul>
-            </div>
-
-            <div class="metric-item reveal">
-                <div class="metric-category">Technical Writing</div>
-                <ul class="metric-list">
-                    <li><span class="metric-number metric-highlight">200K+</span> views on AI research</li>
-                    <li>Shared by Google Chief Scientist Jeff Dean</li>
-                    <li><a href="https://leetcode.com/problems/continuous-subarray-sum/solutions/4556097/super-clear-explanation-actually-beats-9-ogni/" target="_blank" rel="noopener noreferrer" style="color: var(--amber); border-bottom: 1px solid var(--amber);">LeetCode solution</a>: "God-tier" explanations</li>
-                </ul>
-            </div>
-
-            <div class="metric-item reveal">
-                <div class="metric-category">Current Focus</div>
-                <ul class="metric-list">
-                    <li>Independent AI Research Engineer</li>
-                    <li>LLM evaluation & robustness</li>
-                    <li>Cross-linguistic failure modes</li>
-                </ul>
+            <div class="writing-item reveal">
+                <h3><a href="/writing/doing-ai-on-old-hardware/">Doing AI on Old Hardware</a></h3>
             </div>
         </div>
+        <a href="/writing/" class="view-all">Read all writing →</a>
     </section>
 
-    <section class="building-now">
-        <p class="section-label">Systems Engineering</p>
-        <p style="font-size: 1rem; color: var(--text-secondary); max-width: 800px; margin: 0 auto 3rem; text-align: center;">Constraint-driven architecture for real-world deployment</p>
-
-        <div class="current-projects-grid">
-            <div class="current-project reveal">
-                <span class="current-badge">2025 · Systems Engineering</span>
-
-                <h2><a href="https://github.com/taha-y-merghani/constraint-driven-voice-orchestration" target="_blank">Local-First Voice Agent: High-Latency Orchestration on Legacy Hardware</a></h2>
-
-                <div class="current-stack">
-                    <span class="tech-tag">OpenAI Whisper</span>
-                    <span class="tech-tag">Ollama</span>
-                    <span class="tech-tag">Mistral 7B</span>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Gradio</span>
-                </div>
-
-                <p class="current-project-description">
-                    <strong>The Constraint:</strong> 2015 MacBook Pro with no GPU (integrated graphics only), limited RAM, thermal throttling. Cloud APIs are easy. Local orchestration on legacy hardware is the engineering challenge.
-                </p>
-
-                <p class="current-project-description">
-                    <strong>What Cursor Fixed:</strong> NumPy version conflicts breaking PyTorch, insecure subprocess calls, missing error handling, wrong model names. It caught almost everything.
-                </p>
-
-                <p class="current-project-description">
-                    <strong>What Cursor Missed:</strong> After all fixes, I tested: <em>"What are the human rights principles of the UN?"</em> Whisper transcribed it. Ollama hung. The problem: Mistral needed >30 seconds on my hardware. Cursor assumed my machine was fast. Solution: raised timeout to 5 minutes. AI assistants generate code. Engineers debug systems.
-                </p>
-
-                <div class="current-why">
-                    <h4>Why This Matters</h4>
-                    <p>Demonstrates systems thinking over tool usage. Most LLM demos assume cloud infrastructure or beefy GPUs. Real-world deployment means legacy hardware, air-gapped environments, and privacy-first constraints. This optimizes for the 90% case, not the ideal 10%.</p>
-                </div>
-            </div>
-
-            <div class="current-project reveal">
-                <span class="current-badge">2020 → 2025 · Architecture Analysis</span>
-
-                <h2><a href="https://github.com/taha-y-merghani/nlp-paradigm-shift-2020-2025" target="_blank">Evolution of NLP Architectures: Benchmarking the 5-Year Collapse of Static Embeddings</a></h2>
-
-                <div class="current-stack">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">spaCy</span>
-                    <span class="tech-tag">scikit-learn</span>
-                    <span class="tech-tag">DBSCAN</span>
-                    <span class="tech-tag">LLMs</span>
-                </div>
-
-                <p class="current-project-description">
-                    <strong>The Question:</strong> How did the NLP pipeline collapse between 2020 and 2025? This project analyzes the architectural shift from template-based synthetic data (spaCy + GloVe 2014) → LLM-enhanced generation (Transformers + zero-shot prompts) in disease outbreak detection.
-                </p>
-
-                <p class="current-project-description">
-                    <strong>2025 Measured Results:</strong> 168 locations (84%), 154 diseases (77%) extracted from 200 LLM-generated headlines. 13 spatial clusters identified via DBSCAN. The architectural shift: better generalization (handles post-2020 entities), but new tradeoffs—API costs, non-determinism, explainability loss.
-                </p>
-
-                <p class="current-project-description">
-                    <strong>What Didn't Change:</strong> DBSCAN clustering. Why? It's geometry, not NLP. The 2020 geospatial code is still optimal in 2025. Senior engineers preserve working components during paradigm shifts—they identify what <em>doesn't</em> need LLMs.
-                </p>
-
-                <div class="current-why">
-                    <h4>Why This Matters</h4>
-                    <p>Quantified paradigm shift analysis, not just "LLMs are better." Documents the tradeoffs textbooks skip: when would you NOT use 2025's approach? Latency-critical systems, budget constraints, regulated industries requiring explainability. Juniors chase trends. Seniors benchmark the cost.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="story">
-        <p class="section-label">The Story</p>
-        <div class="story-grid">
-            <div class="story-heading">
-                <h2>From Khartoum to Georgia Tech to wherever this goes next.</h2>
-            </div>
-            <div class="story-content">
-                <p><strong>I ranked first among 400,000 students on Sudan's national exams in 2011.</strong> That number meant something there. It meant government recognition, newspaper interviews, a kind of celebrity status that's hard to explain to Americans. It also meant expectations I'd spend years reconciling with reality.</p>
-                
-                <p>Jackson State University gave me my undergraduate foundation (4.0 GPA, the first student there to achieve it). Georgia Tech brought me to the intersection of linguistics and computation. I published at NeurIPS and NAACL workshops under <strong>Jacob Eisenstein</strong>, applying kernel methods to geolinguistic analysis (mining dialectal patterns from Lyon Twitter data). MIT CSAIL had me building Arabic speech recognition systems under <strong>James Glass</strong>. And at Apple Siri, I built a bug logging tool that streamlined debugging 10x for engineers, was selected for Apple's internal research summit, and is still in use today, eight years later.</p>
-
-                <div class="story-highlight">
-                    <p>In September 2025, after 8.5 years, my asylum case was finally approved. Eight and a half years of uncertainty, of building a life on temporary foundations. That shapes how you see risk, opportunity, and time.</p>
-                </div>
-
-                <p>The years between academia and now included startup work at Decooda and Mesa Associates, circuit breaker analysis and Oracle Cloud Infrastructure. They also included periods of recalibration—understanding when to optimize for external output versus internal clarity.</p>
-
-                <p><strong>Since April 2023, I've been working as an independent AI research engineer.</strong> I write technical content that occasionally reaches unexpected places (200K views on Reddit, my Medium essay shared by Jeff Dean). Currently exploring LLM evaluation, robustness, and the ways models fail across linguistic contexts—the gap between benchmark performance and real-world reliability. And I'm looking for a team where exceptional technical work is the strategy, not just the output.</p>
-            </div>
-        </div>
-
-        <div class="credentials-grid reveal">
-            <div class="credential-card">
-                <h3><a href="/lyon-geolinguistic-variation-2018.pdf" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px solid var(--amber);">Geolinguistic Analysis via Twitter</a></h3>
-                <p class="venue">NeurIPS 2018 Workshop (Black in AI)</p>
-                <p>Kernel methods for mining dialectal variation in Lyon French. Under Jacob Eisenstein.</p>
-            </div>
-            <div class="credential-card">
-                <h3><a href="https://aclanthology.org/W18-1602/" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px solid var(--amber);">Stylistic Variation in Social Media Part-of-Speech Tagging</a></h3>
-                <p class="venue">NAACL 2018 Workshop</p>
-                <p>Social network structure correlates with POS tagger errors on Twitter. Under Jacob Eisenstein.</p>
-            </div>
-            <div class="credential-card">
-                <h3><a href="/mit-arabic-asr-2015.pdf" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px solid var(--amber);">Arabic Speech Recognition</a></h3>
-                <p class="venue">MIT CSAIL 2015 · James Glass</p>
-                <p>Lexical modeling for Egyptian Arabic ASR. Grapheme lexicon outperformed diacritized approaches.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <p class="section-label">Featured Projects</p>
-
-        <div class="projects-grid reveal">
-            <div class="project-card">
-                <div class="project-header">
-                    <h3><a href="https://github.com/taha-y-merghani/chatbot" target="_blank">Speech-Enabled Local Chatbot</a></h3>
-                    <span class="project-year">2025</span>
-                </div>
-                <p class="project-description">
-                    A fully local AI chatbot combining OpenAI Whisper for speech recognition with Ollama's Mistral 7B. Users speak questions, get AI-generated responses—all running on consumer hardware without external API calls.
-                </p>
-                <div class="project-tech">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Whisper</span>
-                    <span class="tech-tag">Ollama</span>
-                    <span class="tech-tag">Gradio</span>
-                    <span class="tech-tag">FastAPI</span>
-                </div>
-                <div class="project-highlights">
-                    <ul>
-                        <li>Real-time audio transcription with immediate feedback</li>
-                        <li>Hardware-optimized with configurable timeouts</li>
-                        <li>Web interface via Gradio + ASGI deployment</li>
-                        <li>Supports multiple audio formats and Ollama models</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-header">
-                    <h3><a href="https://github.com/taha-y-merghani/my-ddo" target="_blank">Disease Outbreak Detection via NLP</a></h3>
-                    <span class="project-year">2020 → 2025</span>
-                </div>
-                <p class="project-description">
-                    Manning Publications liveProject demonstrating NLP evolution in public health surveillance. Extracts diseases and locations from news headlines, performs spatial clustering, generates interactive outbreak maps. Compares 2020 traditional methods with 2025 LLM-enhanced approaches.
-                </p>
-                <div class="project-tech">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">spaCy</span>
-                    <span class="tech-tag">scikit-learn</span>
-                    <span class="tech-tag">DBSCAN</span>
-                    <span class="tech-tag">Folium</span>
-                </div>
-                <div class="project-highlights">
-                    <ul>
-                        <li>84% location extraction, 77% disease extraction accuracy</li>
-                        <li>Identified 13 spatial outbreak clusters from 200 headlines</li>
-                        <li>Interactive geospatial visualizations with Folium</li>
-                        <li>Comparative analysis: template-based vs LLM synthetic data</li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="work">
-        <p class="section-label">Selected Work</p>
-        
-        <div class="work-item reveal">
-            <div class="work-meta">
-                <span class="type">Technical Writing</span>
-                <a href="https://medium.com/@tahaymerghani/a-machine-learning-researcher-spent-close-to-5-000-hours-on-tekken-and-reached-top-0-5-a42c96877214" target="_blank">Medium</a>
-                <a href="https://www.reddit.com/r/ArtificialInteligence/comments/1pq7cnw/what_5000_hours_of_mastering_tekken_taught_me/" target="_blank">Reddit (#1 on r/AI)</a>
-            </div>
-            <div class="work-content">
-                <h3><a href="https://medium.com/@tahaymerghani/a-machine-learning-researcher-spent-close-to-5-000-hours-on-tekken-and-reached-top-0-5-a42c96877214" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px solid var(--amber);">What 5,000 Hours of Mastering Tekken Taught Me About AI Research</a></h3>
-                <p>Autophenomenological analysis exploring parallels between competitive gaming mastery and pattern recognition in ML research. Examining whether the obsessive optimization that makes someone elite at fighting games relates to what makes someone effective at research.</p>
-                <p class="work-stats">~200K views · #1 on r/ArtificialIntelligence</p>
-            </div>
-        </div>
-
-        <div class="work-item reveal">
-            <div class="work-meta">
-                <span class="type">Essay</span>
-                <a href="https://medium.com/@tahaymerghani/from-sudan-to-silicon-valley-beyond-the-resume-a2e6bd3eedb4" target="_blank">Medium</a>
-            </div>
-            <div class="work-content">
-                <h3><a href="https://medium.com/@tahaymerghani/from-sudan-to-silicon-valley-beyond-the-resume-a2e6bd3eedb4" target="_blank" style="color: inherit; text-decoration: none; border-bottom: 1px solid var(--amber);">From Sudan to Silicon Valley: Beyond the Resume</a></h3>
-                <p>Personal narrative on the gap between credentials and lived experience. What it means to be celebrated in one context and invisible in another. Shared by Jeff Dean.</p>
-                <p class="work-stats">200K views · Shared by Jeff Dean</p>
-            </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 4rem; padding: 3rem 0; border-top: 1px solid var(--border);">
-            <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem;">These are just highlights. I've written 11 in-depth articles on AI research, personal challenges, and technical work.</p>
-            <a href="/writing/" class="writing-cta writing-cta-large">View All My Writing →</a>
-        </div>
-    </section>
-
-    <section class="unusual-section">
-        <p class="section-label">Competitive Optimization</p>
-        <div class="unusual-grid">
-            <div class="unusual-content">
-                <h2>5,000 hours of competitive mastery.</h2>
-                <p>Over five years, I reached the top 0.5% globally in Tekken (Tekken God rank, Nina Williams main) and held the #1 position worldwide for ranked wins. This required frame-perfect execution, matchup-specific adaptation, and systematic optimization under pressure.</p>
-                <p>The pattern recognition that makes someone elite at fighting games—reading opponent tendencies, exploiting micro-advantages, iterating on failure in real-time—is the same cognitive process that drives effective research and engineering. The difference is where you apply it.</p>
-                <p>What competitive gaming taught me: how to diagnose failure systematically, how to stay sharp under uncertainty, and when optimization for its own sake becomes the problem instead of the solution.</p>
-            </div>
-            <div class="stat-grid">
-                <div class="stat-item">
-                    <div class="stat-number">0.5%</div>
-                    <div class="stat-label">Global Rank (Tekken God)</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">#1</div>
-                    <div class="stat-label">Worldwide Ranked Wins</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">5,000</div>
-                    <div class="stat-label">Hours of Play</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">Nina</div>
-                    <div class="stat-label">Main Character</div>
-                </div>
-            </div>
+    <section class="resume-section">
+        <div class="resume-container reveal">
+            <h2>Download Resume</h2>
+            <p>AI/NLP engineer with research depth, field deployment experience, and production-adjacent tooling at Apple Siri.</p>
+            <a href="/Taha_Merghani_Resume.pdf" class="resume-btn" target="_blank">
+                View Resume (PDF)
+            </a>
         </div>
     </section>
 
     <section>
         <p class="section-label">What People Say</p>
-                <div class="testimonials-container">
+        <div class="testimonials-container">
             <!-- Jeffrey Lai -->
             <div class="testimonial reveal">
                 <div class="testimonial-header">
                     <img src="assets/testimonials/jeffrey-lai.jpg" alt="Jeffrey Lai" class="testimonial-img" onerror="this.style.display='none'">
                     <div class="testimonial-info">
                         <cite><a href="https://www.linkedin.com/in/jeffreylai1/" target="_blank" rel="noopener noreferrer">Jeffrey Lai</a></cite>
-                        <span class="role">Co-founder & CEO, Tallgeese AI · Ex-Apple</span>
+                        <span class="role">Co-founder &amp; CEO, Tallgeese AI · Ex-Apple</span>
                     </div>
                 </div>
                 <p class="testimonial-text">Taha made a lasting impact during his Siri internship, advancing Siri's i18n and scaling efforts. He built a powerful bug logging tool that <strong>streamlined debugging 10x</strong> for engineers and program managers, still in use today. His project was <strong>selected for Apple's internal research summit</strong>.</p>
@@ -1555,76 +784,41 @@
 
     <section id="contact">
         <div class="contact-section">
-            <h2>Let's Talk</h2>
-            <p>Open to research engineering and AI engineering roles—especially at teams tackling hard problems at the intersection of language, evaluation, and robustness. If you're building systems where the details actually matter, let's connect.</p>
+            <h2>Get in Touch</h2>
+            <p>Open to Forward Deployed AI Engineer, Applied AI Engineer, and founding-engineer-adjacent roles at AI-native teams.</p>
             <div class="contact-links">
                 <a href="mailto:tahaymerghani@gmail.com">Email</a>
                 <a href="https://github.com/taha-y-merghani" target="_blank">GitHub</a>
                 <a href="https://linkedin.com/in/tahamerghani" target="_blank">LinkedIn</a>
-                <a href="https://twitter.com/taha_moji" target="_blank">Twitter</a>
-                <a href="https://medium.com/@tahaymerghani" target="_blank">Medium</a>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>© 2025 Taha Merghani. Built with intention.</p>
+        <p>© 2026 Taha Merghani. Built with intention.</p>
     </footer>
 
     <script>
         // Reveal on scroll
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Smooth scroll for nav links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
         // Theme toggle
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         const html = document.documentElement;
-
-        // Check for saved theme preference or default to dark
-        const currentTheme = localStorage.getItem('theme') || 'dark';
-        html.setAttribute('data-theme', currentTheme);
-        themeIcon.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
-
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
+        themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
         themeToggle.addEventListener('click', () => {
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+            const current = html.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            themeIcon.textContent = next === 'dark' ? '☀️' : '🌙';
         });
     </script>
-
-    <!-- Floating mobile writing link -->
-    <a href="/writing/" class="mobile-writing-link">My Writing ✍️</a>
 </body>
 </html>

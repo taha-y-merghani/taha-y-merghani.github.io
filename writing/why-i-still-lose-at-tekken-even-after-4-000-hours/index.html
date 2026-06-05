@@ -7,7 +7,6 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-HLKE0VWCQ3');
     </script>
 
@@ -15,15 +14,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Why I Still Lose at Tekken — Even After 4,000 Hours - Taha Merghani</title>
     <meta name="description" content="A personal exploration of skill ceilings, execution barriers, and what 4,000 hours of practice can and cannot teach you.">
-
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,6 +28,15 @@
             --text-primary: #e8e4de;
             --text-secondary: #9a9590;
             --border: rgba(212, 168, 83, 0.15);
+        }
+
+        [data-theme="light"] {
+            --warm-black: #f5f2ed;
+            --charcoal: #e8e4de;
+            --text-primary: #1a1814;
+            --text-secondary: #5a5550;
+            --cream: #0d0b09;
+            --border: rgba(26, 24, 20, 0.15);
         }
 
         * {
@@ -56,6 +55,7 @@
             color: var(--text-primary);
             line-height: 1.7;
             font-weight: 300;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .noise-overlay {
@@ -105,10 +105,11 @@
             font-weight: 500;
             color: var(--text-primary);
             letter-spacing: 0.05em;
+            text-decoration: none;
         }
 
-        .nav-name a {
-            color: var(--text-primary);
+        .nav-name:hover {
+            color: var(--amber);
         }
 
         .nav-links {
@@ -126,6 +127,26 @@
 
         .nav-links a:hover {
             color: var(--amber);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .theme-toggle:hover {
+            color: var(--amber);
+            border-color: var(--amber);
         }
 
         /* Article Header */
@@ -315,6 +336,11 @@
                 display: none;
             }
 
+            .theme-toggle {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.75rem;
+            }
+
             .article-header {
                 padding: 6rem 1.5rem 1.5rem;
             }
@@ -339,12 +365,19 @@
     <div class="noise-overlay"></div>
 
     <nav>
-        <div class="nav-name"><a href="/">Taha Merghani</a></div>
-        <div class="nav-links">
-            <a href="/">← Home</a>
-            <a href="/writing/">All Writing</a>
-            <a href="/#projects">Projects</a>
-            <a href="/#contact">Contact</a>
+        <a class="nav-name" href="/">Taha Merghani</a>
+        <div style="display:flex;align-items:center;gap:2.5rem;">
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/work/">Work</a>
+                <a href="/writing/">Writing</a>
+                <a href="/experience/">Experience</a>
+                <a href="/about/">About</a>
+                <a href="/contact/">Contact</a>
+            </div>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <span id="theme-icon">☀️</span>
+            </button>
         </div>
     </nav>
 
@@ -423,7 +456,30 @@
     </div>
 
     <footer>
-        <p>© 2025 Taha Merghani. Built with intention.</p>
+        <p>© 2026 Taha Merghani. Built with intention.</p>
     </footer>
+
+    <script>
+        // Reveal on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
+        themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+        themeToggle.addEventListener('click', () => {
+            const current = html.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            themeIcon.textContent = next === 'dark' ? '☀️' : '🌙';
+        });
+    </script>
 </body>
 </html>

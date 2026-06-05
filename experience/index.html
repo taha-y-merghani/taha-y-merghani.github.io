@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience - Taha Merghani</title>
+    <meta name="description" content="A progression from low-resource language research to field AI deployment to independent systems work.">
+    <meta property="og:title" content="Experience - Taha Merghani">
+    <meta property="og:description" content="A progression from low-resource language research to field AI deployment to independent systems work.">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLKE0VWCQ3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-HLKE0VWCQ3');
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --charcoal: #1a1814;
+            --warm-black: #0d0b09;
+            --cream: #f5f2ed;
+            --amber: #d4a853;
+            --amber-muted: #b8965a;
+            --text-primary: #e8e4de;
+            --text-secondary: #9a9590;
+            --border: rgba(212, 168, 83, 0.15);
+        }
+
+        [data-theme="light"] {
+            --warm-black: #f5f2ed;
+            --charcoal: #e8e4de;
+            --text-primary: #1a1814;
+            --text-secondary: #5a5550;
+            --cream: #0d0b09;
+            --border: rgba(26, 24, 20, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--warm-black);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-weight: 300;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .noise-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 1000; opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
+
+        a { color: var(--amber); text-decoration: none; transition: color 0.3s ease; }
+        a:hover { color: var(--cream); }
+
+        nav {
+            position: fixed; top: 0; left: 0; right: 0;
+            padding: 1.5rem 3rem;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 100;
+            background: linear-gradient(to bottom, var(--warm-black) 0%, transparent 100%);
+        }
+
+        .nav-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem; font-weight: 500;
+            color: var(--text-primary); letter-spacing: 0.05em;
+            text-decoration: none;
+        }
+        .nav-name:hover { color: var(--amber); }
+
+        .nav-links { display: flex; gap: 2.5rem; }
+        .nav-links a {
+            color: var(--text-secondary); font-size: 0.85rem;
+            letter-spacing: 0.08em; text-transform: uppercase; font-weight: 400;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--amber); }
+
+        .theme-toggle {
+            background: none; border: 1px solid var(--border);
+            color: var(--text-secondary); padding: 0.5rem 1rem;
+            cursor: pointer; font-size: 0.85rem; letter-spacing: 0.08em;
+            text-transform: uppercase; font-family: 'Source Sans 3', sans-serif;
+            font-weight: 400; transition: all 0.3s ease; border-radius: 2px;
+        }
+        .theme-toggle:hover { color: var(--amber); border-color: var(--amber); }
+
+        .page-header {
+            padding: 10rem 8% 5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-label {
+            font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em;
+            text-transform: uppercase; color: var(--amber-muted);
+            margin-bottom: 1.5rem; display: block;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            line-height: 1.15; margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.15rem; color: var(--text-secondary); max-width: 650px;
+        }
+
+        .timeline-section {
+            padding: 5rem 8% 8rem;
+            max-width: 1000px;
+        }
+
+        .timeline-entry {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 3rem;
+            padding: 3.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .timeline-entry:last-of-type {
+            border-bottom: none;
+        }
+
+        .timeline-meta {
+            position: sticky;
+            top: 120px;
+            align-self: start;
+        }
+
+        .timeline-dates {
+            font-size: 0.85rem;
+            color: var(--amber);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-org {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .timeline-context {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .timeline-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem;
+        }
+
+        .timeline-bullets li {
+            font-size: 1rem;
+            color: var(--text-primary);
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+            line-height: 1.65;
+        }
+
+        .timeline-bullets li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--amber-muted);
+        }
+
+        .timeline-proof {
+            background: rgba(212, 168, 83, 0.04);
+            border-left: 2px solid var(--amber);
+            padding: 1rem 1.5rem;
+        }
+
+        .timeline-proof-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--amber);
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+        }
+
+        .timeline-proof p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .closing-note {
+            padding: 4rem 8% 6rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .closing-note p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 680px;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.25rem;
+            line-height: 1.7;
+        }
+
+        footer {
+            padding: 3rem 8%;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .reveal {
+            opacity: 0; transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-links { display: none; }
+            .theme-toggle { padding: 0.4rem 0.8rem; font-size: 0.75rem; }
+            .page-header { padding: 8rem 5% 3rem; }
+            .timeline-section { padding: 3rem 5% 6rem; }
+            .closing-note { padding: 3rem 5% 4rem; }
+            .timeline-entry {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .timeline-meta { position: static; }
+        }
+    </style>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+
+    <nav>
+        <a class="nav-name" href="/">Taha Merghani</a>
+        <div style="display:flex;align-items:center;gap:2.5rem;">
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/work/">Work</a>
+                <a href="/writing/">Writing</a>
+                <a href="/experience/" class="active">Experience</a>
+                <a href="/about/">About</a>
+                <a href="/contact/">Contact</a>
+            </div>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <span id="theme-icon">☀️</span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <span class="section-label">Background</span>
+        <h1>Experience</h1>
+        <p>A progression from low-resource language research to field AI deployment to independent systems work.</p>
+    </div>
+
+    <div class="timeline-section">
+
+        <!-- 1. MIT CSAIL -->
+        <div class="timeline-entry reveal">
+            <div class="timeline-meta">
+                <div class="timeline-dates">2015</div>
+                <div class="timeline-org">MIT Computer Science and Artificial Intelligence Laboratory</div>
+            </div>
+            <div class="timeline-content">
+                <h3>Research Intern</h3>
+                <p class="timeline-context">Under James Glass, Speech and Language Systems group.</p>
+                <ul class="timeline-bullets">
+                    <li>Built Egyptian Arabic speech recognition using Kaldi, C++, and Bash</li>
+                    <li>Designed and evaluated pronunciation dictionaries for low-resource dialect modeling</li>
+                    <li>Compared grapheme-based and diacritized lexicon approaches; grapheme approach outperformed</li>
+                    <li>Worked in a research environment with low-resource linguistic constraints and limited training data</li>
+                </ul>
+                <div class="timeline-proof">
+                    <p class="timeline-proof-label">What this proves</p>
+                    <p>Low-resource language systems, experimental rigor, ability to work independently on an under-defined research problem.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Apple Siri -->
+        <div class="timeline-entry reveal">
+            <div class="timeline-meta">
+                <div class="timeline-dates">2017</div>
+                <div class="timeline-org">Apple, Siri Internationalization</div>
+            </div>
+            <div class="timeline-content">
+                <h3>Engineering Intern</h3>
+                <p class="timeline-context">NLU debugging tooling for Siri's multilingual language understanding pipeline.</p>
+                <ul class="timeline-bullets">
+                    <li>Built Python tooling integrating with Siri REST APIs to debug multilingual NLU issues across 40+ languages</li>
+                    <li>Tool adopted by 120+ engineers and program managers across the Siri i18n team</li>
+                    <li>Estimated to save $200k+ in engineering time through structured bug logging and visualization</li>
+                    <li>Project selected for Apple's internal research summit; still in use today</li>
+                </ul>
+                <div class="timeline-proof">
+                    <p class="timeline-proof-label">What this proves</p>
+                    <p>Production-adjacent internal tooling, stakeholder-facing engineering, multilingual NLP systems, ability to identify and solve a workflow problem without being told exactly what to build.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Georgia Tech -->
+        <div class="timeline-entry reveal">
+            <div class="timeline-meta">
+                <div class="timeline-dates">2017 - 2019</div>
+                <div class="timeline-org">Georgia Tech, School of Interactive Computing</div>
+            </div>
+            <div class="timeline-content">
+                <h3>NLP Research (M.S. Computer Science)</h3>
+                <p class="timeline-context">M.S. Computer Science with NLP/ML focus. Research under Jacob Eisenstein.</p>
+                <ul class="timeline-bullets">
+                    <li>Published at NAACL 2018 Workshop: POS tagging robustness under social network variation</li>
+                    <li>Published at NeurIPS 2018 Black in AI Workshop: Geolinguistic analysis using HSIC kernel methods</li>
+                    <li>Coursework in ML, NLP, and computational social science; 3.87/4.0 GPA</li>
+                </ul>
+                <div class="timeline-proof">
+                    <p class="timeline-proof-label">What this proves</p>
+                    <p>Research depth, language variation, NLP robustness, ability to publish and present technical work.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Decooda -->
+        <div class="timeline-entry reveal">
+            <div class="timeline-meta">
+                <div class="timeline-dates">2019 - 2022 (approx.)</div>
+                <div class="timeline-org">Decooda</div>
+            </div>
+            <div class="timeline-content">
+                <h3>AI Engineer</h3>
+                <p class="timeline-context">Applied AI / ML engineering role at a customer analytics company.</p>
+                <ul class="timeline-bullets">
+                    <li>Built and maintained ETL pipelines using Matillion and Snowflake for customer analytics data</li>
+                    <li>Developed ML models and workflows using PyTorch and Docker</li>
+                    <li>Worked across data engineering, model training, and deployment in a production analytics environment</li>
+                </ul>
+                <div class="timeline-proof">
+                    <p class="timeline-proof-label">What this proves</p>
+                    <p>Data pipelines, customer analytics, ML workflows, production ML tooling outside academia.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Mesa Associates -->
+        <div class="timeline-entry reveal">
+            <div class="timeline-meta">
+                <div class="timeline-dates">2022 - 2023 (approx.)</div>
+                <div class="timeline-org">Mesa Associates</div>
+            </div>
+            <div class="timeline-content">
+                <h3>Solutions Architect</h3>
+                <p class="timeline-context">Enterprise/government-subcontractor work with AI deployment on electrical inspection.</p>
+                <ul class="timeline-bullets">
+                    <li>Integrated Oracle Cloud Infrastructure (OCI) computer vision APIs for drone imagery analysis of electrical equipment</li>
+                    <li>Processed inspection imagery metadata in constrained enterprise environments (Excel workflows, limited ML infrastructure)</li>
+                    <li>Learned the realities of deploying AI in environments shaped by institutional constraints, not just technical capability</li>
+                </ul>
+                <div class="timeline-proof">
+                    <p class="timeline-proof-label">What this proves</p>
+                    <p>Field AI deployment in constrained environments, enterprise realities, computer vision in production, understanding the gap between research and deployment.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. Independent -->
+        <div class="timeline-entry reveal">
+            <div class="timeline-meta">
+                <div class="timeline-dates">April 2023 - Present</div>
+                <div class="timeline-org">Independent</div>
+            </div>
+            <div class="timeline-content">
+                <h3>Independent AI Work</h3>
+                <p class="timeline-context">Self-directed AI engineering, systems building, and technical writing.</p>
+                <ul class="timeline-bullets">
+                    <li>Built a local voice assistant pipeline (Whisper + Ollama + Mistral) on consumer hardware</li>
+                    <li>Writing on AI systems, deployment, human skill, and operational reality; 200K+ views, shared by Jeff Dean</li>
+                    <li>Currently building ePub/PDF Reading Buddy: a RAG-based reading sidecar with context-windowed explanations</li>
+                    <li>Targeting Forward Deployed AI Engineer and Applied AI Engineer roles</li>
+                </ul>
+                <div class="timeline-proof">
+                    <p class="timeline-proof-label">What this proves</p>
+                    <p>Self-direction, applied AI systems outside institutional context, technical communication, founder-path market learning.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="closing-note">
+        <p>Longer term, I want to found a company. In the near term, I am looking for roles that put me close to real customer pain, AI deployment, and product learning.</p>
+    </div>
+
+    <footer>
+        <p>© 2026 Taha Merghani. Built with intention.</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
+        themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+        themeToggle.addEventListener('click', () => {
+            const current = html.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            themeIcon.textContent = next === 'dark' ? '☀️' : '🌙';
+        });
+    </script>
+</body>
+</html>

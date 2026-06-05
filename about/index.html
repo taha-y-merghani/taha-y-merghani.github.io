@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Taha Merghani</title>
+    <meta name="description" content="AI/NLP engineer. From MIT CSAIL to Apple Siri to Georgia Tech to field AI deployment.">
+    <meta property="og:title" content="About - Taha Merghani">
+    <meta property="og:description" content="AI/NLP engineer. From MIT CSAIL to Apple Siri to Georgia Tech to field AI deployment.">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLKE0VWCQ3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-HLKE0VWCQ3');
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --charcoal: #1a1814;
+            --warm-black: #0d0b09;
+            --cream: #f5f2ed;
+            --amber: #d4a853;
+            --amber-muted: #b8965a;
+            --text-primary: #e8e4de;
+            --text-secondary: #9a9590;
+            --border: rgba(212, 168, 83, 0.15);
+        }
+
+        [data-theme="light"] {
+            --warm-black: #f5f2ed;
+            --charcoal: #e8e4de;
+            --text-primary: #1a1814;
+            --text-secondary: #5a5550;
+            --cream: #0d0b09;
+            --border: rgba(26, 24, 20, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--warm-black);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-weight: 300;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .noise-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 1000; opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
+
+        a { color: var(--amber); text-decoration: none; transition: color 0.3s ease; }
+        a:hover { color: var(--cream); }
+
+        nav {
+            position: fixed; top: 0; left: 0; right: 0;
+            padding: 1.5rem 3rem;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 100;
+            background: linear-gradient(to bottom, var(--warm-black) 0%, transparent 100%);
+        }
+
+        .nav-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem; font-weight: 500;
+            color: var(--text-primary); letter-spacing: 0.05em;
+            text-decoration: none;
+        }
+        .nav-name:hover { color: var(--amber); }
+
+        .nav-links { display: flex; gap: 2.5rem; }
+        .nav-links a {
+            color: var(--text-secondary); font-size: 0.85rem;
+            letter-spacing: 0.08em; text-transform: uppercase; font-weight: 400;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--amber); }
+
+        .theme-toggle {
+            background: none; border: 1px solid var(--border);
+            color: var(--text-secondary); padding: 0.5rem 1rem;
+            cursor: pointer; font-size: 0.85rem; letter-spacing: 0.08em;
+            text-transform: uppercase; font-family: 'Source Sans 3', sans-serif;
+            font-weight: 400; transition: all 0.3s ease; border-radius: 2px;
+        }
+        .theme-toggle:hover { color: var(--amber); border-color: var(--amber); }
+
+        .about-layout {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 10rem 8% 8rem;
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 6rem;
+            align-items: start;
+        }
+
+        .about-main h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 3rem;
+        }
+
+        .about-main p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.75rem;
+        }
+
+        .about-main p strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .tech-background {
+            margin: 2.5rem 0;
+            padding: 1.5rem 2rem;
+            border: 1px solid var(--border);
+            background: rgba(212, 168, 83, 0.03);
+        }
+
+        .tech-background .label {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--amber-muted);
+            margin-bottom: 0.75rem;
+            display: block;
+            font-weight: 500;
+        }
+
+        .tech-background p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .targeting-para {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+        }
+
+        .closing-link {
+            display: inline-block;
+            color: var(--amber);
+            font-size: 1rem;
+            letter-spacing: 0.08em;
+            border-bottom: 1px solid var(--amber);
+            padding-bottom: 2px;
+            transition: all 0.3s ease;
+        }
+        .closing-link:hover {
+            color: var(--text-primary);
+            border-color: var(--text-primary);
+        }
+
+        .about-sidebar {
+            position: sticky;
+            top: 120px;
+        }
+
+        .about-photo {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 2px solid var(--amber);
+            box-shadow: 0 8px 32px rgba(212, 168, 83, 0.15);
+            margin-bottom: 2rem;
+        }
+
+        .about-photo img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        .sidebar-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+            transition: color 0.3s ease;
+        }
+
+        .sidebar-link:hover {
+            color: var(--amber);
+        }
+
+        .sidebar-link-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--amber-muted);
+            min-width: 70px;
+        }
+
+        footer {
+            padding: 3rem 8%;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .reveal {
+            opacity: 0; transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 900px) {
+            .about-layout {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .about-sidebar {
+                position: static;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-links { display: none; }
+            .theme-toggle { padding: 0.4rem 0.8rem; font-size: 0.75rem; }
+            .about-layout { padding: 8rem 5% 6rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+
+    <nav>
+        <a class="nav-name" href="/">Taha Merghani</a>
+        <div style="display:flex;align-items:center;gap:2.5rem;">
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/work/">Work</a>
+                <a href="/writing/">Writing</a>
+                <a href="/experience/">Experience</a>
+                <a href="/about/" class="active">About</a>
+                <a href="/contact/">Contact</a>
+            </div>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <span id="theme-icon">☀️</span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="about-layout">
+        <div class="about-main">
+            <h1 class="reveal">About</h1>
+
+            <p class="reveal">I started in language technology before the current LLM wave: Arabic speech recognition at MIT CSAIL, multilingual debugging tools at Apple Siri, and NLP research at Georgia Tech. Since then I've worked across customer analytics pipelines, computer vision in enterprise field environments, and local LLM systems. I'm now focused on applied AI deployment: building systems that survive contact with real workflows, messy data, and institutional constraints.</p>
+
+            <p class="reveal">My path is unusual. I grew up in Sudan, ranked first nationally on university entrance exams among 400,000 students, studied computer engineering at Jackson State University (4.0 GPA), then did an M.S. at Georgia Tech focused on ML and NLP. After nine years navigating the U.S. immigration system, my asylum case was approved in September 2025. That experience shapes how I think about uncertainty, institutional constraints, and what it means to build something durable.</p>
+
+            <p class="reveal">I write about what I learn: AI systems, deployment friction, human skill, and the gap between research and practice. Some of that writing has found an audience -- one essay reached 200K views, another was shared by Jeff Dean. I write because it forces clarity. Explaining something well is how I know I actually understand it.</p>
+
+            <div class="tech-background reveal">
+                <span class="label">Technical background</span>
+                <p>NLP, speech recognition, large language models, ML pipelines, data engineering, computer vision, local AI systems, RAG, Python, PyTorch, Kaldi, Snowflake, Docker, Gradio.</p>
+            </div>
+
+            <p class="targeting-para reveal">I'm targeting Forward Deployed AI Engineer, Applied AI Engineer, and founding-engineer-adjacent roles at AI-native teams. Longer term, I want to found a company. In the near term, I want to be close to real customer pain, AI deployment problems, and product learning.</p>
+
+            <p class="reveal">If something on this site resonates, reach out.</p>
+            <a href="/contact/" class="closing-link reveal">Get in touch →</a>
+        </div>
+
+        <div class="about-sidebar reveal">
+            <div class="about-photo">
+                <img src="/myself.jpeg" alt="Taha Merghani">
+            </div>
+            <div class="sidebar-links">
+                <a href="mailto:tahaymerghani@gmail.com" class="sidebar-link">
+                    <span class="sidebar-link-label">Email</span>
+                    tahaymerghani@gmail.com
+                </a>
+                <a href="https://github.com/taha-y-merghani" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+                    <span class="sidebar-link-label">GitHub</span>
+                    taha-y-merghani
+                </a>
+                <a href="https://linkedin.com/in/tahamerghani" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+                    <span class="sidebar-link-label">LinkedIn</span>
+                    tahamerghani
+                </a>
+                <a href="https://medium.com/@tahaymerghani" target="_blank" rel="noopener noreferrer" class="sidebar-link">
+                    <span class="sidebar-link-label">Medium</span>
+                    @tahaymerghani
+                </a>
+                <a href="/Taha_Merghani_Resume.pdf" target="_blank" class="sidebar-link">
+                    <span class="sidebar-link-label">Resume</span>
+                    Download PDF
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Taha Merghani. Built with intention.</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
+        themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+        themeToggle.addEventListener('click', () => {
+            const current = html.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            themeIcon.textContent = next === 'dark' ? '☀️' : '🌙';
+        });
+    </script>
+</body>
+</html>

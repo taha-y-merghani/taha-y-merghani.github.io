@@ -1,30 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing - Taha Merghani</title>
+    <meta name="description" content="Technical essays on AI, systems, deployment, human skill, and the gaps between research and practice.">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLKE0VWCQ3"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-HLKE0VWCQ3');
     </script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Writing - Taha Merghani</title>
-    <meta name="description" content="Technical writing on AI, research, and building systems that matter.">
-
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-    </script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -38,6 +26,15 @@
             --text-primary: #e8e4de;
             --text-secondary: #9a9590;
             --border: rgba(212, 168, 83, 0.15);
+        }
+
+        [data-theme="light"] {
+            --warm-black: #f5f2ed;
+            --charcoal: #e8e4de;
+            --text-primary: #1a1814;
+            --text-secondary: #5a5550;
+            --cream: #0d0b09;
+            --border: rgba(26, 24, 20, 0.15);
         }
 
         * {
@@ -56,6 +53,7 @@
             color: var(--text-primary);
             line-height: 1.7;
             font-weight: 300;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .noise-overlay {
@@ -105,10 +103,11 @@
             font-weight: 500;
             color: var(--text-primary);
             letter-spacing: 0.05em;
+            text-decoration: none;
         }
 
-        .nav-name a {
-            color: var(--text-primary);
+        .nav-name:hover {
+            color: var(--amber);
         }
 
         .nav-links {
@@ -124,13 +123,33 @@
             font-weight: 400;
         }
 
-        .nav-links a:hover {
+        .nav-links a:hover, .nav-links a.active {
             color: var(--amber);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .theme-toggle:hover {
+            color: var(--amber);
+            border-color: var(--amber);
         }
 
         /* Header Section */
         .writing-header {
-            min-height: 60vh;
+            min-height: 50vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -357,6 +376,11 @@
                 display: none;
             }
 
+            .theme-toggle {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.75rem;
+            }
+
             .writing-header {
                 padding: 0 5%;
             }
@@ -380,19 +404,26 @@
     <div class="noise-overlay"></div>
 
     <nav>
-        <div class="nav-name"><a href="/">Taha Merghani</a></div>
-        <div class="nav-links">
-            <a href="/">← Home</a>
-            <a href="/#resume">Resume</a>
-            <a href="/#projects">Projects</a>
-            <a href="/#contact">Contact</a>
+        <a class="nav-name" href="/">Taha Merghani</a>
+        <div style="display:flex;align-items:center;gap:2.5rem;">
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/work/">Work</a>
+                <a href="/writing/" class="active">Writing</a>
+                <a href="/experience/">Experience</a>
+                <a href="/about/">About</a>
+                <a href="/contact/">Contact</a>
+            </div>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <span id="theme-icon">☀️</span>
+            </button>
         </div>
     </nav>
 
     <section class="writing-header">
         <p class="section-label">Writing</p>
-        <h1>Technical essays on AI, research, and systems that matter.</h1>
-        <p>Exploring the intersection of language, computation, and the work worth doing.</p>
+        <h1>Writing</h1>
+        <p>Technical essays on AI, systems, deployment, human skill, and the gaps between research and practice.</p>
     </section>
 
     <section class="articles-section">
@@ -604,26 +635,29 @@
     </section>
 
     <footer>
-        <p>© 2025 Taha Merghani. Built with intention.</p>
+        <p>© 2026 Taha Merghani. Built with intention.</p>
     </footer>
 
     <script>
         // Reveal on scroll
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        document.querySelectorAll('.reveal').forEach(el => {
-            observer.observe(el);
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
+        themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+        themeToggle.addEventListener('click', () => {
+            const current = html.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            themeIcon.textContent = next === 'dark' ? '☀️' : '🌙';
         });
 
         // Filter and Sort functionality
@@ -675,11 +709,9 @@
                 return 0;
             });
 
-            // Re-append in new order
             visibleCards.forEach(card => grid.appendChild(card));
         }
 
-        // Filter button click handlers
         filterButtons.forEach(btn => {
             btn.addEventListener('click', () => {
                 const tag = btn.dataset.tag;
@@ -701,7 +733,6 @@
                         btn.classList.add('active');
                     }
 
-                    // If no filters selected, default to 'all'
                     if (activeFilters.size === 0) {
                         activeFilters.add('all');
                         document.querySelector('[data-tag="all"]').classList.add('active');
@@ -713,7 +744,6 @@
             });
         });
 
-        // Sort button click handlers
         sortButtons.forEach(btn => {
             btn.addEventListener('click', () => {
                 currentSort = btn.dataset.sort;
@@ -723,7 +753,6 @@
             });
         });
 
-        // Initial state
         filterArticles();
         sortArticles();
     </script>
