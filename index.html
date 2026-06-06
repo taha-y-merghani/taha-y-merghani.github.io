@@ -3,10 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taha Merghani - Forward Deployed AI Engineer</title>
-    <meta name="description" content="AI/NLP engineer with experience across Siri tooling, speech recognition, computer vision inspection, customer analytics, and local LLM systems.">
-    <meta property="og:title" content="Taha Merghani - Forward Deployed AI Engineer">
-    <meta property="og:description" content="AI/NLP engineer with experience across Siri tooling, speech recognition, computer vision inspection, customer analytics, and local LLM systems.">
+    <title>Help Taha get to ACL 2026</title>
+    <meta name="description" content="Computational linguist and ML engineer raising $3,750 to attend ACL 2026 in person and connect language AI, evaluation, and real-world deployment.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Help Taha get to ACL 2026">
+    <meta property="og:description" content="Computational linguist and ML engineer raising $3,750 to attend ACL 2026 in person and connect language AI, evaluation, and real-world deployment.">
+    <!-- TODO HERO_IMAGE_PATH: replace with final campaign portrait if a better lab/office regalia image is available. -->
+    <meta property="og:image" content="/assets/images/acl-2026-gt-regalia.jpeg">
+    <meta property="og:url" content="https://taha-y-merghani.github.io/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Help Taha get to ACL 2026">
+    <meta name="twitter:description" content="Computational linguist and ML engineer raising $3,750 to attend ACL 2026 in person and connect language AI, evaluation, and real-world deployment.">
+    <meta name="twitter:image" content="/assets/images/acl-2026-gt-regalia.jpeg">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLKE0VWCQ3"></script>
     <script>
@@ -17,32 +25,32 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --charcoal: #1a1814;
-            --warm-black: #0d0b09;
-            --cream: #f5f2ed;
-            --amber: #d4a853;
-            --amber-muted: #b8965a;
-            --text-primary: #e8e4de;
-            --text-secondary: #9a9590;
-            --border: rgba(212, 168, 83, 0.15);
-        }
-
-        [data-theme="light"] {
-            --warm-black: #f5f2ed;
-            --charcoal: #e8e4de;
-            --text-primary: #1a1814;
-            --text-secondary: #5a5550;
-            --cream: #0d0b09;
-            --border: rgba(26, 24, 20, 0.15);
+            --ink: #111820;
+            --ink-2: #1b2631;
+            --paper: #f7f2e9;
+            --paper-2: #efe7da;
+            --gold: #c99435;
+            --gold-2: #9d6e24;
+            --teal: #2f8f83;
+            --blue: #627f9f;
+            --text: #f5efe4;
+            --muted: #bdc3c9;
+            --dark-muted: #596675;
+            --line: rgba(201, 148, 53, 0.22);
+            --cool-line: rgba(98, 127, 159, 0.24);
+            --surface: rgba(247, 242, 233, 0.055);
+            --surface-strong: rgba(247, 242, 233, 0.09);
+            --nav: rgba(17, 24, 32, 0.84);
+            --shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         html {
@@ -51,773 +59,924 @@
 
         body {
             font-family: 'Source Sans 3', sans-serif;
-            background-color: var(--warm-black);
-            color: var(--text-primary);
-            line-height: 1.7;
+            background:
+                linear-gradient(140deg, rgba(47, 143, 131, 0.12), transparent 30%),
+                linear-gradient(240deg, rgba(201, 148, 53, 0.12), transparent 35%),
+                var(--ink);
+            color: var(--text);
+            line-height: 1.65;
             font-weight: 300;
-            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        .noise-overlay {
+        body::before {
+            content: "";
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             pointer-events: none;
             z-index: 1000;
-            opacity: 0.03;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
         }
 
-        h1, h2, h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 500;
+        img {
+            display: block;
+            max-width: 100%;
         }
 
         a {
-            color: var(--amber);
+            color: var(--gold);
             text-decoration: none;
-            transition: color 0.3s ease;
         }
 
         a:hover {
-            color: var(--cream);
+            color: var(--paper);
         }
 
-        /* Navigation */
-        nav {
-            position: fixed;
+        h1,
+        h2,
+        h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            letter-spacing: 0;
+        }
+
+        p {
+            max-width: 70ch;
+        }
+
+        .container {
+            width: min(1120px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        .site-nav {
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            padding: 1.5rem 3rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             z-index: 100;
-            background: linear-gradient(to bottom, var(--warm-black) 0%, transparent 100%);
+            background: var(--nav);
+            border-bottom: 1px solid var(--cool-line);
+            backdrop-filter: blur(18px);
+        }
+
+        .nav-inner {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
         }
 
         .nav-name {
+            color: var(--text);
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            letter-spacing: 0.05em;
-            text-decoration: none;
-        }
-
-        .nav-name:hover {
-            color: var(--amber);
+            font-size: 1.22rem;
+            font-weight: 600;
+            white-space: nowrap;
         }
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            align-items: center;
+            gap: 1rem;
         }
 
         .nav-links a {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
+            color: var(--muted);
+            font-size: 0.78rem;
+            font-weight: 600;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            font-weight: 400;
         }
 
         .nav-links a:hover {
-            color: var(--amber);
+            color: var(--gold);
         }
 
-        .theme-toggle {
-            background: none;
-            border: 1px solid var(--border);
-            color: var(--text-secondary);
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            font-size: 0.85rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            font-family: 'Source Sans 3', sans-serif;
-            font-weight: 400;
-            transition: all 0.3s ease;
-            border-radius: 2px;
-        }
-
-        .theme-toggle:hover {
-            color: var(--amber);
-            border-color: var(--amber);
-        }
-
-        /* Hero */
-        .hero {
-            min-height: 100vh;
+        .nav-actions {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 0 8%;
-            position: relative;
-            gap: 4rem;
+            gap: 0.65rem;
         }
 
-        .hero-content {
-            max-width: 800px;
-            flex: 1;
-        }
-
-        .hero-photo {
-            flex-shrink: 0;
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 3px solid var(--amber);
-            box-shadow: 0 10px 40px rgba(212, 168, 83, 0.2);
-        }
-
-        .hero-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero-tagline {
-            font-size: 0.8rem;
-            letter-spacing: 0.25em;
+        .button {
+            display: inline-flex;
+            min-height: 44px;
+            align-items: center;
+            justify-content: center;
+            gap: 0.45rem;
+            padding: 0.72rem 1.05rem;
+            border: 1px solid var(--line);
+            color: var(--text);
+            background: transparent;
+            border-radius: 4px;
+            font: inherit;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
             text-transform: uppercase;
-            color: var(--amber-muted);
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            animation: fadeUp 0.8s ease forwards 0.2s;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-1px);
+            border-color: var(--gold);
+            color: var(--text);
+        }
+
+        .button.primary {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: #111820;
+        }
+
+        .button.primary:hover {
+            background: var(--paper);
+            border-color: var(--paper);
+            color: #111820;
+        }
+
+        .button.secondary {
+            border-color: var(--cool-line);
+            color: var(--muted);
+        }
+
+        .button.secondary:hover {
+            color: var(--text);
+        }
+
+        .section {
+            padding: 5.5rem 0;
+            border-top: 1px solid var(--cool-line);
+        }
+
+        .section.kickerless {
+            border-top: 0;
+        }
+
+        .eyebrow {
+            display: block;
+            margin-bottom: 1rem;
+            color: var(--teal);
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        .section h2 {
+            max-width: 760px;
+            margin-bottom: 1.2rem;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            line-height: 1.04;
+        }
+
+        .section-lead {
+            color: var(--muted);
+            font-size: 1.12rem;
+            line-height: 1.7;
+        }
+
+        .hero {
+            padding: 6rem 0 5rem;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.08fr) minmax(310px, 0.72fr);
+            gap: 3.5rem;
+            align-items: center;
         }
 
         .hero h1 {
-            font-size: clamp(2.2rem, 5vw, 4rem);
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            animation: fadeUp 0.8s ease forwards 0.4s;
+            max-width: 760px;
+            margin-bottom: 1.35rem;
+            font-size: clamp(3rem, 7vw, 5.8rem);
+            line-height: 0.95;
         }
 
-        .hero-description {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            line-height: 1.7;
-            opacity: 0;
-            animation: fadeUp 0.8s ease forwards 0.6s;
-            margin-bottom: 2.5rem;
+        .hero-copy {
+            color: var(--muted);
+            font-size: 1.18rem;
+            line-height: 1.68;
         }
 
-        .hero-ctas {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            opacity: 0;
-            animation: fadeUp 0.8s ease forwards 0.8s;
+        .hero-line {
+            margin-top: 1.5rem;
+            color: var(--text);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.45rem, 2.7vw, 2.2rem);
+            line-height: 1.16;
         }
 
-        .cta-btn {
-            display: inline-block;
-            padding: 0.8rem 1.8rem;
-            border: 1px solid var(--amber);
-            color: var(--amber);
-            font-size: 0.9rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            font-family: 'Source Sans 3', sans-serif;
-        }
-
-        .cta-btn:hover {
-            background: var(--amber);
-            color: var(--warm-black);
-        }
-
-        .cta-btn.primary {
-            background: var(--amber);
-            color: var(--warm-black);
-        }
-
-        .cta-btn.primary:hover {
-            background: var(--text-primary);
-            border-color: var(--text-primary);
-        }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Sections */
-        section {
-            padding: 6rem 8%;
-            border-top: 1px solid var(--border);
-        }
-
-        .section-label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--amber-muted);
-            margin-bottom: 2.5rem;
-            display: inline-block;
-        }
-
-        /* Focus tags / pills */
-        .focus-tags {
+        .hero-actions {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-top: 1rem;
-        }
-
-        .focus-tag {
-            padding: 0.5rem 1.2rem;
-            border: 1px solid var(--amber);
-            color: var(--amber);
-            font-size: 0.85rem;
-            letter-spacing: 0.05em;
-            border-radius: 2px;
-        }
-
-        /* Intro paragraph */
-        .intro-para {
-            max-width: 680px;
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            line-height: 1.75;
-        }
-
-        .intro-para strong {
-            color: var(--text-primary);
-            font-weight: 500;
-        }
-
-        /* Project cards */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
+            gap: 0.85rem;
             margin-top: 2rem;
-            margin-bottom: 2.5rem;
         }
 
-        .project-card {
-            padding: 2rem;
-            border: 1px solid var(--border);
-            transition: all 0.4s ease;
+        .trust-chips {
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 0.55rem;
+            margin-top: 1.8rem;
         }
 
-        .project-card:hover {
-            border-color: var(--amber);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(212, 168, 83, 0.12);
-        }
-
-        .project-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-        }
-
-        .project-card p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            flex-grow: 1;
-        }
-
-        /* Writing items */
-        .writing-list {
-            margin-top: 2rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .writing-item {
-            padding: 1.75rem 0;
-            border-bottom: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .writing-item:first-child {
-            border-top: 1px solid var(--border);
-        }
-
-        .writing-item:hover {
-            padding-left: 0.75rem;
-        }
-
-        .writing-item h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .writing-item h3 a {
-            color: var(--text-primary);
-            transition: color 0.3s ease;
-        }
-
-        .writing-item:hover h3 a {
-            color: var(--amber);
-        }
-
-        /* Resume section */
-        .resume-section {
-            background: rgba(212, 168, 83, 0.03);
-        }
-
-        .resume-container {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .resume-container h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .resume-container p {
-            font-size: 1.05rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .resume-btn {
+        .chip {
             display: inline-flex;
             align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 2.5rem;
-            background: var(--amber);
-            color: var(--warm-black);
-            font-size: 0.95rem;
-            font-weight: 500;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-family: 'Source Sans 3', sans-serif;
+            min-height: 32px;
+            padding: 0.35rem 0.7rem;
+            border: 1px solid var(--cool-line);
+            border-radius: 999px;
+            color: var(--muted);
+            background: var(--surface);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
         }
 
-        .resume-btn:hover {
-            background: var(--text-primary);
-            color: var(--warm-black);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(212, 168, 83, 0.3);
+        .hero-card {
+            padding: 0.75rem;
+            border: 1px solid var(--cool-line);
+            border-radius: 8px;
+            background: var(--surface);
+            box-shadow: var(--shadow);
         }
 
-        /* Testimonials */
-        .testimonials-container {
+        .hero-image {
+            overflow: hidden;
+            border-radius: 6px;
+            aspect-ratio: 4 / 5;
+            background: #0e141b;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 48% 34%;
+        }
+
+        .campaign-status {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 0.85rem;
+            margin-top: 1rem;
+            padding: 1.25rem;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            background: rgba(201, 148, 53, 0.08);
+        }
+
+        .status-row {
+            display: grid;
+            grid-template-columns: 88px 1fr;
+            gap: 1rem;
+            border-bottom: 1px solid rgba(247, 242, 233, 0.08);
+            padding-bottom: 0.72rem;
+            color: var(--muted);
+            font-size: 0.96rem;
+        }
+
+        .status-row:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .status-row strong {
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .status-label {
+            color: var(--gold);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-size: 0.72rem;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.65fr);
             gap: 2rem;
+            align-items: start;
+        }
+
+        .paper-card,
+        .quote-card,
+        .note-card {
+            border: 1px solid var(--cool-line);
+            border-radius: 8px;
+            background: var(--surface);
+            padding: 1.5rem;
+        }
+
+        .paper-card h3,
+        .quote-card h3,
+        .note-card h3 {
+            margin-bottom: 0.8rem;
+            font-size: 1.45rem;
+            line-height: 1.1;
+        }
+
+        .paper-meta {
+            display: grid;
+            gap: 0.75rem;
+            margin: 1rem 0 1.2rem;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .paper-meta span {
+            display: block;
+            color: var(--teal);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1rem;
             margin-top: 2rem;
         }
 
-        .testimonial {
-            background: rgba(212, 168, 83, 0.03);
-            border: 1px solid var(--border);
-            padding: 2.5rem;
-            transition: all 0.4s ease;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+        .card {
+            min-height: 100%;
+            padding: 1.25rem;
+            border: 1px solid var(--cool-line);
+            border-radius: 8px;
+            background: var(--surface);
         }
 
-        .testimonial:hover {
-            border-color: var(--amber-muted);
-            transform: translateY(-5px);
-            background: rgba(212, 168, 83, 0.05);
+        .card h3 {
+            margin-bottom: 0.55rem;
+            font-size: 1.28rem;
+            line-height: 1.12;
         }
 
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+        .card p {
+            color: var(--muted);
+            font-size: 0.98rem;
         }
 
-        .testimonial-img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--amber-muted);
-            background-color: var(--charcoal);
+        .quote-card {
+            border-color: var(--line);
+            background: rgba(201, 148, 53, 0.08);
         }
 
-        .testimonial-info {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .testimonial-info cite {
+        .quote-card p {
+            color: var(--text);
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
-            font-style: normal;
+            font-size: 2rem;
+            line-height: 1.08;
+        }
+
+        .fde-tags {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.85rem;
+            margin-top: 2rem;
+        }
+
+        .fde-tags span {
+            padding: 1rem;
+            border: 1px solid var(--cool-line);
+            border-radius: 6px;
+            color: var(--text);
+            background: var(--surface);
             font-weight: 600;
-            color: var(--text-primary);
-            line-height: 1.2;
         }
 
-        .testimonial-info cite a {
-            color: var(--text-primary);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: all 0.3s ease;
+        .cost-table {
+            display: grid;
+            margin-top: 2rem;
+            border: 1px solid var(--cool-line);
+            border-radius: 8px;
+            overflow: hidden;
         }
 
-        .testimonial-info cite a:hover {
-            color: var(--amber);
-            border-bottom-color: var(--amber);
+        .cost-row {
+            display: grid;
+            grid-template-columns: 1fr minmax(180px, auto);
+            gap: 1rem;
+            padding: 1rem 1.2rem;
+            border-bottom: 1px solid var(--cool-line);
+            background: var(--surface);
+            color: var(--muted);
         }
 
-        .testimonial-info .role {
-            font-size: 0.8rem;
-            color: var(--amber);
-            letter-spacing: 0.05em;
-            margin-top: 0.2rem;
-            line-height: 1.4;
+        .cost-row:last-child {
+            border-bottom: 0;
         }
 
-        .testimonial-text {
-            font-family: 'Source Sans 3', sans-serif;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-primary);
-            font-weight: 300;
-            letter-spacing: 0.01em;
+        .cost-row.total {
+            background: rgba(201, 148, 53, 0.12);
+            color: var(--text);
+            font-weight: 700;
         }
 
-        .testimonial-text strong {
-            color: var(--amber);
+        .cost-amount {
+            color: var(--text);
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .small-note {
+            margin-top: 1rem;
+            color: var(--muted);
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        .accountability-list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.85rem;
+            margin: 2rem 0;
+            list-style: none;
+        }
+
+        .accountability-list li {
+            padding: 1rem;
+            border: 1px solid var(--cool-line);
+            border-radius: 6px;
+            background: var(--surface);
+            color: var(--muted);
+        }
+
+        .selected-work {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .work-card {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            padding: 1.35rem;
+            border: 1px solid var(--cool-line);
+            border-radius: 8px;
+            background: var(--surface);
+        }
+
+        .work-card h3 {
+            font-size: 1.35rem;
+            line-height: 1.12;
+        }
+
+        .work-card p {
+            color: var(--muted);
+            font-size: 0.98rem;
+        }
+
+        .work-card .why {
+            color: var(--text);
             font-weight: 500;
         }
 
-        /* Contact section */
-        .contact-section {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .contact-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-section p {
-            font-size: 1.05rem;
-            color: var(--text-secondary);
-            margin-bottom: 2.5rem;
-        }
-
-        .contact-links {
+        .contact-panel {
             display: flex;
-            justify-content: center;
-            gap: 1.5rem;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            padding: 2rem;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: linear-gradient(110deg, rgba(201, 148, 53, 0.12), rgba(47, 143, 131, 0.08));
+        }
+
+        .contact-actions {
+            display: flex;
             flex-wrap: wrap;
+            gap: 0.7rem;
+            justify-content: flex-end;
         }
 
-        .contact-links a {
-            padding: 0.7rem 1.4rem;
-            border: 1px solid var(--border);
-            font-size: 0.85rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--text-secondary);
-            transition: all 0.3s ease;
-        }
-
-        .contact-links a:hover {
-            background: var(--amber);
-            color: var(--warm-black);
-            border-color: var(--amber);
-        }
-
-        /* Footer */
         footer {
-            padding: 3rem 8%;
-            border-top: 1px solid var(--border);
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
+            padding: 2.5rem 0;
+            border-top: 1px solid var(--cool-line);
+            color: var(--muted);
+            font-size: 0.92rem;
         }
 
-        /* Reveal animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* View-all links */
-        .view-all {
-            display: inline-block;
-            color: var(--amber);
-            font-size: 0.9rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            border-bottom: 1px solid var(--amber);
-            padding-bottom: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .view-all:hover {
-            color: var(--text-primary);
-            border-color: var(--text-primary);
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .testimonials-container {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                padding: 1rem 1.5rem;
-            }
-
+        @media (max-width: 980px) {
             .nav-links {
                 display: none;
             }
 
-            .theme-toggle {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.75rem;
-            }
-
-            .hero {
-                padding: 6rem 5% 4rem;
-                flex-direction: column-reverse;
-                gap: 2rem;
-                min-height: auto;
-            }
-
-            .hero-photo {
-                width: 180px;
-                height: 180px;
-            }
-
-            section {
-                padding: 4rem 5%;
-            }
-
-            .projects-grid {
+            .hero-grid,
+            .two-col {
                 grid-template-columns: 1fr;
             }
 
-            .hero-ctas {
+            .hero {
+                padding-top: 3.2rem;
+            }
+
+            .hero-card {
+                max-width: 460px;
+            }
+
+            .cards,
+            .selected-work {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .fde-tags,
+            .accountability-list {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 680px) {
+            .container {
+                width: min(100% - 28px, 1120px);
+            }
+
+            .nav-inner {
+                min-height: 64px;
+            }
+
+            .nav-actions .button.secondary {
+                display: none;
+            }
+
+            .button {
+                width: 100%;
+            }
+
+            .nav-actions .button {
+                width: auto;
+                min-height: 40px;
+                padding: 0.6rem 0.85rem;
+            }
+
+            .hero {
+                padding: 2.2rem 0 4rem;
+            }
+
+            .hero h1 {
+                font-size: clamp(2.8rem, 16vw, 4.4rem);
+            }
+
+            .hero-actions,
+            .contact-actions {
+                flex-direction: column;
+            }
+
+            .trust-chips {
+                gap: 0.45rem;
+            }
+
+            .hero-card {
+                max-width: none;
+            }
+
+            .campaign-status,
+            .paper-card,
+            .quote-card,
+            .note-card,
+            .contact-panel {
+                padding: 1rem;
+            }
+
+            .status-row,
+            .cost-row {
+                grid-template-columns: 1fr;
+                gap: 0.35rem;
+            }
+
+            .cost-amount {
+                text-align: left;
+            }
+
+            .cards,
+            .fde-tags,
+            .accountability-list,
+            .selected-work {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+
+            .contact-panel {
+                align-items: stretch;
                 flex-direction: column;
             }
         }
     </style>
 </head>
 <body>
-    <div class="noise-overlay"></div>
+    <!-- TODO FUNDRAISER_URL: replace FUNDRAISER_URL with the live fundraiser URL everywhere it appears. -->
+    <!-- TODO CURRENT_AMOUNT_RAISED: update the status block when the fundraiser has a live total. -->
+    <!-- TODO ACL_ANTHOLOGY_URL: currently set to https://aclanthology.org/W18-1602/. -->
+    <!-- TODO LINKEDIN_URL / GITHUB_URL / MEDIUM_URL / EMAIL: verify these are the preferred public links. -->
 
-    <nav>
-        <a class="nav-name" href="/">Taha Merghani</a>
-        <div style="display:flex;align-items:center;gap:2.5rem;">
-            <div class="nav-links">
-                <a href="/">Home</a>
-                <a href="/work/">Work</a>
-                <a href="/writing/">Writing</a>
-                <a href="/experience/">Experience</a>
-                <a href="/about/">About</a>
-                <a href="/contact/">Contact</a>
-            </div>
-            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-                <span id="theme-icon">☀️</span>
-            </button>
-        </div>
-    </nav>
-
-    <section class="hero" style="border-top:none;">
-        <div class="hero-content">
-            <p class="hero-tagline">Forward Deployed AI Engineer</p>
-            <h1>I build AI systems for messy real-world workflows.</h1>
-            <p class="hero-description">AI/NLP engineer with experience across Siri tooling, speech recognition, computer vision inspection, customer analytics, and local LLM systems. I'm focused on Forward Deployed AI work: turning ambiguous workflows into useful, evaluated, deployable AI systems.</p>
-            <div class="hero-ctas">
-                <a href="/work/" class="cta-btn primary">View Work →</a>
-                <a href="/writing/" class="cta-btn">Read Writing →</a>
-                <a href="/contact/" class="cta-btn">Contact Me →</a>
+    <header class="site-nav">
+        <div class="container nav-inner">
+            <a class="nav-name" href="/">Taha Merghani</a>
+            <nav class="nav-links" aria-label="Primary">
+                <a href="#fundraiser">Fundraiser</a>
+                <a href="#why-acl">Why ACL</a>
+                <a href="#proof">Proof</a>
+                <a href="#cost">Cost</a>
+                <a href="#work">Work</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <a class="button primary" href="FUNDRAISER_URL">Contribute</a>
+                <button class="button secondary" type="button" id="share-button">Share</button>
             </div>
         </div>
-        <div class="hero-photo">
-            <img src="/myself.jpeg" alt="Taha Merghani">
-        </div>
-    </section>
+    </header>
 
-    <section>
-        <p class="section-label reveal">Currently focused on</p>
-        <div class="focus-tags reveal">
-            <span class="focus-tag">Forward Deployed AI Engineering</span>
-            <span class="focus-tag">LLM / RAG systems</span>
-            <span class="focus-tag">AI deployment under real constraints</span>
-            <span class="focus-tag">Workflow tools and applied AI prototypes</span>
-        </div>
-
-        <div style="margin-top: 3rem;">
-            <p class="intro-para reveal">I started in language technology before the current LLM wave: Arabic speech recognition at MIT CSAIL, multilingual debugging tools at Apple Siri, and NLP research at Georgia Tech. Since then I've worked across customer analytics pipelines, computer vision in enterprise field environments, and local LLM systems. I write about what I learn.</p>
-        </div>
-    </section>
-
-    <section>
-        <p class="section-label">Featured Work</p>
-        <div class="projects-grid">
-            <div class="project-card reveal">
-                <h3>Apple Siri NLU Debugger</h3>
-                <p>Python tooling for multilingual NLU debugging across 40+ languages. Used by 120+ engineers.</p>
-            </div>
-            <div class="project-card reveal">
-                <h3>Mesa Computer Vision Inspection</h3>
-                <p>OCI computer vision for electrical equipment inspection using drone imagery. Enterprise deployment under real constraints.</p>
-            </div>
-            <div class="project-card reveal">
-                <h3>Local Voice Assistant</h3>
-                <p>Whisper + Ollama + Mistral on local hardware. Privacy-first, no cloud APIs.</p>
-            </div>
-        </div>
-        <a href="/work/" class="view-all">View all work →</a>
-    </section>
-
-    <section>
-        <p class="section-label">Featured Writing</p>
-        <div class="writing-list">
-            <div class="writing-item reveal">
-                <h3><a href="/writing/what-5-000-hours-of-mastering-tekken-taught-me-about-ai-research/">What 5,000 Hours of Mastering Tekken Taught Me About AI Research</a></h3>
-            </div>
-            <div class="writing-item reveal">
-                <h3><a href="/writing/doing-ai-on-old-hardware/">Doing AI on Old Hardware</a></h3>
-            </div>
-        </div>
-        <a href="/writing/" class="view-all">Read all writing →</a>
-    </section>
-
-    <section class="resume-section">
-        <div class="resume-container reveal">
-            <h2>Download Resume</h2>
-            <p>AI/NLP engineer with research depth, field deployment experience, and production-adjacent tooling at Apple Siri.</p>
-            <a href="/Taha_Merghani_Resume.pdf" class="resume-btn" target="_blank">
-                View Resume (PDF)
-            </a>
-        </div>
-    </section>
-
-    <section>
-        <p class="section-label">What People Say</p>
-        <div class="testimonials-container">
-            <!-- Jeffrey Lai -->
-            <div class="testimonial reveal">
-                <div class="testimonial-header">
-                    <img src="assets/testimonials/jeffrey-lai.jpg" alt="Jeffrey Lai" class="testimonial-img" onerror="this.style.display='none'">
-                    <div class="testimonial-info">
-                        <cite><a href="https://www.linkedin.com/in/jeffreylai1/" target="_blank" rel="noopener noreferrer">Jeffrey Lai</a></cite>
-                        <span class="role">Co-founder &amp; CEO, Tallgeese AI · Ex-Apple</span>
+    <main id="fundraiser">
+        <section class="hero kickerless">
+            <div class="container hero-grid">
+                <div>
+                    <span class="eyebrow">ACL 2026 fundraiser</span>
+                    <h1>Help me get to ACL 2026.</h1>
+                    <p class="hero-copy">I’m raising $3,750 to attend ACL 2026 in San Diego in person. I’m a computational linguist and ML engineer working where language AI meets messy reality: speech, multilingual NLP, low-resource language technology, evaluation, and deployment.</p>
+                    <p class="hero-line">My bottleneck is not access to papers. Papers are online. It is access to people.</p>
+                    <div class="hero-actions">
+                        <a class="button primary" href="FUNDRAISER_URL">Contribute to the fundraiser</a>
+                        <a class="button" href="#case">Read why this matters</a>
+                    </div>
+                    <div class="trust-chips" aria-label="Credibility markers">
+                        <span class="chip">ACL Anthology author</span>
+                        <span class="chip">MIT CSAIL</span>
+                        <span class="chip">Apple Siri</span>
+                        <span class="chip">Georgia Tech MSCS</span>
+                        <span class="chip">Speech + multilingual NLP</span>
+                        <span class="chip">Forward Deployed AI</span>
                     </div>
                 </div>
-                <p class="testimonial-text">Taha made a lasting impact during his Siri internship, advancing Siri's i18n and scaling efforts. He built a powerful bug logging tool that <strong>streamlined debugging 10x</strong> for engineers and program managers, still in use today. His project was <strong>selected for Apple's internal research summit</strong>.</p>
-            </div>
 
-            <!-- Abdelrahman Karrar -->
-            <div class="testimonial reveal">
-                <div class="testimonial-header">
-                    <img src="assets/testimonials/abdelrahman-karrar.jpg" alt="Abdelrahman Karrar" class="testimonial-img" onerror="this.style.display='none'">
-                    <div class="testimonial-info">
-                        <cite><a href="https://www.linkedin.com/in/abdelrahman-karrar-9a3728a9/" target="_blank" rel="noopener noreferrer">Abdelrahman Karrar</a></cite>
-                        <span class="role">PhD, IEEE Senior Member · Professor, UT Chattanooga</span>
+                <aside class="hero-card" aria-label="Campaign status">
+                    <figure class="hero-image">
+                        <img src="/assets/images/acl-2026-gt-regalia.jpeg" alt="Taha Merghani in Georgia Tech regalia beside a College of Computing sign.">
+                    </figure>
+                    <div class="campaign-status">
+                        <div class="status-row">
+                            <span class="status-label">Goal</span>
+                            <strong>$3,750</strong>
+                        </div>
+                        <div class="status-row">
+                            <span class="status-label">Use</span>
+                            <span>Registration, ACL membership, travel, lodging, food, local transport, and fundraiser fees.</span>
+                        </div>
+                        <div class="status-row">
+                            <span class="status-label">Deadline</span>
+                            <span>Before ACL 2026. <a href="https://2026.aclweb.org/registration/" target="_blank" rel="noopener noreferrer">Registration is open</a>, and in-person capacity is capped, so timing matters.</span>
+                        </div>
+                        <div class="status-row">
+                            <span class="status-label">Status</span>
+                            <span>Amount raised: TODO. Update once the fundraiser is live.</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="section" id="case">
+            <div class="container two-col">
+                <div>
+                    <span class="eyebrow">The wedge</span>
+                    <h2>Language technology does not fail evenly.</h2>
+                    <p class="section-lead">Language technology fails along lines of style, community, dialect, network, and who shows up in the training data. I first worked on this problem in 2018, when I co-authored “Stylistic Variation in Social Media Part-of-Speech Tagging” with Murali Balusu and Jacob Eisenstein, published in the ACL Anthology. That question is more urgent in the era of large language models, not less.</p>
+                </div>
+                <article class="paper-card" id="proof">
+                    <span class="eyebrow">ACL Anthology paper</span>
+                    <h3>Stylistic Variation in Social Media Part-of-Speech Tagging</h3>
+                    <div class="paper-meta">
+                        <p><span>Authors</span>Taha Merghani, Murali Raghu Babu Balusu, Jacob Eisenstein</p>
+                        <p><span>Venue</span>Second Workshop on Stylistic Variation, ACL/NAACL 2018</p>
+                    </div>
+                    <a class="button" href="https://aclanthology.org/W18-1602/" target="_blank" rel="noopener noreferrer">View ACL Anthology paper</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="section" id="why-acl">
+            <div class="container">
+                <div class="two-col">
+                    <div>
+                        <span class="eyebrow">Why ACL</span>
+                        <h2>Why ACL 2026?</h2>
+                        <p class="section-lead">ACL is the flagship conference for NLP and language AI. I want to be in the room with people working on the consequences: evaluation, labor, education, institutions, multilingual systems, and who gets served or missed by these systems.</p>
+                    </div>
+                    <aside class="quote-card">
+                        <p>Papers are online. Proximity is not.</p>
+                    </aside>
+                </div>
+                <div class="cards">
+                    <article class="card">
+                        <h3>The field is there</h3>
+                        <p>ACL is the central gathering for NLP and language AI.</p>
+                    </article>
+                    <article class="card">
+                        <h3>The people are there</h3>
+                        <p>Researchers, engineers, founders, hiring managers, and collaborators are concentrated in one place.</p>
+                    </article>
+                    <article class="card">
+                        <h3>The questions are there</h3>
+                        <p>Evaluation, multilingual systems, language variation, labor, education, institutions, and consequences.</p>
+                    </article>
+                    <article class="card">
+                        <h3>The informal layer matters</h3>
+                        <p>Useful opportunities form around posters, workshops, hallway conversations, and introductions.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <span class="eyebrow">FDE bridge</span>
+                <h2>Why this connects to Forward Deployed Engineering</h2>
+                <p class="section-lead">I’m not interested in AI as a clean benchmark artifact. I’m interested in AI systems that survive contact with reality. Real deployment means messy users, multilingual settings, unclear workflows, institutional constraints, uneven data, and consequences that do not show up in a leaderboard.</p>
+                <p class="section-lead" style="margin-top:1rem;">That is why my website is organized around Forward Deployed Engineering. The work I want to do sits between models, users, workflows, evaluation, and the society those systems enter.</p>
+                <div class="fde-tags" aria-label="Forward deployed engineering themes">
+                    <span>Language variation</span>
+                    <span>Low-resource and multilingual users</span>
+                    <span>Evaluation gaps</span>
+                    <span>Human workflows</span>
+                    <span>Institutional deployment</span>
+                    <span>AI consequences</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="cost">
+            <div class="container">
+                <span class="eyebrow">Cost breakdown</span>
+                <h2>Where the $3,750 goes</h2>
+                <p class="section-lead">The target covers a modest version of the trip: registration, required ACL membership, travel, lodging, food, local transportation, and fundraiser fees.</p>
+                <div class="cost-table" aria-label="Fundraiser cost breakdown">
+                    <div class="cost-row">
+                        <span>ACL 3-day main conference registration</span>
+                        <span class="cost-amount">approximately $1,050</span>
+                    </div>
+                    <div class="cost-row">
+                        <span>Required ACL membership</span>
+                        <span class="cost-amount">approximately $100</span>
+                    </div>
+                    <div class="cost-row">
+                        <span>Flight</span>
+                        <span class="cost-amount">approximately $350-$600</span>
+                    </div>
+                    <div class="cost-row">
+                        <span>Lodging</span>
+                        <span class="cost-amount">approximately $600-$1,200</span>
+                    </div>
+                    <div class="cost-row">
+                        <span>Food and local transportation</span>
+                        <span class="cost-amount">approximately $350-$500</span>
+                    </div>
+                    <div class="cost-row">
+                        <span>Buffer, price changes, and fundraiser fees</span>
+                        <span class="cost-amount">approximately $300-$600</span>
+                    </div>
+                    <div class="cost-row total">
+                        <span>Target</span>
+                        <span class="cost-amount">$3,750</span>
                     </div>
                 </div>
-                <p class="testimonial-text">I would meet him at the University of Tennessee at Chattanooga when he would come on some weekends. I was struck by <strong>how different he was compared to his peers</strong>. He was interested in <strong>intellectual discussions</strong>, exploring social, cultural and political issues. He offered to accompany me on a journey to Atlanta Airport to pick up a mutual friend, and the two-hour journey turned out to be an education for me. I am still influenced by the ideas we discussed and the podcasts he made me listen to.</p>
+                <p class="small-note">This is a modest version of the trip, not a luxury budget.</p>
             </div>
+        </section>
 
-            <!-- Jonathan Zhang -->
-            <div class="testimonial reveal">
-                <div class="testimonial-header">
-                    <img src="assets/testimonials/jonathan-zhang.jpg" alt="Jonathan Zhang" class="testimonial-img" onerror="this.style.display='none'">
-                    <div class="testimonial-info">
-                        <cite><a href="https://www.linkedin.com/in/zhangj150/" target="_blank" rel="noopener noreferrer">Jonathan Zhang</a></cite>
-                        <span class="role">Machine Learning Engineer, Pinterest</span>
+        <section class="section">
+            <div class="container two-col">
+                <div>
+                    <span class="eyebrow">Due diligence</span>
+                    <h2>I checked lower-cost routes first.</h2>
+                    <p class="section-lead">I checked ACL’s subsidy and volunteer routes first. The main D&amp;I and student-volunteer deadlines have passed, and I am still pursuing any remaining lower-cost options where possible. The fundraiser covers the remaining gap.</p>
+                </div>
+                <aside class="note-card">
+                    <h3>Why now</h3>
+                    <p class="section-lead">This fundraiser is not about rescue. It is about proximity after displacement. Strong trajectories can still be interrupted when health, immigration, and survival constraints compound. I am putting myself back into motion deliberately.</p>
+                </aside>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <span class="eyebrow">Accountability</span>
+                <h2>What I will publish afterward</h2>
+                <p class="section-lead">Contribute so I can go, then follow the report. I will publish what comes out of the trip, not just that the trip happened.</p>
+                <ul class="accountability-list">
+                    <li>Technical notes from talks, posters, and workshops.</li>
+                    <li>A short field report on what people are discussing around language AI and evaluation.</li>
+                    <li>Ideas sharpened.</li>
+                    <li>People I met.</li>
+                    <li>Leads pursued.</li>
+                    <li>What this changed for my next work.</li>
+                </ul>
+                <a class="button primary" href="FUNDRAISER_URL">Contribute so I can go</a>
+            </div>
+        </section>
+
+        <section class="section" id="work">
+            <div class="container">
+                <span class="eyebrow">Selected work</span>
+                <h2>Proof that this room matches my trajectory</h2>
+                <div class="selected-work">
+                    <article class="work-card">
+                        <h3>Stylistic variation in social media POS tagging</h3>
+                        <p>ACL Anthology paper on how social network structure predicts NLP model errors.</p>
+                        <p class="why">Why it matters now: language model failure still clusters around community, style, and data coverage.</p>
+                        <a href="https://aclanthology.org/W18-1602/" target="_blank" rel="noopener noreferrer">View paper</a>
+                    </article>
+                    <article class="work-card">
+                        <h3>Egyptian Arabic ASR at MIT CSAIL</h3>
+                        <p>Low-resource speech recognition work using Kaldi acoustic models and Arabic pronunciation resources.</p>
+                        <p class="why">Why it matters now: speech and dialect coverage remain central to who language AI serves.</p>
+                        <a href="/mit-arabic-asr-2015.pdf" target="_blank">View paper</a>
+                    </article>
+                    <article class="work-card">
+                        <h3>Apple Siri NLU tooling</h3>
+                        <p>Python tooling for multilingual NLU debugging across Siri’s internationalization workflows.</p>
+                        <p class="why">Why it matters now: production language systems need tools for diagnosing real user failures.</p>
+                        <a href="/work/">View work</a>
+                    </article>
+                    <article class="work-card">
+                        <h3>Georgia Tech NLP research</h3>
+                        <p>Social media language variation, geolinguistic analysis, and NLP robustness under distribution shift.</p>
+                        <p class="why">Why it matters now: model behavior has to be evaluated across real populations and contexts.</p>
+                        <a href="/work/">View projects</a>
+                    </article>
+                    <article class="work-card">
+                        <h3>Forward deployed AI systems</h3>
+                        <p>Computer vision inspection work, customer analytics pipelines, local LLM systems, and workflow tools.</p>
+                        <p class="why">Why it matters now: useful AI has to survive institutional constraints and messy operations.</p>
+                        <a href="/work/">View portfolio</a>
+                    </article>
+                    <article class="work-card">
+                        <h3>Public essays</h3>
+                        <p>Writing on AI systems, deployment friction, human skill, research, and learning in public.</p>
+                        <p class="why">Why it matters now: explaining the work clearly is part of building with accountability.</p>
+                        <a href="/writing/">Read writing</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <div class="container">
+                <div class="contact-panel">
+                    <div>
+                        <span class="eyebrow">If this resonates</span>
+                        <h2>Let’s talk.</h2>
+                        <p class="section-lead">If you are working on language AI, evaluation, multilingual systems, AI deployment, or the consequences of AI in institutions, I want to talk.</p>
+                    </div>
+                    <div class="contact-actions">
+                        <a class="button primary" href="FUNDRAISER_URL">Fundraiser</a>
+                        <a class="button" href="mailto:tahaymerghani@gmail.com">Email me</a>
+                        <a class="button" href="https://linkedin.com/in/tahamerghani" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a class="button" href="https://github.com/taha-y-merghani" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a class="button" href="https://medium.com/@tahaymerghani" target="_blank" rel="noopener noreferrer">Medium</a>
                     </div>
                 </div>
-                <p class="testimonial-text">He developed a testing tool that <strong>received recognition from Apple's head of engineering</strong> and, notably, <strong>remains in use today</strong>—an uncommon accomplishment in an industry where software often changes rapidly. This achievement highlights Taha's engineering precision and foresight in building solutions with lasting impact.</p>
             </div>
-
-            <!-- Robert Citorik -->
-            <div class="testimonial reveal">
-                <div class="testimonial-header">
-                    <img src="assets/testimonials/robert-citorik.jpg" alt="Robert Citorik" class="testimonial-img" onerror="this.style.display='none'">
-                    <div class="testimonial-info">
-                        <cite><a href="https://www.linkedin.com/in/rcitorik/" target="_blank" rel="noopener noreferrer">Robert Citorik</a></cite>
-                        <span class="role">Co-Founder, Tessera Therapeutics · MIT</span>
-                    </div>
-                </div>
-                <p class="testimonial-text">He was <strong>easily one of the most motivated students</strong> I have had the pleasure of advising, always providing questions that drove our weekly group meetings toward useful discussions, and one of the few who would <strong>connect offline for conversations regarding science</strong> and careers. We even continued these discussions after the end of the program.</p>
-            </div>
-
-            <!-- Shuang Z. Tu -->
-            <div class="testimonial reveal">
-                <div class="testimonial-header">
-                    <img src="assets/testimonials/shuang-tu.jpg" alt="Shuang Z. Tu" class="testimonial-img" onerror="this.style.display='none'">
-                    <div class="testimonial-info">
-                        <cite><a href="https://www.linkedin.com/in/rightcfd/" target="_blank" rel="noopener noreferrer">Shuang Z. Tu</a></cite>
-                        <span class="role">Professor, Jackson State University</span>
-                    </div>
-                </div>
-                <p class="testimonial-text">Taha was undoubtedly the best undergraduate student I had the privilege of teaching during his time at Jackson State University from 2013 to 2017. His performance in all the courses I taught was <strong>exceptional</strong>. I learned that Taha completed the Machine Learning course offered by Stanford as an independent study under the guidance of the ECE Department Chair, and once again, his performance was exemplary. I am therefore very confident that Taha is <strong>academically well-prepared for any technical position</strong> he chooses.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="contact-section">
-            <h2>Get in Touch</h2>
-            <p>Open to Forward Deployed AI Engineer, Applied AI Engineer, and founding-engineer-adjacent roles at AI-native teams.</p>
-            <div class="contact-links">
-                <a href="mailto:tahaymerghani@gmail.com">Email</a>
-                <a href="https://github.com/taha-y-merghani" target="_blank">GitHub</a>
-                <a href="https://linkedin.com/in/tahamerghani" target="_blank">LinkedIn</a>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer>
-        <p>© 2026 Taha Merghani. Built with intention.</p>
+        <div class="container">
+            <p>Taha Y. Merghani. Computational linguist, ML engineer, Forward Deployed AI.</p>
+        </div>
     </footer>
 
     <script>
-        // Reveal on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        const shareButton = document.getElementById('share-button');
 
-        // Theme toggle
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const html = document.documentElement;
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        html.setAttribute('data-theme', savedTheme);
-        themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-        themeToggle.addEventListener('click', () => {
-            const current = html.getAttribute('data-theme');
-            const next = current === 'dark' ? 'light' : 'dark';
-            html.setAttribute('data-theme', next);
-            localStorage.setItem('theme', next);
-            themeIcon.textContent = next === 'dark' ? '☀️' : '🌙';
+        shareButton?.addEventListener('click', async () => {
+            const shareData = {
+                title: 'Help Taha get to ACL 2026',
+                text: 'Computational linguist and ML engineer raising $3,750 to attend ACL 2026 in person.',
+                url: window.location.href
+            };
+
+            if (navigator.share) {
+                await navigator.share(shareData);
+                return;
+            }
+
+            await navigator.clipboard.writeText(window.location.href);
+            shareButton.textContent = 'Copied';
+            window.setTimeout(() => {
+                shareButton.textContent = 'Share';
+            }, 1800);
         });
     </script>
 </body>

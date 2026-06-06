@@ -20,23 +20,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --charcoal: #1a1814;
-            --warm-black: #0d0b09;
-            --cream: #f5f2ed;
-            --amber: #d4a853;
-            --amber-muted: #b8965a;
-            --text-primary: #e8e4de;
-            --text-secondary: #9a9590;
-            --border: rgba(212, 168, 83, 0.15);
+            --charcoal: #171a1f;
+            --warm-black: #0b0e13;
+            --cream: #f6f1e8;
+            --amber: #d8a84f;
+            --amber-muted: #b98e42;
+            --teal: #5fb7aa;
+            --steel: #8ea4bf;
+            --surface: rgba(246, 241, 232, 0.045);
+            --surface-strong: rgba(246, 241, 232, 0.075);
+            --text-primary: #ece8de;
+            --text-secondary: #a8adb4;
+            --border: rgba(216, 168, 79, 0.18);
+            --border-cool: rgba(142, 164, 191, 0.22);
+            --nav-bg: rgba(11, 14, 19, 0.76);
         }
 
         [data-theme="light"] {
-            --warm-black: #f5f2ed;
-            --charcoal: #e8e4de;
-            --text-primary: #1a1814;
-            --text-secondary: #5a5550;
-            --cream: #0d0b09;
-            --border: rgba(26, 24, 20, 0.15);
+            --warm-black: #f7f3ec;
+            --charcoal: #ffffff;
+            --text-primary: #17202a;
+            --text-secondary: #526070;
+            --cream: #0b0e13;
+            --surface: rgba(23, 32, 42, 0.04);
+            --surface-strong: rgba(23, 32, 42, 0.075);
+            --border: rgba(23, 32, 42, 0.14);
+            --border-cool: rgba(35, 88, 120, 0.18);
+            --nav-bg: rgba(247, 243, 236, 0.84);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -45,6 +55,9 @@
         body {
             font-family: 'Source Sans 3', sans-serif;
             background-color: var(--warm-black);
+            background-image:
+                linear-gradient(115deg, rgba(95, 183, 170, 0.08), transparent 35%),
+                linear-gradient(245deg, rgba(216, 168, 79, 0.08), transparent 32%);
             color: var(--text-primary);
             line-height: 1.7;
             font-weight: 300;
@@ -64,10 +77,12 @@
 
         nav {
             position: fixed; top: 0; left: 0; right: 0;
-            padding: 1.5rem 3rem;
+            padding: 1rem 3rem;
             display: flex; justify-content: space-between; align-items: center;
             z-index: 100;
-            background: linear-gradient(to bottom, var(--warm-black) 0%, transparent 100%);
+            background: var(--nav-bg);
+            border-bottom: 1px solid var(--border-cool);
+            backdrop-filter: blur(18px);
         }
 
         .nav-name {
@@ -86,7 +101,7 @@
         .nav-links a:hover, .nav-links a.active { color: var(--amber); }
 
         .theme-toggle {
-            background: none; border: 1px solid var(--border);
+            background: none; border: 1px solid var(--border-cool);
             color: var(--text-secondary); padding: 0.5rem 1rem;
             cursor: pointer; font-size: 0.85rem; letter-spacing: 0.08em;
             text-transform: uppercase; font-family: 'Source Sans 3', sans-serif;
@@ -148,7 +163,7 @@
             font-size: 0.7rem;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: var(--amber-muted);
+            color: var(--teal);
             min-width: 80px;
             font-weight: 500;
         }
