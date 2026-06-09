@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taha Merghani — AI/NLP Engineer &amp; Founder</title>
-    <meta name="description" content="Computational linguist and ML engineer building source-grounded AI tools that preserve human judgment.">
+    <title>Taha Merghani - A Guided Archive of Judgment</title>
+    <meta name="description" content="A guided archive of the experiences, artifacts, and questions that shaped how Taha Merghani thinks about language, AI, institutions, public trust, and human judgment.">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Taha Merghani — AI/NLP Engineer &amp; Founder">
-    <meta property="og:description" content="Computational linguist and ML engineer building source-grounded AI tools that preserve human judgment.">
+    <meta property="og:title" content="Taha Merghani - A Guided Archive of Judgment">
+    <meta property="og:description" content="I learned to read systems before I had power inside them. A guided archive of formation, artifacts, language, AI, and institutions.">
     <meta property="og:image" content="/myself.jpeg">
     <meta property="og:url" content="https://taha-y-merghani.github.io/">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Taha Merghani — AI/NLP Engineer &amp; Founder">
-    <meta name="twitter:description" content="Computational linguist and ML engineer building source-grounded AI tools that preserve human judgment.">
+    <meta name="twitter:title" content="Taha Merghani - A Guided Archive of Judgment">
+    <meta name="twitter:description" content="I learned to read systems before I had power inside them.">
     <meta name="twitter:image" content="/myself.jpeg">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLKE0VWCQ3"></script>
@@ -27,16 +27,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #f7f3eb;
-            --surface: #ffffff;
+            --bg: #f8f4ec;
+            --surface: #fffdf8;
             --surface-2: #f0e8dc;
-            --ink: #15191f;
-            --text: #27313b;
-            --muted: #65707c;
-            --line: rgba(21, 25, 31, 0.13);
-            --accent: #9a5f24;
-            --accent-2: #2e746f;
-            --shadow: 0 18px 60px rgba(21, 25, 31, 0.10);
+            --ink: #16181d;
+            --text: #2d3138;
+            --muted: #66707a;
+            --line: rgba(22, 24, 29, 0.13);
+            --accent: #875b2c;
+            --accent-2: #315f5c;
+            --shadow: 0 18px 55px rgba(22, 24, 29, 0.08);
         }
 
         * {
@@ -50,16 +50,13 @@
         }
 
         body {
-            background: var(--bg);
+            background:
+                linear-gradient(180deg, rgba(255, 253, 248, 0.65), rgba(248, 244, 236, 0.96)),
+                var(--bg);
             color: var(--text);
             font-family: 'Source Sans 3', sans-serif;
             font-weight: 300;
-            line-height: 1.65;
-        }
-
-        img {
-            display: block;
-            max-width: 100%;
+            line-height: 1.68;
         }
 
         a {
@@ -81,7 +78,7 @@
         }
 
         p {
-            max-width: 72ch;
+            max-width: 74ch;
         }
 
         .container {
@@ -92,14 +89,14 @@
         .site-nav {
             position: sticky;
             top: 0;
-            z-index: 100;
-            background: rgba(247, 243, 235, 0.88);
+            z-index: 20;
+            background: rgba(248, 244, 236, 0.9);
             border-bottom: 1px solid var(--line);
             backdrop-filter: blur(18px);
         }
 
         .nav-inner {
-            min-height: 70px;
+            min-height: 68px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -116,15 +113,15 @@
 
         .nav-links {
             display: flex;
+            gap: 1.35rem;
             align-items: center;
-            gap: 1.25rem;
         }
 
         .nav-links a {
             color: var(--muted);
             font-size: 0.8rem;
             font-weight: 700;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
         }
 
@@ -147,13 +144,11 @@
             font-weight: 700;
             letter-spacing: 0.05em;
             text-transform: uppercase;
-            transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
         }
 
         .button:hover {
             border-color: var(--accent);
             color: var(--ink);
-            transform: translateY(-1px);
         }
 
         .button.primary {
@@ -168,24 +163,18 @@
             color: #fff;
         }
 
-        .button.subtle {
-            color: var(--accent);
+        .hero {
+            min-height: calc(100vh - 68px);
+            display: grid;
+            align-items: center;
+            padding: 6rem 0;
         }
 
-        .button.disabled {
-            color: var(--muted);
-            cursor: not-allowed;
-            opacity: 0.72;
-        }
-
-        .button.disabled:hover {
-            border-color: var(--line);
-            transform: none;
-        }
-
-        .section {
-            padding: 5.5rem 0;
-            border-top: 1px solid var(--line);
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+            gap: 4rem;
+            align-items: end;
         }
 
         .eyebrow {
@@ -198,50 +187,24 @@
             text-transform: uppercase;
         }
 
-        .section h2 {
-            max-width: 820px;
-            margin-bottom: 1.2rem;
-            font-size: clamp(2rem, 4vw, 3.35rem);
-            line-height: 1.04;
-        }
-
-        .section-lead {
-            color: var(--muted);
-            font-size: 1.12rem;
-            line-height: 1.72;
-        }
-
-        .hero {
-            padding: 6.5rem 0 5rem;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) 330px;
-            gap: 4rem;
-            align-items: center;
-        }
-
         .hero h1 {
-            max-width: 820px;
+            max-width: 900px;
             margin-bottom: 1.4rem;
-            font-size: clamp(3.2rem, 7vw, 6rem);
-            line-height: 0.95;
+            font-size: clamp(3.4rem, 8vw, 7rem);
+            line-height: 0.92;
         }
 
         .hero-copy {
             color: var(--muted);
             font-size: 1.22rem;
-            line-height: 1.68;
+            line-height: 1.7;
         }
 
-        .hero-thesis {
-            max-width: 760px;
+        .hero-note {
             margin-top: 1.5rem;
             color: var(--ink);
-            font-size: 1.18rem;
+            font-size: 1.08rem;
             font-weight: 400;
-            line-height: 1.58;
         }
 
         .hero-actions {
@@ -267,182 +230,205 @@
         }
 
         .portrait-frame img {
+            display: block;
             width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: center;
         }
 
-        .portrait-caption {
+        .portrait-card p {
             margin-top: 0.8rem;
             color: var(--muted);
             font-size: 0.95rem;
         }
 
-        .thesis-panel {
+        .section {
+            padding: 6rem 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .section h2 {
+            max-width: 820px;
+            margin-bottom: 1.25rem;
+            font-size: clamp(2.2rem, 4.4vw, 3.7rem);
+            line-height: 1.02;
+        }
+
+        .section-lead {
+            color: var(--muted);
+            font-size: 1.13rem;
+            line-height: 1.76;
+        }
+
+        .intro-grid {
             display: grid;
-            grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.7fr);
+            grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.65fr);
             gap: 2rem;
             align-items: start;
         }
 
-        .principles {
-            display: grid;
-            gap: 0.7rem;
-            padding: 1.3rem;
-            border: 1px solid var(--line);
-            border-radius: 8px;
-            background: var(--surface);
-            box-shadow: var(--shadow);
-        }
-
-        .principles h3 {
-            margin-bottom: 0.3rem;
-            font-size: 1.45rem;
-        }
-
-        .principles ul,
-        .clean-list {
-            list-style: none;
-        }
-
-        .principles li,
-        .clean-list li {
-            position: relative;
-            padding-left: 1.1rem;
-            color: var(--muted);
-        }
-
-        .principles li::before,
-        .clean-list li::before {
-            content: "";
-            position: absolute;
-            top: 0.72em;
-            left: 0;
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: var(--accent);
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .card,
-        .work-card,
-        .writing-card,
+        .field-note,
         .callout {
             border: 1px solid var(--line);
             border-radius: 8px;
             background: var(--surface);
-            box-shadow: 0 10px 36px rgba(21, 25, 31, 0.055);
+            box-shadow: 0 12px 38px rgba(22, 24, 29, 0.055);
         }
 
-        .card,
-        .writing-card {
-            padding: 1.25rem;
+        .field-note {
+            padding: 1.35rem;
         }
 
-        .card h3,
-        .writing-card h3 {
-            margin-bottom: 0.55rem;
-            font-size: 1.28rem;
-            line-height: 1.12;
+        .field-note h3 {
+            margin-bottom: 0.75rem;
+            font-size: 1.5rem;
         }
 
-        .card p,
-        .writing-card p {
+        .field-note p {
             color: var(--muted);
-            font-size: 0.98rem;
         }
 
-        .background-grid {
+        .rooms {
             display: grid;
-            grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.7fr);
-            gap: 2rem;
-            align-items: start;
+            gap: 1.25rem;
+            margin-top: 2.5rem;
         }
 
-        .evidence-list {
+        .room {
             display: grid;
-            gap: 0.85rem;
+            grid-template-columns: 190px minmax(0, 1fr);
+            gap: 1.5rem;
+            padding: 1.5rem;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: var(--surface);
+            box-shadow: 0 10px 34px rgba(22, 24, 29, 0.045);
         }
 
-        .evidence-item {
-            padding: 1rem 1.1rem;
-            border-left: 3px solid var(--accent);
-            background: rgba(255, 255, 255, 0.55);
+        .room-marker {
+            color: var(--accent-2);
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
         }
 
-        .evidence-item strong {
-            display: block;
+        .room h3 {
+            margin-bottom: 0.75rem;
+            font-size: clamp(1.7rem, 3vw, 2.35rem);
+            line-height: 1.03;
+        }
+
+        .room-text {
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+
+        .artifact {
+            margin-top: 1.25rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--line);
+        }
+
+        .artifact-title {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: baseline;
+            margin-bottom: 0.9rem;
+        }
+
+        .artifact-title strong {
             color: var(--ink);
             font-weight: 700;
         }
 
-        .evidence-item span {
-            color: var(--muted);
+        .artifact-title a {
+            font-size: 0.92rem;
+            font-weight: 700;
         }
 
-        .selected-work {
+        .artifact-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0.85rem;
         }
 
-        .work-card {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-            padding: 1.35rem;
+        .artifact-cell {
+            padding: 0.9rem;
+            border: 1px solid rgba(22, 24, 29, 0.10);
+            border-radius: 6px;
+            background: rgba(248, 244, 236, 0.55);
         }
 
-        .work-card h3 {
-            font-size: 1.42rem;
-            line-height: 1.1;
-        }
-
-        .work-card p {
-            color: var(--muted);
-        }
-
-        .meta {
-            color: var(--accent-2);
-            font-size: 0.76rem;
+        .artifact-cell span {
+            display: block;
+            margin-bottom: 0.35rem;
+            color: var(--accent);
+            font-size: 0.72rem;
             font-weight: 800;
             letter-spacing: 0.12em;
             text-transform: uppercase;
         }
 
-        .work-card .point {
-            color: var(--ink);
-            font-weight: 500;
+        .artifact-cell p {
+            color: var(--muted);
+            font-size: 0.96rem;
+            line-height: 1.55;
         }
 
-        .writing-grid {
+        .artifact-index {
             display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 1rem;
             margin-top: 2rem;
         }
 
-        .callout {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) auto;
-            gap: 1.5rem;
-            align-items: center;
-            padding: 1.5rem;
-            background: linear-gradient(120deg, rgba(154, 95, 36, 0.10), rgba(46, 116, 111, 0.08)), var(--surface);
+        .index-card {
+            min-height: 100%;
+            padding: 1.2rem;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--surface);
         }
 
-        .callout h2 {
-            margin-bottom: 0.6rem;
-            font-size: clamp(1.8rem, 3vw, 2.6rem);
+        .index-card h3 {
+            margin-bottom: 0.55rem;
+            font-size: 1.35rem;
+            line-height: 1.12;
+        }
+
+        .index-card p {
+            color: var(--muted);
+            font-size: 0.98rem;
+        }
+
+        .index-card a {
+            display: inline-block;
+            margin-top: 0.8rem;
+            font-weight: 700;
+        }
+
+        .now-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(280px, 0.75fr);
+            gap: 1.25rem;
+            align-items: stretch;
+            margin-top: 2rem;
+        }
+
+        .callout {
+            padding: 1.35rem;
+        }
+
+        .callout h3 {
+            margin-bottom: 0.75rem;
+            font-size: 1.5rem;
+        }
+
+        .callout p {
+            color: var(--muted);
         }
 
         .contact-panel {
@@ -466,15 +452,14 @@
             font-size: 0.95rem;
         }
 
-        @media (max-width: 940px) {
+        @media (max-width: 980px) {
             .nav-links {
                 display: none;
             }
 
             .hero-grid,
-            .thesis-panel,
-            .background-grid,
-            .callout,
+            .intro-grid,
+            .now-grid,
             .contact-panel {
                 grid-template-columns: 1fr;
             }
@@ -483,8 +468,12 @@
                 max-width: 390px;
             }
 
-            .cards,
-            .writing-grid {
+            .room {
+                grid-template-columns: 1fr;
+            }
+
+            .artifact-grid,
+            .artifact-index {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
@@ -498,16 +487,17 @@
                 width: min(100% - 28px, 1120px);
             }
 
-            .nav-inner {
-                min-height: 64px;
-            }
-
             .hero {
-                padding: 3rem 0 4rem;
+                min-height: auto;
+                padding: 3.5rem 0 4.5rem;
             }
 
             .hero h1 {
-                font-size: clamp(3rem, 15vw, 4.6rem);
+                font-size: clamp(3rem, 15vw, 4.7rem);
+            }
+
+            .section {
+                padding: 4rem 0;
             }
 
             .button,
@@ -521,13 +511,14 @@
                 flex-direction: column;
             }
 
-            .section {
-                padding: 4rem 0;
+            .room,
+            .field-note,
+            .callout {
+                padding: 1rem;
             }
 
-            .cards,
-            .selected-work,
-            .writing-grid {
+            .artifact-grid,
+            .artifact-index {
                 grid-template-columns: 1fr;
             }
         }
@@ -538,198 +529,239 @@
         <div class="container nav-inner">
             <a class="nav-name" href="/">Taha Merghani</a>
             <nav class="nav-links" aria-label="Primary navigation">
-                <a href="#thesis">Thesis</a>
-                <a href="#work">Work</a>
-                <a href="#writing">Writing</a>
-                <a href="#fundraiser">Fundraiser</a>
+                <a href="#start">Start</a>
+                <a href="#experience">Experience</a>
+                <a href="#artifacts">Artifacts</a>
+                <a href="#now">Now</a>
                 <a href="#contact">Contact</a>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="hero" aria-labelledby="hero-title">
+        <section class="hero" id="top" aria-labelledby="hero-title">
             <div class="container hero-grid">
                 <div>
-                    <span class="eyebrow">Computational linguist. ML engineer. Founder-minded builder.</span>
-                    <h1 id="hero-title">Building AI tools that preserve human judgment.</h1>
-                    <p class="hero-copy">I’m Taha Merghani, a computational linguist and ML engineer working on source-grounded AI systems for research, language, and messy real-world workflows.</p>
-                    <p class="hero-thesis">My thesis: the next bottleneck is not access to information. It is knowing which claim to trust, which source to read, which assumption to challenge, and when AI should stop interpreting.</p>
+                    <span class="eyebrow">A guided archive of formation</span>
+                    <h1 id="hero-title">I learned to read systems before I had power inside them.</h1>
+                    <p class="hero-copy">A guided archive of the experiences, artifacts, and questions that shaped how I think about language, AI, institutions, public trust, and human judgment.</p>
+                    <p class="hero-note">The point is not a list of credentials. The point is the conversion: experience into perception, perception into artifacts, artifacts into judgment.</p>
                     <div class="hero-actions">
-                        <a class="button primary" href="#thesis">Read the thesis</a>
-                        <a class="button" href="#work">See my work</a>
-                        <a class="button subtle" href="#fundraiser">Support ACL 2026</a>
+                        <a class="button primary" href="#start">Start the experience</a>
+                        <a class="button" href="#artifacts">See artifacts</a>
                     </div>
                 </div>
-                <aside class="portrait-card" aria-label="Taha Merghani portrait">
+                <aside class="portrait-card" aria-label="Portrait and orientation note">
                     <div class="portrait-frame">
                         <img src="/myself.jpeg" alt="Portrait of Taha Merghani seated at a table.">
                     </div>
-                    <p class="portrait-caption">Working at the boundary between language AI, research workflows, and systems that have to survive real use.</p>
+                    <p>This archive is for serious readers who want to understand the judgment behind the work.</p>
                 </aside>
             </div>
         </section>
 
-        <section class="section" id="thesis" aria-labelledby="thesis-title">
-            <div class="container thesis-panel">
+        <section class="section" id="start" aria-labelledby="start-title">
+            <div class="container intro-grid">
                 <div>
-                    <span class="eyebrow">The thesis</span>
-                    <h2 id="thesis-title">High-quality research is not just information retrieval. It is judgment under uncertainty.</h2>
-                    <p class="section-lead">When I use AI for research, the failure mode I notice is often not that the model knows nothing. It is that it silently chooses the wrong role. It summarizes when I need sources. It recommends when I need verification. It interprets when I need the claim left intact.</p>
-                    <p class="section-lead" style="margin-top:1rem;">The product opportunity I care about is an advisor-grade research interface: a system that helps a person verify, challenge, and extend claims while keeping the human in control of the reasoning.</p>
+                    <span class="eyebrow">Start the experience</span>
+                    <h2 id="start-title">Read this as a museum of formation, not a portfolio.</h2>
+                    <p class="section-lead">I have been shaped by exams, languages, migration, research labs, product teams, public writing, retail floors, and institutions that did not always know how to read me back. The archive below is organized around what those settings taught me to notice.</p>
+                    <p class="section-lead" style="margin-top:1rem;">The recurring question is simple: what does pressure reveal about a system that the system cannot say about itself?</p>
                 </div>
-                <aside class="principles">
-                    <h3>What I’m exploring</h3>
-                    <ul>
-                        <li>Claim-to-source mapping</li>
-                        <li>Counter-source discovery</li>
-                        <li>Assumption tracking</li>
-                        <li>Citation-grounded synthesis</li>
-                        <li>Separation between what the source says and what the model infers</li>
-                        <li>Interfaces for researchers, founders, analysts, and serious readers</li>
-                    </ul>
+                <aside class="field-note">
+                    <h3>How to read the rooms</h3>
+                    <p>Each room is built around four questions: what happened, what I noticed, what I made, and what it taught me about systems. The artifacts are evidence, not decoration.</p>
                 </aside>
             </div>
         </section>
 
-        <section class="section" id="build" aria-labelledby="build-title">
+        <section class="section" id="experience" aria-labelledby="experience-title">
             <div class="container">
-                <span class="eyebrow">Current build direction</span>
-                <h2 id="build-title">What I’m building toward</h2>
-                <p class="section-lead">I’m currently turning this thesis into small prototypes and public artifacts. The starting point is simple: take a claim, retrieve the best source material around it, surface the strongest challenges, and make the model’s interpretation auditable.</p>
-                <div class="cards">
-                    <article class="card">
-                        <h3>Claim verification</h3>
-                        <p>Tools that ask what exactly is being claimed, where the claim comes from, and what would make it weaker or false.</p>
+                <span class="eyebrow">Six rooms</span>
+                <h2 id="experience-title">A sequence of pressure, language, institutions, and artifacts.</h2>
+                <p class="section-lead">These are not permanent identity buckets. They are rooms in an archive: places where a particular kind of perception was trained.</p>
+
+                <div class="rooms">
+                    <article class="room" id="exam">
+                        <div class="room-marker">Room 1</div>
+                        <div>
+                            <h3>The Exam / Hidden Structure</h3>
+                            <p class="room-text">Long before I had institutional access, I learned that authority has structure. Exams, rankings, schools, borders, and admissions systems all presented themselves as fixed. I learned to study them as systems.</p>
+                            <div class="artifact">
+                                <div class="artifact-title">
+                                    <strong>Artifact: Sudan national exam story</strong>
+                                    <a href="/writing/how-i-reverse-engineered-a-national-exam-at-15-and-predicted-my-score-to-the-decimal/">Read essay</a>
+                                </div>
+                                <div class="artifact-grid">
+                                    <div class="artifact-cell"><span>What happened</span><p>I studied a national exam under pressure and learned to see the hidden structure inside the scoring system.</p></div>
+                                    <div class="artifact-cell"><span>What I noticed</span><p>Authority often appears as judgment, but it is also procedure, pattern, incentive, and constraint.</p></div>
+                                    <div class="artifact-cell"><span>What I made</span><p>A prediction, then later a public essay about the pattern-recognition behind it.</p></div>
+                                    <div class="artifact-cell"><span>What it taught</span><p>Systems become less mystical when you can model how they make decisions.</p></div>
+                                </div>
+                            </div>
+                        </div>
                     </article>
-                    <article class="card">
-                        <h3>Source-grounded research assistance</h3>
-                        <p>Interfaces that prioritize source retrieval and evidence quality before synthesis or recommendation.</p>
+
+                    <article class="room" id="translation">
+                        <div class="room-marker">Room 2</div>
+                        <div>
+                            <h3>Translation / Language as Survival</h3>
+                            <p class="room-text">Language was not only a research topic. It was how I learned to read people, class, intimacy, danger, authority, and belonging. Arabic schooling, English acquisition, immigration, and later NLP work all live on that line.</p>
+                            <div class="artifact">
+                                <div class="artifact-title">
+                                    <strong>Artifact: Sudan to Silicon Valley</strong>
+                                    <a href="/writing/from-sudan-to-silicon-valley-beyond-the-resume/">Read essay</a>
+                                </div>
+                                <div class="artifact-grid">
+                                    <div class="artifact-cell"><span>What happened</span><p>I moved across languages and institutions before I had stable footing inside either.</p></div>
+                                    <div class="artifact-cell"><span>What I noticed</span><p>Language carries status, safety, intimacy, exclusion, and permission.</p></div>
+                                    <div class="artifact-cell"><span>What I made</span><p>A technical path through speech, NLP, writing, and public explanation.</p></div>
+                                    <div class="artifact-cell"><span>What it taught</span><p>Language systems are never just symbolic. They carry social consequence.</p></div>
+                                </div>
+                            </div>
+                        </div>
                     </article>
-                    <article class="card">
-                        <h3>Human-in-the-loop judgment interfaces</h3>
-                        <p>Systems that expose assumptions and uncertainty so the human can keep doing the reasoning work that matters.</p>
+
+                    <article class="room" id="speech">
+                        <div class="room-marker">Room 3</div>
+                        <div>
+                            <h3>Speech / Low-Resource Reality</h3>
+                            <p class="room-text">At MIT CSAIL, Egyptian Arabic speech recognition made the technical problem concrete: language technology works unevenly when data, dialect, and infrastructure are uneven.</p>
+                            <div class="artifact">
+                                <div class="artifact-title">
+                                    <strong>Artifact: Egyptian Arabic ASR</strong>
+                                    <a href="/mit-arabic-asr-2015.pdf" target="_blank" rel="noopener noreferrer">View paper</a>
+                                </div>
+                                <div class="artifact-grid">
+                                    <div class="artifact-cell"><span>What happened</span><p>I worked on automatic speech recognition for Egyptian Arabic using Kaldi and language resources.</p></div>
+                                    <div class="artifact-cell"><span>What I noticed</span><p>Technical systems degrade where the world has not supplied clean data or institutional attention.</p></div>
+                                    <div class="artifact-cell"><span>What I made</span><p>A research artifact around low-resource speech recognition and dialect-specific modeling.</p></div>
+                                    <div class="artifact-cell"><span>What it taught</span><p>Robust AI begins with respect for the conditions under which language is actually used.</p></div>
+                                </div>
+                            </div>
+                        </div>
                     </article>
-                    <article class="card">
-                        <h3>AI for messy real-world workflows</h3>
-                        <p>Practical tools for places where data is incomplete, institutions are constrained, and exception-handling is normal.</p>
+
+                    <article class="room" id="variation">
+                        <div class="room-marker">Room 4</div>
+                        <div>
+                            <h3>Variation / What Models Miss</h3>
+                            <p class="room-text">At Georgia Tech, I worked on social media language variation and model errors. The lesson has stayed with me: language technology does not fail evenly across communities, styles, and networks.</p>
+                            <div class="artifact">
+                                <div class="artifact-title">
+                                    <strong>Artifact: Stylistic Variation in Social Media POS Tagging</strong>
+                                    <a href="https://aclanthology.org/W18-1602/" target="_blank" rel="noopener noreferrer">View ACL paper</a>
+                                </div>
+                                <div class="artifact-grid">
+                                    <div class="artifact-cell"><span>What happened</span><p>I co-authored work with Murali Balusu and Jacob Eisenstein on social network structure and POS tagger errors.</p></div>
+                                    <div class="artifact-cell"><span>What I noticed</span><p>Errors are not only technical failures. They can trace social structure.</p></div>
+                                    <div class="artifact-cell"><span>What I made</span><p>An ACL Anthology paper connecting stylistic variation, networks, and evaluation.</p></div>
+                                    <div class="artifact-cell"><span>What it taught</span><p>Evaluation must ask who is being misread, not only how often a system is wrong.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="room" id="product">
+                        <div class="room-marker">Room 5</div>
+                        <div>
+                            <h3>Product / Language at Scale</h3>
+                            <p class="room-text">At Apple Siri, language became a product-quality problem. The work was not just model behavior. It was tooling, localization, QA, bug workflows, and the coordination needed to make language systems legible to the people maintaining them.</p>
+                            <div class="artifact">
+                                <div class="artifact-title">
+                                    <strong>Artifact: Siri QA and localization tooling</strong>
+                                    <a href="/work/">View project context</a>
+                                </div>
+                                <div class="artifact-grid">
+                                    <div class="artifact-cell"><span>What happened</span><p>I built internal tooling for multilingual NLU debugging and QA workflows.</p></div>
+                                    <div class="artifact-cell"><span>What I noticed</span><p>Large language products need tools that help humans find where the system broke.</p></div>
+                                    <div class="artifact-cell"><span>What I made</span><p>Python tooling and structured bug workflows for engineers and program managers.</p></div>
+                                    <div class="artifact-cell"><span>What it taught</span><p>AI reliability is also an organizational interface problem.</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="room" id="public">
+                        <div class="room-marker">Room 6</div>
+                        <div>
+                            <h3>Public Consequence / Dignity Under Misrecognition</h3>
+                            <p class="room-text">Retail floors, immigration systems, public writing, and AI deployment all sharpened one question: what happens when institutions summarize a person or workflow too quickly?</p>
+                            <div class="artifact">
+                                <div class="artifact-title">
+                                    <strong>Artifact: Public essays and field notes</strong>
+                                    <a href="/writing/">Browse writing</a>
+                                </div>
+                                <div class="artifact-grid">
+                                    <div class="artifact-cell"><span>What happened</span><p>I worked close to brittle workflows, public interpretation, and institutions that rely on simplified categories.</p></div>
+                                    <div class="artifact-cell"><span>What I noticed</span><p>Misrecognition is not abstract. It changes what people are allowed to become inside a system.</p></div>
+                                    <div class="artifact-cell"><span>What I made</span><p>Essays, prototypes, deployment notes, and a founder thesis around source-grounded judgment.</p></div>
+                                    <div class="artifact-cell"><span>What it taught</span><p>The humane technical question is often: what should the system refuse to flatten?</p></div>
+                                </div>
+                            </div>
+                        </div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="section" id="background" aria-labelledby="background-title">
-            <div class="container background-grid">
-                <div>
-                    <span class="eyebrow">Evidence and background</span>
-                    <h2 id="background-title">Why this is my problem</h2>
-                    <p class="section-lead">My background is not only research and not only deployment. It is the seam between them.</p>
-                    <p class="section-lead" style="margin-top:1rem;">I’ve worked on speech recognition at MIT CSAIL, Siri tooling at Apple, NLP research at Georgia Tech, enterprise AI workflows, and retail operations from inside the floor. The recurring pattern is the same: the hardest problems are not just technical. They live where language, institutions, incentives, tools, and human judgment collide.</p>
-                </div>
-                <div class="evidence-list" aria-label="Background evidence">
-                    <div class="evidence-item">
-                        <strong>MIT CSAIL</strong>
-                        <span>Egyptian Arabic automatic speech recognition, 2015.</span>
-                    </div>
-                    <div class="evidence-item">
-                        <strong>Apple Siri</strong>
-                        <span>QA and localization tooling for language product workflows.</span>
-                    </div>
-                    <div class="evidence-item">
-                        <strong>Georgia Tech MSCS</strong>
-                        <span>NLP research, social media language variation, and model behavior under distribution shift.</span>
-                    </div>
-                    <div class="evidence-item">
-                        <strong>Deployment reality</strong>
-                        <span>Enterprise constraints, brittle data, retail workflows, and human exception-handling.</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="work" aria-labelledby="work-title">
+        <section class="section" id="artifacts" aria-labelledby="artifacts-title">
             <div class="container">
-                <span class="eyebrow">Selected work</span>
-                <h2 id="work-title">Models meeting messy human systems</h2>
-                <div class="selected-work">
-                    <article class="work-card">
-                        <span class="meta">NLP, dialect/style, social networks, evaluation</span>
-                        <h3>Stylistic Variation in Social Media POS Tagging</h3>
-                        <p>Published work with Murali Balusu and Jacob Eisenstein on how language technology behaves differently across communities, styles, and networks.</p>
-                        <p class="point">Point: language technology does not fail evenly.</p>
-                        <a href="https://aclanthology.org/W18-1602/" target="_blank" rel="noopener noreferrer">View ACL Anthology paper</a>
+                <span class="eyebrow">Artifact index</span>
+                <h2 id="artifacts-title">Evidence, not ornament.</h2>
+                <p class="section-lead">These artifacts are the public trail: research, essays, tools, and work that show how pressure turned into a way of seeing.</p>
+                <div class="artifact-index">
+                    <article class="index-card">
+                        <h3>National exam essay</h3>
+                        <p>Hidden structure, pressure, and early systems reading.</p>
+                        <a href="/writing/how-i-reverse-engineered-a-national-exam-at-15-and-predicted-my-score-to-the-decimal/">Open artifact</a>
                     </article>
-                    <article class="work-card">
-                        <span class="meta">Speech recognition, Arabic NLP, low-resource language tooling</span>
-                        <h3>Egyptian Arabic ASR at MIT CSAIL</h3>
-                        <p>Early work on automatic speech recognition for Egyptian Arabic using Kaldi and dialect-specific language resources.</p>
-                        <p class="point">Point: language systems have to survive dialect and data constraints.</p>
-                        <a href="/mit-arabic-asr-2015.pdf" target="_blank">View paper</a>
+                    <article class="index-card">
+                        <h3>Egyptian Arabic ASR</h3>
+                        <p>Low-resource speech recognition and dialect-aware language technology.</p>
+                        <a href="/mit-arabic-asr-2015.pdf" target="_blank" rel="noopener noreferrer">Open artifact</a>
                     </article>
-                    <article class="work-card">
-                        <span class="meta">Internal automation, localization QA, scripting, bug workflows</span>
-                        <h3>Siri QA / Localization Tooling at Apple</h3>
-                        <p>Tooling for large-scale language product quality where engineers and program managers needed clearer debugging workflows.</p>
-                        <p class="point">Point: practical language AI requires tools for the people maintaining it.</p>
-                        <a href="/work/">View work</a>
+                    <article class="index-card">
+                        <h3>ACL Anthology paper</h3>
+                        <p>Stylistic variation, social networks, and NLP evaluation.</p>
+                        <a href="https://aclanthology.org/W18-1602/" target="_blank" rel="noopener noreferrer">Open artifact</a>
                     </article>
-                    <article class="work-card">
-                        <span class="meta">Deployment under constraints, data systems, workflow analysis</span>
-                        <h3>Enterprise / Field AI Work</h3>
-                        <p>Computer vision workflows, Power BI and data systems, retail workflow analysis, and environments where clean software assumptions break.</p>
-                        <p class="point">Point: real AI products live inside organizations with missing data and human exception-handling.</p>
-                        <a href="/work/">View projects</a>
+                    <article class="index-card">
+                        <h3>Siri tooling</h3>
+                        <p>Language product quality, debugging, and organizational interfaces.</p>
+                        <a href="/work/">Open artifact</a>
                     </article>
-                    <article class="work-card">
-                        <span class="meta">Claim verification, source discovery, advisor-grade AI interface</span>
-                        <h3>Current Research Tooling Prototype</h3>
-                        <p>A direction for source-grounded systems that help users verify and challenge claims without outsourcing their judgment.</p>
-                        <p class="point">Point: the founder thesis becoming an artifact.</p>
-                        <a href="#build">Read build direction</a>
+                    <article class="index-card">
+                        <h3>Writing archive</h3>
+                        <p>Public essays on AI, systems, research, and formation.</p>
+                        <a href="/writing/">Open archive</a>
+                    </article>
+                    <article class="index-card">
+                        <h3>Current work</h3>
+                        <p>Source-grounded AI tools that preserve human judgment.</p>
+                        <a href="#now">Read current direction</a>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="section" id="writing" aria-labelledby="writing-title">
+        <section class="section" id="now" aria-labelledby="now-title">
             <div class="container">
-                <span class="eyebrow">Writing</span>
-                <h2 id="writing-title">I write to clarify the systems I may eventually build.</h2>
-                <p class="section-lead">The writing is not separate from the build direction. It is where I test claims, sharpen language, and notice which problems keep recurring.</p>
-                <div class="writing-grid">
-                    <article class="writing-card">
-                        <h3>AI systems and judgment</h3>
-                        <p>Notes on how models behave, where workflows fail, and what judgment should remain human.</p>
+                <span class="eyebrow">Now</span>
+                <h2 id="now-title">Current work, current ask.</h2>
+                <p class="section-lead">The current technical direction is an advisor-grade research interface: a tool that separates source retrieval, claim verification, counterargument discovery, assumption tracking, and interpretation. The goal is not to replace the user's understanding. The goal is to preserve and sharpen it.</p>
+                <div class="now-grid">
+                    <article class="callout">
+                        <h3>Founder thesis</h3>
+                        <p>High-quality research and AI product-building are bottlenecked by human judgment, source-grounded verification, and the ability to preserve a user's understanding rather than replacing it.</p>
                     </article>
-                    <article class="writing-card">
-                        <h3>Language technology and institutions</h3>
-                        <p>Essays about NLP, deployment, language variation, and systems entering institutional life.</p>
+                    <article class="callout">
+                        <h3>ACL 2026 fundraiser</h3>
+                        <p>I am raising support to attend ACL 2026 in San Diego. It is a current bridge into a room where language technology, evaluation, and public consequence are being shaped.</p>
+                        <div class="hero-actions">
+                            <a class="button primary" href="https://www.gofundme.com/f/help-me-attend-acl-2026-in-san-diego" target="_blank" rel="noopener noreferrer">Support fundraiser</a>
+                        </div>
                     </article>
-                    <article class="writing-card">
-                        <h3>Founder notes</h3>
-                        <p>Public thinking about product direction, research interfaces, and high-leverage rooms.</p>
-                    </article>
-                    <article class="writing-card">
-                        <h3>Personal essays and background</h3>
-                        <p>Context for the unusual path, without making the path the product.</p>
-                    </article>
-                </div>
-                <div class="hero-actions">
-                    <a class="button primary" href="/writing/">Read writing</a>
-                    <a class="button" href="/about/">Read about me</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="fundraiser" aria-labelledby="fundraiser-title">
-            <div class="container">
-                <div class="callout">
-                    <div>
-                        <span class="eyebrow">Secondary current ask</span>
-                        <h2 id="fundraiser-title">ACL 2026</h2>
-                        <p class="section-lead">I’m raising support to attend ACL 2026 in San Diego. ACL matters to me because my work has always lived near language technology, evaluation, low-resource NLP, and the people building the field. The fundraiser is not the whole site. It is one current bridge into the room where this thesis can sharpen.</p>
-                    </div>
-                    <a class="button primary" href="https://www.gofundme.com/f/help-me-attend-acl-2026-in-san-diego" target="_blank" rel="noopener noreferrer">Support the fundraiser</a>
                 </div>
             </div>
         </section>
@@ -737,9 +769,9 @@
         <section class="section" id="contact" aria-labelledby="contact-title">
             <div class="container contact-panel">
                 <div>
-                    <span class="eyebrow">Talk to me</span>
-                    <h2 id="contact-title">I want to talk to people building near this problem.</h2>
-                    <p class="section-lead">I’m especially interested in founders, researchers, engineers, and product people working on AI research tools, source-grounded systems, human-in-the-loop workflows, evaluation, language technology, and forward-deployed AI.</p>
+                    <span class="eyebrow">Contact</span>
+                    <h2 id="contact-title">Talk to me if this archive clarifies something you are trying to build or understand.</h2>
+                    <p class="section-lead">I am especially interested in language AI, evaluation, source-grounded systems, human-in-the-loop workflows, institutions, public trust, and forward-deployed AI.</p>
                 </div>
                 <div class="contact-actions">
                     <a class="button primary" href="mailto:tahaymerghani@gmail.com">Email me</a>
@@ -753,7 +785,7 @@
 
     <footer>
         <div class="container">
-            <p>Taha Y. Merghani. Computational linguist, ML engineer, founder-minded builder.</p>
+            <p>Taha Y. Merghani. A guided archive of formation, language, AI, institutions, and judgment.</p>
         </div>
     </footer>
 </body>
