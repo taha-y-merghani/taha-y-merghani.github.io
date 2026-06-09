@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Help Taha get to ACL 2026</title>
-    <meta name="description" content="Computational linguist and ML engineer raising $3,750 to attend ACL 2026 in person and connect language AI, evaluation, and real-world deployment.">
+    <title>Taha Merghani — AI/NLP Engineer &amp; Founder</title>
+    <meta name="description" content="Computational linguist and ML engineer building source-grounded AI tools that preserve human judgment.">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Help Taha get to ACL 2026">
-    <meta property="og:description" content="Computational linguist and ML engineer raising $3,750 to attend ACL 2026 in person and connect language AI, evaluation, and real-world deployment.">
-    <!-- TODO HERO_IMAGE_PATH: replace with final campaign portrait if a better lab/office regalia image is available. -->
-    <meta property="og:image" content="/assets/images/acl-2026-gt-regalia.jpeg">
+    <meta property="og:title" content="Taha Merghani — AI/NLP Engineer &amp; Founder">
+    <meta property="og:description" content="Computational linguist and ML engineer building source-grounded AI tools that preserve human judgment.">
+    <meta property="og:image" content="/myself.jpeg">
     <meta property="og:url" content="https://taha-y-merghani.github.io/">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Help Taha get to ACL 2026">
-    <meta name="twitter:description" content="Computational linguist and ML engineer raising $3,750 to attend ACL 2026 in person and connect language AI, evaluation, and real-world deployment.">
-    <meta name="twitter:image" content="/assets/images/acl-2026-gt-regalia.jpeg">
+    <meta name="twitter:title" content="Taha Merghani — AI/NLP Engineer &amp; Founder">
+    <meta name="twitter:description" content="Computational linguist and ML engineer building source-grounded AI tools that preserve human judgment.">
+    <meta name="twitter:image" content="/myself.jpeg">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLKE0VWCQ3"></script>
     <script>
@@ -28,23 +27,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --ink: #111820;
-            --ink-2: #1b2631;
-            --paper: #f7f2e9;
-            --paper-2: #efe7da;
-            --gold: #c99435;
-            --gold-2: #9d6e24;
-            --teal: #2f8f83;
-            --blue: #627f9f;
-            --text: #f5efe4;
-            --muted: #bdc3c9;
-            --dark-muted: #596675;
-            --line: rgba(201, 148, 53, 0.22);
-            --cool-line: rgba(98, 127, 159, 0.24);
-            --surface: rgba(247, 242, 233, 0.055);
-            --surface-strong: rgba(247, 242, 233, 0.09);
-            --nav: rgba(17, 24, 32, 0.84);
-            --shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+            --bg: #f7f3eb;
+            --surface: #ffffff;
+            --surface-2: #f0e8dc;
+            --ink: #15191f;
+            --text: #27313b;
+            --muted: #65707c;
+            --line: rgba(21, 25, 31, 0.13);
+            --accent: #9a5f24;
+            --accent-2: #2e746f;
+            --shadow: 0 18px 60px rgba(21, 25, 31, 0.10);
         }
 
         * {
@@ -58,24 +50,11 @@
         }
 
         body {
-            font-family: 'Source Sans 3', sans-serif;
-            background:
-                linear-gradient(140deg, rgba(47, 143, 131, 0.12), transparent 30%),
-                linear-gradient(240deg, rgba(201, 148, 53, 0.12), transparent 35%),
-                var(--ink);
+            background: var(--bg);
             color: var(--text);
-            line-height: 1.65;
+            font-family: 'Source Sans 3', sans-serif;
             font-weight: 300;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 1000;
-            opacity: 0.025;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            line-height: 1.65;
         }
 
         img {
@@ -84,24 +63,25 @@
         }
 
         a {
-            color: var(--gold);
+            color: var(--accent);
             text-decoration: none;
         }
 
         a:hover {
-            color: var(--paper);
+            color: var(--ink);
         }
 
         h1,
         h2,
         h3 {
+            color: var(--ink);
             font-family: 'Cormorant Garamond', serif;
             font-weight: 600;
             letter-spacing: 0;
         }
 
         p {
-            max-width: 70ch;
+            max-width: 72ch;
         }
 
         .container {
@@ -113,13 +93,13 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            background: var(--nav);
-            border-bottom: 1px solid var(--cool-line);
+            background: rgba(247, 243, 235, 0.88);
+            border-bottom: 1px solid var(--line);
             backdrop-filter: blur(18px);
         }
 
         .nav-inner {
-            min-height: 72px;
+            min-height: 70px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -127,9 +107,9 @@
         }
 
         .nav-name {
-            color: var(--text);
+            color: var(--ink);
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.22rem;
+            font-size: 1.25rem;
             font-weight: 600;
             white-space: nowrap;
         }
@@ -137,25 +117,19 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 1.25rem;
         }
 
         .nav-links a {
             color: var(--muted);
-            font-size: 0.78rem;
-            font-weight: 600;
+            font-size: 0.8rem;
+            font-weight: 700;
             letter-spacing: 0.08em;
             text-transform: uppercase;
         }
 
         .nav-links a:hover {
-            color: var(--gold);
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 0.65rem;
+            color: var(--accent);
         }
 
         .button {
@@ -163,110 +137,111 @@
             min-height: 44px;
             align-items: center;
             justify-content: center;
-            gap: 0.45rem;
-            padding: 0.72rem 1.05rem;
+            padding: 0.76rem 1.05rem;
             border: 1px solid var(--line);
-            color: var(--text);
-            background: transparent;
             border-radius: 4px;
+            background: transparent;
+            color: var(--ink);
             font: inherit;
-            font-size: 0.85rem;
+            font-size: 0.86rem;
             font-weight: 700;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
-            cursor: pointer;
-            transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+            transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
         }
 
         .button:hover {
+            border-color: var(--accent);
+            color: var(--ink);
             transform: translateY(-1px);
-            border-color: var(--gold);
-            color: var(--text);
         }
 
         .button.primary {
-            background: var(--gold);
-            border-color: var(--gold);
-            color: #111820;
+            background: var(--ink);
+            border-color: var(--ink);
+            color: var(--bg);
         }
 
         .button.primary:hover {
-            background: var(--paper);
-            border-color: var(--paper);
-            color: #111820;
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
         }
 
-        .button.secondary {
-            border-color: var(--cool-line);
+        .button.subtle {
+            color: var(--accent);
+        }
+
+        .button.disabled {
             color: var(--muted);
+            cursor: not-allowed;
+            opacity: 0.72;
         }
 
-        .button.secondary:hover {
-            color: var(--text);
+        .button.disabled:hover {
+            border-color: var(--line);
+            transform: none;
         }
 
         .section {
             padding: 5.5rem 0;
-            border-top: 1px solid var(--cool-line);
-        }
-
-        .section.kickerless {
-            border-top: 0;
+            border-top: 1px solid var(--line);
         }
 
         .eyebrow {
             display: block;
             margin-bottom: 1rem;
-            color: var(--teal);
+            color: var(--accent-2);
             font-size: 0.76rem;
-            font-weight: 700;
+            font-weight: 800;
             letter-spacing: 0.18em;
             text-transform: uppercase;
         }
 
         .section h2 {
-            max-width: 760px;
+            max-width: 820px;
             margin-bottom: 1.2rem;
-            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-size: clamp(2rem, 4vw, 3.35rem);
             line-height: 1.04;
         }
 
         .section-lead {
             color: var(--muted);
             font-size: 1.12rem;
-            line-height: 1.7;
+            line-height: 1.72;
         }
 
         .hero {
-            padding: 6rem 0 5rem;
+            padding: 6.5rem 0 5rem;
         }
 
         .hero-grid {
             display: grid;
-            grid-template-columns: minmax(0, 1.08fr) minmax(310px, 0.72fr);
-            gap: 3.5rem;
+            grid-template-columns: minmax(0, 1fr) 330px;
+            gap: 4rem;
             align-items: center;
         }
 
         .hero h1 {
-            max-width: 760px;
-            margin-bottom: 1.35rem;
-            font-size: clamp(3rem, 7vw, 5.8rem);
+            max-width: 820px;
+            margin-bottom: 1.4rem;
+            font-size: clamp(3.2rem, 7vw, 6rem);
             line-height: 0.95;
         }
 
         .hero-copy {
             color: var(--muted);
-            font-size: 1.18rem;
+            font-size: 1.22rem;
             line-height: 1.68;
         }
 
-        .hero-line {
+        .hero-thesis {
+            max-width: 760px;
             margin-top: 1.5rem;
-            color: var(--text);
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.45rem, 2.7vw, 2.2rem);
-            line-height: 1.16;
+            color: var(--ink);
+            font-size: 1.18rem;
+            font-weight: 400;
+            line-height: 1.58;
         }
 
         .hero-actions {
@@ -276,126 +251,78 @@
             margin-top: 2rem;
         }
 
-        .trust-chips {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.55rem;
-            margin-top: 1.8rem;
-        }
-
-        .chip {
-            display: inline-flex;
-            align-items: center;
-            min-height: 32px;
-            padding: 0.35rem 0.7rem;
-            border: 1px solid var(--cool-line);
-            border-radius: 999px;
-            color: var(--muted);
-            background: var(--surface);
-            font-size: 0.78rem;
-            font-weight: 600;
-            letter-spacing: 0.03em;
-        }
-
-        .hero-card {
-            padding: 0.75rem;
-            border: 1px solid var(--cool-line);
+        .portrait-card {
+            padding: 0.7rem;
+            border: 1px solid var(--line);
             border-radius: 8px;
             background: var(--surface);
             box-shadow: var(--shadow);
         }
 
-        .hero-image {
+        .portrait-frame {
             overflow: hidden;
             border-radius: 6px;
             aspect-ratio: 4 / 5;
-            background: #0e141b;
+            background: var(--surface-2);
         }
 
-        .hero-image img {
+        .portrait-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: 48% 34%;
+            object-position: center;
         }
 
-        .campaign-status {
-            display: grid;
-            gap: 0.85rem;
-            margin-top: 1rem;
-            padding: 1.25rem;
-            border: 1px solid var(--line);
-            border-radius: 6px;
-            background: rgba(201, 148, 53, 0.08);
-        }
-
-        .status-row {
-            display: grid;
-            grid-template-columns: 88px 1fr;
-            gap: 1rem;
-            border-bottom: 1px solid rgba(247, 242, 233, 0.08);
-            padding-bottom: 0.72rem;
-            color: var(--muted);
-            font-size: 0.96rem;
-        }
-
-        .status-row:last-child {
-            border-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .status-row strong {
-            color: var(--text);
-            font-weight: 700;
-        }
-
-        .status-label {
-            color: var(--gold);
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            font-size: 0.72rem;
-        }
-
-        .two-col {
-            display: grid;
-            grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.65fr);
-            gap: 2rem;
-            align-items: start;
-        }
-
-        .paper-card,
-        .quote-card,
-        .note-card {
-            border: 1px solid var(--cool-line);
-            border-radius: 8px;
-            background: var(--surface);
-            padding: 1.5rem;
-        }
-
-        .paper-card h3,
-        .quote-card h3,
-        .note-card h3 {
-            margin-bottom: 0.8rem;
-            font-size: 1.45rem;
-            line-height: 1.1;
-        }
-
-        .paper-meta {
-            display: grid;
-            gap: 0.75rem;
-            margin: 1rem 0 1.2rem;
+        .portrait-caption {
+            margin-top: 0.8rem;
             color: var(--muted);
             font-size: 0.95rem;
         }
 
-        .paper-meta span {
-            display: block;
-            color: var(--teal);
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
+        .thesis-panel {
+            display: grid;
+            grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.7fr);
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .principles {
+            display: grid;
+            gap: 0.7rem;
+            padding: 1.3rem;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--surface);
+            box-shadow: var(--shadow);
+        }
+
+        .principles h3 {
+            margin-bottom: 0.3rem;
+            font-size: 1.45rem;
+        }
+
+        .principles ul,
+        .clean-list {
+            list-style: none;
+        }
+
+        .principles li,
+        .clean-list li {
+            position: relative;
+            padding-left: 1.1rem;
+            color: var(--muted);
+        }
+
+        .principles li::before,
+        .clean-list li::before {
+            content: "";
+            position: absolute;
+            top: 0.72em;
+            left: 0;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--accent);
         }
 
         .cards {
@@ -405,113 +332,65 @@
             margin-top: 2rem;
         }
 
-        .card {
-            min-height: 100%;
-            padding: 1.25rem;
-            border: 1px solid var(--cool-line);
+        .card,
+        .work-card,
+        .writing-card,
+        .callout {
+            border: 1px solid var(--line);
             border-radius: 8px;
             background: var(--surface);
+            box-shadow: 0 10px 36px rgba(21, 25, 31, 0.055);
         }
 
-        .card h3 {
+        .card,
+        .writing-card {
+            padding: 1.25rem;
+        }
+
+        .card h3,
+        .writing-card h3 {
             margin-bottom: 0.55rem;
             font-size: 1.28rem;
             line-height: 1.12;
         }
 
-        .card p {
+        .card p,
+        .writing-card p {
             color: var(--muted);
             font-size: 0.98rem;
         }
 
-        .quote-card {
-            border-color: var(--line);
-            background: rgba(201, 148, 53, 0.08);
-        }
-
-        .quote-card p {
-            color: var(--text);
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            line-height: 1.08;
-        }
-
-        .fde-tags {
+        .background-grid {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.7fr);
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .evidence-list {
+            display: grid;
             gap: 0.85rem;
-            margin-top: 2rem;
         }
 
-        .fde-tags span {
-            padding: 1rem;
-            border: 1px solid var(--cool-line);
-            border-radius: 6px;
-            color: var(--text);
-            background: var(--surface);
-            font-weight: 600;
+        .evidence-item {
+            padding: 1rem 1.1rem;
+            border-left: 3px solid var(--accent);
+            background: rgba(255, 255, 255, 0.55);
         }
 
-        .cost-table {
-            display: grid;
-            margin-top: 2rem;
-            border: 1px solid var(--cool-line);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .cost-row {
-            display: grid;
-            grid-template-columns: 1fr minmax(180px, auto);
-            gap: 1rem;
-            padding: 1rem 1.2rem;
-            border-bottom: 1px solid var(--cool-line);
-            background: var(--surface);
-            color: var(--muted);
-        }
-
-        .cost-row:last-child {
-            border-bottom: 0;
-        }
-
-        .cost-row.total {
-            background: rgba(201, 148, 53, 0.12);
-            color: var(--text);
+        .evidence-item strong {
+            display: block;
+            color: var(--ink);
             font-weight: 700;
         }
 
-        .cost-amount {
-            color: var(--text);
-            font-weight: 700;
-            text-align: right;
-        }
-
-        .small-note {
-            margin-top: 1rem;
-            color: var(--muted);
-            font-size: 0.95rem;
-            font-style: italic;
-        }
-
-        .accountability-list {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 0.85rem;
-            margin: 2rem 0;
-            list-style: none;
-        }
-
-        .accountability-list li {
-            padding: 1rem;
-            border: 1px solid var(--cool-line);
-            border-radius: 6px;
-            background: var(--surface);
+        .evidence-item span {
             color: var(--muted);
         }
 
         .selected-work {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 1rem;
             margin-top: 2rem;
         }
@@ -519,37 +398,58 @@
         .work-card {
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: 0.8rem;
             padding: 1.35rem;
-            border: 1px solid var(--cool-line);
-            border-radius: 8px;
-            background: var(--surface);
         }
 
         .work-card h3 {
-            font-size: 1.35rem;
-            line-height: 1.12;
+            font-size: 1.42rem;
+            line-height: 1.1;
         }
 
         .work-card p {
             color: var(--muted);
-            font-size: 0.98rem;
         }
 
-        .work-card .why {
-            color: var(--text);
+        .meta {
+            color: var(--accent-2);
+            font-size: 0.76rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .work-card .point {
+            color: var(--ink);
             font-weight: 500;
         }
 
-        .contact-panel {
-            display: flex;
+        .writing-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .callout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 1.5rem;
             align-items: center;
-            justify-content: space-between;
+            padding: 1.5rem;
+            background: linear-gradient(120deg, rgba(154, 95, 36, 0.10), rgba(46, 116, 111, 0.08)), var(--surface);
+        }
+
+        .callout h2 {
+            margin-bottom: 0.6rem;
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+        }
+
+        .contact-panel {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
             gap: 2rem;
-            padding: 2rem;
-            border: 1px solid var(--line);
-            border-radius: 8px;
-            background: linear-gradient(110deg, rgba(201, 148, 53, 0.12), rgba(47, 143, 131, 0.08));
+            align-items: center;
         }
 
         .contact-actions {
@@ -561,41 +461,39 @@
 
         footer {
             padding: 2.5rem 0;
-            border-top: 1px solid var(--cool-line);
+            border-top: 1px solid var(--line);
             color: var(--muted);
-            font-size: 0.92rem;
+            font-size: 0.95rem;
         }
 
-        @media (max-width: 980px) {
+        @media (max-width: 940px) {
             .nav-links {
                 display: none;
             }
 
             .hero-grid,
-            .two-col {
+            .thesis-panel,
+            .background-grid,
+            .callout,
+            .contact-panel {
                 grid-template-columns: 1fr;
             }
 
-            .hero {
-                padding-top: 3.2rem;
-            }
-
-            .hero-card {
-                max-width: 460px;
+            .portrait-card {
+                max-width: 390px;
             }
 
             .cards,
-            .selected-work {
+            .writing-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
-            .fde-tags,
-            .accountability-list {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
+            .contact-actions {
+                justify-content: flex-start;
             }
         }
 
-        @media (max-width: 680px) {
+        @media (max-width: 640px) {
             .container {
                 width: min(100% - 28px, 1120px);
             }
@@ -604,26 +502,18 @@
                 min-height: 64px;
             }
 
-            .nav-actions .button.secondary {
-                display: none;
-            }
-
-            .button {
-                width: 100%;
-            }
-
-            .nav-actions .button {
-                width: auto;
-                min-height: 40px;
-                padding: 0.6rem 0.85rem;
-            }
-
             .hero {
-                padding: 2.2rem 0 4rem;
+                padding: 3rem 0 4rem;
             }
 
             .hero h1 {
-                font-size: clamp(2.8rem, 16vw, 4.4rem);
+                font-size: clamp(3rem, 15vw, 4.6rem);
+            }
+
+            .button,
+            .hero-actions,
+            .contact-actions {
+                width: 100%;
             }
 
             .hero-actions,
@@ -631,320 +521,232 @@
                 flex-direction: column;
             }
 
-            .trust-chips {
-                gap: 0.45rem;
-            }
-
-            .hero-card {
-                max-width: none;
-            }
-
-            .campaign-status,
-            .paper-card,
-            .quote-card,
-            .note-card,
-            .contact-panel {
-                padding: 1rem;
-            }
-
-            .status-row,
-            .cost-row {
-                grid-template-columns: 1fr;
-                gap: 0.35rem;
-            }
-
-            .cost-amount {
-                text-align: left;
-            }
-
-            .cards,
-            .fde-tags,
-            .accountability-list,
-            .selected-work {
-                grid-template-columns: 1fr;
-            }
-
             .section {
                 padding: 4rem 0;
             }
 
-            .contact-panel {
-                align-items: stretch;
-                flex-direction: column;
+            .cards,
+            .selected-work,
+            .writing-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <!-- TODO CURRENT_AMOUNT_RAISED: update the status block when the fundraiser has a live total. -->
-    <!-- TODO ACL_ANTHOLOGY_URL: currently set to https://aclanthology.org/W18-1602/. -->
-    <!-- TODO LINKEDIN_URL / GITHUB_URL / MEDIUM_URL / EMAIL: verify these are the preferred public links. -->
-
     <header class="site-nav">
         <div class="container nav-inner">
             <a class="nav-name" href="/">Taha Merghani</a>
-            <nav class="nav-links" aria-label="Primary">
-                <a href="#fundraiser">Fundraiser</a>
-                <a href="#why-acl">Why ACL</a>
-                <a href="#proof">Proof</a>
-                <a href="#cost">Cost</a>
+            <nav class="nav-links" aria-label="Primary navigation">
+                <a href="#thesis">Thesis</a>
                 <a href="#work">Work</a>
+                <a href="#writing">Writing</a>
+                <a href="#fundraiser">Fundraiser</a>
                 <a href="#contact">Contact</a>
             </nav>
-            <div class="nav-actions">
-                <a class="button primary" href="https://www.gofundme.com/f/help-me-attend-acl-2026-in-san-diego" target="_blank" rel="noopener noreferrer">Contribute</a>
-                <button class="button secondary" type="button" id="share-button">Share</button>
-            </div>
         </div>
     </header>
 
-    <main id="fundraiser">
-        <section class="hero kickerless">
+    <main>
+        <section class="hero" aria-labelledby="hero-title">
             <div class="container hero-grid">
                 <div>
-                    <span class="eyebrow">ACL 2026 fundraiser</span>
-                    <h1>Help me get to ACL 2026.</h1>
-                    <p class="hero-copy">I’m raising $3,750 to attend ACL 2026 in San Diego in person. I’m a computational linguist and ML engineer working where language AI meets messy reality: speech, multilingual NLP, low-resource language technology, evaluation, and deployment.</p>
-                    <p class="hero-line">My bottleneck is not access to papers. Papers are online. It is access to people.</p>
+                    <span class="eyebrow">Computational linguist. ML engineer. Founder-minded builder.</span>
+                    <h1 id="hero-title">Building AI tools that preserve human judgment.</h1>
+                    <p class="hero-copy">I’m Taha Merghani, a computational linguist and ML engineer working on source-grounded AI systems for research, language, and messy real-world workflows.</p>
+                    <p class="hero-thesis">My thesis: the next bottleneck is not access to information. It is knowing which claim to trust, which source to read, which assumption to challenge, and when AI should stop interpreting.</p>
                     <div class="hero-actions">
-                        <a class="button primary" href="https://www.gofundme.com/f/help-me-attend-acl-2026-in-san-diego" target="_blank" rel="noopener noreferrer">Contribute to the fundraiser</a>
-                        <a class="button" href="#case">Read why this matters</a>
-                    </div>
-                    <div class="trust-chips" aria-label="Credibility markers">
-                        <span class="chip">ACL Anthology author</span>
-                        <span class="chip">MIT CSAIL</span>
-                        <span class="chip">Apple Siri</span>
-                        <span class="chip">Georgia Tech MSCS</span>
-                        <span class="chip">Speech + multilingual NLP</span>
-                        <span class="chip">Forward Deployed AI</span>
+                        <a class="button primary" href="#thesis">Read the thesis</a>
+                        <a class="button" href="#work">See my work</a>
+                        <a class="button subtle" href="#fundraiser">Support ACL 2026</a>
                     </div>
                 </div>
-
-                <aside class="hero-card" aria-label="Campaign status">
-                    <figure class="hero-image">
-                        <img src="/assets/images/acl-2026-gt-regalia.jpeg" alt="Taha Merghani in Georgia Tech regalia beside a College of Computing sign.">
-                    </figure>
-                    <div class="campaign-status">
-                        <div class="status-row">
-                            <span class="status-label">Goal</span>
-                            <strong>$3,750</strong>
-                        </div>
-                        <div class="status-row">
-                            <span class="status-label">Use</span>
-                            <span>Registration, ACL membership, travel, lodging, food, local transport, and fundraiser fees.</span>
-                        </div>
-                        <div class="status-row">
-                            <span class="status-label">Deadline</span>
-                            <span>Before ACL 2026. <a href="https://2026.aclweb.org/registration/" target="_blank" rel="noopener noreferrer">Registration is open</a>, and in-person capacity is capped, so timing matters.</span>
-                        </div>
-                        <div class="status-row">
-                            <span class="status-label">Status</span>
-                            <span>Amount raised: TODO. Update once the fundraiser is live.</span>
-                        </div>
+                <aside class="portrait-card" aria-label="Taha Merghani portrait">
+                    <div class="portrait-frame">
+                        <img src="/myself.jpeg" alt="Portrait of Taha Merghani seated at a table.">
                     </div>
+                    <p class="portrait-caption">Working at the boundary between language AI, research workflows, and systems that have to survive real use.</p>
                 </aside>
             </div>
         </section>
 
-        <section class="section" id="case">
-            <div class="container two-col">
+        <section class="section" id="thesis" aria-labelledby="thesis-title">
+            <div class="container thesis-panel">
                 <div>
-                    <span class="eyebrow">The wedge</span>
-                    <h2>Language technology does not fail evenly.</h2>
-                    <p class="section-lead">Language technology fails along lines of style, community, dialect, network, and who shows up in the training data. I first worked on this problem in 2018, when I co-authored “Stylistic Variation in Social Media Part-of-Speech Tagging” with Murali Balusu and Jacob Eisenstein, published in the ACL Anthology. That question is more urgent in the era of large language models, not less.</p>
+                    <span class="eyebrow">The thesis</span>
+                    <h2 id="thesis-title">High-quality research is not just information retrieval. It is judgment under uncertainty.</h2>
+                    <p class="section-lead">When I use AI for research, the failure mode I notice is often not that the model knows nothing. It is that it silently chooses the wrong role. It summarizes when I need sources. It recommends when I need verification. It interprets when I need the claim left intact.</p>
+                    <p class="section-lead" style="margin-top:1rem;">The product opportunity I care about is an advisor-grade research interface: a system that helps a person verify, challenge, and extend claims while keeping the human in control of the reasoning.</p>
                 </div>
-                <article class="paper-card" id="proof">
-                    <span class="eyebrow">ACL Anthology paper</span>
-                    <h3>Stylistic Variation in Social Media Part-of-Speech Tagging</h3>
-                    <div class="paper-meta">
-                        <p><span>Authors</span>Taha Merghani, Murali Raghu Babu Balusu, Jacob Eisenstein</p>
-                        <p><span>Venue</span>Second Workshop on Stylistic Variation, ACL/NAACL 2018</p>
-                    </div>
-                    <a class="button" href="https://aclanthology.org/W18-1602/" target="_blank" rel="noopener noreferrer">View ACL Anthology paper</a>
-                </article>
+                <aside class="principles">
+                    <h3>What I’m exploring</h3>
+                    <ul>
+                        <li>Claim-to-source mapping</li>
+                        <li>Counter-source discovery</li>
+                        <li>Assumption tracking</li>
+                        <li>Citation-grounded synthesis</li>
+                        <li>Separation between what the source says and what the model infers</li>
+                        <li>Interfaces for researchers, founders, analysts, and serious readers</li>
+                    </ul>
+                </aside>
             </div>
         </section>
 
-        <section class="section" id="why-acl">
+        <section class="section" id="build" aria-labelledby="build-title">
             <div class="container">
-                <div class="two-col">
-                    <div>
-                        <span class="eyebrow">Why ACL</span>
-                        <h2>Why ACL 2026?</h2>
-                        <p class="section-lead">ACL is the flagship conference for NLP and language AI. I want to be in the room with people working on the consequences: evaluation, labor, education, institutions, multilingual systems, and who gets served or missed by these systems.</p>
-                    </div>
-                    <aside class="quote-card">
-                        <p>Papers are online. Proximity is not.</p>
-                    </aside>
-                </div>
+                <span class="eyebrow">Current build direction</span>
+                <h2 id="build-title">What I’m building toward</h2>
+                <p class="section-lead">I’m currently turning this thesis into small prototypes and public artifacts. The starting point is simple: take a claim, retrieve the best source material around it, surface the strongest challenges, and make the model’s interpretation auditable.</p>
                 <div class="cards">
                     <article class="card">
-                        <h3>The field is there</h3>
-                        <p>ACL is the central gathering for NLP and language AI.</p>
+                        <h3>Claim verification</h3>
+                        <p>Tools that ask what exactly is being claimed, where the claim comes from, and what would make it weaker or false.</p>
                     </article>
                     <article class="card">
-                        <h3>The people are there</h3>
-                        <p>Researchers, engineers, founders, hiring managers, and collaborators are concentrated in one place.</p>
+                        <h3>Source-grounded research assistance</h3>
+                        <p>Interfaces that prioritize source retrieval and evidence quality before synthesis or recommendation.</p>
                     </article>
                     <article class="card">
-                        <h3>The questions are there</h3>
-                        <p>Evaluation, multilingual systems, language variation, labor, education, institutions, and consequences.</p>
+                        <h3>Human-in-the-loop judgment interfaces</h3>
+                        <p>Systems that expose assumptions and uncertainty so the human can keep doing the reasoning work that matters.</p>
                     </article>
                     <article class="card">
-                        <h3>The informal layer matters</h3>
-                        <p>Useful opportunities form around posters, workshops, hallway conversations, and introductions.</p>
+                        <h3>AI for messy real-world workflows</h3>
+                        <p>Practical tools for places where data is incomplete, institutions are constrained, and exception-handling is normal.</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="section">
-            <div class="container">
-                <span class="eyebrow">FDE bridge</span>
-                <h2>Why this connects to Forward Deployed Engineering</h2>
-                <p class="section-lead">I’m not interested in AI as a clean benchmark artifact. I’m interested in AI systems that survive contact with reality. Real deployment means messy users, multilingual settings, unclear workflows, institutional constraints, uneven data, and consequences that do not show up in a leaderboard.</p>
-                <p class="section-lead" style="margin-top:1rem;">That is why my website is organized around Forward Deployed Engineering. The work I want to do sits between models, users, workflows, evaluation, and the society those systems enter.</p>
-                <div class="fde-tags" aria-label="Forward deployed engineering themes">
-                    <span>Language variation</span>
-                    <span>Low-resource and multilingual users</span>
-                    <span>Evaluation gaps</span>
-                    <span>Human workflows</span>
-                    <span>Institutional deployment</span>
-                    <span>AI consequences</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="cost">
-            <div class="container">
-                <span class="eyebrow">Cost breakdown</span>
-                <h2>Where the $3,750 goes</h2>
-                <p class="section-lead">The target covers a modest version of the trip: registration, required ACL membership, travel, lodging, food, local transportation, and fundraiser fees.</p>
-                <div class="cost-table" aria-label="Fundraiser cost breakdown">
-                    <div class="cost-row">
-                        <span>ACL 3-day main conference registration</span>
-                        <span class="cost-amount">approximately $1,050</span>
-                    </div>
-                    <div class="cost-row">
-                        <span>Required ACL membership</span>
-                        <span class="cost-amount">approximately $100</span>
-                    </div>
-                    <div class="cost-row">
-                        <span>Flight</span>
-                        <span class="cost-amount">approximately $350-$600</span>
-                    </div>
-                    <div class="cost-row">
-                        <span>Lodging</span>
-                        <span class="cost-amount">approximately $600-$1,200</span>
-                    </div>
-                    <div class="cost-row">
-                        <span>Food and local transportation</span>
-                        <span class="cost-amount">approximately $350-$500</span>
-                    </div>
-                    <div class="cost-row">
-                        <span>Buffer, price changes, and fundraiser fees</span>
-                        <span class="cost-amount">approximately $300-$600</span>
-                    </div>
-                    <div class="cost-row total">
-                        <span>Target</span>
-                        <span class="cost-amount">$3,750</span>
-                    </div>
-                </div>
-                <p class="small-note">This is a modest version of the trip, not a luxury budget.</p>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container two-col">
+        <section class="section" id="background" aria-labelledby="background-title">
+            <div class="container background-grid">
                 <div>
-                    <span class="eyebrow">Due diligence</span>
-                    <h2>I checked lower-cost routes first.</h2>
-                    <p class="section-lead">I checked ACL’s subsidy and volunteer routes first. The main D&amp;I and student-volunteer deadlines have passed, and I am still pursuing any remaining lower-cost options where possible. The fundraiser covers the remaining gap.</p>
+                    <span class="eyebrow">Evidence and background</span>
+                    <h2 id="background-title">Why this is my problem</h2>
+                    <p class="section-lead">My background is not only research and not only deployment. It is the seam between them.</p>
+                    <p class="section-lead" style="margin-top:1rem;">I’ve worked on speech recognition at MIT CSAIL, Siri tooling at Apple, NLP research at Georgia Tech, enterprise AI workflows, and retail operations from inside the floor. The recurring pattern is the same: the hardest problems are not just technical. They live where language, institutions, incentives, tools, and human judgment collide.</p>
                 </div>
-                <aside class="note-card">
-                    <h3>Why now</h3>
-                    <p class="section-lead">This fundraiser is not about rescue. It is about proximity after displacement. Strong trajectories can still be interrupted when health, immigration, and survival constraints compound. I am putting myself back into motion deliberately.</p>
-                </aside>
+                <div class="evidence-list" aria-label="Background evidence">
+                    <div class="evidence-item">
+                        <strong>MIT CSAIL</strong>
+                        <span>Egyptian Arabic automatic speech recognition, 2015.</span>
+                    </div>
+                    <div class="evidence-item">
+                        <strong>Apple Siri</strong>
+                        <span>QA and localization tooling for language product workflows.</span>
+                    </div>
+                    <div class="evidence-item">
+                        <strong>Georgia Tech MSCS</strong>
+                        <span>NLP research, social media language variation, and model behavior under distribution shift.</span>
+                    </div>
+                    <div class="evidence-item">
+                        <strong>Deployment reality</strong>
+                        <span>Enterprise constraints, brittle data, retail workflows, and human exception-handling.</span>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="section">
-            <div class="container">
-                <span class="eyebrow">Accountability</span>
-                <h2>What I will publish afterward</h2>
-                <p class="section-lead">Contribute so I can go, then follow the report. I will publish what comes out of the trip, not just that the trip happened.</p>
-                <ul class="accountability-list">
-                    <li>Technical notes from talks, posters, and workshops.</li>
-                    <li>A short field report on what people are discussing around language AI and evaluation.</li>
-                    <li>Ideas sharpened.</li>
-                    <li>People I met.</li>
-                    <li>Leads pursued.</li>
-                    <li>What this changed for my next work.</li>
-                </ul>
-                <a class="button primary" href="https://www.gofundme.com/f/help-me-attend-acl-2026-in-san-diego" target="_blank" rel="noopener noreferrer">Contribute so I can go</a>
-            </div>
-        </section>
-
-        <section class="section" id="work">
+        <section class="section" id="work" aria-labelledby="work-title">
             <div class="container">
                 <span class="eyebrow">Selected work</span>
-                <h2>Proof that this room matches my trajectory</h2>
+                <h2 id="work-title">Models meeting messy human systems</h2>
                 <div class="selected-work">
                     <article class="work-card">
-                        <h3>Stylistic variation in social media POS tagging</h3>
-                        <p>ACL Anthology paper on how social network structure predicts NLP model errors.</p>
-                        <p class="why">Why it matters now: language model failure still clusters around community, style, and data coverage.</p>
-                        <a href="https://aclanthology.org/W18-1602/" target="_blank" rel="noopener noreferrer">View paper</a>
+                        <span class="meta">NLP, dialect/style, social networks, evaluation</span>
+                        <h3>Stylistic Variation in Social Media POS Tagging</h3>
+                        <p>Published work with Murali Balusu and Jacob Eisenstein on how language technology behaves differently across communities, styles, and networks.</p>
+                        <p class="point">Point: language technology does not fail evenly.</p>
+                        <a href="https://aclanthology.org/W18-1602/" target="_blank" rel="noopener noreferrer">View ACL Anthology paper</a>
                     </article>
                     <article class="work-card">
+                        <span class="meta">Speech recognition, Arabic NLP, low-resource language tooling</span>
                         <h3>Egyptian Arabic ASR at MIT CSAIL</h3>
-                        <p>Low-resource speech recognition work using Kaldi acoustic models and Arabic pronunciation resources.</p>
-                        <p class="why">Why it matters now: speech and dialect coverage remain central to who language AI serves.</p>
+                        <p>Early work on automatic speech recognition for Egyptian Arabic using Kaldi and dialect-specific language resources.</p>
+                        <p class="point">Point: language systems have to survive dialect and data constraints.</p>
                         <a href="/mit-arabic-asr-2015.pdf" target="_blank">View paper</a>
                     </article>
                     <article class="work-card">
-                        <h3>Apple Siri NLU tooling</h3>
-                        <p>Python tooling for multilingual NLU debugging across Siri’s internationalization workflows.</p>
-                        <p class="why">Why it matters now: production language systems need tools for diagnosing real user failures.</p>
+                        <span class="meta">Internal automation, localization QA, scripting, bug workflows</span>
+                        <h3>Siri QA / Localization Tooling at Apple</h3>
+                        <p>Tooling for large-scale language product quality where engineers and program managers needed clearer debugging workflows.</p>
+                        <p class="point">Point: practical language AI requires tools for the people maintaining it.</p>
                         <a href="/work/">View work</a>
                     </article>
                     <article class="work-card">
-                        <h3>Georgia Tech NLP research</h3>
-                        <p>Social media language variation, geolinguistic analysis, and NLP robustness under distribution shift.</p>
-                        <p class="why">Why it matters now: model behavior has to be evaluated across real populations and contexts.</p>
+                        <span class="meta">Deployment under constraints, data systems, workflow analysis</span>
+                        <h3>Enterprise / Field AI Work</h3>
+                        <p>Computer vision workflows, Power BI and data systems, retail workflow analysis, and environments where clean software assumptions break.</p>
+                        <p class="point">Point: real AI products live inside organizations with missing data and human exception-handling.</p>
                         <a href="/work/">View projects</a>
                     </article>
                     <article class="work-card">
-                        <h3>Forward deployed AI systems</h3>
-                        <p>Computer vision inspection work, customer analytics pipelines, local LLM systems, and workflow tools.</p>
-                        <p class="why">Why it matters now: useful AI has to survive institutional constraints and messy operations.</p>
-                        <a href="/work/">View portfolio</a>
-                    </article>
-                    <article class="work-card">
-                        <h3>Public essays</h3>
-                        <p>Writing on AI systems, deployment friction, human skill, research, and learning in public.</p>
-                        <p class="why">Why it matters now: explaining the work clearly is part of building with accountability.</p>
-                        <a href="/writing/">Read writing</a>
+                        <span class="meta">Claim verification, source discovery, advisor-grade AI interface</span>
+                        <h3>Current Research Tooling Prototype</h3>
+                        <p>A direction for source-grounded systems that help users verify and challenge claims without outsourcing their judgment.</p>
+                        <p class="point">Point: the founder thesis becoming an artifact.</p>
+                        <a href="#build">Read build direction</a>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="section" id="contact">
+        <section class="section" id="writing" aria-labelledby="writing-title">
             <div class="container">
-                <div class="contact-panel">
+                <span class="eyebrow">Writing</span>
+                <h2 id="writing-title">I write to clarify the systems I may eventually build.</h2>
+                <p class="section-lead">The writing is not separate from the build direction. It is where I test claims, sharpen language, and notice which problems keep recurring.</p>
+                <div class="writing-grid">
+                    <article class="writing-card">
+                        <h3>AI systems and judgment</h3>
+                        <p>Notes on how models behave, where workflows fail, and what judgment should remain human.</p>
+                    </article>
+                    <article class="writing-card">
+                        <h3>Language technology and institutions</h3>
+                        <p>Essays about NLP, deployment, language variation, and systems entering institutional life.</p>
+                    </article>
+                    <article class="writing-card">
+                        <h3>Founder notes</h3>
+                        <p>Public thinking about product direction, research interfaces, and high-leverage rooms.</p>
+                    </article>
+                    <article class="writing-card">
+                        <h3>Personal essays and background</h3>
+                        <p>Context for the unusual path, without making the path the product.</p>
+                    </article>
+                </div>
+                <div class="hero-actions">
+                    <a class="button primary" href="/writing/">Read writing</a>
+                    <a class="button" href="/about/">Read about me</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="fundraiser" aria-labelledby="fundraiser-title">
+            <div class="container">
+                <div class="callout">
                     <div>
-                        <span class="eyebrow">If this resonates</span>
-                        <h2>Let’s talk.</h2>
-                        <p class="section-lead">If you are working on language AI, evaluation, multilingual systems, AI deployment, or the consequences of AI in institutions, I want to talk.</p>
+                        <span class="eyebrow">Secondary current ask</span>
+                        <h2 id="fundraiser-title">ACL 2026</h2>
+                        <p class="section-lead">I’m raising support to attend ACL 2026 in San Diego. ACL matters to me because my work has always lived near language technology, evaluation, low-resource NLP, and the people building the field. The fundraiser is not the whole site. It is one current bridge into the room where this thesis can sharpen.</p>
                     </div>
-                    <div class="contact-actions">
-                        <a class="button primary" href="https://www.gofundme.com/f/help-me-attend-acl-2026-in-san-diego" target="_blank" rel="noopener noreferrer">Fundraiser</a>
-                        <a class="button" href="mailto:tahaymerghani@gmail.com">Email me</a>
-                        <a class="button" href="https://linkedin.com/in/tahamerghani" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                        <a class="button" href="https://github.com/taha-y-merghani" target="_blank" rel="noopener noreferrer">GitHub</a>
-                        <a class="button" href="https://medium.com/@tahaymerghani" target="_blank" rel="noopener noreferrer">Medium</a>
-                    </div>
+                    <a class="button primary" href="https://www.gofundme.com/f/help-me-attend-acl-2026-in-san-diego" target="_blank" rel="noopener noreferrer">Support the fundraiser</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contact" aria-labelledby="contact-title">
+            <div class="container contact-panel">
+                <div>
+                    <span class="eyebrow">Talk to me</span>
+                    <h2 id="contact-title">I want to talk to people building near this problem.</h2>
+                    <p class="section-lead">I’m especially interested in founders, researchers, engineers, and product people working on AI research tools, source-grounded systems, human-in-the-loop workflows, evaluation, language technology, and forward-deployed AI.</p>
+                </div>
+                <div class="contact-actions">
+                    <a class="button primary" href="mailto:tahaymerghani@gmail.com">Email me</a>
+                    <a class="button" href="https://linkedin.com/in/tahamerghani" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a class="button" href="https://github.com/taha-y-merghani" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <!-- TODO: Replace with the preferred X/Twitter URL when available. -->
+                    <span class="button disabled" aria-disabled="true">X / Twitter TBD</span>
                 </div>
             </div>
         </section>
@@ -952,31 +754,8 @@
 
     <footer>
         <div class="container">
-            <p>Taha Y. Merghani. Computational linguist, ML engineer, Forward Deployed AI.</p>
+            <p>Taha Y. Merghani. Computational linguist, ML engineer, founder-minded builder.</p>
         </div>
     </footer>
-
-    <script>
-        const shareButton = document.getElementById('share-button');
-
-        shareButton?.addEventListener('click', async () => {
-            const shareData = {
-                title: 'Help Taha get to ACL 2026',
-                text: 'Computational linguist and ML engineer raising $3,750 to attend ACL 2026 in person.',
-                url: window.location.href
-            };
-
-            if (navigator.share) {
-                await navigator.share(shareData);
-                return;
-            }
-
-            await navigator.clipboard.writeText(window.location.href);
-            shareButton.textContent = 'Copied';
-            window.setTimeout(() => {
-                shareButton.textContent = 'Share';
-            }, 1800);
-        });
-    </script>
 </body>
 </html>
