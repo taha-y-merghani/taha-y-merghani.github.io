@@ -125,20 +125,26 @@ async function buildListingPage(articles) {
   ).join('\n');
 
   // Generate article cards with data attributes for filtering
-  const articleCards = sortedArticles.map(article => `
-    <a href="/writing/${article.slug}/" class="article-card reveal" data-tags="${article.tags ? article.tags.join(',') : ''}" data-date="${article.rawDate}">
-      <div class="article-card-header">
-        <span class="article-date">${article.date}</span>
-        <span class="article-reading-time">${article.readingTime}</span>
-      </div>
-      <h3>${article.title}</h3>
-      <p class="article-description">${article.description || ''}</p>
-      ${article.tags ? `<div class="article-tags">${article.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div>` : ''}
-    </a>
-  `).join('\n');
+  const articleCards = sortedArticles.map(article => {
+    const tags = article.tags
+      ? `<div class="article-tags">${article.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div>`
+      : '';
+
+    return [
+      `<a href="/writing/${article.slug}/" class="article-card reveal" data-tags="${article.tags ? article.tags.join(',') : ''}" data-date="${article.rawDate}">`,
+      '  <div class="article-card-header">',
+      `    <span class="article-date">${article.date}</span>`,
+      `    <span class="article-reading-time">${article.readingTime}</span>`,
+      '  </div>',
+      `  <h3>${article.title}</h3>`,
+      `  <p class="article-description">${article.description || ''}</p>`,
+      tags,
+      '</a>'
+    ].filter(Boolean).join('\n');
+  }).join('\n');
 
   const html = template
-    .replace('{{ARTICLE_COUNT}}', articles.length)
+    .replaceAll('{{ARTICLE_COUNT}}', articles.length)
     .replace('{{FILTER_BUTTONS}}', filterButtons)
     .replace('{{ARTICLE_CARDS}}', articleCards);
 

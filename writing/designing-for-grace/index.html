@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLKE0VWCQ3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-HLKE0VWCQ3');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designing for Grace - Taha Merghani</title>
+    <meta name="description" content="A field note on gates, frontier AI access, institutional legibility, and why approval regimes must be judged by who they fail to recognize.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --charcoal: #171a1f;
+            --warm-black: #0b0e13;
+            --cream: #f6f1e8;
+            --amber: #d8a84f;
+            --amber-muted: #b98e42;
+            --teal: #5fb7aa;
+            --steel: #8ea4bf;
+            --surface: rgba(246, 241, 232, 0.045);
+            --surface-strong: rgba(246, 241, 232, 0.075);
+            --text-primary: #ece8de;
+            --text-secondary: #a8adb4;
+            --border: rgba(216, 168, 79, 0.18);
+            --border-cool: rgba(142, 164, 191, 0.22);
+            --nav-bg: rgba(11, 14, 19, 0.76);
+        }
+
+        [data-theme="light"] {
+            --warm-black: #f7f3ec;
+            --charcoal: #ffffff;
+            --text-primary: #17202a;
+            --text-secondary: #526070;
+            --cream: #0b0e13;
+            --surface: rgba(23, 32, 42, 0.04);
+            --surface-strong: rgba(23, 32, 42, 0.075);
+            --border: rgba(23, 32, 42, 0.14);
+            --border-cool: rgba(35, 88, 120, 0.18);
+            --nav-bg: rgba(247, 243, 236, 0.84);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--warm-black);
+            background-image:
+                linear-gradient(115deg, rgba(95, 183, 170, 0.08), transparent 35%),
+                linear-gradient(245deg, rgba(216, 168, 79, 0.08), transparent 32%);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-weight: 300;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+        }
+
+        a {
+            color: var(--amber);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--cream);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: var(--nav-bg);
+            border-bottom: 1px solid var(--border-cool);
+            backdrop-filter: blur(18px);
+        }
+
+        .nav-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            letter-spacing: 0.05em;
+            text-decoration: none;
+        }
+
+        .nav-name:hover {
+            color: var(--amber);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .nav-links a:hover {
+            color: var(--amber);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border-cool);
+            color: var(--text-secondary);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .theme-toggle:hover {
+            color: var(--amber);
+            border-color: var(--amber);
+        }
+
+        /* Article Header */
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 2rem;
+        }
+
+        .article-meta {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .article-meta .date {
+            color: var(--teal);
+        }
+
+        .article-meta a {
+            color: var(--amber);
+            text-decoration: none;
+            border-bottom: 1px solid var(--amber);
+        }
+
+        .article-header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .article-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* Article Body */
+        .article-body {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 2rem 2rem 8rem;
+        }
+
+        .article-body p {
+            font-size: 1.15rem;
+            line-height: 1.75;
+            color: var(--text-primary);
+            margin-bottom: 1.75rem;
+        }
+
+        .article-body h2 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .article-body h3 {
+            font-size: 1.5rem;
+            margin: 2.5rem 0 1rem;
+            color: var(--text-primary);
+        }
+
+        .article-body h4 {
+            font-size: 1.2rem;
+            margin: 2rem 0 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .article-body blockquote {
+            border-left: 2px solid var(--amber);
+            background: var(--surface);
+            padding: 2rem;
+            margin: 2rem 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--text-primary);
+        }
+
+        .article-body blockquote p:last-child {
+            margin-bottom: 0;
+        }
+
+        .article-body code {
+            background: rgba(95, 183, 170, 0.12);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 0.9em;
+            color: var(--amber);
+        }
+
+        .article-body pre {
+            background: var(--charcoal);
+            padding: 1.5rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            border: 1px solid var(--border-cool);
+            margin: 2rem 0;
+        }
+
+        .article-body pre code {
+            background: transparent;
+            padding: 0;
+            color: var(--text-primary);
+        }
+
+        .article-body ul, .article-body ol {
+            margin: 1.5rem 0 1.5rem 2rem;
+            color: var(--text-primary);
+        }
+
+        .article-body li {
+            margin-bottom: 0.75rem;
+            font-size: 1.15rem;
+            line-height: 1.75;
+        }
+
+        .article-body img {
+            max-width: 100%;
+            height: auto;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .article-body hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 3rem 0;
+        }
+
+        .article-body a {
+            color: var(--amber);
+            border-bottom: 1px solid var(--amber);
+        }
+
+        .article-body a:hover {
+            color: var(--cream);
+            border-color: var(--cream);
+        }
+
+        /* Back Link */
+        .back-link {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .back-link a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .back-link a:hover {
+            color: var(--amber);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 8%;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .theme-toggle {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.75rem;
+            }
+
+            .article-header {
+                padding: 6rem 1.5rem 1.5rem;
+            }
+
+            .article-body {
+                padding: 1.5rem 1.5rem 6rem;
+            }
+
+            .article-body h2 {
+                font-size: 1.75rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+
+    <nav>
+        <a class="nav-name" href="/">Taha Merghani</a>
+        <div style="display:flex;align-items:center;gap:2.5rem;">
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/work/">Work</a>
+                <a href="/writing/">Writing</a>
+                <a href="/experience/">Experience</a>
+                <a href="/about/">About</a>
+                <a href="/contact/">Contact</a>
+            </div>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <span id="theme-icon">☀️</span>
+            </button>
+        </div>
+    </nav>
+
+    <article>
+        <header class="article-header">
+            <div class="article-meta">
+                <span class="date">June 10, 2026</span>
+                <span class="reading-time">4 min read</span>
+            </div>
+            <h1>Designing for Grace</h1>
+            <p class="article-description">A field note on gates, frontier AI access, institutional legibility, and why approval regimes must be judged by who they fail to recognize.</p>
+            
+        </header>
+
+        <div class="article-body">
+            <h1>Designing for Grace</h1>
+<p>Everyone is fighting about the gate. I want to talk about the door.</p>
+<p>Anthropic shipped its frontier model two ways this week: a public version with restrictions on dangerous capabilities, and an unrestricted version for &quot;approved organizations.&quot; The open-source side calls it a dark day. The lab&#39;s defenders say nobody is owed frontier capabilities. I&#39;ve watched this argument run all day, and both sides are skipping the question that decides what this actually does to the world.</p>
+<p>Let me state my position first, because it&#39;s neither of theirs.</p>
+<p>I want someone watching over this technology. I don&#39;t trust deeply consequential technology to steer itself, and I don&#39;t apologize for that. I even think America is the right room for the watching to happen in, not because of its power but because of the thing the power runs on: the collective. The different perspectives in the room. That&#39;s the actual safety property. A guardian that thinks one way fails one way, all at once.</p>
+<p>That&#39;s a bet, not a fact. I know what&#39;s been done by people who were certain they were the right guardian. I make the bet anyway, with my eyes open.</p>
+<p>So I accept the premise of the gate. My report is from the other side of it: the gate, as designed, destroys the thing it exists to protect.</p>
+<p>Here&#39;s the mechanism, and I know it personally. I filed for asylum in March 2017, three months before the transformer architecture was published. I was granted in September 2025. The entire modern AI era happened while I waited for a vetting system to recognize a claim that was true on day one. My life was the application. What I learned is that vetting systems don&#39;t sort people by character, capability, or truth. They sort by legibility: how well your existence maps onto paperwork the institution already knows how to read. A university letterhead is legible. A Delaware C-corp is legible. A ministry is legible. It took the system 8.5 years to learn to read me. Nobody was ever accountable for those years, because vetting regimes are only ever graded on who they catch, never on who they fail to recognize.</p>
+<p>Now run &quot;approved organizations&quot; through that machine. Who fails the filter? A language collective in Kassala trying to get Beja and Sudanese Arabic into the systems that will carry the next century of knowledge. A researcher whose institutional ties were cut by war. A community whose knowledge lives orally, with no entity that can sign anything. These are the perspectives that made the pluralism worth defending, and they are precisely the applicants no legibility-based filter will ever see. The gate doesn&#39;t just exclude them. It quietly homogenizes the room, and a homogeneous guardian is the failure mode we built the gate to prevent.</p>
+<p>The open-weights crowd is right that this dispossesses people, and wrong that openness fixes it. Open weights without compute, data, and engineering support have never closed this gap; a decade of low-resource NLP says so. The labs are right that capability needs stewardship, and wrong that &quot;we owe nothing&quot; ends the conversation. When you build the system deciding which languages and traditions get preserved at scale, you are the gatekeeper whether you wanted the job or not.</p>
+<p>So here is what I&#39;d ask of anyone building an approval regime right now, while the design is still cheap to change. Call it designing for grace: grace in the engineering sense, the system&#39;s behavior toward the case it didn&#39;t anticipate.</p>
+<p>Judge the gate by its false negatives, not its false positives. Let demonstrated work stand in for institutional form. Build an appeal path and staff it with people who can read illegible legitimacy. Count who you turned away, and publish it.</p>
+<p>The asylum system does none of this. It is what a vetting regime becomes when no one ever has to answer for a wrongly rejected truth. The labs are at the start of their curve. They get to choose.</p>
+<p>I don&#39;t experience this week as dark, and I don&#39;t experience it as fine. I experience it as familiar. The gate is built; the guardian is hiring. What I know from the queue is that the question was never whether to have a door. It&#39;s whether anyone behind it learns to read.</p>
+
+        </div>
+    </article>
+
+    <div class="back-link">
+        <a href="/writing/">← Back to all articles</a>
+    </div>
+
+    <footer>
+        <p>© 2026 Taha Merghani. Built with intention.</p>
+    </footer>
+
+    <script>
+        // Reveal on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
+        themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+        themeToggle.addEventListener('click', () => {
+            const current = html.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            themeIcon.textContent = next === 'dark' ? '☀️' : '🌙';
+        });
+    </script>
+</body>
+</html>
