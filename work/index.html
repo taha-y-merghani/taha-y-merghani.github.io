@@ -1,580 +1,283 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work &amp; Projects - Taha Merghani</title>
-    <meta name="description" content="AI systems built across research, enterprise deployment, and independent work.">
-    <meta property="og:title" content="Work &amp; Projects - Taha Merghani">
-    <meta property="og:description" content="AI systems built across research, enterprise deployment, and independent work.">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLKE0VWCQ3"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-HLKE0VWCQ3');
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --charcoal: #171a1f;
-            --warm-black: #0b0e13;
-            --cream: #f6f1e8;
-            --amber: #d8a84f;
-            --amber-muted: #b98e42;
-            --teal: #5fb7aa;
-            --steel: #8ea4bf;
-            --surface: rgba(246, 241, 232, 0.045);
-            --surface-strong: rgba(246, 241, 232, 0.075);
-            --text-primary: #ece8de;
-            --text-secondary: #a8adb4;
-            --border: rgba(216, 168, 79, 0.18);
-            --border-cool: rgba(142, 164, 191, 0.22);
-            --nav-bg: rgba(11, 14, 19, 0.76);
-        }
-
-        [data-theme="light"] {
-            --warm-black: #f7f3ec;
-            --charcoal: #ffffff;
-            --text-primary: #17202a;
-            --text-secondary: #526070;
-            --cream: #0b0e13;
-            --surface: rgba(23, 32, 42, 0.04);
-            --surface-strong: rgba(23, 32, 42, 0.075);
-            --border: rgba(23, 32, 42, 0.14);
-            --border-cool: rgba(35, 88, 120, 0.18);
-            --nav-bg: rgba(247, 243, 236, 0.84);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Source Sans 3', sans-serif;
-            background-color: var(--warm-black);
-            background-image:
-                linear-gradient(115deg, rgba(95, 183, 170, 0.08), transparent 35%),
-                linear-gradient(245deg, rgba(216, 168, 79, 0.08), transparent 32%);
-            color: var(--text-primary);
-            line-height: 1.7;
-            font-weight: 300;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .noise-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 1000; opacity: 0.03;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-        }
-
-        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
-
-        a { color: var(--amber); text-decoration: none; transition: color 0.3s ease; }
-        a:hover { color: var(--cream); }
-
-        nav {
-            position: fixed; top: 0; left: 0; right: 0;
-            padding: 1rem 3rem;
-            display: flex; justify-content: space-between; align-items: center;
-            z-index: 100;
-            background: var(--nav-bg);
-            border-bottom: 1px solid var(--border-cool);
-            backdrop-filter: blur(18px);
-        }
-
-        .nav-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem; font-weight: 500;
-            color: var(--text-primary); letter-spacing: 0.05em;
-            text-decoration: none;
-        }
-        .nav-name:hover { color: var(--amber); }
-
-        .nav-links { display: flex; gap: 2.5rem; }
-        .nav-links a {
-            color: var(--text-secondary); font-size: 0.85rem;
-            letter-spacing: 0.08em; text-transform: uppercase; font-weight: 400;
-        }
-        .nav-links a:hover, .nav-links a.active { color: var(--amber); }
-
-        .theme-toggle {
-            background: none; border: 1px solid var(--border-cool);
-            color: var(--text-secondary); padding: 0.5rem 1rem;
-            cursor: pointer; font-size: 0.85rem; letter-spacing: 0.08em;
-            text-transform: uppercase; font-family: 'Source Sans 3', sans-serif;
-            font-weight: 400; transition: all 0.3s ease; border-radius: 2px;
-        }
-        .theme-toggle:hover { color: var(--amber); border-color: var(--amber); }
-
-        .page-header {
-            padding: 10rem 8% 5rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .section-label {
-            font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em;
-            text-transform: uppercase; color: var(--teal);
-            margin-bottom: 1.5rem; display: block;
-        }
-
-        .page-header h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            line-height: 1.15; margin-bottom: 1rem;
-        }
-
-        .page-header p {
-            font-size: 1.15rem; color: var(--text-secondary); max-width: 600px;
-        }
-
-        .projects-section {
-            padding: 5rem 8% 8rem;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            padding: 2.5rem;
-            border: 1px solid var(--border-cool);
-            transition: all 0.4s ease;
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-        }
-
-        .project-card:hover {
-            border-color: var(--amber);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-        }
-
-        .project-card-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .project-card h3 {
-            font-size: 1.5rem;
-            color: var(--text-primary);
-        }
-
-        .status-badge {
-            font-size: 0.7rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--amber);
-            border: 1px solid var(--amber);
-            padding: 0.3rem 0.75rem;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-
-        .status-badge.in-progress {
-            color: var(--teal);
-            border-color: var(--teal);
-        }
-
-        .project-summary {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            font-style: italic;
-        }
-
-        .project-section-label {
-            font-size: 0.7rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--amber);
-            margin-bottom: 0.4rem;
-            font-weight: 500;
-        }
-
-        .project-detail {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.65;
-        }
-
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tech-tag {
-            font-size: 0.75rem;
-            color: var(--amber);
-            background: rgba(95, 183, 170, 0.12);
-            padding: 0.35rem 0.75rem;
-            border-radius: 2px;
-            letter-spacing: 0.05em;
-        }
-
-        .why-block {
-            background: var(--surface);
-            border-left: 2px solid var(--amber);
-            padding: 1.25rem 1.5rem;
-        }
-
-        .why-block p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.65;
-        }
-
-        .project-link {
-            font-size: 0.85rem;
-            color: var(--amber);
-            border-bottom: 1px solid var(--amber);
-            display: inline-block;
-            padding-bottom: 1px;
-            letter-spacing: 0.05em;
-        }
-
-        footer {
-            padding: 3rem 8%;
-            border-top: 1px solid var(--border);
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        .reveal {
-            opacity: 0; transform: translateY(40px);
-            transition: all 0.8s ease;
-        }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-
-        @media (max-width: 768px) {
-            nav { padding: 1rem 1.5rem; }
-            .nav-links { display: none; }
-            .theme-toggle { padding: 0.4rem 0.8rem; font-size: 0.75rem; }
-            .page-header { padding: 8rem 5% 3rem; }
-            .projects-section { padding: 3rem 5% 6rem; }
-            .projects-grid { grid-template-columns: 1fr; }
-            .project-card { padding: 1.75rem; }
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Work &amp; Projects — Taha Merghani</title>
+<meta name="description" content="Selected engineering work: Siri debugging, Oracle Cloud computer vision, local voice AI, data pipelines, and published NLP research.">
+<link rel="canonical" href="https://taha-y-merghani.github.io/work/">
+<meta property="og:title" content="Work &amp; Projects — Taha Merghani">
+<meta property="og:description" content="Selected engineering work: Siri debugging, Oracle Cloud computer vision, local voice AI, data pipelines, and published NLP research.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://taha-y-merghani.github.io/work/">
+<meta property="og:image" content="https://taha-y-merghani.github.io/myself.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f7f4ed">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="/assets/portfolio.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HLKE0VWCQ3">
+</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-HLKE0VWCQ3');</script>
 </head>
 <body>
-    <div class="noise-overlay"></div>
-
-    <nav>
-        <a class="nav-name" href="/">Taha Merghani</a>
-        <div style="display:flex;align-items:center;gap:2.5rem;">
-            <div class="nav-links">
-                <a href="/">Home</a>
-                <a href="/work/" class="active">Work</a>
-                <a href="/writing/">Writing</a>
-                <a href="/experience/">Experience</a>
-                <a href="/about/">About</a>
-                <a href="/contact/">Contact</a>
-            </div>
-            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-                <span id="theme-icon">☀️</span>
-            </button>
-        </div>
-    </nav>
-
-    <div class="page-header">
-        <span class="section-label">Projects</span>
-        <h1>Work &amp; Projects</h1>
-        <p>AI systems built across research, enterprise deployment, and independent work.</p>
-    </div>
-
-    <div class="projects-section">
-        <div class="projects-grid">
-
-            <!-- Project 1: Apple Siri NLU Debugger -->
-            <div class="project-card reveal">
-                <div class="project-card-top">
-                    <h3>Apple Siri NLU Debugger</h3>
-                    <span class="status-badge">Production-adjacent (2017)</span>
-                </div>
-                <p class="project-summary">Python tooling for debugging multilingual NLU issues across Siri's language pipeline.</p>
-
-                <div>
-                    <p class="project-section-label">Problem</p>
-                    <p class="project-detail">Siri's internationalization team had no unified way to trace NLU failures across 40+ languages. Bug reports were noisy, often bilingual, hard to reproduce.</p>
-                </div>
-
-                <div>
-                    <p class="project-section-label">Built</p>
-                    <p class="project-detail">Python tool integrating with Siri REST APIs. Parsed and visualized multilingual parse trees. Built a structured bug logging interface used by engineers and program managers across Siri i18n.</p>
-                </div>
-
-                <div>
-                    <p class="project-section-label">Technologies</p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Siri REST APIs</span>
-                        <span class="tech-tag">NLU</span>
-                        <span class="tech-tag">multilingual systems</span>
-                        <span class="tech-tag">i18n</span>
-                    </div>
-                </div>
-
-                <div class="why-block">
-                    <p class="project-section-label">Why it matters</p>
-                    <p>120+ engineers used it. Still in use 8 years later. Selected for Apple's internal research summit. Stakeholder-facing internal tooling for a production NLP system.</p>
-                </div>
-            </div>
-
-            <!-- Project 2: Mesa Computer Vision -->
-            <div class="project-card reveal">
-                <div class="project-card-top">
-                    <h3>Mesa Utility Inspection: Computer Vision</h3>
-                    <span class="status-badge">Field Deployment (2022-2023)</span>
-                </div>
-                <p class="project-summary">OCI computer vision pipeline for electrical equipment inspection using drone imagery.</p>
-
-                <div>
-                    <p class="project-section-label">Problem</p>
-                    <p class="project-detail">Mesa Associates needed to analyze drone imagery of electrical infrastructure. The deployment environment was enterprise/government-subcontractor: limited cloud access, Excel-based workflows, no ML infrastructure.</p>
-                </div>
-
-                <div>
-                    <p class="project-section-label">Built</p>
-                    <p class="project-detail">Python notebooks integrating Oracle Cloud Infrastructure vision APIs. Processed inspection imagery with metadata tagging. Worked within the constraints of what was actually allowed in the environment.</p>
-                </div>
-
-                <div>
-                    <p class="project-section-label">Technologies</p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Oracle Cloud Infrastructure (OCI)</span>
-                        <span class="tech-tag">computer vision</span>
-                        <span class="tech-tag">drone imagery</span>
-                        <span class="tech-tag">Excel/legacy workflows</span>
-                    </div>
-                </div>
-
-                <div class="why-block">
-                    <p class="project-section-label">Why it matters</p>
-                    <p>Deployment is constrained by the allowed environment, not just model quality. This was field AI work in an environment very far from a clean ML setup. The lesson: institutional constraints shape what you can actually ship.</p>
-                </div>
-            </div>
-
-            <!-- Project 3: Local Voice Assistant -->
-            <div class="project-card reveal">
-                <div class="project-card-top">
-                    <h3>Local Voice Assistant (Whisper + Ollama)</h3>
-                    <span class="status-badge">Personal / Open Source (2025)</span>
-                </div>
-                <p class="project-summary">A fully local speech-to-response pipeline on consumer hardware, no cloud APIs.</p>
-
-                <div>
-                    <p class="project-section-label">Problem</p>
-                    <p class="project-detail">Most LLM voice interfaces assume cloud infrastructure. Privacy, latency, and cost constraints make local execution desirable for many real workflows.</p>
-                </div>
-
-                <div>
-                    <p class="project-section-label">Built</p>
-                    <p class="project-detail">OpenAI Whisper for speech-to-text, Ollama serving Mistral 7B locally, Gradio web interface. Hardware-optimized with configurable timeouts for legacy hardware constraints.</p>
-                </div>
-
-                <div>
-                    <p class="project-section-label">Technologies</p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">OpenAI Whisper</span>
-                        <span class="tech-tag">Ollama</span>
-                        <span class="tech-tag">Mistral 7B</span>
-                        <span class="tech-tag">Gradio</span>
-                    </div>
-                </div>
-
-                <div class="why-block">
-                    <p class="project-section-label">Why it matters</p>
-                    <p>Demonstrates systems thinking about deployment constraints: thermal throttling, memory limits, timeout tuning. AI assistants generate code. Engineers debug systems.</p>
-                </div>
-
-                <a href="https://github.com/taha-y-merghani/chatbot" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub →</a>
-            </div>
-
-            <!-- Project 4: Egyptian Arabic ASR -->
-            <div class="project-card reveal">
-                <div class="project-card-top">
-                    <h3>Egyptian Arabic ASR - MIT CSAIL</h3>
-                    <span class="status-badge">Research (2015)</span>
-                </div>
-                <p class="project-summary">Low-resource speech recognition for Egyptian Arabic using Kaldi acoustic models.</p>
-
-                <div>
-                    <p class="project-section-label">Problem</p>
-                    <p class="project-detail">Egyptian Arabic is a low-resource dialect with limited transcribed training data and complex phonological variation. Standard ASR approaches from Modern Standard Arabic didn't transfer cleanly.</p>
-                </div>
-
-                <div>
-                    <p class="project-section-label">Built</p>
-                    <p class="project-detail">Kaldi-based speech recognition pipeline. Built pronunciation dictionaries for Egyptian Arabic. Compared grapheme-based lexicon approaches against diacritized methods. Experimented with GMM-HMM and DNN acoustic models.</p>
-                </div>
-
-                <div>
-                    <p class="project-section-label">Technologies</p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Kaldi</span>
-                        <span class="tech-tag">C++</span>
-                        <span class="tech-tag">Bash</span>
-                        <span class="tech-tag">GMM-HMM</span>
-                        <span class="tech-tag">DNN acoustic models</span>
-                        <span class="tech-tag">Egyptian Arabic</span>
-                    </div>
-                </div>
-
-                <div class="why-block">
-                    <p class="project-section-label">Why it matters</p>
-                    <p>Low-resource language work requires understanding the signal at a linguistic level, not just tuning hyperparameters. Grapheme lexicon outperformed diacritized approach. Research under James Glass at MIT CSAIL.</p>
-                </div>
-
-                <a href="/mit-arabic-asr-2015.pdf" target="_blank" class="project-link">View Paper (PDF) →</a>
-            </div>
-
-            <!-- Project 5: Social Media NLP -->
-            <div class="project-card reveal">
-                <div class="project-card-top">
-                    <h3>Social Media NLP: Stylistic Variation</h3>
-                    <span class="status-badge">Published Research (NAACL 2018)</span>
-                </div>
-                <p class="project-summary">How social network structure predicts POS tagger errors on Twitter.</p>
-
-                <div>
-                    <p class="project-section-label">Problem</p>
-                    <p class="project-detail">NLP models trained on formal text break on social media language. The failure modes are not random -- they correlate with social network position and stylistic variation.</p>
-                </div>
-
-                <div>
-                    <p class="project-section-label">Built</p>
-                    <p class="project-detail">Analyzed Twitter data with social network graph structure. Measured POS tagging accuracy across users with different network centrality. Under Jacob Eisenstein at Georgia Tech.</p>
-                </div>
-
-                <div>
-                    <p class="project-section-label">Technologies</p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">NLP</span>
-                        <span class="tech-tag">POS tagging</span>
-                        <span class="tech-tag">social network analysis</span>
-                        <span class="tech-tag">Twitter data</span>
-                    </div>
-                </div>
-
-                <div class="why-block">
-                    <p class="project-section-label">Why it matters</p>
-                    <p>NLP robustness under distribution shift. Models fail differently for different user communities. Published at NAACL 2018 Workshop on Noisy User-Generated Text.</p>
-                </div>
-
-                <a href="https://aclanthology.org/W18-1602/" target="_blank" rel="noopener noreferrer" class="project-link">View Publication →</a>
-            </div>
-
-            <!-- Project 6: Geolinguistic Analysis -->
-            <div class="project-card reveal">
-                <div class="project-card-top">
-                    <h3>Geolinguistic Analysis (HSIC / Lyon)</h3>
-                    <span class="status-badge">Published Research (NeurIPS 2018)</span>
-                </div>
-                <p class="project-summary">Statistical analysis of dialectal variation in Lyon French tweets using Hilbert-Schmidt Independence Criterion.</p>
-
-                <div>
-                    <p class="project-section-label">Problem</p>
-                    <p class="project-detail">Language varies geographically, but measuring that variation in a statistically principled way is hard. Standard approaches rely on hand-labeled dialects.</p>
-                </div>
-
-                <div>
-                    <p class="project-section-label">Built</p>
-                    <p class="project-detail">Applied HSIC (kernel independence test) to measure correlations between lexical choices and geographic location in Lyon Twitter data. Identified spatial linguistic signals without dialect labels.</p>
-                </div>
-
-                <div>
-                    <p class="project-section-label">Technologies</p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">HSIC</span>
-                        <span class="tech-tag">kernel methods</span>
-                        <span class="tech-tag">Twitter data</span>
-                        <span class="tech-tag">geolinguistics</span>
-                        <span class="tech-tag">Lyon French</span>
-                    </div>
-                </div>
-
-                <div class="why-block">
-                    <p class="project-section-label">Why it matters</p>
-                    <p>Principled statistical approach to linguistic geography. Published at NeurIPS 2018 Black in AI Workshop. Under Jacob Eisenstein at Georgia Tech.</p>
-                </div>
-
-                <a href="/lyon-geolinguistic-variation-2018.pdf" target="_blank" class="project-link">View Paper (PDF) →</a>
-            </div>
-
-            <!-- Project 7: ePub/PDF Reading Buddy -->
-            <div class="project-card reveal">
-                <div class="project-card-top">
-                    <h3>ePub/PDF Reading Buddy</h3>
-                    <span class="status-badge in-progress">In Progress (2025-2026)</span>
-                </div>
-                <p class="project-summary">A spoiler-aware AI sidecar for difficult reading: upload a book, track position, get explanations using only prior context.</p>
-
-                <div>
-                    <p class="project-section-label">Problem</p>
-                    <p class="project-detail">Dense books (philosophy, history, technical writing) are hard to read without context. Existing AI tools either spoil the ending or have no reading-position awareness.</p>
-                </div>
-
-                <div>
-                    <p class="project-section-label">Built</p>
-                    <p class="project-detail">[In progress] EPUB/PDF parser, reading position tracker, passage selector, context-windowed explanation system using LLM. Future: RAG over prior chapters, confusion log, deployment memo.</p>
-                </div>
-
-                <div>
-                    <p class="project-section-label">Technologies</p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">EPUB parsing</span>
-                        <span class="tech-tag">PDF parsing</span>
-                        <span class="tech-tag">LLMs</span>
-                        <span class="tech-tag">RAG (planned)</span>
-                    </div>
-                </div>
-
-                <div class="why-block">
-                    <p class="project-section-label">Why it matters</p>
-                    <p>Closes the loop between app-building, RAG, and FDE preparation. Real workflow problem, constrained design, evaluation-first approach. Building in public.</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <footer>
-        <p>© 2026 Taha Merghani. Built with intention.</p>
-    </footer>
-
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const html = document.documentElement;
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        html.setAttribute('data-theme', savedTheme);
-        themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-        themeToggle.addEventListener('click', () => {
-            const current = html.getAttribute('data-theme');
-            const next = current === 'dark' ? 'light' : 'dark';
-            html.setAttribute('data-theme', next);
-            localStorage.setItem('theme', next);
-            themeIcon.textContent = next === 'dark' ? '☀️' : '🌙';
-        });
-    </script>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-nav">
+<nav class="wrap nav-inner" aria-label="Main navigation">
+<a class="brand" href="/">
+<span aria-hidden="true">TM</span>Taha Merghani</a>
+<div class="nav-links">
+<a href="/work/" aria-current="page">Work</a>
+<a href="/experience/">Experience</a>
+<a href="/writing/">Writing</a>
+<a href="/about/">About</a>
+<a class="nav-resume" href="/Taha_Merghani_Resume.pdf">Résumé ↗</a>
+</div>
+</nav>
+</header>
+<main id="main">
+<div class="wrap">
+<header class="page-top">
+<span class="eyebrow">Work &amp; projects</span>
+<h1>Engineering in context.</h1>
+<p>A closer look at the problems I worked on, the systems I built, and what I learned.</p>
+</header>
+<nav class="project-nav" aria-label="Project sections">
+<a href="#siri">Siri tooling</a>
+<a href="#mesa">Utility vision</a>
+<a href="#voice">Local voice</a>
+<a href="#decooda">Data pipelines</a>
+<a href="#research">NLP research</a>
+<a href="#asr">Arabic ASR</a>
+</nav>
+<article class="case" id="siri">
+<div class="case-heading">
+<div>
+<div class="meta">Apple Siri · Summer 2016 · Engineering internship</div>
+<h2>Multilingual NLU debugging</h2>
+</div>
+<p>Python tooling that helped engineers investigate failures across Siri’s language pipeline.</p>
+</div>
+<div class="case-body">
+<div>
+<h3>Problem</h3>
+<p>Noisy bilingual bug reports made multilingual language-understanding issues difficult to trace.</p>
+</div>
+<div>
+<h3>Contribution</h3>
+<p>Built Python parsing and debugging tools using custom regular expressions and internal REST APIs. Gathered specifications directly from stakeholders.</p>
+</div>
+<div>
+<h3>Outcome</h3>
+<p>Used by 120+ engineers across work involving 40+ languages. Selected as one of four Distinguished Intern presenters from a cohort of 33.</p>
+</div>
+</div>
+<div class="tags">
+<span>Python</span>
+<span>Regex</span>
+<span>REST APIs</span>
+<span>NLU</span>
+</div>
+<p class="case-note">Internal Apple tooling; source code is not public.</p>
+<div class="actions">
+</div>
+</article>
+<article class="case" id="mesa">
+<div class="case-heading">
+<div>
+<div class="meta">Mesa Associates · November 2022–April 2023 · Enterprise work</div>
+<h2>Vision for utility inspection</h2>
+</div>
+<p>Computer vision workflows built around electrical infrastructure and field imagery.</p>
+</div>
+<div class="case-body">
+<div>
+<h3>Problem</h3>
+<p>Inspection imagery and metadata needed to fit an existing enterprise workflow with constrained cloud access.</p>
+</div>
+<div>
+<h3>Contribution</h3>
+<p>Used Oracle Cloud Infrastructure to label, train, and use vision models. Wrote Python scripts and notebooks to process drone images and their metadata.</p>
+</div>
+<div>
+<h3>Engineering focus</h3>
+<p>Connected model experiments to the actual inspection environment and the tools available to the team.</p>
+</div>
+</div>
+<div class="tags">
+<span>Python</span>
+<span>OCI Vision</span>
+<span>Computer vision</span>
+<span>Image metadata</span>
+</div>
+<p class="case-note">Employer work at Mesa Associates.</p>
+<div class="actions">
+</div>
+</article>
+<article class="case" id="voice">
+<div class="case-heading">
+<div>
+<div class="meta">Independent · 2025 · Local prototype</div>
+<h2>A local voice interface</h2>
+</div>
+<p>A speech-to-response pipeline running on a 2015 MacBook Pro.</p>
+</div>
+<div class="case-body">
+<div>
+<h3>Problem</h3>
+<p>Local inference on older hardware introduced latency, memory, and compatibility constraints that generic code fixes did not resolve.</p>
+</div>
+<div>
+<h3>Contribution</h3>
+<p>Connected Whisper transcription to Ollama running Mistral 7B, with Gradio and command-line interfaces. Debugged dependencies, error handling, and inference timeouts.</p>
+</div>
+<div>
+<h3>Result & limits</h3>
+<p>A working local prototype. Increased timeout tolerance for slow inference; this improves completion reliability, not model inference speed.</p>
+</div>
+</div>
+<div class="tags">
+<span>Python</span>
+<span>Whisper</span>
+<span>Ollama</span>
+<span>Mistral 7B</span>
+<span>Gradio</span>
+</div>
+<p class="case-note">Independent, locally run prototype.</p>
+<div class="actions">
+<a class="button" href="https://github.com/taha-y-merghani/constraint-driven-voice-orchestration">View source on GitHub ↗</a> <a class="inline-link" href="/writing/doing-ai-on-old-hardware/">Read the engineering notes →</a>
+</div>
+</article>
+<article class="case" id="decooda">
+<div class="case-heading">
+<div>
+<div class="meta">Decooda · July 2019–August 2020 · Industry work</div>
+<h2>Data pipelines for applied ML</h2>
+</div>
+<p>Data engineering and model work in a customer analytics environment.</p>
+</div>
+<div class="case-body">
+<div>
+<h3>Problem</h3>
+<p>Analytics and ML workflows depended on repeatable data preparation and integration.</p>
+</div>
+<div>
+<h3>Contribution</h3>
+<p>Built ETL pipelines with Matillion and Snowflake. Implemented and deployed ML workflows using PyTorch and Docker.</p>
+</div>
+<div>
+<h3>Technical scope</h3>
+<p>Worked across data ingestion, model experimentation, and deployment tooling, connecting data engineering to downstream analysis.</p>
+</div>
+</div>
+<div class="tags">
+<span>Python</span>
+<span>SQL</span>
+<span>Matillion</span>
+<span>Snowflake</span>
+<span>PyTorch</span>
+<span>Docker</span>
+</div>
+<p class="case-note">Employer work; source code is not public.</p>
+<div class="actions">
+</div>
+</article>
+<article class="case" id="research">
+<div class="case-heading">
+<div>
+<div class="meta">Georgia Tech · 2017–2019 · Published workshop research</div>
+<h2>Language variation & evaluation</h2>
+</div>
+<p>Studying where language models perform unevenly across communities and locations.</p>
+</div>
+<div class="case-body">
+<div>
+<h3>Social variation</h3>
+<p>Co-authored “Stylistic Variation in Social Media Part-of-Speech Tagging.” Found correlations between network structure and tagging errors; the mixture-of-experts approach did not improve tagging performance.</p>
+</div>
+<div>
+<h3>Geographic variation</h3>
+<p>Applied the Hilbert-Schmidt Independence Criterion to lexical and geographic variation in Lyon Twitter data. Presented at the NeurIPS 2018 Black in AI Workshop.</p>
+</div>
+<div>
+<h3>Why it informs my work</h3>
+<p>Evaluation should examine variation across groups and settings, alongside aggregate metrics. Negative experimental results are part of the evidence.</p>
+</div>
+</div>
+<div class="tags">
+<span>Python</span>
+<span>NLP</span>
+<span>POS tagging</span>
+<span>HSIC</span>
+<span>Evaluation</span>
+</div>
+<p class="case-note">Stylistic Variation appeared in the Proceedings of the Second Workshop on Stylistic Variation, 2018.</p>
+<div class="actions">
+<a class="button" href="https://aclanthology.org/W18-1602/">Read the ACL Anthology paper ↗</a> <a class="inline-link" href="/lyon-geolinguistic-variation-2018.pdf">Read the Lyon paper ↗</a>
+</div>
+</article>
+<article class="case" id="asr">
+<div class="case-heading">
+<div>
+<div class="meta">MIT CSAIL · Summer 2015 · Research internship</div>
+<h2>Egyptian Arabic ASR</h2>
+</div>
+<p>Low-resource speech recognition under James Glass.</p>
+</div>
+<div class="case-body">
+<div>
+<h3>Question</h3>
+<p>Would diacritized pronunciation dictionaries improve word error rate on a 10-hour Egyptian Arabic speech corpus?</p>
+</div>
+<div>
+<h3>Contribution</h3>
+<p>Built pronunciation dictionaries and experiments using Kaldi, C++, and Bash; compared GMM-HMM and DNN acoustic-model approaches.</p>
+</div>
+<div>
+<h3>Finding</h3>
+<p>Grapheme-based lexica outperformed diacritized approaches in this low-resource setting.</p>
+</div>
+</div>
+<div class="tags">
+<span>Kaldi</span>
+<span>C++</span>
+<span>Bash</span>
+<span>Speech recognition</span>
+</div>
+<p class="case-note">Research internship and poster.</p>
+<div class="actions">
+<a class="button" href="/mit-arabic-asr-2015.pdf">View research poster ↗</a>
+</div>
+</article>
+<article class="case" id="readerbuddy">
+<div class="meta">Independent exploration · In progress</div>
+<h2>ReaderBuddy</h2>
+<p style="margin-top:20px;max-width:750px">A reading companion designed to explain difficult passages using only the text a reader has reached. The project explores EPUB/PDF parsing, reading-position tracking, and context-limited LLM explanations.</p>
+<p class="case-note">In progress. Retrieval over previous chapters is planned.</p>
+</article>
+</div>
+<section class="contact-band">
+<div class="wrap">
+<div>
+<span class="eyebrow">Open to opportunities · NYC preferred</span>
+<h2>Let’s put AI to work.</h2>
+<p>I’m looking for applied AI, forward deployed engineering, and technical solutions roles. Based in New Jersey; open to NYC teams and remote work.</p>
+</div>
+<a class="button primary" href="mailto:tahaymerghani@gmail.com">Get in touch <span aria-hidden="true">↗</span>
+</a>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="wrap">
+<span>© 2026 Taha Y. Merghani · New Jersey / NYC</span>
+<div class="footer-links">
+<a href="/contact/">Contact</a>
+<a href="https://github.com/taha-y-merghani">GitHub</a>
+<a href="https://linkedin.com/in/tahamerghani">LinkedIn</a>
+<a href="/archive/">Personal archive</a>
+</div>
+</div>
+</footer>
 </body>
 </html>

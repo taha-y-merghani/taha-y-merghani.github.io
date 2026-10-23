@@ -1,287 +1,73 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Taha Merghani</title>
-    <meta name="description" content="Get in touch with Taha Merghani. Open to Forward Deployed AI Engineer and Applied AI Engineer roles.">
-    <meta property="og:title" content="Contact - Taha Merghani">
-    <meta property="og:description" content="Get in touch with Taha Merghani. Open to Forward Deployed AI Engineer and Applied AI Engineer roles.">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLKE0VWCQ3"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-HLKE0VWCQ3');
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --charcoal: #171a1f;
-            --warm-black: #0b0e13;
-            --cream: #f6f1e8;
-            --amber: #d8a84f;
-            --amber-muted: #b98e42;
-            --teal: #5fb7aa;
-            --steel: #8ea4bf;
-            --surface: rgba(246, 241, 232, 0.045);
-            --surface-strong: rgba(246, 241, 232, 0.075);
-            --text-primary: #ece8de;
-            --text-secondary: #a8adb4;
-            --border: rgba(216, 168, 79, 0.18);
-            --border-cool: rgba(142, 164, 191, 0.22);
-            --nav-bg: rgba(11, 14, 19, 0.76);
-        }
-
-        [data-theme="light"] {
-            --warm-black: #f7f3ec;
-            --charcoal: #ffffff;
-            --text-primary: #17202a;
-            --text-secondary: #526070;
-            --cream: #0b0e13;
-            --surface: rgba(23, 32, 42, 0.04);
-            --surface-strong: rgba(23, 32, 42, 0.075);
-            --border: rgba(23, 32, 42, 0.14);
-            --border-cool: rgba(35, 88, 120, 0.18);
-            --nav-bg: rgba(247, 243, 236, 0.84);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Source Sans 3', sans-serif;
-            background-color: var(--warm-black);
-            background-image:
-                linear-gradient(115deg, rgba(95, 183, 170, 0.08), transparent 35%),
-                linear-gradient(245deg, rgba(216, 168, 79, 0.08), transparent 32%);
-            color: var(--text-primary);
-            line-height: 1.7;
-            font-weight: 300;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .noise-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 1000; opacity: 0.03;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-        }
-
-        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; }
-
-        a { color: var(--amber); text-decoration: none; transition: color 0.3s ease; }
-        a:hover { color: var(--cream); }
-
-        nav {
-            position: fixed; top: 0; left: 0; right: 0;
-            padding: 1rem 3rem;
-            display: flex; justify-content: space-between; align-items: center;
-            z-index: 100;
-            background: var(--nav-bg);
-            border-bottom: 1px solid var(--border-cool);
-            backdrop-filter: blur(18px);
-        }
-
-        .nav-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem; font-weight: 500;
-            color: var(--text-primary); letter-spacing: 0.05em;
-            text-decoration: none;
-        }
-        .nav-name:hover { color: var(--amber); }
-
-        .nav-links { display: flex; gap: 2.5rem; }
-        .nav-links a {
-            color: var(--text-secondary); font-size: 0.85rem;
-            letter-spacing: 0.08em; text-transform: uppercase; font-weight: 400;
-        }
-        .nav-links a:hover, .nav-links a.active { color: var(--amber); }
-
-        .theme-toggle {
-            background: none; border: 1px solid var(--border-cool);
-            color: var(--text-secondary); padding: 0.5rem 1rem;
-            cursor: pointer; font-size: 0.85rem; letter-spacing: 0.08em;
-            text-transform: uppercase; font-family: 'Source Sans 3', sans-serif;
-            font-weight: 400; transition: all 0.3s ease; border-radius: 2px;
-        }
-        .theme-toggle:hover { color: var(--amber); border-color: var(--amber); }
-
-        .contact-page {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8rem 8%;
-        }
-
-        .contact-inner {
-            max-width: 600px;
-            width: 100%;
-        }
-
-        .contact-inner h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            line-height: 1.1;
-            margin-bottom: 1.25rem;
-        }
-
-        .contact-sub {
-            font-size: 1.05rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 3.5rem;
-            max-width: 520px;
-        }
-
-        .contact-items {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            padding: 1.25rem 0;
-            border-bottom: 1px solid var(--border);
-            transition: padding-left 0.3s ease;
-        }
-
-        .contact-item:first-child {
-            border-top: 1px solid var(--border);
-        }
-
-        .contact-item:hover {
-            padding-left: 0.75rem;
-        }
-
-        .contact-item-label {
-            font-size: 0.7rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--teal);
-            min-width: 80px;
-            font-weight: 500;
-        }
-
-        .contact-item-value {
-            font-size: 1rem;
-            color: var(--text-primary);
-            transition: color 0.3s ease;
-        }
-
-        .contact-item:hover .contact-item-value {
-            color: var(--amber);
-        }
-
-        .contact-note {
-            margin-top: 3rem;
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            font-style: italic;
-        }
-
-        footer {
-            padding: 3rem 8%;
-            border-top: 1px solid var(--border);
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        .reveal {
-            opacity: 0; transform: translateY(40px);
-            transition: all 0.8s ease;
-        }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-
-        @media (max-width: 768px) {
-            nav { padding: 1rem 1.5rem; }
-            .nav-links { display: none; }
-            .theme-toggle { padding: 0.4rem 0.8rem; font-size: 0.75rem; }
-            .contact-page { padding: 7rem 5% 5rem; align-items: flex-start; }
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact — Taha Merghani</title>
+<meta name="description" content="Contact Taha Merghani about applied AI, forward deployed engineering, and technical solutions roles in NYC or remote.">
+<link rel="canonical" href="https://taha-y-merghani.github.io/contact/">
+<meta property="og:title" content="Contact — Taha Merghani">
+<meta property="og:description" content="Contact Taha Merghani about applied AI, forward deployed engineering, and technical solutions roles in NYC or remote.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://taha-y-merghani.github.io/contact/">
+<meta property="og:image" content="https://taha-y-merghani.github.io/myself.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f7f4ed">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="/assets/portfolio.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HLKE0VWCQ3">
+</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-HLKE0VWCQ3');</script>
 </head>
 <body>
-    <div class="noise-overlay"></div>
-
-    <nav>
-        <a class="nav-name" href="/">Taha Merghani</a>
-        <div style="display:flex;align-items:center;gap:2.5rem;">
-            <div class="nav-links">
-                <a href="/">Home</a>
-                <a href="/work/">Work</a>
-                <a href="/writing/">Writing</a>
-                <a href="/experience/">Experience</a>
-                <a href="/about/">About</a>
-                <a href="/contact/" class="active">Contact</a>
-            </div>
-            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-                <span id="theme-icon">☀️</span>
-            </button>
-        </div>
-    </nav>
-
-    <div class="contact-page">
-        <div class="contact-inner">
-            <h1 class="reveal">Get in Touch</h1>
-            <p class="contact-sub reveal">Best fit: Forward Deployed AI Engineer, Applied AI Engineer, AI Product Engineer, or founding-engineer-adjacent roles at AI-native teams.</p>
-
-            <div class="contact-items reveal">
-                <a href="mailto:tahaymerghani@gmail.com" class="contact-item">
-                    <span class="contact-item-label">Email</span>
-                    <span class="contact-item-value">tahaymerghani@gmail.com</span>
-                </a>
-                <a href="https://linkedin.com/in/tahamerghani" target="_blank" rel="noopener noreferrer" class="contact-item">
-                    <span class="contact-item-label">LinkedIn</span>
-                    <span class="contact-item-value">linkedin.com/in/tahamerghani</span>
-                </a>
-                <a href="https://github.com/taha-y-merghani" target="_blank" rel="noopener noreferrer" class="contact-item">
-                    <span class="contact-item-label">GitHub</span>
-                    <span class="contact-item-value">github.com/taha-y-merghani</span>
-                </a>
-                <a href="https://medium.com/@tahaymerghani" target="_blank" rel="noopener noreferrer" class="contact-item">
-                    <span class="contact-item-label">Medium</span>
-                    <span class="contact-item-value">medium.com/@tahaymerghani</span>
-                </a>
-                <a href="/Taha_Merghani_Resume.pdf" target="_blank" class="contact-item">
-                    <span class="contact-item-label">Resume</span>
-                    <span class="contact-item-value">Taha_Merghani_Resume.pdf</span>
-                </a>
-            </div>
-
-            <p class="contact-note reveal">I respond within a day or two to genuine outreach.</p>
-        </div>
-    </div>
-
-    <footer>
-        <p>© 2026 Taha Merghani. Built with intention.</p>
-    </footer>
-
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const html = document.documentElement;
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        html.setAttribute('data-theme', savedTheme);
-        themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-        themeToggle.addEventListener('click', () => {
-            const current = html.getAttribute('data-theme');
-            const next = current === 'dark' ? 'light' : 'dark';
-            html.setAttribute('data-theme', next);
-            localStorage.setItem('theme', next);
-            themeIcon.textContent = next === 'dark' ? '☀️' : '🌙';
-        });
-    </script>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-nav">
+<nav class="wrap nav-inner" aria-label="Main navigation">
+<a class="brand" href="/">
+<span aria-hidden="true">TM</span>Taha Merghani</a>
+<div class="nav-links">
+<a href="/work/">Work</a>
+<a href="/experience/">Experience</a>
+<a href="/writing/">Writing</a>
+<a href="/about/">About</a>
+<a class="nav-resume" href="/Taha_Merghani_Resume.pdf">Résumé ↗</a>
+</div>
+</nav>
+</header>
+<main id="main">
+<div class="wrap">
+<header class="page-top">
+<span class="eyebrow">Contact · NYC / remote</span>
+<h1>Have a useful problem<br>to work on?</h1>
+<p>I’m open to applied AI engineering, forward deployed engineering, and technical solutions roles. I’m especially interested in language AI, evaluation, integrations, and software that improves real workflows.</p>
+</header>
+<div class="contact-list">
+<a href="mailto:tahaymerghani@gmail.com">
+<span>Email</span>tahaymerghani@gmail.com ↗</a>
+<a href="/Taha_Merghani_Resume.pdf">
+<span>Résumé</span>View résumé PDF ↗</a>
+<a href="https://linkedin.com/in/tahamerghani">
+<span>LinkedIn</span>linkedin.com/in/tahamerghani ↗</a>
+<a href="https://github.com/taha-y-merghani">
+<span>GitHub</span>github.com/taha-y-merghani ↗</a>
+<a href="https://medium.com/@tahaymerghani">
+<span>Medium</span>Essays &amp; technical writing ↗</a>
+<a href="/work/">
+<span>Selected work</span>Projects, contributions &amp; research →</a>
+</div>
+</div>
+</main>
+<footer class="site-footer">
+<div class="wrap">
+<span>© 2026 Taha Y. Merghani · New Jersey / NYC</span>
+<div class="footer-links">
+<a href="/contact/">Contact</a>
+<a href="https://github.com/taha-y-merghani">GitHub</a>
+<a href="https://linkedin.com/in/tahamerghani">LinkedIn</a>
+<a href="/archive/">Personal archive</a>
+</div>
+</div>
+</footer>
 </body>
 </html>
