@@ -168,7 +168,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 0 8%;
+            padding: 2.5rem 8%;
             margin-top: 4rem;
         }
 
@@ -192,9 +192,29 @@
             max-width: 600px;
         }
 
-        .writing-header .ai-disclosure {
-            margin-top: 1.25rem;
-            font-size: 0.95rem;
+        .ai-disclosure {
+            max-width: 680px;
+            margin-top: 1.5rem;
+            padding: clamp(1rem, 3vw, 1.5rem);
+            border: 1px solid var(--border-cool);
+            border-left: 4px solid var(--teal);
+            background: var(--surface-strong);
+        }
+
+        .ai-disclosure h2 {
+            font-size: clamp(1.5rem, 3vw, 1.85rem);
+            line-height: 1.2;
+            margin-bottom: 0.65rem;
+        }
+
+        .writing-header .ai-disclosure p {
+            color: var(--text-primary);
+            font-size: 1.05rem;
+            font-weight: 400;
+        }
+
+        .ai-disclosure p + p {
+            margin-top: 0.7rem;
         }
 
         /* Articles Grid */
@@ -402,7 +422,8 @@
             }
 
             .writing-header {
-                padding: 0 5%;
+                padding: 1.75rem 5%;
+                margin-top: 0;
             }
 
             .articles-section {
@@ -443,7 +464,11 @@
         <p class="section-label">Writing</p>
         <h1>Writing</h1>
         <p>Technical essays on AI, systems, deployment, human skill, and the gaps between research and practice.</p>
-        <p class="ai-disclosure"><strong>AI disclosure.</strong> I did extensive research for the initial drafts of these essays and used AI to substantially revise the published versions.</p>
+        <section class="ai-disclosure" aria-labelledby="ai-disclosure-title">
+            <h2 id="ai-disclosure-title">How I wrote these essays and used AI</h2>
+            <p><strong>I did the research and wrote the early drafts myself.</strong> I spent considerable time working through the ideas, developing the arguments, and finding examples. I then used AI to substantially rework those drafts into the versions published here.</p>
+            <p><strong>I’m keeping these essays available as an archive.</strong> I still value them for the firsthand observations, technical lessons, and questions they preserve.</p>
+        </section>
     </section>
 
     <section class="articles-section">
