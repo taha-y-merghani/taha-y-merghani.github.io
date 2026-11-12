@@ -33,7 +33,9 @@
   aspect-ratio: 4 / 5;
   object-position: center 42%;
 }
-.academic-portrait figcaption {
+.academic-portrait .academic-credentials {
+  display: grid;
+  gap: 2px;
   margin-top: 11px;
 }
 .academic-section {
@@ -106,7 +108,7 @@
   .academic-portrait img {
     width: 96px;
   }
-  .academic-portrait figcaption {
+  .academic-portrait .academic-credentials {
     margin: 0;
   }
   .academic-paper,
